@@ -32,7 +32,7 @@
     <div class="flex">
         <!-- Sidebar -->
         <div id="sidebar"
-            class="z-20 w-5/6 md:w-64 bg-white h-screen shadow-md transform -translate-x-full md:translate-x-0 fixed md:static">
+            class="z-20 w-5/6 md:w-64 bg-white min-h-screen shadow-md transform -translate-x-full md:translate-x-0 fixed md:static">
             <div class="p-4 relative">
                 <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
                     class="rounded-full w-16 h-16 mb-4">
