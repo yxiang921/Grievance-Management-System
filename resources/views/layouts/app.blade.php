@@ -20,6 +20,16 @@
         .translate-x-0 {
             transform: translateX(0%);
         }
+
+        .nav-link.active::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #10B981;
+        }
     </style>
 </head>
 
@@ -47,14 +57,25 @@
                 </div>
             </div>
 
-            <nav class="mt-6">
-                <a href="#" class="flex items-center py-2 px-4 text-gray-700 bg-green-100 rounded-lg mb-2">
-                    <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M3 7V4a1 1 0 012-0V1h10v3a1 1 0 012 0v3h1.76A1.24 1.24 0 0120 8.24v10.52A1.24 1.24 0 0118.76 20H1.24A1.24 1.24 0 010 18.76V8.24A1.24 1.24 0 011.24 7H3zm3 0V4h8v3H6zm5 10h2v-2h-2v2zm-4-4h6v-2H7v2z" />
-                    </svg>
-                    Dashboard
-                </a>
-                <!-- Add other navigation links here -->
+            <nav class="mt-6 w-full flex flex-col items-center justify-center">
+                {{-- Each Links --}}
+                <div class="nav-link active w-full h-12 flex justify-center relative my-2">
+                    <a href="#" class="w-5/6 h-12 font-semibold text-green-900 flex items-center py-2 px-4 bg-green-100 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                          </svg>
+                        <span class="pl-4">Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="nav-link w-full h-12 flex justify-center relative my-2">
+                    <a href="#" class="w-5/6 h-12 font-semibold flex items-center py-2 px-4 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                          </svg>
+                        <span class="pl-4">Dashboard</span>
+                    </a>
+                </div>
             </nav>
         </div>
 
