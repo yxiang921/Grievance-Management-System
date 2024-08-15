@@ -11,11 +11,13 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                purple: {
+                    100: "#F3F2F7",
+                },
                 green: {
                     100: "#BAEADA",
                     900: "#00B074",
                 },
-                purple: "#F3F2F7",
                 yellow: {
                     100: "#F2F1D3",
                     900: "#B0AB29",

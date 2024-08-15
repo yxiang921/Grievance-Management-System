@@ -67,7 +67,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div>
                     <h4
-                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-12 text-yellow-900 bg-yellow-100">
+                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-yellow-900 bg-yellow-100">
                         Received</h4>
 
                     {{-- Grievance Card --}}
@@ -83,7 +83,7 @@
 
                 <div>
                     <h4
-                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-12 text-orange-900 bg-orange-100">
+                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-orange-900 bg-orange-100">
                         In Progress</h4>
                     <div class="bg-gray-50 p-4 rounded-lg shadow mt-2">
                         <span class="text-sm text-green-500 font-semibold">Asset Issues</span>
@@ -96,7 +96,7 @@
 
                 <div>
                     <h4
-                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-12 text-green-900 bg-green-100">
+                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-green-900 bg-green-100">
                         Completed</h4>
                     <div class="bg-gray-50 p-4 rounded-lg shadow mt-2">
                         <span class="text-sm text-green-500 font-semibold">Asset Issues</span>
