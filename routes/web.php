@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('admin/home');
 })->name('admin.home');
+
+Route::get('/grievances', function () {
+    return view('admin/grievances');
+})->name('admin.grievances');
