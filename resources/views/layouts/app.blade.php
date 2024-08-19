@@ -21,6 +21,11 @@
             transform: translateX(0%);
         }
 
+        .nav-link.active {
+            background-color: #BAEADA;
+            color: #00B074;
+        }
+
         .nav-link.active::before {
             content: '';
             position: absolute;
@@ -40,6 +45,15 @@
 </head>
 
 <body class="bg-purple-100 font-sans">
+    <?php
+    $routeNames = [
+        'admin.home' => 'Dashboard',
+        'admin.grievances' => 'Grievances',
+        'admin.departments' => 'Departments',
+    ];
+    ?>
+
+
     <!-- Overlay for mobile -->
     <div class="z-10 hidden overlay w-screen h-screen bg-slate-900 opacity-45 fixed inset-0" onclick="toggleMenu()">
         <!-- This div acts as the backdrop when the sidebar is open on mobile -->
@@ -67,9 +81,12 @@
 
             <nav class="mt-6 w-full flex flex-col items-center justify-center">
                 {{-- Each Links --}}
-                <div class="nav-link active w-full h-12 flex justify-center relative my-2">
-                    <a href="#"
-                        class="w-5/6 h-12 font-semibold text-green-900 flex items-center py-2 px-4 bg-green-100 rounded-lg">
+                <div
+                    class="nav-link 
+                    {{ Route::current()->getName() == 'admin.home' ? 'active' : '' }}
+                    w-full h-12 flex justify-center relative my-2">
+                    <a href="{{ route('admin.home') }}"
+                        class="w-5/6 h-12 font-semibold  flex items-center py-2 px-4 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -79,8 +96,12 @@
                     </a>
                 </div>
 
-                <div class="nav-link w-full h-12 flex justify-center relative my-2">
-                    <a href="{{ route('admin.grievances') }}" class="w-5/6 h-12 font-semibold flex items-center py-2 px-4 rounded-lg">
+                <div
+                    class="nav-link 
+                    {{ Route::current()->getName() == 'admin.grievances' ? 'active' : '' }}
+                    w-full h-12 flex justify-center relative my-2">
+                    <a href="{{ route('admin.grievances') }}"
+                        class="w-5/6 h-12 font-semibold flex items-center py-2 px-4 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -90,8 +111,12 @@
                     </a>
                 </div>
 
-                <div class="nav-link w-full h-12 flex justify-center relative my-2">
-                    <a href="#" class="w-5/6 h-12 font-semibold flex items-center py-2 px-4 rounded-lg">
+                <div
+                    class="nav-link 
+                    {{ Route::current()->getName() == 'admin.departments' ? 'active' : '' }}
+                    w-full h-12 flex justify-center relative my-2">
+                    <a href="{{ route('admin.departments') }}"
+                        class="w-5/6 h-12 font-semibold flex items-center py-2 px-4 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -157,7 +182,9 @@
         <div class="flex-1">
             <div class="px-6 py-2 flex justify-between items-center">
                 <div>
-                    <h2 class="text-2xl font-semibold">Dashboard</h2>
+                    <h2 class="text-2xl font-semibold">
+                        {{ $routeNames[Route::current()->getName()] ?? 'Unknown Route' }}
+                    </h2>
                     <p class="text-gray-600">Hello Admin, Welcome Back!</p>
                 </div>
                 <div class="w-8 h-8 flex cursor-pointer md:hidden" onclick="toggleMenu()">

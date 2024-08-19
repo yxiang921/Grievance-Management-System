@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/grievances', function () {
     return view('admin/grievances');
 })->name('admin.grievances');
+
+Route::get('/departments', function(){
+    return view('admin/departments');
+})->name('admin.departments');
