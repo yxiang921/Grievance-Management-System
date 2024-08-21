@@ -43,7 +43,6 @@
         }
     </style>
 </head>
-
 <body class="bg-purple-100 font-sans">
     <?php
     $routeNames = [
@@ -55,9 +54,7 @@
 
 
     <!-- Overlay for mobile -->
-    <div class="z-10 hidden overlay w-screen h-screen bg-slate-900 opacity-45 fixed inset-0" onclick="toggleMenu()">
-        <!-- This div acts as the backdrop when the sidebar is open on mobile -->
-    </div>
+    <div class="z-10 hidden overlay w-screen h-screen bg-slate-900 opacity-45 fixed inset-0" onclick="toggleMenu()"></div>
 
     <div class="flex">
         <!-- Sidebar -->
