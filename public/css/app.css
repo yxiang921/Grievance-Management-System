@@ -564,6 +564,9 @@ video {
 .z-20 {
   z-index: 20;
 }
+.m-auto {
+  margin: auto;
+}
 .mx-8 {
   margin-left: 2rem;
   margin-right: 2rem;
@@ -575,6 +578,22 @@ video {
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+}
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.my-12 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .-mt-px {
   margin-top: -1px;
@@ -617,6 +636,9 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.ml-6 {
+  margin-left: 1.5rem;
 }
 .flex {
   display: flex;
@@ -691,17 +713,44 @@ video {
 .w-screen {
   width: 100vw;
 }
-.min-w-full {
-  min-width: 100%;
+.w-11\/12 {
+  width: 91.666667%;
 }
-.min-w-5 {
-  min-width: 1.25rem;
+.w-\[c\] {
+  width: c;
 }
-.min-w-2\.5 {
-  min-width: 0.625rem;
+.w-\[calc\] {
+  width: calc;
 }
-.min-w-3\.5 {
-  min-width: 0.875rem;
+.w-\[calc\(\)\] {
+  width: calc();
+}
+.w-\[120\] {
+  width: 120;
+}
+.w-\[120px\] {
+  width: 120px;
+}
+.w-\[\] {
+  width: ;
+}
+.w-\[95\] {
+  width: 95;
+}
+.w-\[95\%\] {
+  width: 95%;
+}
+.w-2\/12 {
+  width: 16.666667%;
+}
+.w-4\/12 {
+  width: 33.333333%;
+}
+.w-3\/12 {
+  width: 25%;
+}
+.w-2 {
+  width: 0.5rem;
 }
 .max-w-6xl {
   max-width: 72rem;
@@ -775,17 +824,17 @@ video {
 .rounded {
   border-radius: 0.25rem;
 }
-.rounded-3xl {
-  border-radius: 1.5rem;
+.rounded-2xl {
+  border-radius: 1rem;
 }
 .border {
   border-width: 1px;
 }
-.border-t {
-  border-top-width: 1px;
-}
 .border-b {
   border-bottom-width: 1px;
+}
+.border-t {
+  border-top-width: 1px;
 }
 .border-none {
   border-style: none;
@@ -830,23 +879,33 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(242 241 211 / var(--tw-bg-opacity));
 }
-.bg-green-500 {
+.bg-red-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-}
-.bg-red-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
+  background-color: rgb(254 202 202 / var(--tw-bg-opacity));
 }
 .bg-red-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+.bg-blue-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
+}
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 .p-4 {
   padding: 1rem;
 }
 .p-6 {
   padding: 1.5rem;
+}
+.p-7 {
+  padding: 1.75rem;
+}
+.p-24 {
+  padding: 6rem;
 }
 .px-2 {
   padding-left: 0.5rem;
@@ -881,6 +940,12 @@ video {
 }
 .pt-8 {
   padding-top: 2rem;
+}
+.pl-6 {
+  padding-left: 1.5rem;
+}
+.pl-3 {
+  padding-left: 0.75rem;
 }
 .text-center {
   text-align: center;
@@ -988,6 +1053,10 @@ video {
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 .ring-1 {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -1018,6 +1087,27 @@ video {
 .hover\:underline:hover {
   text-decoration-line: underline;
 }
+.hover\:outline:hover {
+  outline-style: solid;
+}
+.hover\:outline-green-900:hover {
+  outline-color: #00B074;
+}
+.focus\:border:focus {
+  border-width: 1px;
+}
+.focus\:border-green-900:focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 176 116 / var(--tw-border-opacity));
+}
+.focus\:border-s-green-900:focus {
+  --tw-border-opacity: 1;
+  border-inline-start-color: rgb(0 176 116 / var(--tw-border-opacity));
+}
+.focus\:border-l-green-900:focus {
+  --tw-border-opacity: 1;
+  border-left-color: rgb(0 176 116 / var(--tw-border-opacity));
+}
 .focus\:shadow-none:focus {
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
@@ -1026,6 +1116,12 @@ video {
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.focus\:outline:focus {
+  outline-style: solid;
+}
+.focus\:outline-green-900:focus {
+  outline-color: #00B074;
 }
 .focus\:ring-2:focus {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);

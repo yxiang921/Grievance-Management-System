@@ -24,3 +24,7 @@ Route::get('/grievances', function () {
 Route::get('/departments', function(){
     return view('admin/departments');
 })->name('admin.departments');
+
+Route::get('/analytics', function(){
+    return view('admin/analytics');
+})->name('admin.analytics');
