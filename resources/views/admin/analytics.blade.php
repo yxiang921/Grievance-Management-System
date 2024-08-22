@@ -1,3 +1,11 @@
+<style>
+    .donutChartWrapper {
+        width: 50%;
+        height: 100%;
+        
+    }
+</style>
+
 @extends('layouts.app')
 
 @section('content')
@@ -65,27 +73,34 @@
             </div>
         </div>
 
-        <div class="bg-pink-300 w-full flex flex-col justify-center items-center">
+        <div class="w-full flex flex-col justify-center items-center">
             <div class="w-full flex flex-row justify-center items-center">
-                <div class="bg-red-400 w-1/2 mx-2">
-                    <div>
-                        <canvas id="donutChart"></canvas>
+                <div class="bg-white rounded-lg shadow-md w-1/2 m-2 flex justify-center">
+                    <div class="">
+                        <canvas id="pieChart"></canvas>
                     </div>
                 </div>
-                <div class="bg-red-400 w-1/2 mx-2">
-                    <div class="">
+                <div class="bg-white rounded-lg shadow-md w-1/2 m-2">
+                    <div class="barChartWrapper">
                         <canvas id="barChart"></canvas>
                     </div>
                 </div>
             </div>
             <div class="w-full my-4">
-                <div class="bg-red-800 mx-2">123</div>
+                <div class="bg-white shadow-md rounded-lg mx-2">
+                    <div class="donutChartWrapper">
+                        <canvas id="donutChart" class="p-4"></canvas>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
         var barChartCtx = document.getElementById('barChart').getContext('2d');
+        var donutCtx = document.getElementById('donutChart');
+        var pieChartCtx = document.getElementById('pieChart');
+
         var barChart = new Chart(barChartCtx, {
             type: 'bar',
             data: {
@@ -107,30 +122,48 @@
                 }
             }
         });
-    </script>
-    <script>
-        const donutCtx = document.getElementById('donutChart');
-      
+
+
+
         new Chart(donutCtx, {
-          type: 'doughnut',
-          data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              borderWidth: 1
-            }]
-          },
-          options: {
-            responsive: true,
-            scales: {
-              y: {
-                beginAtZero: true
-              }
+            type: 'doughnut',
+            data: {
+                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
             }
-          }
         });
 
-        donutCtx.resize(50, 50);
-      </script>
+        new Chart(pieChartCtx, {
+            type: 'pie',
+            data: {
+                // labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [12, 19, 3, 5, 2, 3],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    </script>
 @endsection
