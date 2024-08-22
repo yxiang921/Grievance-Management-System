@@ -7,8 +7,8 @@
     <title>Admin Dashboard</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    {{-- ChartJS CDN --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{-- EChart CDN --}}
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
 
     <style>
         /* Custom transition for the sidebar */
