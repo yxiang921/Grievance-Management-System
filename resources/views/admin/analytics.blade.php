@@ -1,14 +1,9 @@
-<style>
-    .donutChartWrapper {
-        width: 50%;
-        height: 100%;
-        
-    }
-</style>
-
 @extends('layouts.app')
 
 @section('content')
+    <script src="
+                    https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js
+                    "></script>
     <div class="p-6 bg-gray-100 h-auto">
         <div class="flex justify-center items-start mb-6 flex-col">
             <div class="flex w-full lg:flex-row flex-col justify-center items-center">
@@ -74,27 +69,151 @@
         </div>
 
         <div class="w-full flex flex-col justify-center items-center">
-            <div class="w-full flex flex-row justify-center items-center">
-                <div class="bg-white rounded-lg shadow-md w-1/2 m-2 flex justify-center">
-                    <div class="">
-                        <canvas id="pieChart"></canvas>
+            <div class="w-full flex flex-col md:flex-row justify-center items-center">
+                <div class="bg-white rounded-lg shadow-md w-1/2 m-2">
+                    <div class="pieChartWrapper w-96 h-96" id="pieChart">
+                        {{-- CHART --}}
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow-md w-1/2 m-2">
-                    <div class="barChartWrapper">
-                        <canvas id="barChart"></canvas>
+                    <div class="barChartWrapper min-w-full h-96 p-4" id="barChart">
+                        {{-- CHART --}}
                     </div>
                 </div>
             </div>
             <div class="w-full my-4">
                 <div class="bg-white shadow-md rounded-lg mx-2">
-                    <div class="donutChartWrapper">
-                        <canvas id="donutChart" class="p-4"></canvas>
+                    <div class="bg-red-400">
+                        <div class="h-96" id="progressChart"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        var barChart = echarts.init(document.getElementById('barChart'));
+        var pieChart = echarts.init(document.getElementById('pieChart'));
+        var progressChart = echarts.init(document.getElementById('progressChart'));
 
+        barChart.setOption({
+            title: {
+                text: 'ECharts Getting Started Example'
+            },
+            tooltip: {},
+            xAxis: {
+                data: ['shirt', 'cardigan', 'chiffon', 'pants', 'heels', 'socks']
+            },
+            yAxis: {},
+            series: [{
+                name: 'sales',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        });
+
+        pieChart.setOption({
+            title: {
+                text: 'Access From',
+                left: 'center'
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                top: '5%',
+                left: 'center'
+            },
+            series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                padAngle: 5,
+                itemStyle: {
+                    borderRadius: 10
+                },
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                        value: 1048,
+                        name: 'Search Engine'
+                    },
+                    {
+                        value: 735,
+                        name: 'Direct'
+                    },
+                    {
+                        value: 580,
+                        name: 'Email'
+                    },
+                    {
+                        value: 484,
+                        name: 'Union Ads'
+                    },
+                    {
+                        value: 300,
+                        name: 'Video Ads'
+                    }
+                ]
+            }]
+        });
+
+        progressChart.setOption({
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                top: '5%',
+                left: 'center'
+            },
+            series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    label: {
+                        show: true,
+                        fontSize: 40,
+                        fontWeight: 'bold'
+                    }
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                        value: 1048,
+                        name: 'Search Engine'
+                    },
+                    {
+                        value: 735,
+                        name: 'Direct'
+                    },
+                    {
+                        value: 580,
+                        name: 'Email'
+                    },
+                    {
+                        value: 484,
+                        name: 'Union Ads'
+                    },
+                    {
+                        value: 300,
+                        name: 'Video Ads'
+                    }
+                ]
+            }]
+        });
+    </script>
 @endsection
