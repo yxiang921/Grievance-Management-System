@@ -36,3 +36,7 @@ Route::get('/users', function(){
 Route::get('/admins', function(){
     return view('admin/admins');
 })->name('admin.admins');
+
+Route::get('/settings', function(){
+    return view('admin/settings');
+})->name('admin.settings');
