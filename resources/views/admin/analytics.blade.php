@@ -2,8 +2,8 @@
 
 @section('content')
     <script src="
-                    https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js
-                    "></script>
+                                        https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js
+                                        "></script>
     <div class="p-6 bg-gray-100 h-auto">
         <div class="flex justify-center items-start mb-6 flex-col">
             <div class="flex w-full lg:flex-row flex-col justify-center items-center">
@@ -71,20 +71,34 @@
         <div class="w-full flex flex-col justify-center items-center">
             <div class="w-full flex flex-col md:flex-row justify-center items-center">
                 <div class="bg-white rounded-lg shadow-md w-1/2 m-2">
-                    <div class="pieChartWrapper w-96 h-96" id="pieChart">
+                    <h2 class="p-4 font-bold text-lg">Grievances Category</h2>
+                    <div class="pieChartWrapper w-full h-96 flex items-center" id="pieChart">
                         {{-- CHART --}}
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow-md w-1/2 m-2">
+                    <h2 class="p-4 font-bold text-lg">Monthly Grievance</h2>
                     <div class="barChartWrapper min-w-full h-96 p-4" id="barChart">
                         {{-- CHART --}}
                     </div>
                 </div>
             </div>
             <div class="w-full my-4">
-                <div class="bg-white shadow-md rounded-lg mx-2">
-                    <div class="bg-red-400">
-                        <div class="h-96" id="progressChart"></div>
+                <div class="bg-white shadow-md rounded-lg mx-2 flex flex-col items-center">
+                    <h2 class="py-4 font-bold text-lg">Grievance Status</h2>
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="flex flex-col items-center w-96 h-96 bg-white">
+                            <div class="w-full h-full" id="progressChart-1"></div>
+                            <h2 class="pb-8 font-bold">Total Received</h2>
+                        </div>
+                        <div class="flex flex-col items-center w-96 h-96 bg-white">
+                            <div class="w-full h-full" id="progressChart-2"></div>
+                            <h2 class="pb-8 font-bold">Total In Progress</h2>
+                        </div>
+                        <div class="flex flex-col items-center w-96 h-96 bg-white">
+                            <div class="w-full h-full" id="progressChart-3"></div>
+                            <h2 class="pb-8 font-bold">Total Closed</h2>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,38 +108,36 @@
     <script>
         var barChart = echarts.init(document.getElementById('barChart'));
         var pieChart = echarts.init(document.getElementById('pieChart'));
-        var progressChart = echarts.init(document.getElementById('progressChart'));
+        var progressChart1 = echarts.init(document.getElementById('progressChart-1'));
+        var progressChart2 = echarts.init(document.getElementById('progressChart-2'));
+        var progressChart3 = echarts.init(document.getElementById('progressChart-3'));
 
         barChart.setOption({
-            title: {
-                text: 'ECharts Getting Started Example'
-            },
-            tooltip: {},
             xAxis: {
-                data: ['shirt', 'cardigan', 'chiffon', 'pants', 'heels', 'socks']
+                data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
             },
             yAxis: {},
             series: [{
-                name: 'sales',
+                name: 'Grievances Amount',
                 type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
+                data: [5, 20, 36, 10, 10, 20, 30, 40]
             }]
         });
 
         pieChart.setOption({
-            title: {
-                text: 'Access From',
-                left: 'center'
-            },
             tooltip: {
                 trigger: 'item'
             },
             legend: {
                 top: '5%',
-                left: 'center'
+                left: 'center',
+                height: '180px',
+                itemWidth: 12,
+                itemHeight: 12,
+                 
             },
             series: [{
-                name: 'Access From',
+                // name: 'Access From',
                 type: 'pie',
                 radius: ['40%', '70%'],
                 avoidLabelOverlap: false,
@@ -142,75 +154,142 @@
                     show: false
                 },
                 data: [{
+                        value: 580,
+                        name: 'Academic'
+                    },
+                    {
                         value: 1048,
-                        name: 'Search Engine'
+                        name: 'Facility'
                     },
                     {
                         value: 735,
-                        name: 'Direct'
-                    },
-                    {
-                        value: 580,
-                        name: 'Email'
+                        name: 'Finance'
                     },
                     {
                         value: 484,
-                        name: 'Union Ads'
+                        name: 'Behaviour'
+                    },
+                    {
+                        value: 484,
+                        name: 'Human Resource'
                     },
                     {
                         value: 300,
-                        name: 'Video Ads'
+                        name: 'Other'
                     }
                 ]
             }]
         });
 
-        progressChart.setOption({
+        progressChart1.setOption({
             tooltip: {
                 trigger: 'item'
             },
-            legend: {
-                top: '5%',
-                left: 'center'
-            },
+
             series: [{
                 name: 'Access From',
                 type: 'pie',
                 radius: ['40%', '70%'],
                 avoidLabelOverlap: false,
                 label: {
-                    show: false,
-                    position: 'center'
-                },
-                emphasis: {
-                    label: {
-                        show: true,
-                        fontSize: 40,
-                        fontWeight: 'bold'
-                    }
+                    show: true,
+                    position: 'center',
+                    formatter: '75%',
+                    fontSize: 18,
+                    fontWeight: 'bold'
                 },
                 labelLine: {
                     show: false
                 },
                 data: [{
-                        value: 1048,
-                        name: 'Search Engine'
+                        value: 75,
+                        name: 'Search Engine',
+                        itemStyle: {
+                            color: '#FF5B5B'
+                        }
                     },
                     {
-                        value: 735,
-                        name: 'Direct'
+                        value: 25,
+                        name: 'Direct',
+                        itemStyle: {
+                            color: '#FFE6E6',
+                        }
+                    }
+                ]
+            }]
+        });
+
+        progressChart2.setOption({
+            tooltip: {
+                trigger: 'item'
+            },
+
+            series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: true,
+                    position: 'center',
+                    formatter: '75%',
+                    fontSize: 18,
+                    fontWeight: 'bold'
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                        value: 75,
+                        name: 'Search Engine',
+                        itemStyle: {
+                            color: '#2D9CDB'
+                        }
                     },
                     {
-                        value: 580,
-                        name: 'Email'
+                        value: 25,
+                        name: 'Direct',
+                        itemStyle: {
+                            color: '#E0F0FA',
+                        }
+                    }
+                ]
+            }]
+        });
+
+        progressChart3.setOption({
+            tooltip: {
+                trigger: 'item'
+            },
+
+            series: [{
+                name: 'Access From',
+                type: 'pie',
+                radius: ['40%', '70%'],
+                avoidLabelOverlap: false,
+                label: {
+                    show: true,
+                    position: 'center',
+                    formatter: '75%',
+                    fontSize: 18,
+                    fontWeight: 'bold'
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [{
+                        value: 75,
+                        name: 'Search Engine',
+                        itemStyle: {
+                            color: '#00B074'
+                        }
                     },
                     {
-                        value: 484,
-                        name: 'Union Ads'
-                    },
-                    {
-                        value: 300,
-                        name: 'Video Ads'
+                        value: 25,
+                        name: 'Direct',
+                        itemStyle: {
+                            color: '#D9F3EA',
+                        }
                     }
                 ]
             }]
