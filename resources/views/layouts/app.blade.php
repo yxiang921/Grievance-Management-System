@@ -45,6 +45,11 @@
             background-color: #10B981;
             color: #FFFFFF;
         }
+
+        .nav-link.active a:hover{
+            background: none;
+            color: #10B981;
+        }
     </style>
 </head>
 
