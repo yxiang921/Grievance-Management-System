@@ -28,3 +28,7 @@ Route::get('/departments', function(){
 Route::get('/analytics', function(){
     return view('admin/analytics');
 })->name('admin.analytics');
+
+Route::get('/users', function(){
+    return view('admin/users');
+})->name('admin.users');

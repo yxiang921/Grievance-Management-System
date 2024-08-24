@@ -55,6 +55,7 @@
         'admin.grievances' => 'Grievances',
         'admin.departments' => 'Departments',
         'admin.analytics' => 'Analytics',
+        'admin.users' => 'Users',
     ];
     ?>
 
@@ -146,8 +147,12 @@
                     </a>
                 </div>
 
-                <div class="nav-link w-full h-12 flex justify-center relative my-2">
-                    <a href="#" class="w-5/6 h-12 font-semibold flex items-center py-2 px-4 rounded-lg">
+                <div
+                    class="nav-link 
+                    {{ Route::current()->getName() == 'admin.users' ? 'active' : '' }}
+                w-full h-12 flex justify-center relative my-2">
+                    <a href="{{ route('admin.users') }}"
+                        class="w-5/6 h-12 font-semibold flex items-center py-2 px-4 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
