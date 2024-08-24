@@ -32,3 +32,7 @@ Route::get('/analytics', function(){
 Route::get('/users', function(){
     return view('admin/users');
 })->name('admin.users');
+
+Route::get('/admins', function(){
+    return view('admin/admins');
+})->name('admin.admins');
