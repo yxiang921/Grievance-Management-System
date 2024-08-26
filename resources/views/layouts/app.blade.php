@@ -63,6 +63,8 @@
         'admin.users' => 'Users',
         'admin.admins' => 'Admins',
         'admin.settings' => 'Settings',
+
+        'admin.grievance.detail' => 'Grievance Detail',
     ];
     ?>
 

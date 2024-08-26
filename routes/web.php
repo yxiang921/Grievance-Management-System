@@ -40,3 +40,7 @@ Route::get('/admins', function(){
 Route::get('/settings', function(){
     return view('admin/settings');
 })->name('admin.settings');
+
+Route::get('grievance/1', function(){
+    return view('admin/grievanceDetail');
+})->name('admin.grievance.detail');
