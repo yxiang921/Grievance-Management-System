@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="p-6 bg-gray-100 h-auto">
+    <div class="h-auto">
         <div class="flex justify-center items-start mb-6 flex-col">
             <div class="flex w-full lg:flex-row flex-col justify-center items-center">
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -17,7 +17,7 @@
                         <p class="text-gray-600">Monthly Grievance</p>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -31,7 +31,7 @@
                         <p class="text-gray-600">Monthly Resolved</p>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
 
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -48,7 +48,7 @@
                         <p class="text-gray-600">Total Grievances</p>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -66,7 +66,7 @@
         </div>
 
         <!-- Recent Grievances -->
-        <div class="bg-white p-6 rounded-lg shadow">
+        <div class="bg-white border border-gray-100 p-6 rounded-lg shadow">
             <h3 class="text-xl font-semibold mb-4">Recent Grievances</h3>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div>

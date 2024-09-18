@@ -3,7 +3,7 @@
 
 <!-- Sidebar -->
 <div id="sidebar"
-    class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
+    class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white border-r border-gray-100 transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
     <div class="p-4 relative">
         <div class="flex flex-col justify-center items-center">
             <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"

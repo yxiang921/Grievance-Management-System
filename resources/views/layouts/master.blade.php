@@ -8,14 +8,16 @@
     @include('layouts.head')
 </head>
 
-<body class="bg-purple-100 font-sans">
+<body class="bg-purple-100/20 font-sans">
     <div class="flex">
         <x-sidebar></x-sidebar>
 
         <!-- Main Content -->
         <div class="flex-1 p-4">
             <x-header></x-header>
-            @yield('content')
+            <div class="w-full mt-4 text-gray-900">
+                @yield('content')
+            </div>
         </div>
 
     </div>
