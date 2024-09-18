@@ -12,12 +12,13 @@ $routeNames = [
 ];
 ?>
 
-<div class="bg-red-300 w-full rounded-md m-auto  border border-gray-100 flex justify-between items-center">
+<div
+    class="bg-white w-full rounded-lg m-auto text-gray-900 border border-gray-100 flex justify-between items-center pl-4 px-2 h-16 sticky top-4 left-0 z-[50] bg-white/50 backdrop-blur-lg">
     <div>
-        <h2 class="text-2xl font-semibold">
+        <h2 class="text-xl font-semibold ">
             {{ $routeNames[Route::current()->getName()] ?? 'Unknown Route' }}
         </h2>
-        <p class="text-gray-600">Hello Admin, Welcome Back!</p>
+        <p>Hello Admin, Welcome Back!</p>
     </div>
     <div class="w-8 h-8 flex cursor-pointer md:hidden" onclick="toggleMenu()">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor"
