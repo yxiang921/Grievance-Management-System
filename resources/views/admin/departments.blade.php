@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.master')
 @section('content')
     {{-- Search area --}}
     <div class="w-full pl-6 flex flex-col justify-center items-start">
