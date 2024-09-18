@@ -1,22 +1,3 @@
-<style>
-    .circle-point {
-        position: relative;
-    }
-
-    .circle-point.current::before {
-        content: '';
-        width: 65%;
-        height: 65%;
-        border-radius: 100%;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: #ffffff;
-    }
-</style>
-
-
 @extends('layouts.master')
 @section('content')
     <div class="container mx-auto p-4">
