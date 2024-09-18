@@ -2,10 +2,10 @@
 
 @section('content')
     
-    <div class="p-6 bg-gray-100 h-auto">
+    <div class="bg-white h-auto">
         <div class="flex justify-center items-start mb-6 flex-col">
             <div class="flex w-full lg:flex-row flex-col justify-center items-center">
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -18,7 +18,7 @@
                         <p class="text-gray-600">Monthly Grievance</p>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -32,7 +32,7 @@
                         <p class="text-gray-600">Monthly Resolved</p>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
 
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -49,7 +49,7 @@
                         <p class="text-gray-600">Total Grievances</p>
                     </div>
                 </div>
-                <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div class="bg-white border border-gray-100 p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -68,13 +68,13 @@
 
         <div class="w-full flex flex-col justify-center items-center">
             <div class="w-full flex flex-col md:flex-row justify-center items-center">
-                <div class="bg-white rounded-lg shadow-md w-1/2 m-2">
+                <div class="bg-white border border-gray-100 rounded-lg shadow-sm w-1/2 m-2">
                     <h2 class="p-4 font-bold text-lg">Grievances Category</h2>
                     <div class="pieChartWrapper w-full h-96 flex items-center" id="pieChart">
                         {{-- CHART --}}
                     </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-md w-1/2 m-2">
+                <div class="bg-white border border-gray-100 rounded-lg shadow-sm w-1/2 m-2">
                     <h2 class="p-4 font-bold text-lg">Monthly Grievance</h2>
                     <div class="barChartWrapper min-w-full h-96 p-4" id="barChart">
                         {{-- CHART --}}
@@ -82,7 +82,7 @@
                 </div>
             </div>
             <div class="w-full my-4">
-                <div class="bg-white shadow-md rounded-lg mx-2 flex flex-col items-center">
+                <div class="bg-white border border-gray-100 shadow-sm rounded-lg mx-2 flex flex-col items-center">
                     <h2 class="py-4 font-bold text-lg">Grievance Status</h2>
                     <div class="flex flex-col md:flex-row justify-between items-center">
                         <div class="flex flex-col items-center w-96 h-96 bg-white">
