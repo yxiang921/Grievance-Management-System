@@ -4,7 +4,8 @@
     <div class="h-auto">
         <div class="flex justify-center items-start mb-6 flex-col">
             <div class="flex w-full lg:flex-row flex-col justify-center items-center">
-                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -17,7 +18,8 @@
                         <p class="text-gray-600">Monthly Grievance</p>
                     </div>
                 </div>
-                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -31,7 +33,8 @@
                         <p class="text-gray-600">Monthly Resolved</p>
                     </div>
                 </div>
-                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
 
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -48,7 +51,8 @@
                         <p class="text-gray-600">Total Grievances</p>
                     </div>
                 </div>
-                <div class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                <div
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -66,7 +70,7 @@
         </div>
 
         <!-- Recent Grievances -->
-        <div class="bg-white border border-gray-100 p-6 rounded-lg shadow">
+        <div class="bg-white border border-gray-100 p-4 rounded-md">
             <h3 class="text-xl font-semibold mb-4">Recent Grievances</h3>
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <div>
@@ -75,13 +79,7 @@
                         Received</h4>
 
                     {{-- Grievance Card --}}
-                    <div class="bg-gray-50 p-4 rounded-lg shadow mt-2">
-                        <span class="text-sm text-green-500 font-semibold">Asset Issues</span>
-                        <p class="mt-1">Broken Projector in Room 305</p>
-                        <p class="text-gray-500 text-sm">The projector in Room 305 has been broken for a week. It’s not
-                            turning on at all, and classes are being disrupted due to this issue.</p>
-                        <p class="text-gray-400 text-xs mt-2">John Doe <br> 5:22pm, 23 June 2024, IEB Building</p>
-                    </div>
+                    <x-kanban-card></x-kanban-card>
 
                 </div>
 
@@ -89,26 +87,14 @@
                     <h4
                         class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-orange-900 bg-orange-100">
                         In Progress</h4>
-                    <div class="bg-gray-50 p-4 rounded-lg shadow mt-2">
-                        <span class="text-sm text-green-500 font-semibold">Asset Issues</span>
-                        <p class="mt-1">Broken Projector in Room 305</p>
-                        <p class="text-gray-500 text-sm">The projector in Room 305 has been broken for a week. It’s not
-                            turning on at all, and classes are being disrupted due to this issue.</p>
-                        <p class="text-gray-400 text-xs mt-2">John Doe <br> 5:22pm, 23 June 2024, IEB Building</p>
-                    </div>
+                    <x-kanban-card></x-kanban-card>
                 </div>
 
                 <div>
                     <h4
                         class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-primary-900 bg-primary-100">
                         Completed</h4>
-                    <div class="bg-gray-50 p-4 rounded-lg shadow mt-2">
-                        <span class="text-sm text-green-500 font-semibold">Asset Issues</span>
-                        <p class="mt-1">Broken Projector in Room 305</p>
-                        <p class="text-gray-500 text-sm">The projector in Room 305 has been broken for a week. It’s not
-                            turning on at all, and classes are being disrupted due to this issue.</p>
-                        <p class="text-gray-400 text-xs mt-2">John Doe <br> 5:22pm, 23 June 2024, IEB Building</p>
-                    </div>
+                    <x-kanban-card></x-kanban-card>
                 </div>
             </div>
         </div>

@@ -871,6 +871,12 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(242 241 211 / var(--tw-bg-opacity));
 }
+.bg-gray-100\/50 {
+  background-color: rgba(55, 67, 80, 0.5);
+}
+.bg-gray-100\/10 {
+  background-color: rgba(55, 67, 80, 0.1);
+}
 .p-2 {
   padding: 0.5rem;
 }
