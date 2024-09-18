@@ -57,3 +57,20 @@
     transform: translate(-50%, -50%);
     background: #ffffff;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.active{
+    @apply bg-primary-100 text-primary-900
+}
+
+.unactive{
+    @apply text-gray-500 hover:bg-gray-100 hover:text-gray-700
+}
