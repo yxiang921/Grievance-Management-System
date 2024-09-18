@@ -1,17 +1,19 @@
 <style>
-.circle-point{
-    position: relative;
-}
-.circle-point::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    background: red;
-}
+    .circle-point {
+        position: relative;
+    }
+
+    .circle-point.current::before {
+        content: '';
+        width: 65%;
+        height: 65%;
+        border-radius: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #ffffff;
+    }
 </style>
 
 
@@ -24,15 +26,17 @@
                 <!-- Complaint Details -->
                 <div class="bg-white w-1/2 p-4 h-screen shadow-md">
                     <!-- Progress Bar -->
-                    <div class="flex items-center mb-6">
-                        {{-- POINT ONE --}}
+                    <div class="flex items-center mb-6 bg-red-300">
+                        {{-- POINT 1 --}}
                         <div class="flex-1 h-full flex items-center">
                             <div class="circle-point bg-green-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center"></div>
                             <div class="flex-1 border-t-2 border-green-900"></div>
                         </div>
                         {{-- POINT 2 --}}
                         <div class="flex-1 h-full flex items-center">
-                            <div class="bg-green-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center"></div>
+                            <div
+                                class="circle-point current bg-green-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center">
+                            </div>
                             <div class="flex-1 border-t-2 border-green-900"></div>
                         </div>
                         {{-- POINT 3 --}}
@@ -79,13 +83,25 @@
                         <h4 class="text-lg font-semibold mb-4">Grievances Assign</h4>
                         <div class="mb-4">
                             <label class="block text-gray-700">Category</label>
-                            <input type="text"
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900">
+                            <select
+                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900 text-gray-700"
+                                name="" id="">
+                                <option value="Facility">Facility</option>
+                                <option value="Academic">Academic</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Behaviour">Behaviour</option>
+                                <option value="Other">Other</option>
+                            </select>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Department</label>
-                            <input type="text"
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900">
+                            <select
+                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900 text-gray-700"
+                                name="" id="">
+                                <option value="Facility">Asset and General Affair Office</option>
+                                <option value="Academic">Student Affair Office</option>
+                                <option value="Finance">Account and Finance Office</option>
+                            </select>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Staff</label>
@@ -94,7 +110,8 @@
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Outsource Remark</label>
-                            <textarea class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900"></textarea>
+                            <textarea
+                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900"></textarea>
                         </div>
                         <div class="flex flex-col justify-between">
                             <button

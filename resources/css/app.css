@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom transition for the sidebar */
+#sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+.translate-x-full {
+    transform: translateX(-100%);
+}
+
+.translate-x-0 {
+    transform: translateX(0%);
+}
+
+.nav-link.active {
+    background-color: #BAEADA;
+    color: #00B074;
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #10B981;
+}
+
+.nav-link a:hover {
+    transition: 0.2s;
+    background-color: #10B981;
+    color: #FFFFFF;
+}
+
+.nav-link.active a:hover {
+    background: none;
+    color: #10B981;
+}
