@@ -5,7 +5,7 @@
         <div class="flex justify-center items-start mb-6 flex-col">
             <div class="flex w-full lg:flex-row flex-col justify-center items-center">
                 <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
-                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-900">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
-                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-900">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -33,7 +33,7 @@
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
 
-                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-900">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -49,7 +49,7 @@
                     </div>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
-                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-900">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -100,7 +100,7 @@
 
                 <div>
                     <h4
-                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-green-900 bg-green-100">
+                        class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-primary-900 bg-primary-100">
                         Completed</h4>
                     <div class="bg-gray-50 p-4 rounded-lg shadow mt-2">
                         <span class="text-sm text-green-500 font-semibold">Asset Issues</span>

@@ -13,7 +13,7 @@
         <x-sidebar></x-sidebar>
 
         <!-- Main Content -->
-        <div class="flex-1">
+        <div class="flex-1 p-4">
             <x-header></x-header>
             @yield('content')
         </div>

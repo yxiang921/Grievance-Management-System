@@ -10,11 +10,11 @@
                 </div>
                 <div class="w-full md:w-1/4 mr-2 md:mb-0">
                     <input type="date"
-                        class="shadow-md focus:shadow-none transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900">
+                        class="shadow-md focus:shadow-none transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900">
                 </div>
                 <div class="w-full md:w-1/4 mr-2 md:mb-0">
                     <select
-                        class="shadow-md focus:shadow-none transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900">
+                        class="shadow-md focus:shadow-none transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900">
                         <option value="">Status</option>
                         <option value="open">Open</option>
                         <option value="closed">Closed</option>
@@ -23,7 +23,7 @@
             </div>
             <div class="w-full md:w-1/6 my-2">
                 <button
-                    class="w-full bg-green-900 text-white px-4 py-2 rounded-lg transition-all hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-green-500">
+                    class="w-full bg-primary-900 text-white px-4 py-2 rounded-lg transition-all hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-green-500">
                     Search
                 </button>
             </div>
@@ -53,7 +53,7 @@
                     disrupted due to this issue.
                 </p>
                 <button
-                    class="md:w-1/2 w-full bg-green-900 text-white px-4 py-2 rounded-lg hover:bg-green-100 transition-all focus:outline-none focus:ring-2 focus:ring-green-900">
+                    class="md:w-1/2 w-full bg-primary-900 text-white px-4 py-2 rounded-lg hover:bg-primary-100 transition-all focus:outline-none focus:ring-2 focus:ring-primary-900">
                     Read
                 </button>
             </div>
@@ -79,7 +79,7 @@
                     disrupted due to this issue.
                 </p>
                 <button
-                    class="md:w-1/2 w-full bg-green-900 text-white px-4 py-2 rounded-lg hover:bg-green-100 transition-all focus:outline-none focus:ring-2 focus:ring-green-900">
+                    class="md:w-1/2 w-full bg-primary-900 text-white px-4 py-2 rounded-lg hover:bg-primary-100 transition-all focus:outline-none focus:ring-2 focus:ring-primary-900">
                     Read
                 </button>
             </div>
@@ -105,7 +105,7 @@
                     disrupted due to this issue.
                 </p>
                 <button
-                    class="md:w-1/2 w-full bg-green-900 text-white px-4 py-2 rounded-lg hover:bg-green-100 transition-all focus:outline-none focus:ring-2 focus:ring-green-900">
+                    class="md:w-1/2 w-full bg-primary-900 text-white px-4 py-2 rounded-lg hover:bg-primary-100 transition-all focus:outline-none focus:ring-2 focus:ring-primary-900">
                     Read
                 </button>
             </div>
@@ -131,7 +131,7 @@
                     disrupted due to this issue.
                 </p>
                 <button
-                    class="md:w-1/2 w-full bg-green-900 text-white px-4 py-2 rounded-lg hover:bg-green-100 transition-all focus:outline-none focus:ring-2 focus:ring-green-900">
+                    class="md:w-1/2 w-full bg-primary-900 text-white px-4 py-2 rounded-lg hover:bg-primary-100 transition-all focus:outline-none focus:ring-2 focus:ring-primary-900">
                     Read
                 </button>
             </div>

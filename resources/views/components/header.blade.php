@@ -12,7 +12,7 @@ $routeNames = [
 ];
 ?>
 
-<div class="px-6 py-2 flex justify-between items-center">
+<div class="bg-red-300 w-full rounded-md m-auto  border border-gray-100 flex justify-between items-center">
     <div>
         <h2 class="text-2xl font-semibold">
             {{ $routeNames[Route::current()->getName()] ?? 'Unknown Route' }}

@@ -10,19 +10,19 @@
                     <div class="flex items-center mb-6 bg-red-300">
                         {{-- POINT 1 --}}
                         <div class="flex-1 h-full flex items-center">
-                            <div class="circle-point bg-green-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center"></div>
-                            <div class="flex-1 border-t-2 border-green-900"></div>
+                            <div class="circle-point bg-primary-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center"></div>
+                            <div class="flex-1 border-t-2 border-primary-900"></div>
                         </div>
                         {{-- POINT 2 --}}
                         <div class="flex-1 h-full flex items-center">
                             <div
-                                class="circle-point current bg-green-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center">
+                                class="circle-point current bg-primary-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center">
                             </div>
-                            <div class="flex-1 border-t-2 border-green-900"></div>
+                            <div class="flex-1 border-t-2 border-primary-900"></div>
                         </div>
                         {{-- POINT 3 --}}
                         <div class="flex-1 h-full flex items-center">
-                            <div class="bg-green-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center"></div>
+                            <div class="bg-primary-900 text-white py-1 px-2 rounded-full w-4 h-4 text-center"></div>
                         </div>
                     </div>
                     <div class="flex items-center mb-4">
@@ -65,7 +65,7 @@
                         <div class="mb-4">
                             <label class="block text-gray-700">Category</label>
                             <select
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900 text-gray-700"
+                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900 text-gray-700"
                                 name="" id="">
                                 <option value="Facility">Facility</option>
                                 <option value="Academic">Academic</option>
@@ -77,7 +77,7 @@
                         <div class="mb-4">
                             <label class="block text-gray-700">Department</label>
                             <select
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900 text-gray-700"
+                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900 text-gray-700"
                                 name="" id="">
                                 <option value="Facility">Asset and General Affair Office</option>
                                 <option value="Academic">Student Affair Office</option>
@@ -87,16 +87,16 @@
                         <div class="mb-4">
                             <label class="block text-gray-700">Staff</label>
                             <input type="text"
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900">
+                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900">
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Outsource Remark</label>
                             <textarea
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-900"></textarea>
+                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900"></textarea>
                         </div>
                         <div class="flex flex-col justify-between">
                             <button
-                                class="bg-green-900 text-white px-4 py-2 my-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-900">
+                                class="bg-primary-900 text-white px-4 py-2 my-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-primary-900">
                                 Assign Grievance
                             </button>
                             <button
