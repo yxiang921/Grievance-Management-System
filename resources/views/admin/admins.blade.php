@@ -2,9 +2,8 @@
 @section('content')
     {{-- Search area --}}
     <div class="w-full pl-6 flex flex-col justify-center items-start">
-        <input type="text" placeholder="Search by keywords"
-            class="w-3/12 h-10 rounded-md outline-none transition-all pl-4 focus:border-primary-900 focus:outline-none border">
-        <button class="bg-primary-900 text-white h-10 w-2/12 rounded-md mt-4">Search</button>
+        <input type="text" placeholder="Search by keywords" class="primary-input w-3/12">
+        <button class="primary-btn w-2/12">Search</button>
     </div>
 
     <div class="w-[95%] mx-auto my-4 p-6 bg-white">

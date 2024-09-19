@@ -18,7 +18,7 @@
             </div>
             <div class="w-full md:w-1/6 my-2">
                 <button
-                    class="primary-btn">
+                    class="primary-btn w-full">
                     Search
                 </button>
             </div>

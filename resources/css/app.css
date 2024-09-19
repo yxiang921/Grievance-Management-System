@@ -76,5 +76,13 @@
 }
 
 .primary-btn{
-    @apply w-full bg-primary-900 text-white px-4 py-2 rounded-md transition-all hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-green-500
+    @apply bg-primary-900 text-white px-4 py-2 my-4 rounded-md transition-all hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-green-200
+}
+
+.primary-input{
+    @apply transition-all px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-100 focus:border-primary-900
+}
+
+.cancel-btn{
+    @apply bg-gray-200 text-white px-4 py-2 my-4 rounded-md transition-all hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500
 }
