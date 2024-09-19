@@ -12,8 +12,9 @@ module.exports = {
         extend: {
             colors: {
                 primary: {
-                    100: "#BAEADA",
-                    900: "#00B074",
+                    100: "rgba(0, 176, 116, 0.20)",
+                    900: "rgba(0, 176, 116, 1)",
+                    hover: "rgba(13, 143, 98, 1)",
                 },
                 purple: {
                     100: "#F3F2F7",

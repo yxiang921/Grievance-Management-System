@@ -20,7 +20,7 @@
         disrupted due to this issue.
     </p>
     <button
-        class="md:w-1/2 w-full bg-primary-900 text-white px-4 py-2 rounded-lg hover:bg-primary-100 transition-all focus:outline-none focus:ring-2 focus:ring-primary-900">
+        class="md:w-1/2 w-full primary-btn">
         Read
     </button>
 </div>

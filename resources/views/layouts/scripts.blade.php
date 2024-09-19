@@ -12,6 +12,31 @@
     }
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdownContainers = document.querySelectorAll('.dropdown-container');
+
+        dropdownContainers.forEach((container) => {
+            const button = container.querySelector('.dropdown-button');
+            const menu = container.querySelector('.dropdown-menu');
+
+            // Toggle the dropdown menu on button click
+            button.addEventListener('click', (event) => {
+                event.stopPropagation(); // Prevent event from bubbling to document
+                menu.classList.toggle('hidden');
+            });
+
+            // Close dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!container.contains(event.target)) {
+                    menu.classList.add('hidden');
+                }
+            });
+        });
+    });
+</script>
+
+
 
 <script>
     var barChart = echarts.init(document.getElementById('barChart'));
