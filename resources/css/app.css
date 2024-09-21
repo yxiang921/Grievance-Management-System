@@ -80,7 +80,7 @@
 }
 
 .primary-input{
-    @apply transition-all px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-100 focus:border-primary-900
+    @apply transition-all px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-100 focus:border-primary-900 focus:pl-5
 }
 
 .cancel-btn{

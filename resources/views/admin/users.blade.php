@@ -72,12 +72,12 @@
     <div class="w-full h-auto mt-4 border border-gray-100 shadow-sm rounded-md p-4 bg-white">
         <div class="w-full flex flex-row justify-between items-center pr-2">
             <h1 class="font-semibold text-lg">Users List</h1>
-            {{-- <button class="btn-primary">Add new user</button> --}}
-            <x-modal></x-modal>
+            <button class="primary-btn">Add new user</button>
+            {{-- <x-modal></x-modal> --}}
         </div>
         <div class="w-full my-4">
             <div class="w-full">
-                <div class="w-full flex flex-col xl:flex-row">
+                <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <x-dropdown :items="['Admin', 'Author', 'Editor', 'Maintainer', 'Subscriber']" label="Select Role" />
                     <x-dropdown :items="['Option 1', 'Option 2', 'Option 3']" label="Choose an Option" />
                     <x-dropdown :items="['Option A', 'Option B', 'Option C']" label="Select Option" />
@@ -87,9 +87,9 @@
             <div class="line w-full h-1 border-b-[1px] border-gray-100 my-4"></div>
 
             <input
-                class="w-64 h-9 px-4 py-2 mt-2 focus:px-5 transition-all text-sm text-gray-700 bg-white border border-gray-100 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-primary-200"
+                class="primary-input w-64"
                 type="text" placeholder="Search user">
-            <button class="btn-primary w-28 ml-2">Search</button>
+            <button class="primary-btn w-28 ml-2">Search</button>
         </div>
         <div class="w-full h-auto mt-8 hidden lg:block">
             <h1>All users</h1>
@@ -98,24 +98,22 @@
                     <thead class="border-b-[1px] border-gray-100 h-12 text-gray-500">
                         <tr>
                             <th class="">User ID</th>
-                            <th class="">User Name</th>
+                            <th class="">Username</th>
+                            <th class="">Full Name</th>
                             <th class="">Email</th>
-                            <th class="">Role</th>
-                            <th class="">Status</th>
+                            <th class="">Phone Number</th>
                             <th class="">Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="h-10">
                             <td>1</td>
+                            <td>johndoe123</td>
                             <td>John Doe</td>
                             <td>johndoe@gmail.com</td>
-                            <td>Admin</td>
+                            <td>012 345 6789</td>
                             <td>
-                                <span class="bg-green-100 text-green-900 rounded-sm px-2">Active</span>
-                            </td>
-                            <td>
-                                <a href="" class="underline">Delete</a>
+                                <a href="" class="underline">Edit</a>
                             </td>
                         </tr>
                     </tbody>
@@ -131,7 +129,11 @@
                     <div>1</div>
                 </div>
                 <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">User Name</div>
+                    <div class="text-gray-500 font-medium">Username</div>
+                    <div>johndoe123</div>
+                </div>
+                <div class="flex justify-between">
+                    <div class="text-gray-500 font-medium">Full Name</div>
                     <div>John Doe</div>
                 </div>
                 <div class="flex justify-between">
@@ -139,19 +141,13 @@
                     <div>johndoe@gmail.com</div>
                 </div>
                 <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Role</div>
-                    <div>Admin</div>
+                    <div class="text-gray-500 font-medium">Phone Number</div>
+                    <div>0123456789</div>
                 </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Status</div>
-                    <div>
-                        <span class="bg-green-100 text-green-900 rounded-sm px-2">Active</span>
-                    </div>
-                </div> 
                 <div class="flex justify-between">
                     <div class="text-gray-500 font-medium">Action</div>
                     <div>
-                        <a href="" class="underline">Delete</a>
+                        <a href="" class="underline">Edit</a>
                     </div>
                 </div>
 

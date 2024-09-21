@@ -3,48 +3,8 @@
     {{-- Search area --}}
     <div class="w-full pl-6 flex flex-col justify-center items-start">
         <input type="text" placeholder="Search by keywords" 
-        class="primary-input w-full">
+        class="primary-input w-1/3">
         <button class="primary-btn w-2/12">Search</button>
     </div>
 
-    <div class="w-[95%] mx-auto my-4 p-6 bg-white">
-        <div class="w-full h-auto flex justify-center">
-            <table class="w-full bg-white border border-gray-200 rounded-lg text-center">
-                <thead>
-                    <tr class="bg-primary-900 text-white">
-                        <th class="py-2 px-4 border-b">Department ID</th>
-                        <th class="py-2 px-4 border-b">Department Name</th>
-                        <th class="py-2 px-4 border-b">Number of Staff</th>
-                        <th class="py-2 px-4 border-b">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-gray-700">
-                        <td class="py-2 px-4 border-b">DPM01</td>
-                        <td class="py-2 px-4 border-b">Assets Management and General Affairs Office</td>
-                        <td class="py-2 px-4 border-b text-center">9</td>
-                        <td class="py-2 px-4 border-b text-primary-900 hover:underline cursor-pointer">Manage</td>
-                    </tr>
-                    <tr class="text-gray-700">
-                        <td class="py-2 px-4 border-b">DPM02</td>
-                        <td class="py-2 px-4 border-b">Account and Finance Office</td>
-                        <td class="py-2 px-4 border-b text-center">12</td>
-                        <td class="py-2 px-4 border-b text-primary-900 hover:underline cursor-pointer">Manage</td>
-                    </tr>
-                    <tr class="text-gray-700">
-                        <td class="py-2 px-4 border-b">DPM03</td>
-                        <td class="py-2 px-4 border-b">Academic Affairs, Admission Registration Office</td>
-                        <td class="py-2 px-4 border-b text-center">5</td>
-                        <td class="py-2 px-4 border-b text-primary-900 hover:underline cursor-pointer">Manage</td>
-                    </tr>
-                    <tr class="text-gray-700">
-                        <td class="py-2 px-4 border-b">DPM04</td>
-                        <td class="py-2 px-4 border-b">Student Affair Office</td>
-                        <td class="py-2 px-4 border-b text-center">8</td>
-                        <td class="py-2 px-4 border-b text-primary-900 hover:underline cursor-pointer">Manage</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
 @endsection
