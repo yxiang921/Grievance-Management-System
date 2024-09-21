@@ -90,7 +90,7 @@
                 class="primary-input w-64"
                 type="text" placeholder="Username">
             <input
-                class="primary-input w-64 mx-4"
+                class="primary-input w-64 lg:mx-4"
                 type="text" placeholder="Full Name">
             <button class="primary-btn w-28">Search</button>
         </div>
