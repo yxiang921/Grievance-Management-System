@@ -75,12 +75,12 @@
             <button class="primary-btn">Add new user</button>
             {{-- <x-modal></x-modal> --}}
         </div>
-        <div class="w-full my-4">
+        <div class="w-full">
             <div class="w-full">
                 <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    <x-dropdown :items="['Admin', 'Author', 'Editor', 'Maintainer', 'Subscriber']" label="Select Role" />
-                    <x-dropdown :items="['Option 1', 'Option 2', 'Option 3']" label="Choose an Option" />
-                    <x-dropdown :items="['Option A', 'Option B', 'Option C']" label="Select Option" />
+                    <input type="text" class="primary-input" placeholder="User ID">
+                    <input type="text" class="primary-input" placeholder="Phone Number">
+                    <input type="text" class="primary-input" placeholder="Email Address">
                 </div>
             </div>
 
@@ -88,8 +88,11 @@
 
             <input
                 class="primary-input w-64"
-                type="text" placeholder="Search user">
-            <button class="primary-btn w-28 ml-2">Search</button>
+                type="text" placeholder="Username">
+            <input
+                class="primary-input w-64 mx-4"
+                type="text" placeholder="Full Name">
+            <button class="primary-btn w-28">Search</button>
         </div>
         <div class="w-full h-auto mt-8 hidden lg:block">
             <div class="w-full text-center border-collapse border-y border-gray-100 bg-white">
@@ -123,7 +126,7 @@
         <div class="lg:hidden block mt-4">
             <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
                 <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Order ID</div>
+                    <div class="text-gray-500 font-medium">User ID</div>
                     <div>1</div>
                 </div>
                 <div class="flex justify-between">
