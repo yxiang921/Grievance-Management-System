@@ -599,6 +599,12 @@ video {
 .z-\[51\] {
   z-index: 51;
 }
+.z-\[0\] {
+  z-index: 0;
+}
+.z-\[999\] {
+  z-index: 999;
+}
 .col-span-1 {
   grid-column: span 1 / span 1;
 }

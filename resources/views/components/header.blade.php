@@ -14,7 +14,7 @@ $routeNames = [
 ?>
 
 <div
-    class="bg-white/20 w-full rounded-lg m-auto text-gray-900 border border-gray-100 flex justify-between items-center pl-4 px-2 h-16 sticky top-4 left-0 z-[50] backdrop-blur-lg">
+    class="bg-white/20 w-full rounded-lg m-auto text-gray-900 border border-gray-100 flex justify-between items-center pl-4 px-2 h-16 sticky top-4 left-0 z-[999] backdrop-blur-lg">
     <div>
         <h2 class="text-xl font-semibold ">
             {{ $routeNames[Route::current()->getName()] ?? 'Unknown Route' }}
