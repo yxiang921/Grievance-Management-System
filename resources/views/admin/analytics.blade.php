@@ -5,7 +5,7 @@
             <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
                 <div class="rounded-md py-2 px-4 shadow-sm border border-gray-100 h-36 relative">
                     <div class="h-full flex flex-col justify-between">
-                        <div class="text-gray-500 font-semibold text-sm">Total Orders</div>
+                        <div class="text-gray-500 font-semibold text-sm">Total Grievances</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">1243</h1>
                             <p class="text-sm">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="rounded-md py-2 px-4 shadow-sm bg-white border border-gray-100 h-36 relative">
                     <div class="h-full flex flex-col justify-between">
-                        <div class="text-gray-500 font-semibold text-sm">Sales</div>
+                        <div class="text-gray-500 font-semibold text-sm">Monthly Grievances</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">456</h1>
                             <p class="text-sm">
@@ -49,7 +49,7 @@
                 </div>
                 <div class="rounded-md py-2 px-4 shadow-sm bg-white border border-gray-100 h-36 relative">
                     <div class="h-full flex flex-col justify-between">
-                        <div class="text-gray-500 font-semibold text-sm">Earnings</div>
+                        <div class="text-gray-500 font-semibold text-sm">Total Closed</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">1533</h1>
                             <p class="text-sm">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="rounded-md py-2 px-4 shadow-sm bg-white border border-gray-100 h-36 relative">
                     <div class="h-full flex flex-col justify-between">
-                        <div class="text-gray-500 font-semibold text-sm">Visitor</div>
+                        <div class="text-gray-500 font-semibold text-sm">Total in Progress</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">15321</h1>
                             <p class="text-sm">
@@ -100,12 +100,12 @@
 
     <div class="w-full h-auto mt-4 grid grid-cols-3 md:grid-cols-2">
         <div class="col-span-3 md:col-span-1 h-[30rem] p-4 bg-white rounded-md border border-gray-100">
-            <h1 class="text-xl font-medium">Order Statistic</h1>
-            <p class="text-gray-500">42,023 total orders</p>
+            <h1 class="text-xl font-medium">Grievances Status Analytics</h1>
+            <p class="text-gray-500">42,023 total grievances</p>
             <div class="flex flex-row justify-center items-center">
                 <div class="w-full h-full">
-                    <h1 class="text-3xl font-semibold">4532</h1>
-                    <p class="text-gray-500">Total orders this week</p>
+                    <h1 class="text-3xl font-semibold">125</h1>
+                    <p class="text-gray-500">Total grievances this month</p>
                 </div>
                 <div id="status-pie" class="w-full h-36 flex justify-center items-center">
                     {{-- Chart --}}
@@ -120,8 +120,8 @@
                     </div>
                     <div class="h-full w-full flex flex-row justify-between">
                         <div class="h-full flex flex-col justify-center pl-4">
-                            <h1 class="font-semibold">Pending Orders</h1>
-                            <p class="text-gray-500">12% of total orders</p>
+                            <h1 class="font-semibold">Pending Grievances</h1>
+                            <p class="text-gray-500">12% of total grievances</p>
                         </div>
                         <div class="h-full p-4 flex items-center">
                             <h1 class="text-lg font-medium">3210</h1>
@@ -130,7 +130,8 @@
                 </div>
             </div>
         </div>
-        <div id="category-bar-chart" class="p-4 h-[30rem] col-span-3 md:col-span-1 md:ml-4 mt-4 md:mt-0 bg-white border border-gray-100 rounded-md">
+        <div id="category-bar-chart"
+            class="p-4 h-[30rem] col-span-3 md:col-span-1 md:ml-4 mt-4 md:mt-0 bg-white border border-gray-100 rounded-md">
 
         </div>
     </div>
@@ -144,7 +145,7 @@
 
         lineChart.setOption({
             title: {
-                text: 'Line Chart Demo'
+                text: 'Monthly Grievances Based on Category'
             },
             tooltip: {
                 trigger: 'axis'
@@ -180,35 +181,27 @@
                 },
                 data: [{
                         value: 1048,
-                        name: 'Search Engine'
+                        name: 'Pending'
                     },
                     {
                         value: 735,
-                        name: 'Direct'
+                        name: 'In Progress'
                     },
                     {
                         value: 580,
-                        name: 'Email'
+                        name: 'Closed'
                     },
-                    {
-                        value: 484,
-                        name: 'Union Ads'
-                    },
-                    {
-                        value: 300,
-                        name: 'Video Ads'
-                    }
                 ]
             }]
         });
 
         cateBarChart.setOption({
             title: {
-                text: 'Category Bar Chart'
+                text: 'Grievances Category'
             },
             xAxis: {
                 type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                data: ['Academic', 'Facility', 'Finance', 'Behaviour', 'Others']
             },
             yAxis: {
                 type: 'value'
@@ -223,8 +216,6 @@
                         }
                     },
                     150,
-                    80,
-                    70,
                     110,
                     130
                 ],
