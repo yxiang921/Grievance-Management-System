@@ -37,7 +37,7 @@
         <a
             href="{{ route('admin.grievances') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
-            {{ Route::current()->getName() == 'admin.grievances' ? 'active' : 'unactive' }}
+            {{ Route::current()->getName() == 'admin.grievances' || 'admin.grievance.detail' ? 'active' : 'unactive' }}
             ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">

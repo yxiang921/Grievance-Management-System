@@ -20,7 +20,9 @@
         disrupted due to this issue.
     </p>
     <button
-        class="md:w-1/2 w-full primary-btn">
+        class="md:w-1/2 w-full primary-btn"
+        onclick="window.location.href = '{{ route('admin.grievance.detail') }}'"
+        >
         Read
     </button>
 </div>
