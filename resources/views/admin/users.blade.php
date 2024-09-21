@@ -92,7 +92,6 @@
             <button class="primary-btn w-28 ml-2">Search</button>
         </div>
         <div class="w-full h-auto mt-8 hidden lg:block">
-            <h1>All users</h1>
             <div class="w-full text-center border-collapse border-y border-gray-100 bg-white">
                 <table class="min-w-full overflow-hidden">
                     <thead class="border-b-[1px] border-gray-100 h-12 text-gray-500">
@@ -122,7 +121,6 @@
         </div>
 
         <div class="lg:hidden block mt-4">
-            <h1>Recent Order</h1>
             <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
                 <div class="flex justify-between">
                     <div class="text-gray-500 font-medium">Order ID</div>

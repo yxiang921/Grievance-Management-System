@@ -1518,6 +1518,10 @@ video {
   .lg\:flex-row {
     flex-direction: row;
   }
+
+  .lg\:items-center {
+    align-items: center;
+  }
 }
 
 @media (min-width: 1280px) {
