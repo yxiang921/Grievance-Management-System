@@ -4,6 +4,7 @@ $routeNames = [
     'admin.grievances' => 'Grievances',
     'admin.departments' => 'Departments',
     'admin.analytics' => 'Analytics',
+    'admin.map' => 'Map',
     'admin.users' => 'Users',
     'admin.admins' => 'Admins',
     'admin.settings' => 'Settings',

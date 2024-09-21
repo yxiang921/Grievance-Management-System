@@ -599,6 +599,9 @@ video {
 .z-\[51\] {
   z-index: 51;
 }
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
 .m-2 {
   margin: 0.5rem;
 }
@@ -722,8 +725,17 @@ video {
 .h-screen {
   height: 100vh;
 }
+.max-h-0 {
+  max-height: 0px;
+}
+.min-h-screen {
+  min-height: 100vh;
+}
 .w-1\/2 {
   width: 50%;
+}
+.w-1\/4 {
+  width: 25%;
 }
 .w-12 {
   width: 3rem;
@@ -836,6 +848,9 @@ video {
 .divide-gray-100 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgba(55,67,80,0.15);
 }
+.overflow-hidden {
+  overflow: hidden;
+}
 .overflow-scroll {
   overflow: scroll;
 }
@@ -847,6 +862,9 @@ video {
 }
 .rounded-md {
   border-radius: 0.375rem;
+}
+.rounded-sm {
+  border-radius: 0.125rem;
 }
 .border {
   border-width: 1px;
@@ -869,6 +887,10 @@ video {
 .border-primary-900 {
   border-color: rgba(0, 176, 116, 1);
 }
+.border-slate-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(226 232 240 / var(--tw-border-opacity));
+}
 .bg-gray-200 {
   background-color: rgba(55,67,80,0.35);
 }
@@ -888,6 +910,10 @@ video {
 }
 .bg-purple-100\/20 {
   background-color: rgb(243 242 247 / 0.2);
+}
+.bg-red-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 226 226 / var(--tw-bg-opacity));
 }
 .bg-red-200 {
   --tw-bg-opacity: 1;
@@ -938,8 +964,15 @@ video {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 .pb-4 {
   padding-bottom: 1rem;
+}
+.pb-5 {
+  padding-bottom: 1.25rem;
 }
 .pb-8 {
   padding-bottom: 2rem;
@@ -1030,9 +1063,21 @@ video {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
+.text-red-900 {
+  --tw-text-opacity: 1;
+  color: rgb(127 29 29 / var(--tw-text-opacity));
+}
+.text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}
 .text-slate-700 {
   --tw-text-opacity: 1;
   color: rgb(51 65 85 / var(--tw-text-opacity));
+}
+.text-slate-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity));
 }
 .text-white {
   --tw-text-opacity: 1;
@@ -1085,6 +1130,17 @@ video {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Custom transition for the sidebar */
@@ -1309,6 +1365,11 @@ video {
     position: sticky;
   }
 
+  .md\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
   .md\:mb-0 {
     margin-bottom: 0px;
   }
@@ -1364,5 +1425,24 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .xl\:col-span-2 {
+    grid-column: span 2 / span 2;
+  }
+
+  .xl\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
+  .xl\:ml-4 {
+    margin-left: 1rem;
+  }
+
+  .xl\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 }

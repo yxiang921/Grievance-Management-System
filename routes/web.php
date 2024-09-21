@@ -25,6 +25,10 @@ Route::get('/departments', function(){
     return view('admin/departments');
 })->name('admin.departments');
 
+Route::get('/map', function(){
+    return view('admin/map');
+})->name('admin.map');
+
 Route::get('/analytics', function(){
     return view('admin/analytics');
 })->name('admin.analytics');
