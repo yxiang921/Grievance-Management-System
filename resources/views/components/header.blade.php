@@ -2,11 +2,11 @@
 $routeNames = [
     'admin.home' => 'Dashboard',
     'admin.grievances' => 'Grievances',
-    'admin.departments' => 'Departments',
+    'admin.departments' => 'Departments Management',
     'admin.analytics' => 'Analytics',
     'admin.map' => 'Map',
-    'admin.users' => 'Users',
-    'admin.admins' => 'Admins',
+    'admin.users' => 'User Management',
+    'admin.admins' => 'Admin Management',
     'admin.settings' => 'Settings',
 
     'admin.grievance.detail' => 'Grievance Detail',

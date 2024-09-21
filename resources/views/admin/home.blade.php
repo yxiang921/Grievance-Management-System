@@ -3,9 +3,9 @@
 @section('content')
     <div class="h-auto">
         <div class="flex justify-center items-start mb-6 flex-col">
-            <div class="flex w-full lg:flex-row flex-col justify-center items-center">
+            <div class="w-full grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 gap-2">
                 <div
-                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <div
-                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div
-                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
 
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -52,7 +52,7 @@
                     </div>
                 </div>
                 <div
-                    class="bg-white border border-gray-100 p-4 rounded-md w-full my-2 lg:mx-2 flex flex-row items-center justify-center">
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
