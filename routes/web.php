@@ -49,10 +49,26 @@ Route::get('grievance/1', function(){
     return view('admin/grievanceDetail');
 })->name('admin.grievance.detail');
 
+Route::get('/addUser', function(){action: 
+    return view('admin/addUser');
+})->name('admin.addUser');
+
+Route::get('/editUser', function(){
+    return view('admin/editUser');
+})->name('admin.editUser');
+
 Route::get('/addNewDepartment', function(){
     return view('admin/addNewDepartment');
-})->name('admin.addNewDepartment');
+})->name('admin.addDepartment');
 
 Route::get('/editDepartment', function(){
     return view('admin/editDepartment');
 })->name('admin.editDepartment');
+
+Route::get('/addAdmin', function(){
+    return view('admin/addAdmin');
+})->name('admin.addAdmin');
+
+Route::get('/editAdmin', function(){
+    return view('admin/editAdmin');
+})->name('admin.editAdmin');
