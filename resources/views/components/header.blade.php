@@ -10,6 +10,8 @@ $routeNames = [
     'admin.settings' => 'Settings',
 
     'admin.grievance.detail' => 'Grievance Detail',
+    
+    'admin.addNewDepartment' => 'Department Management',
 ];
 ?>
 

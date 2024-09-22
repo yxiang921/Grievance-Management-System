@@ -53,7 +53,11 @@
         <a
             href="{{ route('admin.departments') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
-            {{ Route::current()->getName() == 'admin.departments' ? 'active' : 'unactive' }}
+            {{
+            in_array(Route::current()->getName(), 
+            ['admin.departments', 'admin.addNewDepartment']) ?
+             'active' : 'unactive'
+            }}
             ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">

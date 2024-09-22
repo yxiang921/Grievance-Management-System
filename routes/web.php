@@ -48,3 +48,7 @@ Route::get('/settings', function(){
 Route::get('grievance/1', function(){
     return view('admin/grievanceDetail');
 })->name('admin.grievance.detail');
+
+Route::get('/addNewDepartment', function(){
+    return view('admin/addNewDepartment');
+})->name('admin.addNewDepartment');
