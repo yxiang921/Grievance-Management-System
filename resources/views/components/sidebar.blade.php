@@ -21,8 +21,7 @@
     </div>
 
     <nav class="mt-6 w-full flex flex-col items-center justify-center">
-        <a
-            href="{{ route('admin.home') }}"
+        <a href="{{ route('admin.home') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
             {{ Route::current()->getName() == 'admin.home' ? 'active' : 'unactive' }}
             ">
@@ -34,13 +33,11 @@
             <span class="ml-3 text-sm font-medium"> Dashboard </span>
         </a>
 
-        <a
-            href="{{ route('admin.grievances') }}"
+        <a href="{{ route('admin.grievances') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
-            {{ in_array(Route::current()->getName(), 
-            ['admin.grievances', 'admin.grievance.detail']) ?
-             'active' : 'unactive' 
-            }}
+            {{ in_array(Route::current()->getName(), ['admin.grievances', 'admin.grievance.detail'])
+                ? 'active'
+                : 'unactive' }}
             ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
@@ -50,14 +47,15 @@
             <span class="ml-3 text-sm font-medium"> Grievances </span>
         </a>
 
-        <a
-            href="{{ route('admin.departments') }}"
+        <a href="{{ route('admin.departments') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
-            {{
-            in_array(Route::current()->getName(), 
-            ['admin.departments', 'admin.addNewDepartment']) ?
-             'active' : 'unactive'
-            }}
+            {{ in_array(Route::current()->getName(), [
+                'admin.departments',
+                'admin.addNewDepartment',
+                'admin.editDepartment',
+            ])
+                ? 'active'
+                : 'unactive' }}
             ">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-6">
@@ -67,8 +65,7 @@
             <span class="ml-3 text-sm font-medium"> Departments </span>
         </a>
 
-        <a
-            href="{{ route('admin.analytics') }}"
+        <a href="{{ route('admin.analytics') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
             {{ Route::current()->getName() == 'admin.analytics' ? 'active' : 'unactive' }}
             ">
@@ -80,8 +77,7 @@
             <span class="ml-3 text-sm font-medium"> Analytics </span>
         </a>
 
-        <a
-            href="{{ route('admin.map') }}"
+        <a href="{{ route('admin.map') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
             {{ Route::current()->getName() == 'admin.map' ? 'active' : 'unactive' }}
             ">
@@ -93,8 +89,7 @@
             <span class="ml-3 text-sm font-medium"> Map </span>
         </a>
 
-        <a
-            href="{{ route('admin.users') }}"
+        <a href="{{ route('admin.users') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
             {{ Route::current()->getName() == 'admin.users' ? 'active' : 'unactive' }}
             ">
@@ -106,8 +101,7 @@
             <span class="ml-3 text-sm font-medium"> Users </span>
         </a>
 
-        <a
-            href="{{ route('admin.admins') }}"
+        <a href="{{ route('admin.admins') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
             {{ Route::current()->getName() == 'admin.admins' ? 'active' : 'unactive' }}
             ">
@@ -119,8 +113,7 @@
             <span class="ml-3 text-sm font-medium"> Admins </span>
         </a>
 
-        <a
-            href="{{ route('admin.settings') }}"
+        <a href="{{ route('admin.settings') }}"
             class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
             {{ Route::current()->getName() == 'admin.settings' ? 'active' : 'unactive' }}
             ">
