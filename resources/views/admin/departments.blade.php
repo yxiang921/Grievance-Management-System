@@ -20,7 +20,7 @@
                         <tr>
                             <th class="">Department ID</th>
                             <th class="">Department Name</th>
-                            <th class="">Staff Number</th>
+                            <th class="">Category</th>
                             <th class="">Action</th>
                         </tr>
                     </thead>
@@ -28,7 +28,7 @@
                         <tr class="h-10">
                             <td>DPM01</td>
                             <td>Assets Management and General Affairs Office</td>
-                            <td>3</td>
+                            <td>Facility</td>
                             <td>
                                 <a href="" class="underline">Edit</a>
                             </td>
@@ -51,8 +51,8 @@
                     </div>
                 </div>
                 <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Staff Number</div>
-                    <div>3</div>
+                    <div class="text-gray-500 font-medium">Category</div>
+                    <div>Facility</div>
                 </div>
                 <div class="flex justify-between">
                     <div class="text-gray-500 font-medium">Action</div>
