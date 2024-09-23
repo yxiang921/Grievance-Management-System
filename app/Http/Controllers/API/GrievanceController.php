@@ -10,10 +10,10 @@ use App\Models\Grievance;
 class GrievanceController extends Controller
 {
 
-    // C: Create grievance
-    // R: Read grievance
-    // U: Update grievance
-    // D: Delete grievance
+    // C: Create grievance 201
+    // R: Read grievance 200
+    // U: Update grievance 200
+    // D: Delete grievance 200
 
     public function __construct()
     {
@@ -107,6 +107,53 @@ class GrievanceController extends Controller
         } catch (\Exception $e) {
             return response()->json([
                 'message' => 'Error: ' . $e->getMessage(),
+            ], 400);
+        }
+    }
+
+    public function updateGrievance()
+    {
+        $req = request();
+
+        try {
+
+            $validateData = $req->validate([
+                'id' => 'required',
+                'title' => 'required',
+                'description' => 'required',
+                'status' => 'required',
+                'category' => 'required',
+                'location' => 'required',
+                'department_id' => 'required',
+                'user_id' => 'required',
+            ]);
+
+            $grievance = Grievance::find($validateData['id']);
+
+            if(!$grievance){
+                return response()->json([
+                    'message' => 'Grievance not found',
+                ], 404);
+            }
+
+            $grievance->title = $validateData['title'];
+            $grievance->description = $validateData['description'];
+            $grievance->status = $validateData['status'];
+            $grievance->category = $validateData['category'];
+            $grievance->location = $validateData['location'];
+            $grievance->department_id = $validateData['department_id'];
+            $grievance->user_id = $validateData['user_id'];
+            
+            $grievance->save();
+
+            return response()->json([
+                'message' => 'Grievance updated successfully',
+                'grievance' => $grievance,
+            ], 200);
+
+        } catch (\Throwable $th) {
+            return response()->json([
+                'message' => 'Error: ' . $th->getMessage(),
             ], 400);
         }
     }

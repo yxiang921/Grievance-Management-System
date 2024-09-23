@@ -34,5 +34,8 @@ Route::group(
 
         Route::post('/add', [GrievanceController::class, 'createGrievance'])
             ->name('grievance.add');
+
+        Route::post('delete', [GrievanceController::class, 'deleteGrievance'])
+            ->name('grievance.delete');
     }
 );
