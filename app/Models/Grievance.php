@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Grievance extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'title',
+        'description',
+        'status',
+        'category',
+        'location',
+        'department_id',
+        'user_id',
+    ];
 }

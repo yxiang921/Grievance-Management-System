@@ -22,6 +22,17 @@ return new class extends Migration {
             $table->string('admin_last_name');
             $table->timestamps();
         });
+
+        DB::table('admins')->insert([
+            [
+                'admin_username' => 'admin',
+                'admin_email' => 'admin@gmail.com',
+                'admin_password' => bcrypt('123'),
+                'admin_phone_number' => '1234567890',
+                'admin_first_name' => 'Admin',
+                'admin_last_name' => 'Admin',
+            ],
+        ]);
     }
 
     /**

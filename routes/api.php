@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\TestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\API\GrievanceController;
 
 
 /*
@@ -19,3 +20,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(
+    [
+        // prefix: http://..../api/grievance
+        'prefix' => 'grievance',
+        'as' => 'api.',
+    ],
+    function () {
+
+        Route::post('/add', [GrievanceController::class, 'createGrievance'])
+            ->name('grievance.add');
+    }
+);
