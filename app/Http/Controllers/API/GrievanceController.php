@@ -9,11 +9,14 @@ use App\Models\Grievance;
 
 class GrievanceController extends Controller
 {
-    public function index()
+
+    // C: Create grievance
+    // R: Read grievance
+    // U: Update grievance
+    // D: Delete grievance
+
+    public function __construct()
     {
-        return response()->json([
-            'message' => 'Grievance Controller Index',
-        ]);
     }
 
     public function createGrievance()
@@ -48,12 +51,63 @@ class GrievanceController extends Controller
             ], 201);
 
         } catch (\Exception $e) {
-            
+
 
             return response()->json([
                 'message' => 'Error: ' . $e->getMessage(),
             ], 400);
         }
 
+    }
+
+    public function getGrievances()
+    {
+
+        try {
+            $grievances = Grievance::all()->where('user_id', '=', '1');
+
+            return response()->json([
+                'message' => 'Grievances fetched successfully',
+                'grievances' => $grievances,
+            ], 200);
+
+        } catch (\Exception $e) {
+
+            return response()->json([
+                'message' => 'Error: ' . $e->getMessage(),
+            ], 400);
+
+        }
+
+
+    }
+
+    public function deleteGrievance()
+    {
+        $req = request();
+
+        try {
+            $validateData = $req->validate([
+                'id' => 'required',
+            ]);
+
+            $grievance = Grievance::find($validateData['id']);
+
+            if ($grievance) {
+                $grievance->delete();
+                return response()->json([
+                    'message' => 'Grievance deleted successfully',
+                ], 200);
+            } else {
+                return response()->json([
+                    'message' => 'Grievance not found',
+                ], 404);
+            }
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'message' => 'Error: ' . $e->getMessage(),
+            ], 400);
+        }
     }
 }
