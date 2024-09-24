@@ -1,3 +1,105 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom transition for the sidebar */
+#sidebar {
+    transition: transform 0.3s ease-in-out;
+}
+
+.translate-x-full {
+    transform: translateX(-100%);
+}
+
+.translate-x-0 {
+    transform: translateX(0%);
+}
+
+.nav-link.active {
+    background-color: #BAEADA;
+    color: #00B074;
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background-color: #10B981;
+}
+
+.nav-link a:hover {
+    transition: 0.2s;
+    background-color: #10B981;
+    color: #FFFFFF;
+}
+
+.nav-link.active a:hover {
+    background: none;
+    color: #10B981;
+}
+
+/* CSS for progress bar */
+.circle-point {
+    position: relative;
+}
+
+.circle-point.current::before {
+    content: '';
+    width: 65%;
+    height: 65%;
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.active{
+    @apply bg-primary-100 text-primary-900
+}
+
+.unactive{
+    @apply text-gray-500 hover:bg-gray-100 hover:text-gray-700
+}
+
+.primary-btn{
+    @apply bg-primary-900 text-white px-4 py-2 my-4 rounded-md transition-all hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-green-200
+}
+
+
+.cancel-btn{
+    @apply bg-gray-200 text-white px-4 py-2 my-4 rounded-md transition-all hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-500
+}
+
+.delete-btn{
+    @apply bg-red-500 text-white px-4 py-2 my-4 rounded-md transition-all hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500
+}
+
+.primary-input{
+    @apply transition-all px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary-100 focus:border-primary-900 focus:pl-5
+}
+
+.current-status::before{
+    content: '';
+    width: 70%;
+    height: 70%;
+    border-radius: 100%;
+    background: white;  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

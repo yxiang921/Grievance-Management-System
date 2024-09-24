@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    @include('layouts.head')
-    @include('layouts.cdn')
+    @include('layouts.partials.head')
+    @include('layouts.partials.cdn')
 </head>
 
 <body class="bg-purple-100/20 font-sans">

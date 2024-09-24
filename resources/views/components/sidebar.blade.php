@@ -129,10 +129,11 @@
         </a>
 
 
-        <div class="w-5/6 rounded-lg text-white h-12 flex justify-center relative my-4 bg-primary-900">
-            <a href="#" class="w-5/6 h-12 font-semibold flex items-center justify-center">
+        <form action="{{ route('logout')}}" method="POST" class="w-full">
+            @csrf
+            <button type="submit" class="w-full primary-btn flex items-center justify-center">
                 <span>Log Out</span>
-            </a>
-        </div>
+            </button>
+        </form>
     </nav>
 </div>
