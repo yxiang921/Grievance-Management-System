@@ -13,10 +13,10 @@ class dropdown extends Component
      *
      * @return void
      */
-    public function __construct($items, $label = 'Select Option')
+    public function __construct()
     {
-        $this->items = $items;
-        $this->label = $label;
+        // $this->items = $items;
+        // $this->label = $label;
     }
 
     /**

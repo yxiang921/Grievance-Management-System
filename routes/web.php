@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -8,79 +9,23 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
-Route::group([
-    'prefix' => 'admin',
-    'as' => 'admin.',
-], function () {
-
-    Route::get('/', function () {
-        return view('admin/home');
-    })->name('home');
-
-    Route::get('/grievances', function () {
-        return view('admin/grievances');
-    })->name('grievances');
-
-    Route::get('/departments', function () {
-        return view('admin/departments');
-    })->name('departments');
-
-    Route::get('/map', function () {
-        return view('admin/map');
-    })->name('map');
-
-    Route::get('/analytics', function () {
-        return view('admin/analytics');
-    })->name('analytics');
-
-    Route::get('/users', function () {
-        return view('admin/users');
-    })->name('users');
-
-    Route::get('/admins', function () {
-        return view('admin/admins');
-    })->name('admins');
-
-    Route::get('/settings', function () {
-        return view('admin/settings');
-    })->name('settings');
+Route::get('/', function () {
+    return view('auth/login');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-
-
-
-Route::get('grievance/1', function () {
-    return view('admin/grievanceDetail');
-})->name('admin.grievance.detail');
-
-Route::get('/addUser', function () {
-    action:
-    return view('admin/addUser');
-})->name('admin.addUser');
-
-Route::get('/editUser', function () {
-    return view('admin/editUser');
-})->name('admin.editUser');
-
-Route::get('/addNewDepartment', function () {
-    return view('admin/addNewDepartment');
-})->name('admin.addDepartment');
-
-Route::get('/editDepartment', function () {
-    return view('admin/editDepartment');
-})->name('admin.editDepartment');
-
-Route::get('/addAdmin', function () {
-    return view('admin/addAdmin');
-})->name('admin.addAdmin');
-
-Route::get('/editAdmin', function () {
-    return view('admin/editAdmin');
-})->name('admin.editAdmin');
+require __DIR__.'/auth.php';
