@@ -9,7 +9,7 @@
             <div class="">
                 <a 
                 class="primary-btn"
-                href="{{ route('admin.addNewDepartment') }}"
+                href="{{ route('admin.addDepartment') }}"
                 >Add New Department</a>
             </div>
         </div>

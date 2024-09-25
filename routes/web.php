@@ -84,3 +84,8 @@ Route::get('/addAdmin', function () {
 Route::get('/editAdmin', function () {
     return view('admin/editAdmin');
 })->name('admin.editAdmin');
+
+
+Route::get('/test', function () {
+    return view('test');
+})->name('test');

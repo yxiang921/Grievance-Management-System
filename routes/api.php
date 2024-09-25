@@ -29,13 +29,10 @@ Route::group(
     ],
     function () {
 
-        Route::get('/view', [GrievanceController::class, 'getGrievances'])
-            ->name('grievance.view');
-
         Route::post('/add', [GrievanceController::class, 'createGrievance'])
             ->name('grievance.add');
 
-        Route::post('delete', [GrievanceController::class, 'deleteGrievance'])
-            ->name('grievance.delete');
+        Route::get('/get', [GrievanceController::class, 'getGrievances'])
+            ->name('grievance.get');
     }
 );

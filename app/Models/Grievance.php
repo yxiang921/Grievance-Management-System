@@ -15,6 +15,7 @@ class Grievance extends Model
         'status',
         'category',
         'location',
+        'remark',
         'department_id',
         'user_id',
     ];
