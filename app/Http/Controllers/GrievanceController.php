@@ -14,27 +14,25 @@ class GrievanceController extends Controller
         $this->database = $database;
     }
 
+    // 创建新测试条目
     public function createGrievance()
     {
-        $req = request();
-
+        $r = request();
         $grievance = [
-            'title' => $req->title,
-            'description' => $req->description,
-            'status' => $req->status,
-            'category' => $req->category,
-            'remarks' => '',
-            'user_id' => '1',
-            'department_id' => '1',
-            'location' => $req->location,
+            'title' => $r['title'],
+            'description' => $r['description'],
+            'category' => $r['category'],
+            'status' => $r['status'],
+            'user_id' => $r['user_id'],
+            'department_id' => $r['department_id'],
+            'location' => $r['location'],
         ];
 
         $this->database->getReference('grievances')->push($grievance);
-        return response()->json([
-            'message' => 'Test created successfully'
-        ], 201);
+        return response()->json(['message' => 'Test created successfully']);
     }
 
+    // 获取所有测试条目
     public function getGrievances()
     {
         $grievances = $this->database->getReference('grievances')->getValue();
