@@ -13,7 +13,7 @@
                         class="transition-all   w-full h-12 px-4 py-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-primary-100 focus:border-primary-900">
                 </div>
                 <div class="w-full lg:w-1/4">
-                    <x-dropdown :items="['Received', 'In-Progress', 'Closed']" label="Select Status" />
+                    <x-filter-dropdown :items="['Received', 'In-Progress', 'Closed']" label="Select Status" />
                 </div>
             </div>
             <div class="w-full md:w-1/6 my-2">
