@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Grievance;
 
-class GrievanceController extends Controller
+class GrievanceApiController extends Controller
 {
 
     // C: Create grievance 201
