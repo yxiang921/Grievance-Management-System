@@ -12,8 +12,12 @@ class FirebaseServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Database::class, function ($app) {
             $factory = (new Factory)
-                ->withServiceAccount(base_path('storage/grievance-c6837-firebase-adminsdk-bme95-fd00e3c834.json'))
-                ->withDatabaseUri('https://grievance-c6837-default-rtdb.firebaseio.com/');
+                ->withServiceAccount(
+                    config('firebase.credentials')
+                )
+                ->withDatabaseUri(config(
+                    'firebase.firebase_database_url'
+                ));
 
             return $factory->createDatabase();
         });

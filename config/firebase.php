@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'credentials' => base_path('storage\grievance-c6837-firebase-adminsdk-bme95-fd00e3c834.json'),
+    'credentials' => base_path(env('FIREBASE_CREDENTIALS')),
+    'firebase_database_url' => env('FIREBASE_DATABASE_URL'),
 ];
