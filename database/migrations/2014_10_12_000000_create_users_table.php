@@ -16,6 +16,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone_number');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
@@ -26,6 +27,7 @@ return new class extends Migration {
             [
                 'name' => 'User',
                 'email' => '123@gmail.com',
+                'phone_number' => '014 123 4567',
                 'password' => bcrypt('123'),
             ],
         ]);

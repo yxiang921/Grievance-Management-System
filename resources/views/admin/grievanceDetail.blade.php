@@ -1,3 +1,7 @@
+@php
+    use Carbon\Carbon;
+@endphp
+
 @extends('layouts.master')
 @section('content')
     <div class="container mx-auto p-4 border border-gray-100 rounded-md">
@@ -51,11 +55,13 @@
                                 </tr>
                                 <tr>
                                     <td class="pr-4"><strong>Date</strong></td>
-                                    <td>{{ $grievance->grievance_created_at }}</td>
+                                    <td>{{ Carbon::parse($grievance->grievance_created_at)->format('d F Y') }}</td>
                                 </tr>
                                 <tr>
                                     <td class="pr-4"><strong>Time</strong></td>
-                                    <td>10:30 AM</td>
+                                    <td>
+                                        {{ Carbon::parse($grievance->grievance_created_at)->format('h : m A') }}
+                                    </td>
                                 </tr>
                             </table>
                         </div>

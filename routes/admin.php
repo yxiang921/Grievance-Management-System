@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AnalyticsController;
 use App\Http\Controllers\Admin\GrievanceController;
 use App\Http\Controllers\Admin\DepartmentController;
 use Illuminate\Support\Facades\Route;
@@ -23,13 +24,12 @@ Route::group([
     Route::get('/departments', [DepartmentController::class, 'getAllDepartment'])
         ->name('departments');
 
+    Route::get('/analytics', [AnalyticsController::class, 'getAnalytics'])
+        ->name('analytics');
+
     Route::get('/map', function () {
         return view('admin.map');
     })->name('map');
-
-    Route::get('/analytics', function () {
-        return view('admin.analytics');
-    })->name('analytics');
 
     Route::get('/users', function () {
         return view('admin.users');

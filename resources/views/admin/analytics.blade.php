@@ -7,7 +7,9 @@
                     <div class="h-full flex flex-col justify-between">
                         <div class="text-gray-500 font-semibold text-sm">Total Grievances</div>
                         <div class="w-full pb-2">
-                            <h1 class="text-4xl pb-2 font-semibold">1243</h1>
+                            <h1 class="text-4xl pb-2 font-semibold">
+                                {{ $analytics_card['total_grievances'] }}
+                            </h1>
                             <p class="text-sm">
                                 <span class="bg-green-100 text-green-900 text-[0.75rem] px-2 rounded-sm">+6.55%</span>
                                 Since last month
@@ -28,7 +30,9 @@
                     <div class="h-full flex flex-col justify-between">
                         <div class="text-gray-500 font-semibold text-sm">Monthly Grievances</div>
                         <div class="w-full pb-2">
-                            <h1 class="text-4xl pb-2 font-semibold">456</h1>
+                            <h1 class="text-4xl pb-2 font-semibold">
+                                {{ $analytics_card['monthly_grievances'] }}
+                            </h1>
                             <p class="text-sm">
                                 <span class="bg-red-100 text-red-900 text-[0.75rem] px-2 rounded-sm">-6.55%</span>
                                 Since last month
@@ -51,7 +55,9 @@
                     <div class="h-full flex flex-col justify-between">
                         <div class="text-gray-500 font-semibold text-sm">Total Closed</div>
                         <div class="w-full pb-2">
-                            <h1 class="text-4xl pb-2 font-semibold">1533</h1>
+                            <h1 class="text-4xl pb-2 font-semibold">
+                                {{ $analytics_card['total_closed'] }}
+                            </h1>
                             <p class="text-sm">
                                 <span class="bg-red-100 text-red-900 text-[0.75rem] px-2 rounded-sm">-6.55%</span>
                                 Since last month
@@ -72,7 +78,9 @@
                     <div class="h-full flex flex-col justify-between">
                         <div class="text-gray-500 font-semibold text-sm">Total in Progress</div>
                         <div class="w-full pb-2">
-                            <h1 class="text-4xl pb-2 font-semibold">15321</h1>
+                            <h1 class="text-4xl pb-2 font-semibold">
+                                {{ $analytics_card['total_in_progress'] }}
+                            </h1>
                             <p class="text-sm">
                                 <span class="bg-green-100 text-green-900 text-[0.75rem] px-2 rounded-sm">+12.55%</span>
                                 Since last month

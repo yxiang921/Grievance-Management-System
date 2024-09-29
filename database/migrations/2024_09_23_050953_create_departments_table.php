@@ -18,27 +18,6 @@ return new class extends Migration {
             $table->string('department_category');
             $table->timestamps();
         });
-
-        if (DB::table('departments')->count() == 0) {
-            DB::table('departments')->insert([
-                [
-                    'department_name' => 'Assets Management and General Affair Office',
-                    'department_category' => 'Facility'
-                ],
-                [
-                    'department_name' => 'Account and Finance Office',
-                    'department_category' => 'Finance'
-                ],
-                [
-                    'department_name' => 'Academic Affairs, Admission Registration Office',
-                    'department_category' => 'Academic'
-                ],
-                [
-                    'department_name' => 'Student Affair Office',
-                    'department_category' => 'Other'
-                ],
-            ]);
-        }
     }
 
     /**
