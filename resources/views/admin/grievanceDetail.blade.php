@@ -38,7 +38,7 @@
                             <div class="ml-4">
                                 <h3 class="text-lg font-semibold">{{ $grievance->name }}</h3>
                                 <p class="text-gray-600">{{ $grievance->email }}</p>
-                                <p class="text-gray-600">012 345 6789</p>
+                                <p class="text-gray-600">{{ $grievance->phone_number }}</p>
                             </div>
                         </div>
                         <h4 class="text-lg font-semibold mb-2">{{ $grievance->title }}</h4>
