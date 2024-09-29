@@ -7,10 +7,7 @@
                 <button class="primary-btn w-28 ml-2">Search</button>
             </div>
             <div class="">
-                <a 
-                class="primary-btn"
-                href="{{ route('admin.addDepartment') }}"
-                >Add New Department</a>
+                <a class="primary-btn" href="{{ route('admin.addDepartment') }}">Add New Department</a>
             </div>
         </div>
         <div class="w-full h-auto mt-8 hidden lg:block">
@@ -25,44 +22,58 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="h-10">
-                            <td>DPM01</td>
-                            <td>Assets Management and General Affairs Office</td>
-                            <td>Facility</td>
-                            <td>
-                                <a href="" class="underline">Edit</a>
-                            </td>
-                        </tr>
+                        @foreach ($departments as $department)
+                            <tr class="h-10">
+                                <td>
+                                    DPM{{ $department->id }}
+                                </td>
+                                <td>
+                                    {{ $department->department_name }}
+                                </td>
+                                <td>
+                                    {{ $department->department_category }}
+                                </td>
+                                <td>
+                                    <a href="" class="underline">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
 
-        <div class="lg:hidden block mt-4">
-            <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Department ID</div>
-                    <div>DPM01</div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Department Name</div>
-                    <div>
-                        Assets Management and General Affairs Office
+        @foreach ($departments as $department)
+            <div class="lg:hidden block mt-4">
+                <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Department ID</div>
+                        <div>
+                            DPM{{ $department->id }}
+                        </div>
                     </div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Category</div>
-                    <div>Facility</div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Action</div>
-                    <div>
-                        <a href="" class="underline">Edit</a>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Department Name</div>
+                        <div>
+                            {{ $department->department_name }}
+                        </div>
                     </div>
-                </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Category</div>
+                        <div>
+                            {{ $department->department_category }}
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Action</div>
+                        <div>
+                            <a href="" class="underline">Edit</a>
+                        </div>
+                    </div>
 
+                </div>
             </div>
-        </div>
+        @endforeach
 
     </div>
 @endsection

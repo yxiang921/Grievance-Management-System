@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\GrievanceController;
+use App\Http\Controllers\Admin\DepartmentController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -19,11 +20,8 @@ Route::group([
     Route::get('/grievance/{grievance_id}', [GrievanceController::class, 'getGrievance'])
     ->name('grievance.detail');
 
-
-
-    Route::get('/departments', function () {
-        return view('admin.departments');
-    })->name('departments');
+    Route::get('/departments', [DepartmentController::class, 'getAllDepartment'])
+        ->name('departments');
 
     Route::get('/map', function () {
         return view('admin.map');
