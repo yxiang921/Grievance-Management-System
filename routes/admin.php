@@ -14,7 +14,12 @@ Route::group([
     })->name('home');
 
     Route::get('/grievances', [GrievanceController::class, 'getAllGrievances'])
-    ->name('grievances');
+        ->name('grievances');
+
+    Route::get('/grievance/{grievance_id}', [GrievanceController::class, 'getGrievance'])
+    ->name('grievance.detail');
+
+
 
     Route::get('/departments', function () {
         return view('admin.departments');
@@ -41,9 +46,7 @@ Route::group([
     })->name('settings');
 });
 
-Route::get('grievance/1', function () {
-    return view('admin.grievanceDetail');
-})->name('admin.grievance.detail');
+
 
 Route::get('/addUser', function () {
     action:

@@ -14,13 +14,13 @@
         px-2 py-1 
         text-xs 
         font-medium text-yellow-900 ring-1 ring-inset ring-yellow-900/20">{{ $grievance->status }}</span>
-    <h4 class="text-lg font-semibold mb-2">{{ $grievance->title }}</h4>
+    <h4 class="text-lg font-semibold my-2">{{ $grievance->title }}</h4>
     <p class="text-gray-600 mb-4">
         {{ $grievance->description}}
     </p>
     <button
         class="md:w-1/2 w-full primary-btn"
-        onclick="window.location.href = '{{ route('admin.grievance.detail', ['id' => $grievance->id]) }}'"
+        onclick="window.location.href = '{{ route('admin.grievance.detail', ['grievance_id' => $grievance->grievance_id]) }}'"
         >
         Read
     </button>
