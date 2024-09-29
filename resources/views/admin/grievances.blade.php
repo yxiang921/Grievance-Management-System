@@ -17,17 +17,16 @@
                 </div>
             </div>
             <div class="w-full md:w-1/6 my-2">
-                <button
-                    class="primary-btn w-full">
+                <button class="primary-btn w-full">
                     Search
                 </button>
             </div>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
-            <x-grievance-card></x-grievance-card>
-            <x-grievance-card></x-grievance-card>
-            <x-grievance-card></x-grievance-card>
+            @foreach ($grievances as $grievance)
+                <x-grievance-card :grievance="$grievance" />
+            @endforeach
         </div>
     </div>
 @endsection

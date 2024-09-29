@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\GrievanceController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -12,9 +13,8 @@ Route::group([
         return view('admin.home');
     })->name('home');
 
-    Route::get('/grievances', function () {
-        return view('admin.grievances');
-    })->name('grievances');
+    Route::get('/grievances', [GrievanceController::class, 'getAllGrievances'])
+    ->name('grievances');
 
     Route::get('/departments', function () {
         return view('admin.departments');

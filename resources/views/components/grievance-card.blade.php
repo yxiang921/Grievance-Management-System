@@ -2,8 +2,8 @@
     <div class="flex items-center mb-4">
         <img src="http://picsum.photos/200/200" alt="Avatar" class="w-12 h-12 rounded-full">
         <div class="ml-4">
-            <h3 class="text-lg font-semibold">John Doe</h3>
-            <p class="text-gray-600">johndoe@gmail.com</p>
+            <h3 class="text-lg font-semibold">{{ $grievance->name }}</h3>
+            <p class="text-gray-600">{{ $grievance->email }}</p>
         </div>
     </div>
     <span
@@ -13,15 +13,14 @@
         bg-yellow-100 
         px-2 py-1 
         text-xs 
-        font-medium text-yellow-900 ring-1 ring-inset ring-yellow-900/20">In Progress</span>
-    <h4 class="text-lg font-semibold mb-2">Broken Projector in Room 305</h4>
+        font-medium text-yellow-900 ring-1 ring-inset ring-yellow-900/20">{{ $grievance->status }}</span>
+    <h4 class="text-lg font-semibold mb-2">{{ $grievance->title }}</h4>
     <p class="text-gray-600 mb-4">
-        The projector in Room 305 has been broken for a week. It’s not turning on at all, and classes are being
-        disrupted due to this issue.
+        {{ $grievance->description}}
     </p>
     <button
         class="md:w-1/2 w-full primary-btn"
-        onclick="window.location.href = '{{ route('admin.grievance.detail') }}'"
+        onclick="window.location.href = '{{ route('admin.grievance.detail', ['id' => $grievance->id]) }}'"
         >
         Read
     </button>

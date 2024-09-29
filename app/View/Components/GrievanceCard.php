@@ -11,9 +11,13 @@ class GrievanceCard extends Component
      *
      * @return void
      */
-    public function __construct()
+
+    public $grievance;
+
+
+    public function __construct($grievance)
     {
-        //
+        $this->grievance = $grievance;
     }
 
     /**

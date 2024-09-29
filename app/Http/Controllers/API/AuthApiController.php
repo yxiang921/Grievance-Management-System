@@ -7,5 +7,34 @@ use Illuminate\Http\Request;
 
 class AuthApiController extends Controller
 {
-    //
+    // To Do
+    // Login
+    // Register
+    // Logout
+    // Forgot Password
+
+    public function __construct()
+    {
+
+    }
+
+    public function login()
+    {
+        $req = request();
+
+        try {
+            $validateData = $req->validate([
+                'email' => 'required|email',
+                'password' => 'required'
+            ]);
+
+
+
+
+        } catch (\Exception $th) {
+            return response()->json([
+                'message' => 'Error: ' . $th->getMessage(),
+            ], 400);
+        }
+    }
 }
