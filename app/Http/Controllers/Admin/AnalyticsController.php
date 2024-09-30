@@ -36,42 +36,15 @@ class AnalyticsController extends Controller
                     $this->grievanceRepo->getTotalByCategory('Behaviour'),
                     $this->grievanceRepo->getTotalByCategory('Other'),
                 ]
-            ]
+            ],
+
+            'each_month_grievance' => $this->grievanceRepo->getGrievanceEachMonth(),
         ];
+
+        dd($this->grievanceRepo->getGrievanceEachMonth());
 
         return view('admin.analytics', [
             'analytics' => $analytics,
         ]);
     }
 }
-
-// $pending_count = Proposal::where("status", "pending")->get()->count();
-
-//         $approved_count = Proposal::where("status", "Accepted")->get()->count();
-//         $rejected_count = Proposal::where("status", "Rejected")->get()->count();
-//         $total_proposal = Proposal::all()->count();
-
-//         $sport_count = Proposal::where('category', 'sport')->get()->count();
-//         $art_count = Proposal::where('category', 'art')->get()->count();
-
-//         $barChartData = [
-//             'labels' => ['Pending', 'Approved', 'Rejected'],
-//             'data' => [$pending_count, $approved_count, $rejected_count],
-//         ];
-
-//         $pieChartData = [
-//             'labels' => ['Sport', 'Art'],
-//             'data' => [$sport_count, $art_count],
-//         ];
-
-//         return view(
-//             'admin.dashboard',
-//             compact(
-//                 'barChartData',
-//                 'pieChartData',
-//                 'pending_count',
-//                 'approved_count',
-//                 'rejected_count',
-//                 'total_proposal'
-//             )
-//         );

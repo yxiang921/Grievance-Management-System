@@ -33,5 +33,17 @@ class GrievanceRepo
             ->count();
     }
 
+    public function getGrievanceEachMonth()
+    {
+        return DB::table('grievances')
+            ->select(
+                DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'),
+                DB::raw('COUNT(*) as grievance_count')
+            )
+            ->groupBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'))
+            ->orderBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'), 'desc')
+            ->get();
+    }
+
 
 }
