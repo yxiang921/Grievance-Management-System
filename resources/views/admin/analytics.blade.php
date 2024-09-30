@@ -8,7 +8,7 @@
                         <div class="text-gray-500 font-semibold text-sm">Total Grievances</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">
-                                {{ $analytics_card['total_grievances'] }}
+                                {{ $analytics['total_grievances'] }}
                             </h1>
                             <p class="text-sm">
                                 <span class="bg-green-100 text-green-900 text-[0.75rem] px-2 rounded-sm">+6.55%</span>
@@ -31,7 +31,7 @@
                         <div class="text-gray-500 font-semibold text-sm">Monthly Grievances</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">
-                                {{ $analytics_card['monthly_grievances'] }}
+                                {{ $analytics['monthly_grievances'] }}
                             </h1>
                             <p class="text-sm">
                                 <span class="bg-red-100 text-red-900 text-[0.75rem] px-2 rounded-sm">-6.55%</span>
@@ -56,7 +56,7 @@
                         <div class="text-gray-500 font-semibold text-sm">Total Closed</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">
-                                {{ $analytics_card['total_closed'] }}
+                                {{ $analytics['total_closed'] }}
                             </h1>
                             <p class="text-sm">
                                 <span class="bg-red-100 text-red-900 text-[0.75rem] px-2 rounded-sm">-6.55%</span>
@@ -79,7 +79,7 @@
                         <div class="text-gray-500 font-semibold text-sm">Total in Progress</div>
                         <div class="w-full pb-2">
                             <h1 class="text-4xl pb-2 font-semibold">
-                                {{ $analytics_card['total_in_progress'] }}
+                                {{ $analytics['total_in_progress'] }}
                             </h1>
                             <p class="text-sm">
                                 <span class="bg-green-100 text-green-900 text-[0.75rem] px-2 rounded-sm">+12.55%</span>
@@ -109,22 +109,29 @@
     <div class="w-full h-auto mt-4 grid grid-cols-3 md:grid-cols-2">
         <div class="col-span-3 md:col-span-1 h-[30rem] p-4 bg-white rounded-md border border-gray-100">
             <h1 class="text-xl font-medium">Grievances Status Analytics</h1>
-            <p class="text-gray-500">42,023 total grievances</p>
+            <p class="text-gray-500">{{ $analytics['monthly_grievances'] }} total grievances this month</p>
             <div class="flex flex-row justify-center items-center">
                 <div class="w-full h-full">
-                    <h1 class="text-3xl font-semibold">125</h1>
-                    <p class="text-gray-500">Total grievances this month</p>
+                    <h1 class="text-3xl font-semibold">
+                        {{ $analytics['total_grievances'] }}
+                    </h1>
+                    <p class="text-gray-500">Total grievances</p>
                 </div>
                 <div id="status-pie" class="w-full h-36 flex justify-center items-center">
                     {{-- Chart --}}
                 </div>
 
             </div>
-            <div class="w-full">
+            <div class="w-full flex-col justify-between">
                 <div class="flex flex-row items-center w-full h-16">
                     <div
                         class="w-12 h-12 bg-yellow-100 text-yellow-900 text-lg font-semibold rounded-md flex items-center justify-center">
-                        P
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M19.903 8.586a.997.997 0 0 0-.196-.293l-6-6a.997.997 0 0 0-.293-.196c-.03-.014-.062-.022-.094-.033a.991.991 0 0 0-.259-.051C13.04 2.011 13.021 2 13 2H6c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V9c0-.021-.011-.04-.013-.062a.952.952 0 0 0-.051-.259c-.01-.032-.019-.063-.033-.093zM16.586 8H14V5.414L16.586 8zM6 20V4h6v5a1 1 0 0 0 1 1h5l.002 10H6z">
+                            </path>
+                            <path d="M8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"></path>
+                        </svg>
                     </div>
                     <div class="h-full w-full flex flex-row justify-between">
                         <div class="h-full flex flex-col justify-center pl-4">
@@ -132,7 +139,48 @@
                             <p class="text-gray-500">12% of total grievances</p>
                         </div>
                         <div class="h-full p-4 flex items-center">
-                            <h1 class="text-lg font-medium">3210</h1>
+                            <h1 class="text-lg font-medium">{{ $analytics['total_pending'] }}</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center w-full h-16">
+                    <div
+                        class="w-12 h-12 bg-yellow-100 text-yellow-900 text-lg font-semibold rounded-md flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M19.903 8.586a.997.997 0 0 0-.196-.293l-6-6a.997.997 0 0 0-.293-.196c-.03-.014-.062-.022-.094-.033a.991.991 0 0 0-.259-.051C13.04 2.011 13.021 2 13 2H6c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V9c0-.021-.011-.04-.013-.062a.952.952 0 0 0-.051-.259c-.01-.032-.019-.063-.033-.093zM16.586 8H14V5.414L16.586 8zM6 20V4h6v5a1 1 0 0 0 1 1h5l.002 10H6z">
+                            </path>
+                            <path d="M8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"></path>
+                        </svg>
+                    </div>
+                    <div class="h-full w-full flex flex-row justify-between">
+                        <div class="h-full flex flex-col justify-center pl-4">
+                            <h1 class="font-semibold">In Progress Grievances</h1>
+                            <p class="text-gray-500">12% of total grievances</p>
+                        </div>
+                        <div class="h-full p-4 flex items-center">
+                            <h1 class="text-lg font-medium">{{ $analytics['total_in_progress'] }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-row items-center w-full h-16">
+                    <div
+                        class="w-12 h-12 bg-yellow-100 text-yellow-900 text-lg font-semibold rounded-md flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M19.903 8.586a.997.997 0 0 0-.196-.293l-6-6a.997.997 0 0 0-.293-.196c-.03-.014-.062-.022-.094-.033a.991.991 0 0 0-.259-.051C13.04 2.011 13.021 2 13 2H6c-1.103 0-2 .897-2 2v16c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2V9c0-.021-.011-.04-.013-.062a.952.952 0 0 0-.051-.259c-.01-.032-.019-.063-.033-.093zM16.586 8H14V5.414L16.586 8zM6 20V4h6v5a1 1 0 0 0 1 1h5l.002 10H6z">
+                            </path>
+                            <path d="M8 12h8v2H8zm0 4h8v2H8zm0-8h2v2H8z"></path>
+                        </svg>
+                    </div>
+                    <div class="h-full w-full flex flex-row justify-between">
+                        <div class="h-full flex flex-col justify-center pl-4">
+                            <h1 class="font-semibold">Closed Grievances</h1>
+                            <p class="text-gray-500">12% of total grievances</p>
+                        </div>
+                        <div class="h-full p-4 flex items-center">
+                            <h1 class="text-lg font-medium">{{ $analytics['total_closed'] }}</h1>
                         </div>
                     </div>
                 </div>
@@ -209,24 +257,13 @@
             },
             xAxis: {
                 type: 'category',
-                data: ['Academic', 'Facility', 'Finance', 'Behaviour', 'Others']
+                data: @json($analytics['category_data']['labels'])
             },
             yAxis: {
                 type: 'value'
             },
             series: [{
-                data: [
-                    120,
-                    {
-                        value: 200,
-                        itemStyle: {
-                            color: '#a90000'
-                        }
-                    },
-                    150,
-                    110,
-                    130
-                ],
+                data: @json($analytics['category_data']['data']),
                 type: 'bar'
             }]
         });
@@ -236,5 +273,51 @@
             statusPie.resize();
             cateBarChart.resize();
         });
+
     </script>
 @endsection
+
+
+{{-- <script>
+    var barChartCtx = document.getElementById('barChart').getContext('2d');
+    var barChart = new Chart(barChartCtx, {
+        type: 'bar',
+        data: {
+            labels: @json($barChartData['labels']),
+            datasets: [{
+                label: 'Total Proposal',
+                data: @json($barChartData['data']),
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            }
+        }
+    });
+
+    var pieChartCtx = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(pieChartCtx, {
+        type: 'pie',
+        data: {
+            labels: @json($pieChartData['labels']),
+            datasets: [{
+                label: 'Total Proposal',
+                data: @json($pieChartData['data']),
+
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: false,
+        }
+    });
+
+    pieChart.resize(600, 450);
+</script> --}}
