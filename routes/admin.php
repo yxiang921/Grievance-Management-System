@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AnalyticsController;
 use App\Http\Controllers\Admin\GrievanceController;
 use App\Http\Controllers\Admin\DepartmentController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -11,15 +12,14 @@ Route::group([
     'middleware' => ['auth']
 ], function () {
 
-    Route::get('/home', function () {
-        return view('admin.home');
-    })->name('home');
+    Route::get('/home', [HomeController::class, 'index'])
+        ->name('home');
 
     Route::get('/grievances', [GrievanceController::class, 'getAllGrievances'])
         ->name('grievances');
 
     Route::get('/grievance/{grievance_id}', [GrievanceController::class, 'getGrievance'])
-    ->name('grievance.detail');
+        ->name('grievance.detail');
 
     Route::get('/departments', [DepartmentController::class, 'getAllDepartment'])
         ->name('departments');

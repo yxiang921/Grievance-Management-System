@@ -45,5 +45,12 @@ class GrievanceRepo
             ->get();
     }
 
+    public function getMonthlyClosed()
+    {
+        return DB::table('grievances')
+            ->where('status', 'Closed')
+            ->where('created_at', '>=', now()->subMonth())
+            ->count();
+    }
 
 }

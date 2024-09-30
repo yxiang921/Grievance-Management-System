@@ -6,35 +6,6 @@
             <div class="w-full grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 gap-2">
                 <div
                     class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
-                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-                        </svg>
-                    </div>
-                    <div class="mx-8">
-                        <p class="text-xl font-bold">24</p>
-                        <p class="text-gray-600">Monthly Grievance</p>
-                    </div>
-                </div>
-                <div
-                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
-                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                        </svg>
-
-                    </div>
-                    <div class="mx-8">
-                        <p class="text-xl font-bold">12</p>
-                        <p class="text-gray-600">Monthly Resolved</p>
-                    </div>
-                </div>
-                <div
-                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
 
                     <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -47,7 +18,9 @@
 
 
                     <div class="mx-8">
-                        <p class="text-xl font-bold">45</p>
+                        <p class="text-xl font-bold">
+                            {{ $total_grievance }}
+                        </p>
                         <p class="text-gray-600">Total Grievances</p>
                     </div>
                 </div>
@@ -62,10 +35,46 @@
 
                     </div>
                     <div class="mx-8">
-                        <p class="text-xl font-bold">24</p>
-                        <p class="text-gray-600">Total Resolved</p>
+                        <p class="text-xl font-bold">
+                            {{ $total_closed }}
+                        </p>
+                        <p class="text-gray-600">Total Closed</p>
                     </div>
                 </div>
+                <div
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+                        </svg>
+                    </div>
+                    <div class="mx-8">
+                        <p class="text-xl font-bold">
+                            {{ $monthly_grievance }}
+                        </p>
+                        <p class="text-gray-600">Monthly Grievance</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-white border border-gray-100 p-4 rounded-md w-full h-28 flex flex-row items-center justify-between md:justify-center text-right md:text-left">
+                    <div class="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+
+                    </div>
+                    <div class="mx-8">
+                        <p class="text-xl font-bold">
+                            {{ $monthly_closed }}
+                        </p>
+                        <p class="text-gray-600">Monthly Closed</p>
+                    </div>
+                </div>
+
             </div>
         </div>
 
