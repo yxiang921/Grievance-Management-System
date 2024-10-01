@@ -19,29 +19,41 @@ class AnalyticsController extends Controller
 
     public function getAnalytics()
     {
-        $analytics = [
-            'total_grievances' => $this->grievanceRepo->getTotal(),
-            'total_pending' => $this->grievanceRepo->getTotalByStatus('Received'),
-            'total_in_progress' => $this->grievanceRepo->getTotalByStatus('In Progress'),
-            'total_closed' => $this->grievanceRepo->getTotalByStatus('Closed'),
+        $grievanceRepo = $this->grievanceRepo;
 
-            'monthly_grievances' => $this->grievanceRepo->getMonthly(),
+        $analytics = [
+            'total_grievances' => $grievanceRepo->getTotal(),
+            'total_pending' => $grievanceRepo->getTotalByStatus('Received'),
+            'total_in_progress' => $grievanceRepo->getTotalByStatus('In Progress'),
+            'total_closed' => $grievanceRepo->getTotalByStatus('Closed'),
+
+            'monthly_grievances' => $grievanceRepo->getMonthly(),
+            'monthly_pending' => $grievanceRepo->getMonthlyByStatus('Received'),
+            'monthly_in_progress' => $grievanceRepo->getMonthlyByStatus('In Progress'),
+            'monthly_closed' => $grievanceRepo->getMonthlyByStatus('Closed'),
 
             'category_data' => [
                 'labels' => ['Academic', 'Facility', 'Finance', 'Behaviour', 'Other'],
                 'data' => [
-                    $this->grievanceRepo->getTotalByCategory('Academic'),
-                    $this->grievanceRepo->getTotalByCategory('Facility'),
-                    $this->grievanceRepo->getTotalByCategory('Finance'),
-                    $this->grievanceRepo->getTotalByCategory('Behaviour'),
-                    $this->grievanceRepo->getTotalByCategory('Other'),
+                    $grievanceRepo->getTotalByCategory('Academic'),
+                    $grievanceRepo->getTotalByCategory('Facility'),
+                    $grievanceRepo->getTotalByCategory('Finance'),
+                    $grievanceRepo->getTotalByCategory('Behaviour'),
+                    $grievanceRepo->getTotalByCategory('Other'),
                 ]
             ],
 
-            'each_month_grievance' => $this->grievanceRepo->getGrievanceEachMonth(),
-        ];
+            'each_month_grievance' => $grievanceRepo->getGrievanceEachMonth(),
 
-        // dd($this->grievanceRepo->getGrievanceEachMonth());
+            'month_percentage_change' => $grievanceRepo->calPctChange(),
+            'pending_percentage_change' => $grievanceRepo->calPctBasedStatus('Received'),
+            'in_progress_percentage_change' => $grievanceRepo->calPctBasedStatus('In Progress'),
+            'closed_percentage_change' => $grievanceRepo->calPctBasedStatus('Closed'),
+
+            'pending_percentage' => $grievanceRepo->calPctTotalBasedStatus('Received'),
+            'in_progress_percentage' => $grievanceRepo->calPctTotalBasedStatus('In Progress'),
+            'closed_percentage' => $grievanceRepo->calPctTotalBasedStatus('Closed'),
+        ];
 
         return view('admin.analytics', [
             'analytics' => $analytics,

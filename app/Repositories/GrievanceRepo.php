@@ -12,13 +12,6 @@ class GrievanceRepo
             ->count();
     }
 
-    public function getMonthly()
-    {
-        return DB::table('grievances')
-            ->where('created_at', '>=', now()->subMonth())
-            ->count();
-    }
-
     public function getTotalByStatus($status)
     {
         return DB::table('grievances')
@@ -45,10 +38,17 @@ class GrievanceRepo
             ->get();
     }
 
-    public function getMonthlyClosed()
+    public function getMonthly()
     {
         return DB::table('grievances')
-            ->where('status', 'Closed')
+            ->where('created_at', '>=', now()->subMonth())
+            ->count();
+    }
+
+    public function getMonthlyByStatus($status)
+    {
+        return DB::table('grievances')
+            ->where('status', $status)
             ->where('created_at', '>=', now()->subMonth())
             ->count();
     }
@@ -68,6 +68,59 @@ class GrievanceRepo
             ->orderBy('grievances.created_at', 'desc')
             ->limit(3)
             ->get();
+    }
+
+    public function calPctChange()
+    {
+
+        $currentMonth = DB::table('grievances')
+            ->where('created_at', '>=', now()->subMonth())
+            ->count();
+
+        $previousMonth = DB::table('grievances')
+            ->where('created_at', '>=', now()->subMonths(2))
+            ->where('created_at', '<', now()->subMonth())
+            ->count();
+
+        if ($previousMonth == 0) {
+            return 100;
+        }
+
+        return (($currentMonth - $previousMonth) / $previousMonth) * 100;
+    }
+
+    public function calPctBasedStatus($status)
+    {
+        $currentMonthBasedStatus = DB::table('grievances')
+            ->where('status', $status)
+            ->where('created_at', '>=', now()->subMonth())
+            ->count();
+
+        $previousMonthBasedStatus = DB::table('grievances')
+            ->where('status', $status)
+            ->where('created_at', '>=', now()->subMonths(2))
+            ->where('created_at', '<', now()->subMonth())
+            ->count();
+
+        if ($previousMonthBasedStatus == 0) {
+            return 100;
+        }
+
+        return (($currentMonthBasedStatus - $previousMonthBasedStatus) / $previousMonthBasedStatus) * 100;
+    }
+
+    public function calPctTotalBasedStatus($status)
+    {
+        $totalGrievances = DB::table('grievances')
+            ->count();
+
+        $totalGrievancesBasedStatus = DB::table('grievances')
+            ->where('status', $status)
+            ->count();
+
+        $totalPct = ($totalGrievancesBasedStatus / $totalGrievances) * 100;
+
+        return $totalPct;
     }
 
 }
