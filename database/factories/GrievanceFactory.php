@@ -16,6 +16,9 @@ class GrievanceFactory extends Factory
      */
     public function definition()
     {
+
+        $created_at = $this->faker->dateTimeBetween('-6 months', 'now');
+
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
@@ -24,8 +27,8 @@ class GrievanceFactory extends Factory
             'location' => $this->faker->address,
             'department_id' => $this->faker->numberBetween(1, 4), // 限定 department_id 为 1-4
             'user_id' => $this->faker->numberBetween(1, 10), // 假设用户表里有 100 个用户
-            'created_at' => now(),
-            'updated_at' => now(),
+            'created_at' => $created_at,
+            'updated_at' => $created_at,
         ];
     }
 }

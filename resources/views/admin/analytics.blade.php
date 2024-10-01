@@ -198,27 +198,48 @@
         var statusPie = echarts.init(document.getElementById('status-pie'));
         var cateBarChart = echarts.init(document.getElementById('category-bar-chart'));
 
+        var monthlyGrievanceCount = @json($analytics['each_month_grievance']);
+
+        var month = [];
+        var monthData = [];
+        var len = monthlyGrievanceCount.length;
+
+        for (let i = 0; i < len; i++) {
+            month.push(monthlyGrievanceCount[i]['month']);
+            monthData.push(monthlyGrievanceCount[i]['grievance_count']);
+        }
+
+        console.log(month, monthData);
 
         lineChart.setOption({
             title: {
                 text: 'Monthly Grievances Based on Category'
             },
             tooltip: {
-                trigger: 'axis'
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                },
+                formatter: '{c0} grievances this month',
+
             },
             xAxis: {
-                data: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug']
+                data: month,
             },
             yAxis: {},
             series: [{
-                name: 'Line Chart Demo',
+                name: 'Grievances this month',
                 type: 'line',
                 smooth: true,
-                data: [5, 20, 36, 10, 10, 20, 30, 40]
+                data: monthData
             }]
         });
 
         statusPie.setOption({
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b}: {c} ({d}%)'
+            },
             series: [{
                 name: 'Access From',
                 type: 'pie',
@@ -236,15 +257,15 @@
                     show: false
                 },
                 data: [{
-                        value: 1048,
+                        value: @json($analytics['total_pending']),
                         name: 'Pending'
                     },
                     {
-                        value: 735,
+                        value: @json($analytics['total_in_progress']),
                         name: 'In Progress'
                     },
                     {
-                        value: 580,
+                        value: @json($analytics['total_closed']),
                         name: 'Closed'
                     },
                 ]
@@ -255,6 +276,13 @@
             title: {
                 text: 'Grievances Category'
             },
+            tooltip: {
+                trigger: 'item',
+                axisPointer: {
+                    type: 'shadow'
+                },
+                formatter: '{b}: {c} grievances'
+            },
             xAxis: {
                 type: 'category',
                 data: @json($analytics['category_data']['labels'])
@@ -263,6 +291,7 @@
                 type: 'value'
             },
             series: [{
+                name: 'Grievances',
                 data: @json($analytics['category_data']['data']),
                 type: 'bar'
             }]
@@ -273,6 +302,5 @@
             statusPie.resize();
             cateBarChart.resize();
         });
-
     </script>
 @endsection

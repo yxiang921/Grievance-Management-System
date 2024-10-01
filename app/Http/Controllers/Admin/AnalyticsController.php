@@ -41,7 +41,7 @@ class AnalyticsController extends Controller
             'each_month_grievance' => $this->grievanceRepo->getGrievanceEachMonth(),
         ];
 
-        dd($this->grievanceRepo->getGrievanceEachMonth());
+        // dd($this->grievanceRepo->getGrievanceEachMonth());
 
         return view('admin.analytics', [
             'analytics' => $analytics,

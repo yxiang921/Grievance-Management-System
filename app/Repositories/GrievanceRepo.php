@@ -41,7 +41,7 @@ class GrievanceRepo
                 DB::raw('COUNT(*) as grievance_count')
             )
             ->groupBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'))
-            ->orderBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'), 'desc')
+            ->orderBy(DB::raw('DATE_FORMAT(created_at, "%Y-%m")'), 'asc')
             ->get();
     }
 
@@ -56,8 +56,16 @@ class GrievanceRepo
     public function getRecentByStatus($status)
     {
         return DB::table('grievances')
+            ->select(
+                'grievances.*',
+                'users.*',
+                'grievances.id as grievance_id',
+                'users.id as user_id',
+                'grievances.created_at as grievance_created_at'
+            )
             ->where('status', $status)
-            ->orderBy('created_at', 'desc')
+            ->join('users', 'grievances.user_id', '=', 'users.id')
+            ->orderBy('grievances.created_at', 'desc')
             ->limit(3)
             ->get();
     }

@@ -88,9 +88,9 @@
                         Received</h4>
 
                     {{-- Grievance Card --}}
-                    @foreach ($recent_by_status['Received'] as $r)
+                    @foreach ($recent_by_status['Received'] as $grievance)
+                        <x-kanban-card :grievance="$grievance" />
                     @endforeach
-                    {{-- <x-kanban-card></x-kanban-card> --}}
 
                 </div>
 
@@ -98,14 +98,18 @@
                     <h4
                         class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-orange-900 bg-orange-100">
                         In Progress</h4>
-                    <x-kanban-card></x-kanban-card>
+                        @foreach ($recent_by_status['In Progress'] as $grievance)
+                        <x-kanban-card :grievance="$grievance" />
+                    @endforeach
                 </div>
 
                 <div>
                     <h4
                         class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-primary-900 bg-primary-100">
-                        Completed</h4>
-                    <x-kanban-card></x-kanban-card>
+                        Closed</h4>
+                        @foreach ($recent_by_status['Closed'] as $grievance)
+                        <x-kanban-card :grievance="$grievance" />
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -103,3 +103,19 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.status-badge{
+    @apply inline-flex items-center rounded-md px-2 py-1 text-xs  font-medium ring-1 ring-inset
+}
+
+.received-badge{
+    @apply text-yellow-900 bg-yellow-100 ring-yellow-900/20
+}
+
+.in-progress-badge{
+    @apply text-orange-900 bg-orange-100 ring-orange-900/20
+}
+
+.closed-badge{
+    @apply bg-primary-100 text-primary-900 ring-primary-900/20
+}
