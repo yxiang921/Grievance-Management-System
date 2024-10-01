@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use DB;
@@ -25,7 +26,7 @@ class HomeController extends Controller
         }
 
         $monthly_grievance = $grievanceRepo->getMonthly();
-        $monthly_closed = $grievanceRepo->getMonthlyClosed();
+        $monthly_closed = $grievanceRepo->getMonthlyByStatus('Closed');
         $total_grievance = $grievanceRepo->getTotal();
         $total_closed = $grievanceRepo->getTotalByStatus('Closed');
 

@@ -15,6 +15,7 @@ return new class extends Migration {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('phone_number');
             $table->timestamp('email_verified_at')->nullable();
@@ -22,15 +23,6 @@ return new class extends Migration {
             $table->rememberToken();
             $table->timestamps();
         });
-
-        DB::table('users')->insert([
-            [
-                'name' => 'User',
-                'email' => '123@gmail.com',
-                'phone_number' => '014 123 4567',
-                'password' => bcrypt('123'),
-            ],
-        ]);
     }
 
     /**

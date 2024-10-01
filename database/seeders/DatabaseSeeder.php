@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             DepartmentSeeder::class,
             GrievanceSeeder::class,
+            AdminSeeder::class,
         ]);
     }
 }

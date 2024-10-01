@@ -35,51 +35,65 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="h-10">
-                            <td>ADM01</td>
-                            <td>johndoe123</td>
-                            <td>John Doe</td>
-                            <td>johndoe@gmail.com</td>
-                            <td>012 345 6789</td>
-                            <td>
-                                <a href="" class="underline">Edit</a>
-                            </td>
-                        </tr>
+                        @foreach ($admins as $admin)
+                            <tr class="h-10">
+                                <td>ADM{{ $admin->id }}</td>
+                                <td>{{ $admin->admin_name }}</td>
+                                <td>{{ $admin->admin_username }}</td>
+                                <td>{{ $admin->admin_email }}</td>
+                                <td>{{ $admin->admin_phone_number }}</td>
+                                <td>
+                                    <a href="" class="underline">Edit</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
 
         <div class="lg:hidden block mt-4">
-            <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Admin ID</div>
-                    <div>ADM01</div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Username</div>
-                    <div>johndoe123</div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Full Name</div>
-                    <div>John Doe</div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Email</div>
-                    <div>johndoe@gmail.com</div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Phone Number</div>
-                    <div>0123456789</div>
-                </div>
-                <div class="flex justify-between">
-                    <div class="text-gray-500 font-medium">Action</div>
-                    <div>
-                        <a href="" class="underline">Edit</a>
+            @foreach ($admins as $admin)
+                <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Admin ID</div>
+                        <div>
+                            ADM{{ $admin->id }}
+                        </div>
                     </div>
-                </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Username</div>
+                        <div>
+                            {{ $admin->admin_username }}
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Full Name</div>
+                        <div>
+                            {{ $admin->admin_name }}
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Email</div>
+                        <div>
+                            {{ $admin->admin_email }}
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Phone Number</div>
+                        <div>
+                            {{ $admin->admin_phone_number }}
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Action</div>
+                        <div>
+                            <a href="" class="underline">Edit</a>
+                        </div>
+                    </div>
 
-            </div>
+                </div>
+            @endforeach
         </div>
 
     </div>

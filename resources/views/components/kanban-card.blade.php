@@ -1,12 +1,13 @@
 @php
     use Carbon\Carbon;
+    use Illuminate\Support\Str;
 @endphp
 
 <div class="bg-gray-50 p-4 rounded-lg shadow-lg  mt-2">
     <span class="text-sm text-green-500 font-semibold">{{ $grievance->category }} Issue</span>
-    <p class="mt-1">{{ $grievance->title }}</p>
-    <p class="text-gray-500 text-sm">
-        {{ $grievance->description }}
+    <p class="mt-1">{{ Str::limit($grievance->title, 30, '...') }}</p>
+    <p class="text-gray-500 text-sm text-justify">
+        {{ Str::limit($grievance->description, 100, '...') }}
     </p>
     <p class="text-gray-400 text-xs mt-2">
         {{ $grievance->name }}

@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AnalyticsController;
 use App\Http\Controllers\Admin\GrievanceController;
 use App\Http\Controllers\Admin\DepartmentController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::group([
@@ -31,13 +33,11 @@ Route::group([
         return view('admin.map');
     })->name('map');
 
-    Route::get('/users', function () {
-        return view('admin.users');
-    })->name('users');
+    Route::get('/users', [UserController::class, 'index'])
+        ->name('users');
 
-    Route::get('/admins', function () {
-        return view('admin.admins');
-    })->name('admins');
+    Route::get('/admins', [AdminController::class, 'index'])
+        ->name('admins');
 
     Route::get('/settings', function () {
         return view('admin.settings');
