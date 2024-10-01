@@ -53,4 +53,13 @@ class GrievanceRepo
             ->count();
     }
 
+    public function getRecentByStatus($status)
+    {
+        return DB::table('grievances')
+            ->where('status', $status)
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
+    }
+
 }

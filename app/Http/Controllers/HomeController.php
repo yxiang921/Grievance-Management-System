@@ -17,8 +17,12 @@ class HomeController extends Controller
 
     public function index()
     {
-
         $grievanceRepo = $this->grievanceRepo;
+        $status = ['Received', 'In Progress', 'Closed'];
+
+        foreach ($status as $s) {
+            $recent_by_status[$s] = $grievanceRepo->getRecentByStatus($s);
+        }
 
         $monthly_grievance = $grievanceRepo->getMonthly();
         $monthly_closed = $grievanceRepo->getMonthlyClosed();
@@ -30,6 +34,7 @@ class HomeController extends Controller
             'monthly_closed' => $monthly_closed,
             'total_grievance' => $total_grievance,
             'total_closed' => $total_closed,
+            'recent_by_status' => $recent_by_status,
         ]);
     }
 }

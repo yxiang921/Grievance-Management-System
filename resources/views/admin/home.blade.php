@@ -88,7 +88,9 @@
                         Received</h4>
 
                     {{-- Grievance Card --}}
-                    <x-kanban-card></x-kanban-card>
+                    @foreach ($recent_by_status['Received'] as $r)
+                    @endforeach
+                    {{-- <x-kanban-card></x-kanban-card> --}}
 
                 </div>
 

@@ -27,9 +27,6 @@ class GrievanceController extends Controller
 
     public function getAllGrievances()
     {
-        // SELECT * FROM grievances
-        // JOIN users
-        // ON grievances.user_id = users.id;
         $grievances = DB::table('grievances')
             ->join('users', 'grievances.user_id', '=', 'users.id')
             ->select('grievances.id as grievance_id', 'grievances.*', 'users.*', 'users.id as user_id')
@@ -40,11 +37,6 @@ class GrievanceController extends Controller
 
     public function getGrievance($grievance_id)
     {
-        // SELECT * FROM grievances
-        // JOIN users
-        // ON grievances.user_id = users.id
-        // WHERE grievances.id = $grievance_id;
-
         $grievance = DB::table('grievances')
             ->join('users', 'grievances.user_id', '=', 'users.id')
             ->select(
