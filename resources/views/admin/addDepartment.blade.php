@@ -2,27 +2,28 @@
 @section('content')
     <div class="w-full border border-gray-100 rounded-md p-4">
         <h1 class="text-lg font-medium">Add Department</h1>
-        <form class="mt-4" action="">
+        <form method="POST" action="{{ route('admin.department.create') }}" class="mt-4">
+            @csrf
             <div class="grid lg:grid-cols-4 items-center">
                 <label for="departmentName" class="col-span-1">Department Name</label>
-                <input type="text" class="primary-input col-span-2 mt-2 lg:mt-0" placeholder="Name" name="departmentName" />
+                <input type="text" class="primary-input col-span-2 mt-2 lg:mt-0" placeholder="Name"
+                    name="departmentName" />
             </div>
             <div class="grid lg:grid-cols-4 items-center mt-4">
                 <label for="departmentCategory" class="col-span-1">Categry</label>
-                <input type="text" class="primary-input col-span-2 mt-2 lg:mt-0" placeholder="Category" name="departmentCategory">
+                <select name="departmentCategory" id=""
+                    class="primary-select w-full rounded-md border border-gray-400 text-gray-400">
+                    <option value="Academic">Academic</option>
+                    <option value="Facility">Facility</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Behaviour">Behaviour</option>
+                    <option value="Others">Others</option>
+                </select>
             </div>
             <div class="mt-8">
-                <button class="cancel-btn">Cancel</button>
+                <a class="cancel-btn" href="{{ route('admin.departments') }}" >Cancel</a>
                 <button class="primary-btn" type="submit">Submit</button>
             </div>
-
         </form>
     </div>
-
-
-    <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-        });
-    </script>
 @endsection

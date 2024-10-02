@@ -17,14 +17,46 @@ Route::group([
     Route::get('/home', [HomeController::class, 'index'])
         ->name('home');
 
+
+    // Grievances 
     Route::get('/grievances', [GrievanceController::class, 'getAllGrievances'])
         ->name('grievances');
 
     Route::get('/grievance/{grievance_id}', [GrievanceController::class, 'getGrievance'])
         ->name('grievance.detail');
 
+
+    // Departments
     Route::get('/departments', [DepartmentController::class, 'getAllDepartment'])
         ->name('departments');
+
+    Route::get('/addDepartment', function () {
+        return view('admin.addDepartment');
+    })->name('addDepartment');
+
+    Route::get('/editDepartment/{department_id}', [DepartmentController::class, 'editDepartment'])
+        ->name('department.edit');
+
+    Route::post('/department/create', [DepartmentController::class, 'createDepartment'])
+        ->name('department.create');
+
+    Route::post('/department/update', [DepartmentController::class, 'updateDepartment'])
+        ->name('department.update');
+
+    Route::get('/deleteDepartment/{department_id}', [DepartmentController::class, 'deleteDepartment'])
+        ->name('department.delete');
+
+
+
+    // Users
+    Route::get('/users', [UserController::class, 'index'])
+        ->name('users');
+
+    // Admins
+    Route::get('/admins', [AdminController::class, 'index'])
+        ->name('admins');
+
+
 
     Route::get('/analytics', [AnalyticsController::class, 'getAnalytics'])
         ->name('analytics');
@@ -32,12 +64,6 @@ Route::group([
     Route::get('/map', function () {
         return view('admin.map');
     })->name('map');
-
-    Route::get('/users', [UserController::class, 'index'])
-        ->name('users');
-
-    Route::get('/admins', [AdminController::class, 'index'])
-        ->name('admins');
 
     Route::get('/settings', function () {
         return view('admin.settings');
@@ -55,9 +81,7 @@ Route::get('/editUser', function () {
     return view('admin.editUser');
 })->name('admin.editUser');
 
-Route::get('/addNewDepartment', function () {
-    return view('admin.addNewDepartment');
-})->name('admin.addDepartment');
+
 
 Route::get('/editDepartment', function () {
     return view('admin.editDepartment');

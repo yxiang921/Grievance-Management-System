@@ -34,7 +34,11 @@
                                     {{ $department->department_category }}
                                 </td>
                                 <td>
-                                    <a href="" class="underline">Edit</a>
+                                    <a href="{{ route('admin.department.edit', ['department_id' => $department->id]) }}"
+                                        class="underline">Edit</a>
+                                    <span class="p-2">|</span>
+                                    <a href="{{ route('admin.department.delete', ['department_id' => $department->id]) }}"
+                                        class="underline">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -42,6 +46,7 @@
                 </table>
             </div>
         </div>
+
 
         @foreach ($departments as $department)
             <div class="lg:hidden block mt-4">
