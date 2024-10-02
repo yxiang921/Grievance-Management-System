@@ -7,7 +7,7 @@
                 <button class="primary-btn w-28 ml-2">Search</button>
             </div>
             <div class="">
-                <a class="primary-btn" href="{{ route('admin.addDepartment') }}">Add New Department</a>
+                <a class="primary-btn" href="{{ route('admin.department.add') }}">Add New Department</a>
             </div>
         </div>
         <div class="w-full h-auto mt-8 hidden lg:block">

@@ -1,17 +1,27 @@
 <?php
 $routeNames = [
     'admin.home' => 'Dashboard',
+
     'admin.grievances' => 'Grievances',
-    'admin.departments' => 'Departments Management',
+
+    'admin.departments' => 'Department Management',
+    'admin.department.add' => 'Department Management',
+    'admin.department.edit' => 'Department Management',
+
+    'admin.admins' => 'Admin Management',
+    'admin.admin.add' => 'Admin Management',
+    'admin.admin.edit' => 'Admin Management',
+
+    'admin.users' => 'User Management',
+    'admin.user.add' => 'User Management',
+    'admin.user.edit' => 'User Management',
+
     'admin.analytics' => 'Analytics',
     'admin.map' => 'Map',
-    'admin.users' => 'User Management',
-    'admin.admins' => 'Admin Management',
     'admin.settings' => 'Settings',
 
     'admin.grievance.detail' => 'Grievance Detail',
     
-    'admin.addNewDepartment' => 'Department Management',
 ];
 ?>
 

@@ -32,7 +32,7 @@ Route::group([
 
     Route::get('/addDepartment', function () {
         return view('admin.addDepartment');
-    })->name('addDepartment');
+    })->name('department.add');
 
     Route::get('/editDepartment/{department_id}', [DepartmentController::class, 'editDepartment'])
         ->name('department.edit');
@@ -54,7 +54,7 @@ Route::group([
 
     Route::get('/addUser', function () {
         return view('admin.addUser');
-    })->name('addUser');
+    })->name('user.add');
 
     Route::get('/editUser/{user_id}', [UserController::class, 'editUser'])
         ->name('user.edit');
@@ -76,7 +76,7 @@ Route::group([
 
     Route::get('/addAdmin', function () {
         return view('admin.addAdmin');
-    })->name('addAdmin');
+    })->name('admin.add');
 
     Route::get('/editAdmin/{admin_id}', [AdminController::class, 'editAdmin'])
         ->name('admin.edit');

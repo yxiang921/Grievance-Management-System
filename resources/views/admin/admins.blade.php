@@ -3,7 +3,7 @@
     <div class="w-full h-auto mt-4 border border-gray-100 shadow-sm rounded-md p-4 bg-white">
         <div class="w-full flex flex-row justify-between items-center pr-2">
             <h1 class="font-semibold text-lg">Admin List</h1>
-            <a href="{{ route('admin.addAdmin') }}" class="primary-btn">Add new admin</a>
+            <a href="{{ route('admin.admin.add') }}" class="primary-btn">Add new admin</a>
         </div>
         <div class="w-full">
             <div class="w-full">
