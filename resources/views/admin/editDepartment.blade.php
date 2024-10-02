@@ -30,16 +30,9 @@
             </div>
             <div class="mt-8">
                 <a class="cancel-btn" href="{{ route('admin.departments') }}">Cancel</a>
-                <button class="primary-btn" type="submit">Submit</button>
+                <button class="primary-btn" type="submit">Update</button>
             </div>
 
         </form>
     </div>
-
-
-    <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-        });
-    </script>
 @endsection

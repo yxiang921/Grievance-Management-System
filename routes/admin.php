@@ -52,6 +52,24 @@ Route::group([
     Route::get('/users', [UserController::class, 'index'])
         ->name('users');
 
+    Route::get('/addUser', function () {
+        return view('admin.addUser');
+    })->name('addUser');
+
+    Route::get('/editUser/{user_id}', [UserController::class, 'editUser'])
+        ->name('user.edit');
+
+    Route::post('/user/update', [UserController::class, 'updateUser'])
+        ->name('user.update');
+
+    Route::post('/user/create', [UserController::class, 'createUser'])
+        ->name('user.create');
+
+    Route::get('/deleteUser/{user_id}', [UserController::class, 'deleteUser'])
+        ->name('user.delete');
+
+
+
     // Admins
     Route::get('/admins', [AdminController::class, 'index'])
         ->name('admins');
@@ -69,28 +87,3 @@ Route::group([
         return view('admin.settings');
     })->name('settings');
 });
-
-
-
-Route::get('/addUser', function () {
-    action:
-    return view('admin.addUser');
-})->name('admin.addUser');
-
-Route::get('/editUser', function () {
-    return view('admin.editUser');
-})->name('admin.editUser');
-
-
-
-Route::get('/editDepartment', function () {
-    return view('admin.editDepartment');
-})->name('admin.editDepartment');
-
-Route::get('/addAdmin', function () {
-    return view('admin.addAdmin');
-})->name('admin.addAdmin');
-
-Route::get('/editAdmin', function () {
-    return view('admin.editAdmin');
-})->name('admin.editAdmin');

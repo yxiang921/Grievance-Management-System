@@ -3,8 +3,7 @@
     <div class="w-full h-auto mt-4 border border-gray-100 shadow-sm rounded-md p-4 bg-white">
         <div class="w-full flex flex-row justify-between items-center pr-2">
             <h1 class="font-semibold text-lg">Users List</h1>
-            <button class="primary-btn">Add new user</button>
-            {{-- <x-modal></x-modal> --}}
+            <a class="primary-btn" href="{{ route('admin.addUser') }}">Add new user</a>
         </div>
         <div class="w-full">
             <div class="w-full">
@@ -36,14 +35,17 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $user)
-                            <tr class="h-10">
+                            <tr class="h-10 hover:bg-primary-100/5">
                                 <td>USR{{ $user->id }}</td>
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->phone_number }}</td>
                                 <td>
-                                    <a href="" class="underline">Edit</a>
+                                    <a href="{{ route('admin.user.edit', ['user_id' => $user->id]) }}"
+                                        class="underline">Edit</a>
+                                    <span class="px-2">|</span>
+                                    <a href="{{ route('admin.user.delete', ['user_id' => $user->id]) }}" class="underline">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
