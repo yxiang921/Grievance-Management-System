@@ -2,7 +2,10 @@
 
 namespace App\View\Components;
 
+use Auth;
 use Illuminate\View\Component;
+
+use DB;
 
 class sidebar extends Component
 {
@@ -23,6 +26,9 @@ class sidebar extends Component
      */
     public function render()
     {
-        return view('components.sidebar');
+        $admin_id = Auth::id();
+        $admin = DB::table('admins')->where('id', $admin_id)->first();
+
+        return view('components.sidebar', ['admin' => $admin]);
     }
 }

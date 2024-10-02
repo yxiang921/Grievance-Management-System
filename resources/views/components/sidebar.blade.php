@@ -8,8 +8,10 @@
         <div class="flex flex-col justify-center items-center">
             <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
                 class="rounded-full w-20 h-20 mb-4">
-            <p class="text-lg font-semibold">Admin</p>
-            <p class="text-gray-500">admin@gmail.com</p>
+            <p class="text-lg font-semibold">{{ $admin->admin_name }} </p>
+            <p class="text-gray-500">
+                {{ $admin->admin_email }}
+            </p>
         </div>
 
         <div class="cursor-pointer w-8 h-8 absolute top-4 right-4 md:hidden" onclick="toggleMenu()">
