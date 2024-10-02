@@ -3,8 +3,7 @@
     <div class="w-full h-auto mt-4 border border-gray-100 shadow-sm rounded-md p-4 bg-white">
         <div class="w-full flex flex-row justify-between items-center pr-2">
             <h1 class="font-semibold text-lg">Admin List</h1>
-            <button class="primary-btn">Add new admin</button>
-            {{-- <x-modal></x-modal> --}}
+            <a href="{{ route('admin.addAdmin') }}" class="primary-btn">Add new admin</a>
         </div>
         <div class="w-full">
             <div class="w-full">
@@ -43,7 +42,10 @@
                                 <td>{{ $admin->admin_email }}</td>
                                 <td>{{ $admin->admin_phone_number }}</td>
                                 <td>
-                                    <a href="" class="underline">Edit</a>
+                                    <a href="{{ route('admin.admin.edit', ['admin_id' => $admin->id]) }}"
+                                        class="underline">Edit</a>
+                                    <span class="px-2">|</span>
+                                    <a href="{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}" class="underline">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
