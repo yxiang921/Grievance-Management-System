@@ -14,11 +14,12 @@
                         “Streamline, Resolve, Improve: Elevate Your Workflow with Our Grievance Management System!”
                     </p>
 
-                    <p class="text-sm mt-12 text-gray-800">Don't have an account <a href="{{ route('register') }}"
+                    <p class="text-sm mt-12 text-gray-800">Don't have an account <a
+                            href="{{ route('department.register.form') }}"
                             class="text-primary-900 font-semibold hover:underline ml-1">Register here</a></p>
                 </div>
 
-                <form class="max-w-md md:ml-auto w-full" method="POST" action="{{ route('login') }}">
+                <form class="max-w-md md:ml-auto w-full" method="POST" action="{{ route('department.login') }}">
                     @csrf
                     <h3 class="text-gray-900 text-3xl font-extrabold mb-8">
                         Sign in
@@ -26,18 +27,17 @@
 
                     <div class="space-y-4">
                         <div>
-                            <x-input-label for="email" :value="__('Email')" />
-                            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
-                                :value="old('email')" required autofocus autocomplete="username" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <x-input-label for="department_key" :value="__('Department Key')" />
+                            <x-text-input id="department_key" class="block mt-1 w-full" type="text"
+                                name="department_key" :value="old('department_key')" required autofocus autocomplete="username" />
                         </div>
                         <div>
-                            <x-input-label for="password" :value="__('Password')" />
+                            <x-input-label for="department_password" :value="__('Department Password')" />
 
-                            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password"
-                                required autocomplete="current-password" />
+                            <x-text-input id="department_password" class="block mt-1 w-full" type="password"
+                                name="department_password" required autocomplete="current-department_password" />
 
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('error_message')" class="mt-2" />
                         </div>
                         <div class="flex flex-wrap items-center justify-between gap-4">
                             <div class="flex items-center">

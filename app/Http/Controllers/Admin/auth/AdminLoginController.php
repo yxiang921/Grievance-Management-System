@@ -30,8 +30,8 @@ class AdminLoginController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'Login Failed! Please check your email and password.',
-        ]);
+            'error_message' => 'Login Failed! Please check your email and password.',
+        ])->withInput($request->only(keys: 'admin_email'));
     }
 
 

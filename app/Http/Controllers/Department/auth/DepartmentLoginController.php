@@ -10,25 +10,31 @@ class DepartmentLoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('department.login');
+        return view('department.auth.login');
     }
 
     public function login(Request $request)
     {
-        $credentials = $request->only('code', 'key'); // Department 使用 code 和 key 登录
+        $credentials = $request->only('department_key', 'department_password');
+
+        $credentials = [
+            'department_key' => $request->department_key,
+            'department_password' => $request->department_password,
+            'password' => $request->department_password,
+        ];
 
         if (Auth::guard('department')->attempt($credentials)) {
             return redirect()->intended('/department/dashboard');
         }
 
         return back()->withErrors([
-            'code' => 'The provided credentials do not match our records.',
-        ]);
+            'error_message' => 'Login Failed! Please check the department key and password.',
+        ])->withInput($request->only('department_key'));
     }
 
     public function logout()
     {
         Auth::guard('department')->logout();
-        return redirect('/department/login');
+        return redirect()->route('department.login.form');
     }
 }

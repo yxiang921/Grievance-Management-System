@@ -25,6 +25,8 @@ Route::group([
     'as' => 'department.',
 ], function () {
     Route::get('/login', [DepartmentLoginController::class, 'showLoginForm'])->name('login.form');
-    Route::post('/login', [DepartmentLoginController::class, 'login']);
+    Route::post('/login', [DepartmentLoginController::class, 'login'])->name('login');
     Route::post('/logout', [DepartmentLoginController::class, 'logout'])->name('logout');
+
+    Route::get('/register', [DepartmentLoginController::class, 'showRegisterForm'])->name('register.form');
 });

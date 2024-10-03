@@ -18,8 +18,8 @@ return new class extends Migration {
             $table->string('department_category');
 
             // For department login to system using code and key
-            $table->string('department_code')->unique();
-            $table->string('department_key');
+            $table->string('department_key')->unique();
+            $table->string('department_password');
 
             $table->rememberToken();
 
