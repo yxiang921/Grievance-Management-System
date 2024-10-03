@@ -27,8 +27,6 @@ class sidebar extends Component
     public function render()
     {
         $admin_id = Auth::guard('admin')->id();
-        $admin_name = Auth::guard('admin')->user()->admin_name;
-        dd($admin_name);
         $admin = DB::table('admins')->where('id', $admin_id)->first();
 
         return view('components.sidebar', ['admin' => $admin]);

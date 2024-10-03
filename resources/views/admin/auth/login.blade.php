@@ -29,7 +29,6 @@
                             <x-input-label for="admin_email" :value="__('Email')" />
                             <x-text-input id="admin_email" class="block mt-1 w-full" type="email" name="admin_email"
                                 :value="old('admin_email')" required autofocus autocomplete="username" />
-                            <x-input-error :messages="$errors->get('admin_email')" class="mt-2" />
                         </div>
                         <div>
                             <x-input-label for="admin_password" :value="__('Password')" />
@@ -37,7 +36,7 @@
                             <x-text-input id="admin_password" class="block mt-1 w-full" type="password"
                                 name="admin_password" required autocomplete="current-admin_password" />
 
-                            <x-input-error :messages="$errors->get('admin_password')" class="mt-2" />
+                            <x-input-error :messages="$errors->get('error_message')" class="mt-2" />
                         </div>
                         <div class="flex flex-wrap items-center justify-between gap-4">
                             <div class="flex items-center">
