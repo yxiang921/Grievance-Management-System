@@ -131,7 +131,7 @@
         </a>
 
 
-        <form action="{{ route('logout')}}" method="POST" class="w-full">
+        <form action="{{ route('admin.logout')}}" method="POST" class="w-full">
             @csrf
             <button type="submit" class="w-full primary-btn flex items-center justify-center">
                 <span>Log Out</span>

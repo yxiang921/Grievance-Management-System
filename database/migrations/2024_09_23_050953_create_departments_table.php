@@ -16,6 +16,13 @@ return new class extends Migration {
             $table->id();
             $table->string('department_name');
             $table->string('department_category');
+
+            // For department login to system using code and key
+            $table->string('department_code')->unique();
+            $table->string('department_key');
+
+            $table->rememberToken();
+
             $table->timestamps();
         });
     }
