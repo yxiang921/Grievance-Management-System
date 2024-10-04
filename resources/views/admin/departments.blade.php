@@ -16,6 +16,7 @@
                     <thead class="border-b-[1px] border-gray-100 h-12 text-gray-500">
                         <tr>
                             <th class="">Department ID</th>
+                            <th class="">Department Key</th>
                             <th class="">Department Name</th>
                             <th class="">Category</th>
                             <th class="">Action</th>
@@ -26,6 +27,9 @@
                             <tr class="h-10">
                                 <td>
                                     DPM{{ $department->id }}
+                                </td>
+                                <td>
+                                    {{ $department->department_key }}
                                 </td>
                                 <td>
                                     {{ $department->department_name }}
@@ -55,6 +59,12 @@
                         <div class="text-gray-500 font-medium">Department ID</div>
                         <div>
                             DPM{{ $department->id }}
+                        </div>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="text-gray-500 font-medium">Department Key</div>
+                        <div>
+                            {{ $department->department_key }}
                         </div>
                     </div>
                     <div class="flex justify-between">

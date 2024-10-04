@@ -7,11 +7,25 @@
 
             <input type="hidden" name="departmentId" value="{{ $department->id }}" />
             
-            <div class="grid lg:grid-cols-4 items-center">
+            <div class="grid lg:grid-cols-4 items-center mt-4">
                 <label for="departmentName" class="col-span-1">Department Name</label>
                 <input type="text" class="primary-input col-span-2 mt-2 lg:mt-0" placeholder="Name" name="departmentName"
                     value="{{ $department->department_name }}" />
             </div>
+
+            <div class="grid lg:grid-cols-4 items-center mt-4">
+                <label for="departmentKey" class="col-span-1">Department Key</label>
+                <input type="text" class="primary-input col-span-2 mt-2 lg:mt-0" placeholder="Name" name="departmentKey"
+                    value="{{ $department->department_key }}" />
+            </div>
+
+            <div class="grid lg:grid-cols-4 items-center mt-4">
+                <label for="departmentPassword" class="col-span-1">Department Password</label>
+                <input type="password" class="primary-input col-span-2 mt-2 lg:mt-0" name="departmentPassword"
+                    value="" />
+            </div>
+
+
             <div class="grid lg:grid-cols-4 items-center mt-4">
                 <label for="departmentCategory" class="col-span-1">Categry</label>
                 <select name="departmentCategory" id=""

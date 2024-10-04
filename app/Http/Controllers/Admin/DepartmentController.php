@@ -49,17 +49,35 @@ class DepartmentController extends Controller
     public function updateDepartment()
     {
         $req = request();
+        $department_id = $req->input('departmentId');
+
+        $department = Department::find($department_id);
+
+
+        if ($req->input('departmentPassword') == '') {
+            $password = $department->department_password;
+        } else {
+
+            $validateData = $req->validate([
+                'password' => 'required | min:8',
+            ]);
+
+            $password = bcrypt($validateData['departmentPassword']);
+        }
 
         $validateData = $req->validate([
             'departmentName' => 'required',
             'departmentCategory' => 'required',
             'departmentId' => 'required',
+            'departmentKey' => 'required',
+
         ]);
 
-        $department = Department::find($validateData['departmentId']);
 
         $department->department_name = $validateData['departmentName'];
         $department->department_category = $validateData['departmentCategory'];
+        $department->department_key = $validateData['departmentKey'];
+        $department->department_password = $password;
 
         $department->save();
 
