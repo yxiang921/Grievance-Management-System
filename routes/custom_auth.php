@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\auth\AdminRegisterController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\auth\AdminLoginController;
@@ -20,7 +21,8 @@ Route::group([
     Route::post('/login', [AdminLoginController::class, 'login'])->name('login');
     Route::post('/logout', [AdminLoginController::class, 'logout'])->name('logout');
 
-    Route::get('/register', [AdminLoginController::class, 'showRegisterForm'])->name('register.form');
+    Route::get('/register', [AdminRegisterController::class, 'showRegisterForm'])->name('register.form');
+    Route::post('/register', [AdminRegisterController::class, 'register'])->name('register');
 });
 
 

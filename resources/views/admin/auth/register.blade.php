@@ -11,11 +11,11 @@
                     “Streamline, Resolve, Improve: Elevate Your Workflow with Our Grievance Management System!”
                 </p>
 
-                <p class="text-sm mt-12 text-gray-800">Already have an account? <a href="{{ route('login') }}"
+                <p class="text-sm mt-12 text-gray-800">Already have an account? <a href="{{ route('admin.login.form') }}"
                         class="text-primary-900 font-semibold hover:underline ml-1">Login here</a></p>
             </div>
 
-            <form class="max-w-md md:ml-auto w-full" method="POST" action="{{ route('register') }}">
+            <form class="max-w-md md:ml-auto w-full" method="POST" action="{{ route('admin.register') }}">
                 @csrf
                 <h3 class="text-gray-900 text-3xl font-extrabold mb-8">
                     Sign Up
