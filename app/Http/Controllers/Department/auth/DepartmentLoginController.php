@@ -24,7 +24,7 @@ class DepartmentLoginController extends Controller
         ];
 
         if (Auth::guard('department')->attempt($credentials)) {
-            return redirect()->intended('/department/dashboard');
+            return redirect()->route('department.home');
         }
 
         return back()->withErrors([

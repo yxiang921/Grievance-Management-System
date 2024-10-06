@@ -22,7 +22,7 @@
                 <form class="max-w-md md:ml-auto w-full" method="POST" action="{{ route('department.login') }}">
                     @csrf
                     <h3 class="text-gray-900 text-3xl font-extrabold mb-8">
-                        Sign in
+                        Sign in as Department
                     </h3>
 
                     <div class="space-y-4">

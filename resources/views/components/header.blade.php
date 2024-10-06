@@ -21,6 +21,9 @@ $routeNames = [
     'admin.settings' => 'Settings',
 
     'admin.grievance.detail' => 'Grievance Detail',
+
+
+    'department.home' => 'Dashboard',
     
 ];
 ?>
