@@ -92,4 +92,13 @@ class DepartmentController extends Controller
 
         return redirect()->route('admin.departments');
     }
+
+    public function getAllDepartmentCategory()
+    {
+        $departments = DB::table('departments')
+            ->select('department_name', 'department_category')
+            ->get();
+
+        return $departments;
+    }
 }

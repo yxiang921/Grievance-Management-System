@@ -10,16 +10,6 @@ use App\Models\Grievance;
 
 class GrievanceController extends Controller
 {
-    // To Do
-    // C: Create? Admin应不应该可以create 投诉？
-
-    // R: Read grievance 200
-
-    // U: Update/Assign grievance to department
-    //    Modify grievance status, category or add remarks
-
-    // D: Delete grievance 200
-
     public function __construct()
     {
 
@@ -49,6 +39,23 @@ class GrievanceController extends Controller
             ->where('grievances.id', '=', $grievance_id)
             ->get();
 
-        return view('admin.grievanceDetail')->with('grievance', $grievance);
+        $departmentController = new DepartmentController();
+        $departments = $departmentController->getAllDepartmentCategory();
+
+        return view('admin.grievanceDetail', [
+            'grievance' => $grievance,
+            'departments' => $departments
+        ]);
+    }
+
+    public function assignGrievance()
+    {
+        $req = request();
+
+        $grievance = DB::table('grievances')
+            ->where('id', $req->grievance_id)
+            ->get();
+
+
     }
 }

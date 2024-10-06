@@ -79,7 +79,7 @@
                             <label class="block text-gray-700">Category</label>
                             <select
                                 class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900 text-gray-700"
-                                name="" id="">
+                                name="" id="category">
                                 <option value="Facility">Facility</option>
                                 <option value="Academic">Academic</option>
                                 <option value="Finance">Finance</option>
@@ -96,11 +96,6 @@
                                 <option value="Academic">Student Affair Office</option>
                                 <option value="Finance">Account and Finance Office</option>
                             </select>
-                        </div>
-                        <div class="mb-4">
-                            <label class="block text-gray-700">Staff</label>
-                            <input type="text"
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900">
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Outsource Remark</label>
@@ -120,4 +115,22 @@
             @endforeach
         </div>
     </div>
+
+<script>
+
+    const departments = @json($departments);
+
+    console.log(departments);
+
+    const categorySelector = document.querySelector('select#category');
+
+    categorySelector.addEventListener('change', (e) => {
+        for (let i = 0; i < departments.length; i++) {
+            if (departments[i].department_category === e.target.value) {
+                console.log(departments[i].department_name);
+            }
+        }
+    });
+
+</script>
 @endsection
