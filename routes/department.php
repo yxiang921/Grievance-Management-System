@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'prefix' => 'department',
     'as' => 'department.',
-    
+    'middleware' => ['department.auth']
+
 ], function () {
 
     Route::get('/home', [HomeController::class, 'index'])

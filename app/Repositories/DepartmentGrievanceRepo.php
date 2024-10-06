@@ -7,32 +7,48 @@ use DB;
 
 class DepartmentGrievanceRepo
 {
+
+    public function __construct()
+    {
+
+    }
+
     public function getTotal()
     {
+
         $department_id = Auth::guard('department')->user()->id;
 
         return DB::table('grievances')
-            ->where('id', $department_id)
+            ->where('department_id', $department_id)
             ->count();
     }
 
     public function getTotalByStatus($status)
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         return DB::table('grievances')
             ->where('status', $status)
+            ->where('department_id', $department_id)
             ->count();
     }
 
     public function getTotalByCategory($category)
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         return DB::table('grievances')
             ->where('category', $category)
+            ->where('department_id', $department_id)
             ->count();
     }
 
     public function getGrievanceEachMonth()
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         return DB::table('grievances')
+            ->where('department_id', $department_id)
             ->select(
                 DB::raw('DATE_FORMAT(created_at, "%Y-%m") as month'),
                 DB::raw('COUNT(*) as grievance_count')
@@ -44,14 +60,20 @@ class DepartmentGrievanceRepo
 
     public function getMonthly()
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         return DB::table('grievances')
+            ->where('department_id', $department_id)
             ->where('created_at', '>=', now()->subMonth())
             ->count();
     }
 
     public function getMonthlyByStatus($status)
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         return DB::table('grievances')
+            ->where('department_id', $department_id)
             ->where('status', $status)
             ->where('created_at', '>=', now()->subMonth())
             ->count();
@@ -59,7 +81,10 @@ class DepartmentGrievanceRepo
 
     public function getRecentByStatus($status)
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         return DB::table('grievances')
+            ->where('department_id', $department_id)
             ->select(
                 'grievances.*',
                 'users.*',
@@ -77,11 +102,15 @@ class DepartmentGrievanceRepo
     public function calPctChange()
     {
 
+        $department_id = Auth::guard('department')->user()->id;
+
         $currentMonth = DB::table('grievances')
+            ->where('department_id', $department_id)
             ->where('created_at', '>=', now()->subMonth())
             ->count();
 
         $previousMonth = DB::table('grievances')
+            ->where('department_id', $department_id)
             ->where('created_at', '>=', now()->subMonths(2))
             ->where('created_at', '<', now()->subMonth())
             ->count();
@@ -95,12 +124,16 @@ class DepartmentGrievanceRepo
 
     public function calPctBasedStatus($status)
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         $currentMonthBasedStatus = DB::table('grievances')
+            ->where('department_id', $department_id)
             ->where('status', $status)
             ->where('created_at', '>=', now()->subMonth())
             ->count();
 
         $previousMonthBasedStatus = DB::table('grievances')
+            ->where('department_id', $department_id)
             ->where('status', $status)
             ->where('created_at', '>=', now()->subMonths(2))
             ->where('created_at', '<', now()->subMonth())
@@ -115,10 +148,14 @@ class DepartmentGrievanceRepo
 
     public function calPctTotalBasedStatus($status)
     {
+
+        $department_id = Auth::guard('department')->user()->id;
         $totalGrievances = DB::table('grievances')
+            ->where('department_id', $department_id)
             ->count();
 
         $totalGrievancesBasedStatus = DB::table('grievances')
+            ->where('department_id', $department_id)
             ->where('status', $status)
             ->count();
 
