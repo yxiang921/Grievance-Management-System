@@ -96,7 +96,7 @@ class DepartmentController extends Controller
     public function getAllDepartmentCategory()
     {
         $departments = DB::table('departments')
-            ->select('department_name', 'department_category')
+            ->select('id as department_id', 'department_name', 'department_category')
             ->get();
 
         return $departments;

@@ -71,15 +71,19 @@
                         </div>
                     </div>
                 </div>
+
                 {{-- Right section --}}
                 <div class="lg:w-1/2 w-full h-full  pl-4 pt-4">
-                    <div class="h-full">
+                    <form class="h-full" method="POST" action="{{ route('admin.grievance.assign') }}">
+                        @csrf
                         <h4 class="text-lg font-semibold mb-4">Grievances Assign</h4>
                         <div class="mb-4">
+                            <input type="text" hidden value="{{ $grievance->grievance_id }}" name="grievanceID">
                             <label class="block text-gray-700">Category</label>
-                            <select
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900 text-gray-700"
-                                name="" id="category">
+                            <select class="primary-select w-full mt-2" name="" id="category" required>
+                                <option value="" selected disabled>
+                                    Select Category
+                                </option>
                                 <option value="Facility">Facility</option>
                                 <option value="Academic">Academic</option>
                                 <option value="Finance">Finance</option>
@@ -89,18 +93,12 @@
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Department</label>
-                            <select
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900 text-gray-700"
-                                name="" id="">
-                                <option value="Facility">Asset and General Affair Office</option>
-                                <option value="Academic">Student Affair Office</option>
-                                <option value="Finance">Account and Finance Office</option>
+                            <select class="primary-select w-full mt-2" name="departmentID" id="department" required>
                             </select>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Outsource Remark</label>
-                            <textarea
-                                class="transition-all w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-900"></textarea>
+                            <textarea class="primary-input w-full mt-2" rows="6"></textarea>
                         </div>
                         <div class="flex flex-col justify-between">
                             <button class="primary-btn">
@@ -110,27 +108,45 @@
                                 Close Case
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </div>
             @endforeach
         </div>
     </div>
 
-<script>
+    <script>
+        const departments = @json($departments);
+        let departmentName;
 
-    const departments = @json($departments);
+        const categorySelector = document.querySelector('select#category');
+        const departmentSelector = document.querySelector('select#department');
 
-    console.log(departments);
+        categorySelector.addEventListener('change', (e) => {
 
-    const categorySelector = document.querySelector('select#category');
 
-    categorySelector.addEventListener('change', (e) => {
-        for (let i = 0; i < departments.length; i++) {
-            if (departments[i].department_category === e.target.value) {
-                console.log(departments[i].department_name);
-            }
+            departmentSelector.innerHTML = '';
+
+            departments.forEach(department => {
+                if (department.department_category === e.target.value) {
+
+                    insertDepartment(department.department_name, department.department_id);
+
+                } else if (e.target.value === 'Other') {
+
+                    insertDepartment(department.department_name, department.department_id);
+
+                }
+            });
+
+        });
+
+        function insertDepartment(departmentName, departmentID) {
+            let option = document.createElement('option');
+
+            option.text = departmentName;
+            option.value = departmentID;
+
+            departmentSelector.appendChild(option);
         }
-    });
-
-</script>
+    </script>
 @endsection

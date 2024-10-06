@@ -37,7 +37,7 @@ class DepartmentSeeder extends Seeder
             ],
             [
                 'department_name' => 'Student Affair Office',
-                'department_category' => 'Other',
+                'department_category' => 'Behaviour',
                 'department_key' => 'saosuc',
                 'department_password' => bcrypt(value: '12341234')
             ],

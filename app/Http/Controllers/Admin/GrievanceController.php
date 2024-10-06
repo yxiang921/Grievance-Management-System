@@ -51,11 +51,17 @@ class GrievanceController extends Controller
     public function assignGrievance()
     {
         $req = request();
+        $grievance_id = $req->input('grievanceID');
+        
 
-        $grievance = DB::table('grievances')
-            ->where('id', $req->grievance_id)
-            ->get();
+        $grievance = Grievance::find($grievance_id);
 
+        $grievance->department_id = $req->departmentID;
+        $grievance->status = 'In Progress';
+
+        $grievance->save();
+
+        return redirect()->route('admin.grievances');   
 
     }
 }
