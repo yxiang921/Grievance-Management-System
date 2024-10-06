@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\API\GrievanceController;
+use App\Http\Controllers\API\GrievanceApiController;
 
 
 /*
@@ -29,13 +29,13 @@ Route::group(
     ],
     function () {
 
-        Route::get('/view', [GrievanceController::class, 'getGrievances'])
+        Route::get('/view', [GrievanceApiController::class, 'getGrievances'])
             ->name('grievance.view');
 
-        Route::post('/add', [GrievanceController::class, 'createGrievance'])
+        Route::post('/add', [GrievanceApiController::class, 'createGrievance'])
             ->name('grievance.add');
 
-        Route::post('delete', [GrievanceController::class, 'deleteGrievance'])
+        Route::post('delete', [GrievanceApiController::class, 'deleteGrievance'])
             ->name('grievance.delete');
     }
 );
