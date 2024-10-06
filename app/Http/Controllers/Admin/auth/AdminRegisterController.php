@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\auth;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,14 +15,27 @@ class AdminRegisterController extends Controller
         return view('admin.auth.register');
     }
 
-    public function register(Request $request)
+    public function register()
     {
-        dd('register');
+        $req = request();
 
+        $validateData = $req->validate([
+            'admin_name' => 'required',
+            'admin_username' => 'required',
+            'admin_password' => 'required',
+            'admin_email' => 'required',
+            'admin_phone_number' => 'required',
+        ]);
 
-        
-        return back()->withErrors([
-            'error_message' => 'Login Failed! Please check your email and password.',
-        ])->withInput($request->only(keys: 'admin_email'));
+        Admin::create([
+            'admin_name' => $validateData['admin_name'],
+            'admin_username' => $validateData['admin_username'],
+            'admin_password' => bcrypt($validateData['admin_password']),
+            'admin_email' => $validateData['admin_email'],
+            'admin_phone_number' => $validateData['admin_phone_number'],
+        ]);
+
+        return redirect()->route('admin.login')
+            ->with('success', 'Your account has been registered successfully');
     }
 }
