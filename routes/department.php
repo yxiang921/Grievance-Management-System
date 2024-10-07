@@ -21,6 +21,9 @@ Route::group([
     Route::get('/grievances', [GrievanceController::class, 'getAllGrievances'])
         ->name('grievances');
 
+    Route::get('/grievance/{grievance_id}', [GrievanceController::class, 'getGrievance'])
+        ->name('grievance.detail');
+
 
 
     // Departments

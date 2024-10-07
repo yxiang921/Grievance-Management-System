@@ -2,31 +2,45 @@
 
 namespace Database\Factories;
 
+use App\Models\Grievance;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Grievance>
- */
 class GrievanceFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+    protected $model = Grievance::class;
+
     public function definition()
     {
+        $created_at = $this->faker->dateTimeBetween('-1 years', 'now');
 
-        $created_at = $this->faker->dateTimeBetween('-6 months', 'now');
+        $category = $this->faker->randomElement(['Academic', 'Finance', 'Facility', 'Behaviour', 'Other']);
+
+        switch ($category) {
+            case 'Academic':
+                $department_id = 3;
+                break;
+            case 'Finance':
+                $department_id = 2;
+                break;
+            case 'Facility':
+                $department_id = 1;
+                break;
+            case 'Behaviour':
+                $department_id = 4;
+                break;
+            case 'Other':
+                $department_id = $this->faker->numberBetween(1, 4);
+                break;
+        }
 
         return [
             'title' => $this->faker->sentence,
             'description' => $this->faker->paragraph,
             'status' => $this->faker->randomElement(['Received', 'In Progress', 'Closed']),
-            'category' => $this->faker->randomElement(['Academic', 'Finance', 'Facility', 'Behaviour', 'Other']),
+            'category' => $category,
             'location' => $this->faker->address,
-            'department_id' => $this->faker->numberBetween(1, 4), // 限定 department_id 为 1-4
-            'user_id' => $this->faker->numberBetween(1, 10), // 假设用户表里有 100 个用户
+            'department_id' => $department_id,
+            'user_id' => $this->faker->numberBetween(1, 10), // 假设用户表里有 10 个用户
             'created_at' => $created_at,
             'updated_at' => $created_at,
         ];

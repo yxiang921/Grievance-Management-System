@@ -1,5 +1,5 @@
 @php
-use Illuminate\Support\Str;
+    use Illuminate\Support\Str;
 
     $status = $grievance->status;
     $badgeClass = [
@@ -21,15 +21,13 @@ use Illuminate\Support\Str;
         {{ $badgeClass[$status] }}
         ">{{ $grievance->status }}</span>
     <h4 class="text-lg font-semibold my-2">
-        {{ Str::limit($grievance->title, 30, '...')  }}
+        {{ Str::limit($grievance->title, 30, '...') }}
     </h4>
     <p class="text-gray-600 mb-4 text-justify">
         {{ Str::limit($grievance->description, 100, '...') }}
     </p>
     <button class="md:w-1/2 w-full primary-btn"
-        onclick="window.location.href = '{{ route('admin.grievance.detail', ['grievance_id' => $grievance->grievance_id]) }}'">
+        onclick="window.location.href = '{{ Auth::guard('admin')->check() ? route('admin.grievance.detail', ['grievance_id' => $grievance->grievance_id]) : route('department.grievance.detail', ['grievance_id' => $grievance->grievance_id]) }}'">
         Read
     </button>
 </div>
-
-
