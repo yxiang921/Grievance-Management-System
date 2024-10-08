@@ -3,7 +3,12 @@
     use Illuminate\Support\Str;
 @endphp
 
-<div class="bg-gray-50 p-4 rounded-lg shadow-lg  mt-2">
+<div 
+class="bg-gray-50 p-4 rounded-lg shadow-lg mt-2 hover:cursor-pointer"
+onclick="window.location='{{ Auth::guard('admin')->check() ? route('admin.grievance.detail', $grievance->grievance_id) 
+: route('department.grievance.detail', $grievance->grievance_id) 
+}}'"
+>
     <span class="text-sm text-green-500 font-semibold">{{ $grievance->category }} Issue</span>
     <p class="mt-1">{{ Str::limit($grievance->title, 30, '...') }}</p>
     <p class="text-gray-500 text-sm text-justify">

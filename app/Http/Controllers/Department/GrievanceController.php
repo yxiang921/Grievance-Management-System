@@ -44,6 +44,8 @@ class GrievanceController extends Controller
             ->where('grievances.id', '=', $grievance_id)
             ->get();
 
+        // dd($grievance);
+
 
         return view('department.grievanceDetail', [
             'grievance' => $grievance,
@@ -72,9 +74,9 @@ class GrievanceController extends Controller
             $extension = $image->getClientOriginalExtension();
 
             $filename = Str::uuid() . '.' . $extension;
-            $image_path = $image->storeAs('process_image_', $filename, 'public');
+            $image_path = $image->move(public_path('process_images'), $filename);
 
-            $grievance->process_image = $image_path;
+            $grievance->process_image = $filename;
         }
 
         $grievance->status = $validateData['status'];

@@ -12,7 +12,7 @@
                     <!-- Complaint Details -->
                     <div class="bg-white w-full h-full p-4 overflow-scroll no-scrollbar">
                         <div class="flex items-center mb-4">
-                            <img src="https://picsum.photos/100/100" alt="Avatar" class="w-12 h-12 rounded-full">
+                            <img src="{{ $grievance->avatar }}" alt="Avatar" class="w-12 h-12 rounded-full">
                             <div class="ml-4">
                                 <h3 class="text-lg font-semibold">{{ $grievance->name }}</h3>
                                 <p class="text-gray-600">{{ $grievance->email }}</p>
@@ -46,13 +46,21 @@
                                     <td>
                                         {{ $grievance->outsource_remark }}
                                     </td>
-
+                                </tr>
+                                <tr>
+                                    <td class="pr-4"><strong>Due Date</strong></td>
+                                    <td>
+                                        {{ Carbon::parse($grievance->due_date)->format('d F Y') }}
+                                    </td>
                                 </tr>
                             </table>
                         </div>
                         <div class="mb-4">
-                            <p class="pb-4"><strong>Image</strong></p>
-                            <div class="w-full h-40 bg-gray-200 rounded-lg"></div>
+                            @if ($grievance->grievance_image)
+                                <p class="pb-4"><strong>Image</strong></p>
+                                <img src="{{ asset('storage/' . $grievance->grievance_image) }}" alt="Image"
+                                    class="w-full h-64">
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -60,7 +68,8 @@
 
                 {{-- Right section --}}
                 <div class="lg:w-1/2 w-full h-screen p-4 border border-gray-100 rounded-md overflow-scroll no-scrollbar">
-                    <form class="h-full" method="POST" action="{{ route('department.grievance.update') }}" enctype="multipart/form-data">
+                    <form class="h-full" method="POST" action="{{ route('department.grievance.update') }}"
+                        enctype="multipart/form-data">
                         @csrf
                         <h4 class="text-lg font-semibold mb-4">Grievances Process</h4>
                         <div class="mb-4">
