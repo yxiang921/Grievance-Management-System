@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('status')->default('pending');
-            $table->string('category');
-            $table->string('location');
+            $table->string('category')->nullable();
+            $table->string('location')->nullable();
             $table->string('priority')->default('Normal');
             $table->string('grievance_image')->nullable();
             $table->dateTime('due_date')->nullable(); //2024-10-10
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('process_image')->nullable();
 
             // Foreign Keys
-            $table->foreignId('department_id')->constrained();
+            $table->foreignId('department_id')->nullable()->constrained();
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
