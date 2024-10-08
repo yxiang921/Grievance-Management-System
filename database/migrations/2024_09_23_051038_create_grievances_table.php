@@ -24,6 +24,8 @@ return new class extends Migration
             $table->string('grievance_image')->nullable();
             $table->dateTime('due_date')->nullable(); //2024-10-10
 
+            $table->boolean('is_assigned')->default(false);
+
             $table->string('outsource_remark')->nullable();
             $table->string('process_remark')->nullable();
             $table->string('process_image')->nullable();

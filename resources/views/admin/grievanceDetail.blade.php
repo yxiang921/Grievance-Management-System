@@ -75,6 +75,14 @@
                 {{-- Right section --}}
                 <div
                     class="lg:w-1/2 w-full h-screen p-4 border border-gray-100 rounded-md overflow-scroll no-scrollbar relative">
+                    @if ($grievance->is_assigned)
+                                <div class="w-full mb-4 border border-primary-900 bg-primary-100 p-4 rounded-md">
+                                    <p class="text-primary-900">
+                                        This grievance has been assigned to
+                                        <strong>{{ $grievance->department_name }}</strong>
+                                    </p>
+                                </div>
+                            @endif
                     <div class="w-full h-14 flex flex-row">
                         <button class="w-1/2 hover:bg-gray-100 rounded-md underline"
                             onclick="changeTab('assignment')">Assignment</button>
@@ -87,28 +95,32 @@
                         <div class="mb-4">
                             <input type="text" hidden value="{{ $grievance->grievance_id }}" name="grievanceID">
                             <label class="block text-gray-700">Category</label>
-                            <select class="primary-select w-full mt-2" name="" id="category" required>
+                            <select class="primary-select w-full mt-2" name="category" id="category" required>
                                 <option value="" selected disabled>
                                     Select Category
                                 </option>
-                                <option value="Facility">Facility</option>
-                                <option value="Academic">Academic</option>
-                                <option value="Finance">Finance</option>
-                                <option value="Behaviour">Behaviour</option>
-                                <option value="Other">Other</option>
+                                <option value="Facility" {{ $grievance->category == 'Facility' ? 'selected' : '' }}>Facility</option>
+                                <option value="Academic" {{ $grievance->category == 'Academic' ? 'selected' : '' }}>Academic</option>
+                                <option value="Finance" {{ $grievance->category == 'Finance' ? 'selected' : '' }}>Finance</option>
+                                <option value="Behaviour" {{ $grievance->category == 'Behaviour' ? 'selected' : '' }}>Behaviour</option>
+                                <option value="Other" {{ $grievance->category == 'Other' ? 'selected' : '' }}>Other</option>
                             </select>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Department</label>
                             <select class="primary-select w-full mt-2" name="departmentID" id="department" required>
                                 <option value="" selected disabled>
-                                    Please Select Category First
+                                    {{
+                                        $grievance->is_assigned ? $grievance->department_name : 'Please Select Category First'
+                                    }}
                                 </option>
+                                
                             </select>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700" for="duedate">Due Date</label>
-                            <input type="datetime-local" class="primary-input w-full mt-2" name="duedate" required>
+                            <input type="datetime-local" class="primary-input w-full mt-2" name="duedate" required
+                                value="{{ $grievance->is_assigned ? Carbon::parse($grievance->due_date)->format('Y-m-d\TH:i') : '' }}">
                         </div>
 
                         <div class="mb-4">
@@ -117,15 +129,24 @@
                                 <option value="" selected disabled>
                                     Select Priority
                                 </option>
-                                <option value="Normal">Normal</option>
-                                <option value="Medium">Medium</option>
-                                <option value="High">High</option>
+                                <option value="Normal"
+                                    {{ $grievance->is_assigned && $grievance->priority == 'Normal' ? 'selected' : '' }}>
+                                    Normal
+                                </option>
+                                <option value="Medium"
+                                {{ $grievance->is_assigned && $grievance->priority == 'Medium' ? 'selected' : '' }}>
+                                    Medium
+                                </option>
+                                <option value="High"
+                                {{ $grievance->is_assigned && $grievance->priority == 'High' ? 'selected' : '' }}>
+                                    High
+                                </option>
                             </select>
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-gray-700">Outsource Remark</label>
-                            <textarea class="primary-input w-full mt-2" rows="6" name="outsourceRemark"></textarea>
+                            <textarea class="primary-textarea w-full mt-2 " rows="6" name="outsourceRemark">{{ $grievance->is_assigned ? $grievance->outsource_remark : '' }}</textarea>
                         </div>
                         <div class="flex flex-col justify-between">
                             <button class="primary-btn" type="submit">

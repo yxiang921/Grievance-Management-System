@@ -19,6 +19,7 @@ class Grievance extends Model
         'grievance_image',
         'due_date',
         'priority',
+        'is_assigned',
 
         'outsource_remark',
         'process_remark',
