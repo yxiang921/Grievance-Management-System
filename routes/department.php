@@ -72,29 +72,6 @@ Route::group([
         ->name('user.delete');
 
 
-
-    // Admins
-    Route::get('/admins', [AdminController::class, 'index'])
-        ->name('admins');
-
-    Route::get('/addAdmin', function () {
-        return view('admin.addAdmin');
-    })->name('admin.add');
-
-    Route::get('/editAdmin/{admin_id}', [AdminController::class, 'editAdmin'])
-        ->name('admin.edit');
-
-    Route::post('/admin/update', [AdminController::class, 'updateAdmin'])
-        ->name('admin.update');
-
-    Route::post('/admin/create', [AdminController::class, 'createAdmin'])
-        ->name('admin.create');
-
-    Route::get('/deleteAdmin/{admin_id}', [AdminController::class, 'deleteAdmin'])
-        ->name('admin.delete');
-
-
-
     Route::get('/analytics', [AnalyticsController::class, 'getAnalytics'])
         ->name('analytics');
 
