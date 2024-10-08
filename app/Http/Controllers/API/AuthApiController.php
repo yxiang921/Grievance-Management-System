@@ -13,6 +13,8 @@ class AuthApiController extends Controller
     // Logout
     // Forgot Password
 
+    // Profile img API: https://avatar.iran.liara.run/username?username=xxxxxxxx
+
     public function __construct()
     {
 

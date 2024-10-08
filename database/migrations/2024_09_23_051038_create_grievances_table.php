@@ -20,6 +20,13 @@ return new class extends Migration
             $table->string('status')->default('pending');
             $table->string('category');
             $table->string('location');
+            $table->string('priority')->default('Normal');
+            $table->string('grievance_image')->nullable();
+            $table->dateTime('due_date')->nullable(); //2024-10-10
+
+            $table->string('outsource_remark')->nullable();
+            $table->string('process_remark')->nullable();
+            $table->string('process_image')->nullable();
 
             // Foreign Keys
             $table->foreignId('department_id')->constrained();

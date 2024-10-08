@@ -51,17 +51,27 @@ class GrievanceController extends Controller
     public function assignGrievance()
     {
         $req = request();
-        $grievance_id = $req->input('grievanceID');
-        
 
+        $validateData = $req->validate([
+            'grievanceID' => 'required',
+            'departmentID' => 'required',
+            'priority' => 'required',
+            'duedate' => 'required',
+            'outsourceRemark' => 'required | max:255',
+        ]);
+
+        $grievance_id = $validateData['grievanceID'];
+        
         $grievance = Grievance::find($grievance_id);
 
-        $grievance->department_id = $req->departmentID;
-        $grievance->status = 'In Progress';
+        $grievance->department_id = $validateData['departmentID'];
+        $grievance->priority = $validateData['priority'];
+        $grievance->due_date = $validateData['duedate'];
+        $grievance->outsource_remark = $validateData['outsourceRemark'];
 
         $grievance->save();
 
-        return redirect()->route('admin.grievances');   
+        return redirect()->route('admin.grievance.detail', ['grievance_id' => $grievance_id]);   
 
     }
 }

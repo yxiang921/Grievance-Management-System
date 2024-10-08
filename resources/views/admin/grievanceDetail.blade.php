@@ -4,13 +4,13 @@
 
 @extends('layouts.master')
 @section('content')
-    <div class="container mx-auto p-4 border border-gray-100 rounded-md">
+    <div class="container mx-auto rounded-md">
         <div class="flex flex-col lg:flex-row">
             @foreach ($grievance as $grievance)
                 <!-- Left Section -->
-                <div class="lg:w-1/2 w-full flex flex-col lg:flex-row">
+                <div class="lg:w-1/2 w-full h-screen flex flex-col lg:flex-row border border-gray-100 rounded-md mr-4">
                     <!-- Complaint Details -->
-                    <div class="bg-white p-4 h-screen w-full">
+                    <div class="bg-white w-full h-full p-4 overflow-scroll no-scrollbar rounded-md">
                         <!-- Progress Bar -->
                         <div class="flex flex-col items-center justify-between mb-6 relative w-full h-6 m-auto">
                             <div class="w-11/12 flex items-center justify-between relative">
@@ -34,7 +34,7 @@
 
 
                         <div class="flex items-center mt-8 mb-4">
-                            <img src="https://picsum.photos/100/100" alt="Avatar" class="w-12 h-12 rounded-full">
+                            <img src="{{ $grievance->avatar }}" alt="Avatar" class="w-12 h-12 rounded-full">
                             <div class="ml-4">
                                 <h3 class="text-lg font-semibold">{{ $grievance->name }}</h3>
                                 <p class="text-gray-600">{{ $grievance->email }}</p>
@@ -73,10 +73,17 @@
                 </div>
 
                 {{-- Right section --}}
-                <div class="lg:w-1/2 w-full h-full  pl-4 pt-4">
-                    <form class="h-full" method="POST" action="{{ route('admin.grievance.assign') }}">
+                <div
+                    class="lg:w-1/2 w-full h-screen p-4 border border-gray-100 rounded-md overflow-scroll no-scrollbar relative">
+                    <div class="w-full h-14 flex flex-row">
+                        <button class="w-1/2 hover:bg-gray-100 rounded-md underline"
+                            onclick="changeTab('assignment')">Assignment</button>
+                        <button class="w-1/2 hover:bg-gray-100 rounded-md underline"
+                            onclick="changeTab('reply')">Reply</button>
+                    </div>
+                    <form id="assignment" class="grievanceTab h-full mt-4" method="POST"
+                        action="{{ route('admin.grievance.assign') }}">
                         @csrf
-                        <h4 class="text-lg font-semibold mb-4">Grievances Assign</h4>
                         <div class="mb-4">
                             <input type="text" hidden value="{{ $grievance->grievance_id }}" name="grievanceID">
                             <label class="block text-gray-700">Category</label>
@@ -94,21 +101,57 @@
                         <div class="mb-4">
                             <label class="block text-gray-700">Department</label>
                             <select class="primary-select w-full mt-2" name="departmentID" id="department" required>
+                                <option value="" selected disabled>
+                                    Please Select Category First
+                                </option>
                             </select>
                         </div>
                         <div class="mb-4">
+                            <label class="block text-gray-700" for="duedate">Due Date</label>
+                            <input type="datetime-local" class="primary-input w-full mt-2" name="duedate" required>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Priority</label>
+                            <select class="primary-select w-full mt-2" name="priority" required>
+                                <option value="" selected disabled>
+                                    Select Priority
+                                </option>
+                                <option value="Normal">Normal</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
                             <label class="block text-gray-700">Outsource Remark</label>
-                            <textarea class="primary-input w-full mt-2" rows="6"></textarea>
+                            <textarea class="primary-input w-full mt-2" rows="6" name="outsourceRemark"></textarea>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button class="primary-btn">
+                            <button class="primary-btn" type="submit">
                                 Assign Grievance
                             </button>
-                            <button class="delete-btn">
+
+                            <a class="delete-btn w-full text-center" href="">
                                 Close Case
-                            </button>
+                            </a>
                         </div>
                     </form>
+
+                    <div id="reply" class="grievanceTab hidden w-full h-full mt-4">
+                        <div class="mb-4">
+                            <input type="text" hidden value="{{ $grievance->grievance_id }}" name="grievanceID">
+                            <label class="block text-gray-700">Process Remark</label>
+                            <textarea class="primary-input w-full mt-2" rows="6" readonly></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Process Image</label>
+                            <div class="w-full h-40 bg-gray-200 rounded-lg mt-2"></div>
+                        </div>
+                        <button class="delete-btn w-full">Close Case</button>
+                    </div>
+
+
                 </div>
             @endforeach
         </div>
@@ -122,8 +165,6 @@
         const departmentSelector = document.querySelector('select#department');
 
         categorySelector.addEventListener('change', (e) => {
-
-
             departmentSelector.innerHTML = '';
 
             departments.forEach(department => {
@@ -147,6 +188,15 @@
             option.value = departmentID;
 
             departmentSelector.appendChild(option);
+        }
+
+        function changeTab(tabName) {
+            var i;
+            var x = document.getElementsByClassName("grievanceTab");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            document.getElementById(tabName).style.display = "block";
         }
     </script>
 @endsection
