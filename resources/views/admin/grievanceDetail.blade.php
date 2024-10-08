@@ -13,11 +13,11 @@
                     <div class="bg-white w-full h-full p-4 overflow-scroll no-scrollbar rounded-md">
 
                         @if ($grievance->status == 'Received')
-                            <x-received-progress/>
+                            <x-received-progress />
                         @elseif ($grievance->status == 'In Progress')
-                            <x-in-progress/>
+                            <x-in-progress />
                         @elseif ($grievance->status == 'Closed')
-                            <x-close-progress/>
+                            <x-close-progress />
                         @endif
 
                         <div class="flex items-center mt-8 mb-4">
@@ -161,9 +161,8 @@
                         <div class="mb-4">
                             <label class="block text-gray-700">Process Image</label>
                             @if ($grievance->process_image)
-                                <img src="{{ $grievance->process_image }}" alt="Process Image"
-                                    class="w-full h-40 object-cover rounded-md">
-                                
+                                <img src="{{ asset('process_images/' . $grievance->process_image) }}" alt="Process Image"
+                                    class="w-full h-auto object-cover rounded-md">
                             @endif
                         </div>
                         <button class="delete-btn w-full">Close Case</button>
