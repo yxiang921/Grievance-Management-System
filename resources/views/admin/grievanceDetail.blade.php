@@ -6,7 +6,7 @@
 @section('content')
     <div class="container mx-auto rounded-md"z>
         <div class="flex flex-col lg:flex-row">
-            @foreach ($grievance as $grievance)
+            @foreach ($grievanceDetail as $grievance)
                 <!-- Left Section -->
                 <div class="lg:w-1/2 w-full h-screen flex flex-col lg:flex-row border border-gray-100 rounded-md mr-4">
                     <!-- Complaint Details -->

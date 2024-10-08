@@ -29,7 +29,7 @@ class GrievanceController extends Controller
     {
         $grievance = DB::table('grievances')
             ->join('users', 'grievances.user_id', '=', 'users.id')
-            ->join('departments', 'grievances.department_id', '=', 'departments.id')
+            ->leftJoin('departments', 'grievances.department_id', '=', 'departments.id')
             ->select(
                 'grievances.id as grievance_id',
                 'grievances.*',
@@ -45,7 +45,7 @@ class GrievanceController extends Controller
         $departments = $departmentController->getAllDepartmentCategory();
 
         return view('admin.grievanceDetail', [
-            'grievance' => $grievance,
+            'grievanceDetail' => $grievance,
             'departments' => $departments
         ]);
     }
