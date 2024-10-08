@@ -25,13 +25,6 @@
                         </p>
                         <div class="mb-4">
                             <table>
-
-                                <tr>
-                                    <td class="pr-4 text-primary-900"><strong>Due Date</strong></td>
-                                    <td>
-                                        Due date...
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td class="pr-4"><strong>Location</strong></td>
                                     <td>
@@ -48,6 +41,13 @@
                                         {{ Carbon::parse($grievance->grievance_created_at)->format('h : m A') }}
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td class="pr-4"><strong>Outsource Remark</strong></td>
+                                    <td>
+                                        {{ $grievance->outsource_remark }}
+                                    </td>
+
+                                </tr>
                             </table>
                         </div>
                         <div class="mb-4">
@@ -60,13 +60,13 @@
 
                 {{-- Right section --}}
                 <div class="lg:w-1/2 w-full h-screen p-4 border border-gray-100 rounded-md overflow-scroll no-scrollbar">
-                    <form class="h-full" method="POST" action="{{ route('admin.grievance.assign') }}">
+                    <form class="h-full" method="POST" action="{{ route('department.grievance.update') }}" enctype="multipart/form-data">
                         @csrf
                         <h4 class="text-lg font-semibold mb-4">Grievances Process</h4>
                         <div class="mb-4">
                             <input type="text" hidden value="{{ $grievance->grievance_id }}" name="grievanceID">
                             <label class="block text-gray-700">Status</label>
-                            <select class="primary-select w-full mt-2" name="" id="status" required>
+                            <select class="primary-select w-full mt-2" name="status" id="status" required>
                                 <option value="" selected disabled>
                                     Select Status
                                 </option>
@@ -76,10 +76,15 @@
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Remark</label>
-                            <textarea class="primary-input w-full mt-2" rows="6"></textarea>
+                            <textarea class="primary-input w-full mt-2" rows="6" name="process_remark" required></textarea>
+                        </div>
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Process Image</label>
+                            <input type="file" class="primary-input w-full mt-2" name="process_image" accept="image/*"
+                                required>
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button class="primary-btn">
+                            <button class="primary-btn" type="submit">
                                 Update
                             </button>
                         </div>

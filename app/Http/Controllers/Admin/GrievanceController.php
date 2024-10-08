@@ -29,12 +29,14 @@ class GrievanceController extends Controller
     {
         $grievance = DB::table('grievances')
             ->join('users', 'grievances.user_id', '=', 'users.id')
+            ->join('departments', 'grievances.department_id', '=', 'departments.id')
             ->select(
                 'grievances.id as grievance_id',
                 'grievances.*',
                 'users.id as user_id',
                 'users.*',
-                'grievances.created_at as grievance_created_at'
+                'grievances.created_at as grievance_created_at',
+                'departments.department_name'
             )
             ->where('grievances.id', '=', $grievance_id)
             ->get();
@@ -51,17 +53,44 @@ class GrievanceController extends Controller
     public function assignGrievance()
     {
         $req = request();
-        $grievance_id = $req->input('grievanceID');
-        
+
+        $validateData = $req->validate([
+            'grievanceID' => 'required',
+            'category' => 'required',
+            'departmentID' => 'required',
+            'priority' => 'required',
+            'duedate' => 'required',
+            'outsourceRemark' => 'required | max:255',
+        ]);
+
+        $grievance_id = $validateData['grievanceID'];
 
         $grievance = Grievance::find($grievance_id);
 
-        $grievance->department_id = $req->departmentID;
-        $grievance->status = 'In Progress';
+        $grievance->department_id = $validateData['departmentID'];
+        $grievance->priority = $validateData['priority'];
+        $grievance->due_date = $validateData['duedate'];
+        $grievance->category = $validateData['category'];
+        $grievance->outsource_remark = $validateData['outsourceRemark'];
+        $grievance->is_assigned = true;
 
         $grievance->save();
 
-        return redirect()->route('admin.grievances');   
+        $assigned_grievance = DB::table('grievances')
+            ->join('users', 'grievances.user_id', '=', 'users.id')
+            ->select(
+                'grievances.id as grievance_id',
+                'grievances.*',
+                'users.id as user_id',
+                'users.*',
+                'grievances.created_at as grievance_created_at'
+            )
+            ->where('grievances.id', '=', $grievance_id)
+            ->get();
+
+        return redirect()->route('admin.grievance.detail', [
+            'grievance_id' => $grievance_id,
+        ]);
 
     }
 }

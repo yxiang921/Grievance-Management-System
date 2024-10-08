@@ -40,6 +40,8 @@ class GrievanceFactory extends Factory
             'category' => $category,
             'location' => $this->faker->address,
             'department_id' => $department_id,
+            'outsource_remark' => $this->faker->sentence,
+            'process_remark' => $this->faker->sentence,
             'user_id' => $this->faker->numberBetween(1, 10), // 假设用户表里有 10 个用户
             'created_at' => $created_at,
             'updated_at' => $created_at,
