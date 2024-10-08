@@ -44,6 +44,8 @@ class GrievanceController extends Controller
             ->where('grievances.id', '=', $grievance_id)
             ->get();
 
+        // dd($grievance);
+
 
         return view('department.grievanceDetail', [
             'grievance' => $grievance,

@@ -160,7 +160,11 @@
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Process Image</label>
-                            <div class="w-full h-40 bg-gray-200 rounded-lg mt-2"></div>
+                            @if ($grievance->process_image)
+                                <img src="{{ $grievance->process_image }}" alt="Process Image"
+                                    class="w-full h-40 object-cover rounded-md">
+                                
+                            @endif
                         </div>
                         <button class="delete-btn w-full">Close Case</button>
                     </div>

@@ -1009,6 +1009,9 @@ select {
 .h-96 {
   height: 24rem;
 }
+.h-64 {
+  height: 16rem;
+}
 .max-h-0 {
   max-height: 0px;
 }

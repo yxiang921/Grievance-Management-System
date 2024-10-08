@@ -83,20 +83,24 @@ class DepartmentGrievanceRepo
     {
 
         $department_id = Auth::guard('department')->user()->id;
-        return DB::table('grievances')
-            ->where('department_id', $department_id)
-            ->select(
-                'grievances.*',
-                'users.*',
-                'grievances.id as grievance_id',
-                'users.id as user_id',
-                'grievances.created_at as grievance_created_at'
-            )
-            ->where('status', $status)
-            ->join('users', 'grievances.user_id', '=', 'users.id')
-            ->orderBy('grievances.created_at', 'desc')
-            ->limit(3)
-            ->get();
+
+        $grievance = DB::table('grievances')
+        ->where('department_id', $department_id)
+        ->select(
+            'grievances.*',
+            'grievances.id as grievance_id',
+            'users.*',
+            'users.id as user_id',
+            'grievances.created_at as grievance_created_at'
+        )
+        ->where('status', $status)
+        ->join('users', 'grievances.user_id', '=', 'users.id')
+        ->orderBy('grievances.created_at', 'desc')
+        ->limit(3)
+        ->get();
+
+        return $grievance;
+
     }
 
     public function calPctChange()
