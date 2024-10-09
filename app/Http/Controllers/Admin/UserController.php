@@ -97,4 +97,42 @@ class UserController extends Controller
 
         return redirect()->route('admin.users');
     }
+
+    public function searchUser(){
+        $req = request();
+        $user_id = $req->input('user_id');
+        $phone_number = $req->input('phone_number');
+        $email = $req->input('email');
+        $username = $req->input('username');
+        $fullname = $req->input('fullname');
+
+        $query = DB::table('users');
+
+        if($user_id != '' && $user_id != null){
+            $query->where('id', '=', $user_id);
+        }
+
+        if($phone_number != '' && $phone_number != null){
+            $query->where('phone_number', 'LIKE', '%'.$phone_number.'%');
+        }
+
+        if($email != '' && $email != null){
+            $query->where('email', 'LIKE', '%'.$email.'%');
+        }
+
+        if($username != '' && $username != null){
+            $query->where('username', 'LIKE', '%'.$username.'%');
+        }
+
+        if($fullname != '' && $fullname != null){
+            $query->where('name', 'LIKE', '%'.$fullname.'%');
+        }
+
+        $users = $query->get();
+
+        return view('admin.users', [
+            'users' => $users,
+        ]);
+
+    }
 }

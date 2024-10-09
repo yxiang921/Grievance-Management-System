@@ -2,10 +2,12 @@
 @section('content')
     <div class="w-full h-auto mt-4 border border-gray-100 shadow-sm rounded-md p-4 bg-white">
         <div class="w-full flex flex-col lg:flex-row lg:items-center justify-between">
-            <div class="">
-                <input class="primary-input w-64" type="text" placeholder="Search department name">
+            <form action="{{ route('admin.department.search') }}" method="POST">
+                @csrf
+                <input class="primary-input w-64" type="text" placeholder="Search department name" name="keyword"
+                    value="{{ request('keyword') }}">
                 <button class="primary-btn w-28 ml-2">Search</button>
-            </div>
+            </form>
             <div class="">
                 <a class="primary-btn" href="{{ route('admin.department.add') }}">Add New Department</a>
             </div>
@@ -23,6 +25,13 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        @if (count($departments) == 0)
+                            <tr>
+                                <td colspan="5" class="text-center py-4">No departments found</td>
+                            </tr>
+                        @endif
+
                         @foreach ($departments as $department)
                             <tr class="h-10">
                                 <td>

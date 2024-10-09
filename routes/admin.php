@@ -12,7 +12,7 @@ Route::group([
     'prefix' => 'admin',
     'as' => 'admin.',
     'middleware' => ['admin.auth']
-    
+
 ], function () {
 
     Route::get('/home', [HomeController::class, 'index'])
@@ -26,10 +26,13 @@ Route::group([
         ->name('grievance.detail');
 
     Route::post('/grievance/assign', [GrievanceController::class, 'assignGrievance'])
-    ->name('grievance.assign');
+        ->name('grievance.assign');
 
     Route::get('/grievance/close/{grievance_id}', [GrievanceController::class, 'closeGrievance'])
         ->name('grievance.close');
+
+    Route::post('/grievance/search', [GrievanceController::class, 'searchGrievance'])
+        ->name('grievance.search');
 
 
     // Departments
@@ -51,6 +54,9 @@ Route::group([
 
     Route::get('/deleteDepartment/{department_id}', [DepartmentController::class, 'deleteDepartment'])
         ->name('department.delete');
+
+    Route::post('/department/search', [DepartmentController::class, 'searchDepartment'])
+        ->name('department.search');
 
 
 
@@ -74,6 +80,9 @@ Route::group([
     Route::get('/deleteUser/{user_id}', [UserController::class, 'deleteUser'])
         ->name('user.delete');
 
+    Route::post('/user/search', [UserController::class, 'searchUser'])
+        ->name('user.search');
+
 
 
     // Admins
@@ -95,6 +104,9 @@ Route::group([
 
     Route::get('/deleteAdmin/{admin_id}', [AdminController::class, 'deleteAdmin'])
         ->name('admin.delete');
+
+    Route::post('/admin/search', [AdminController::class, 'searchAdmin'])
+        ->name('admin.search');
 
 
 

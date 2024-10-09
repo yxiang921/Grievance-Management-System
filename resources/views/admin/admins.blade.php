@@ -5,21 +5,28 @@
             <h1 class="font-semibold text-lg">Admin List</h1>
             <a href="{{ route('admin.admin.add') }}" class="primary-btn">Add new admin</a>
         </div>
-        <div class="w-full">
+        <form action="{{ route('admin.admin.search') }}" method="POST" class="w-full">
+            @csrf
             <div class="w-full">
                 <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
-                    <input type="text" class="primary-input" placeholder="Admin ID">
-                    <input type="text" class="primary-input" placeholder="Phone Number">
-                    <input type="text" class="primary-input" placeholder="Email Address">
+                    <input type="text" class="primary-input" placeholder="Admin ID" name="admin_id"
+                        value="{{ request('admin_id') }}">
+                    <input type="text" class="primary-input" placeholder="Phone Number" name="phone_number"
+                        value="{{ request('phone_number') }}">
+                    <input type="text" class="primary-input" placeholder="Email Address" name="email"
+                        value="{{ request('email') }}">
                 </div>
             </div>
 
             <div class="line w-full h-1 border-b-[1px] border-gray-100 my-4"></div>
 
-            <input class="primary-input w-64" type="text" placeholder="Username">
-            <input class="primary-input w-64 lg:mx-4" type="text" placeholder="Full Name">
+            <input class="primary-input w-64" type="text" placeholder="Username" name="username"
+                value="{{ request('username') }}">
+            <input class="primary-input w-64 lg:mx-4" type="text" placeholder="Full Name" name="fullname"
+                value="{{ request('fullname') }}">
             <button class="primary-btn w-28">Search</button>
-        </div>
+
+        </form>
         <div class="w-full h-auto mt-8 hidden lg:block">
             <div class="w-full text-center border-collapse border-y border-gray-100 bg-white">
                 <table class="min-w-full overflow-hidden">
@@ -34,18 +41,26 @@
                         </tr>
                     </thead>
                     <tbody>
+
+                        @if (count($admins) == 0)
+                            <tr>
+                                <td colspan="6" class="text-center py-4">No admins found</td>
+                            </tr>
+                        @endif
+
                         @foreach ($admins as $admin)
                             <tr class="h-10">
                                 <td>ADM{{ $admin->id }}</td>
-                                <td>{{ $admin->admin_name }}</td>
                                 <td>{{ $admin->admin_username }}</td>
+                                <td>{{ $admin->admin_name }}</td>
                                 <td>{{ $admin->admin_email }}</td>
                                 <td>{{ $admin->admin_phone_number }}</td>
                                 <td>
                                     <a href="{{ route('admin.admin.edit', ['admin_id' => $admin->id]) }}"
                                         class="underline">Edit</a>
                                     <span class="px-2">|</span>
-                                    <a href="{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}" class="underline">Delete</a>
+                                    <a href="{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}"
+                                        class="underline">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

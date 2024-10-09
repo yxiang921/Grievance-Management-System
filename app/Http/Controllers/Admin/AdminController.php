@@ -98,4 +98,43 @@ class AdminController extends Controller
 
         return redirect()->route('admin.admins');
     }
+
+    public function searchAdmin()
+    {
+        $req = request();
+        $admin_id = $req->input('admin_id');
+        $phone_number = $req->input('phone_number');
+        $email = $req->input('email');
+        $username = $req->input('username');
+        $fullname = $req->input('fullname');
+
+        $query = DB::table('admins');
+
+        if ($admin_id != '' && $admin_id != null) {
+            $query->where('id', '=', $admin_id);
+        }
+
+        if ($phone_number != '' && $phone_number != null) {
+            $query->where('admin_phone_number', 'LIKE', '%' . $phone_number . '%');
+        }
+
+        if ($email != '' && $email != null) {
+            $query->where('admin_email', 'LIKE', '%' . $email . '%');
+        }
+
+        if ($username != '' && $username != null) {
+            $query->where('admin_username', 'LIKE', '%' . $username . '%');
+        }
+
+        if ($fullname != '' && $fullname != null) {
+            $query->where('admin_name', 'LIKE', '%' . $fullname . '%');
+        }
+
+        $admins = $query->get();
+
+        return view('admin.admins', [
+            'admins' => $admins,
+        ]);
+
+    }
 }
