@@ -1,4 +1,7 @@
-<h1>
+<div class="w-screen h-screen flex items-center justify-center">
+    Select Account
 
-    Welcome, Department,
-</h1>
+    <a href="{{ route('admin.login.form') }}">Admin</a>
+    <a href="{{ route('department.login.form') }}">Department</a>
+
+</div>

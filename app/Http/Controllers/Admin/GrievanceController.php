@@ -93,4 +93,13 @@ class GrievanceController extends Controller
         ]);
 
     }
+
+    public function closeGrievance($grievance_id){
+        $grievance = Grievance::find($grievance_id);
+
+        $grievance->status = 'Closed';
+        $grievance->save();
+
+        return redirect()->route('admin.grievances');
+    }
 }
