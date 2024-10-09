@@ -2048,6 +2048,24 @@ select {
   --tw-ring-color: rgba(0, 176, 116, 0.2);
 }
 
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+button:disabled:hover {
+  background-image: none;
+}
+
+a:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+a:disabled:hover {
+  background-image: none;
+}
+
 .hover\:cursor-pointer:hover {
   cursor: pointer;
 }

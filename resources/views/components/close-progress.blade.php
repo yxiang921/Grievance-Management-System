@@ -10,7 +10,7 @@
         <div class="w-5 h-5 rounded-full bg-primary-900 relative"></div>
 
         {{-- point three --}}
-        <div class="current-status w-5 h-5 rounded-full bg-primary-900 relative"></div>
+        <div class="w-5 h-5 rounded-full bg-primary-900 relative"></div>
     </div>
     <div class="w-full h-2 flex justify-between items-center px-[0.4rem] pt-3">
         <h3>Received</h3>

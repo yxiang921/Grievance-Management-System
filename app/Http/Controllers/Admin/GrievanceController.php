@@ -60,7 +60,7 @@ class GrievanceController extends Controller
             'departmentID' => 'required',
             'priority' => 'required',
             'duedate' => 'required',
-            'outsourceRemark' => 'required | max:255',
+            'outsourceRemark' => 'nullable | max:255',
         ]);
 
         $grievance_id = $validateData['grievanceID'];
@@ -98,6 +98,7 @@ class GrievanceController extends Controller
         $grievance = Grievance::find($grievance_id);
 
         $grievance->status = 'Closed';
+        $grievance->updated_at = now();
         $grievance->save();
 
         return redirect()->route('admin.grievances');
