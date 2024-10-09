@@ -20,6 +20,7 @@ class GrievanceController extends Controller
         $grievances = DB::table('grievances')
             ->join('users', 'grievances.user_id', '=', 'users.id')
             ->select('grievances.id as grievance_id', 'grievances.*', 'users.*', 'users.id as user_id')
+            ->orderBy('grievances.status', 'desc')
             ->get();
 
         return view('admin.grievances', ['grievances' => $grievances]);
@@ -94,7 +95,8 @@ class GrievanceController extends Controller
 
     }
 
-    public function closeGrievance($grievance_id){
+    public function closeGrievance($grievance_id)
+    {
         $grievance = Grievance::find($grievance_id);
 
         $grievance->status = 'Closed';
@@ -102,5 +104,42 @@ class GrievanceController extends Controller
         $grievance->save();
 
         return redirect()->route('admin.grievances');
+    }
+
+    // Filter
+
+    public function searchGrievance()
+    {
+
+        $req = request();
+        $keyword = $req->input('keyword');
+        $datetime = $req->input('datetime');
+        $status = $req->input('status');
+
+        $query = DB::table('grievances')
+            ->join('users', 'grievances.user_id', '=', 'users.id')
+            ->select('grievances.id as grievance_id', 'grievances.*', 'users.*', 'users.id as user_id');
+
+        if ($keyword != null && $keyword != '') {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('title', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('description', 'LIKE', '%' . $keyword . '%');
+            });
+        }
+
+        if ($datetime != null && $datetime != '') {
+            $query->where('grievances.created_at', '>=', $datetime);
+        }
+
+        if ($status != null && $status != '') {
+            $query->where('grievances.status', '=', $status);
+        }
+
+        $grievances = $query->orderBy('grievances.status', 'desc')->get();
+
+        return view('admin.grievances', [
+            'grievances' => $grievances,
+        ]);
+
     }
 }
