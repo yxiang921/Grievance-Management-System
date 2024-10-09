@@ -79,18 +79,18 @@
                                 <option value="" selected disabled>
                                     Select Status
                                 </option>
-                                <option value="In Progress">In Progress</option>
-                                <option value="Closed">Closed</option>
+                                <option value="In Progress" {{ $grievance->status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
+                                <option value="Closed" {{ $grievance->status == 'Closed' ? 'selected' : '' }} >Closed</option>
                             </select>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Remark</label>
-                            <textarea class="primary-input w-full mt-2" rows="6" name="process_remark" required></textarea>
+                            <textarea class="primary-input w-full mt-2" rows="6" name="process_remark" required>@if ($grievance->process_remark){{ $grievance->process_remark }}@endif</textarea>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Process Image</label>
                             <input type="file" class="primary-input w-full mt-2" name="process_image" accept="image/*"
-                                required>
+                                >
                         </div>
                         <div class="flex flex-col justify-between">
                             <button class="primary-btn" type="submit">

@@ -28,6 +28,9 @@ Route::group([
     Route::post('/grievance/assign', [GrievanceController::class, 'assignGrievance'])
     ->name('grievance.assign');
 
+    Route::get('/grievance/close/{grievance_id}', [GrievanceController::class, 'closeGrievance'])
+        ->name('grievance.close');
+
 
     // Departments
     Route::get('/departments', [DepartmentController::class, 'getAllDepartment'])

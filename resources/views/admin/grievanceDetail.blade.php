@@ -146,7 +146,8 @@
                                 Assign Grievance
                             </button>
 
-                            <a class="delete-btn w-full text-center" href="">
+                            <a class="delete-btn w-full text-center"
+                                href="{{ route('admin.grievance.close', ['grievance_id' => $grievance->grievance_id]) }}">
                                 Close Case
                             </a>
                         </div>
@@ -156,7 +157,11 @@
                         <div class="mb-4">
                             <input type="text" hidden value="{{ $grievance->grievance_id }}" name="grievanceID">
                             <label class="block text-gray-700">Process Remark</label>
-                            <textarea class="primary-input w-full mt-2" rows="6" readonly></textarea>
+                            <textarea class="primary-input w-full mt-2" rows="6" readonly>
+@if ($grievance->process_remark)
+{{ $grievance->process_remark }}
+@endif
+</textarea>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Process Image</label>
@@ -165,7 +170,9 @@
                                     class="w-full h-auto object-cover rounded-md">
                             @endif
                         </div>
-                        <button class="delete-btn w-full">Close Case</button>
+                        <a class="delete-btn w-full text-center"
+                            href="{{ route('admin.grievance.close', ['grievance_id' => $grievance->grievance_id]) }}">Close
+                            Case</a>
                     </div>
 
 

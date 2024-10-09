@@ -32,10 +32,6 @@ Route::group([
     'as' => 'department.',
 ], function () {
 
-    Route::get('/', function () {
-        return redirect()->route('department.login.form');
-    });
-
     Route::get('/login', [DepartmentLoginController::class, 'showLoginForm'])->name('login.form');
     Route::post('/login', [DepartmentLoginController::class, 'login'])->name('login');
     Route::post('/logout', [DepartmentLoginController::class, 'logout'])->name('logout');

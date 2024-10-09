@@ -61,7 +61,7 @@ class GrievanceController extends Controller
         $validateData = $req->validate([
             'status' => 'required',
             'process_remark' => 'required',
-            'process_image' => 'required'
+            'process_image' => 'nullable'
         ]);
 
 
