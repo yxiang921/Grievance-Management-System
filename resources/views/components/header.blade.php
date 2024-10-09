@@ -2,19 +2,39 @@
 $routeNames = [
     'admin.home' => 'Dashboard',
 
+    // Grievances Management
     'admin.grievances' => 'Grievances',
+    'admin.grievance.detail' => 'Grievance Detail',
+    'admin.grievance.assign' => 'Grievance Assignment',
+    'admin.grievance.close' => 'Grievance Closure',
+    'admin.grievance.search' => 'Grievance Search',
 
+    // Department Management
     'admin.departments' => 'Department Management',
-    'admin.department.add' => 'Department Management',
-    'admin.department.edit' => 'Department Management',
+    'admin.department.add' => 'Add Department',
+    'admin.department.edit' => 'Edit Department',
+    'admin.department.create' => 'Create Department',
+    'admin.department.update' => 'Update Department',
+    'admin.department.delete' => 'Delete Department',
+    'admin.department.search' => 'Search Department',
 
+    // Admins Management
     'admin.admins' => 'Admin Management',
-    'admin.admin.add' => 'Admin Management',
-    'admin.admin.edit' => 'Admin Management',
+    'admin.admin.add' => 'Add Admin',
+    'admin.admin.edit' => 'Edit Admin',
+    'admin.admin.update' => 'Update Admin',
+    'admin.admin.create' => 'Create Admin',
+    'admin.admin.delete' => 'Delete Admin',
+    'admin.admin.search' => 'Search Admin',
 
+    // Users Management
     'admin.users' => 'User Management',
-    'admin.user.add' => 'User Management',
-    'admin.user.edit' => 'User Management',
+    'admin.user.add' => 'Add User',
+    'admin.user.edit' => 'Edit User',
+    'admin.user.update' => 'Update User',
+    'admin.user.create' => 'Create User',
+    'admin.user.delete' => 'Delete User',
+    'admin.user.search' => 'Search User',
 
     'admin.analytics' => 'Analytics',
     'admin.map' => 'Map',
@@ -22,9 +42,7 @@ $routeNames = [
 
     'admin.grievance.detail' => 'Grievance Detail',
 
-
     'department.home' => 'Dashboard',
-    
 ];
 ?>
 
