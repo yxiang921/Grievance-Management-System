@@ -82,10 +82,10 @@
                     @endif
 
                     <div class="w-full h-14 flex flex-row">
-                        <button class="w-1/2 hover:bg-gray-100 rounded-md underline"
-                            onclick="changeTab('assignment')">Assignment</button>
-                        <button class="w-1/2 hover:bg-gray-100 rounded-md underline"
-                            onclick="changeTab('reply')">Reply</button>
+                        <button class="tab-btn w-1/2 rounded-md tab-active"
+                            onclick="changeTab('assignment', this)">Assignment</button>
+                        <button class="tab-btn w-1/2 rounded-md"
+                            onclick="changeTab('reply', this)">Reply</button>
                     </div>
                     <form id="assignment" class="grievanceTab h-full mt-4" method="POST"
                         action="{{ route('admin.grievance.assign') }}">
@@ -202,6 +202,7 @@
 
         const categorySelector = document.querySelector('select#category');
         const departmentSelector = document.querySelector('select#department');
+        const tabBtns = document.querySelectorAll('.tab-btn');
 
         categorySelector.addEventListener('change', (e) => {
             departmentSelector.innerHTML = '';
@@ -229,12 +230,25 @@
             departmentSelector.appendChild(option);
         }
 
-        function changeTab(tabName) {
+        tabBtns[0].addEventListener('click', () => {
+            tabBtns[0].classList.add('tab-active');
+            tabBtns[1].classList.remove('tab-active');
+        });
+
+        tabBtns[1].addEventListener('click', () => {
+            tabBtns[1].classList.add('tab-active');
+            tabBtns[0].classList.remove('tab-active');
+        });
+
+
+        function changeTab(tabName, thisTab) {
             var i;
             var x = document.getElementsByClassName("grievanceTab");
+
             for (i = 0; i < x.length; i++) {
                 x[i].style.display = "none";
             }
+
             document.getElementById(tabName).style.display = "block";
         }
     </script>

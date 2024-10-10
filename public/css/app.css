@@ -1377,6 +1377,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(242 241 211 / var(--tw-bg-opacity));
 }
+.bg-red-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
+}
 .fill-current {
   fill: currentColor;
 }
@@ -2064,6 +2068,23 @@ a:disabled {
 
 a:disabled:hover {
   background-image: none;
+}
+
+.tab-active {
+  position: relative;
+  font-weight: 500;
+  color: rgba(0, 176, 116, 1);
+}
+
+.tab-active::before{
+    content: '';
+    width: 40%;
+    height: 2px;
+    background: #10B981;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .hover\:cursor-pointer:hover {
