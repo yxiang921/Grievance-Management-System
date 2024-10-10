@@ -10,20 +10,20 @@
             <div class="w-full">
                 <div class="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <input type="text" class="primary-input" placeholder="User ID" name="user_id"
-                        value="{{ request('user_id')}}">
+                        value="{{ request('user_id') }}">
                     <input type="text" class="primary-input" placeholder="Phone Number" name="phone_number"
-                        value="{{ request('phone_number')}}">
+                        value="{{ request('phone_number') }}">
                     <input type="text" class="primary-input" placeholder="Email Address" name="email"
-                        value="{{ request('email')}}">
+                        value="{{ request('email') }}">
                 </div>
             </div>
 
             <div class="line w-full h-1 border-b-[1px] border-gray-100 my-4"></div>
 
             <input class="primary-input w-64" type="text" placeholder="Username" name="username"
-                value="{{ request('username')}}">
+                value="{{ request('username') }}">
             <input class="primary-input w-64 lg:mx-4" type="text" placeholder="Full Name" name="fullname"
-                value="{{ request('fullname')}}">
+                value="{{ request('fullname') }}">
             <button class="primary-btn w-28">Search</button>
         </form>
         <div class="w-full h-auto mt-8 hidden lg:block">
@@ -69,6 +69,11 @@
         </div>
 
         <div class="lg:hidden block mt-4">
+            @if (count($users) == 0)
+                <tr>
+                    <td colspan="6" class="text-center py-4">No users found</td>
+                </tr>
+            @endif
             @foreach ($users as $user)
                 <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
 
@@ -105,9 +110,13 @@
                     <div class="flex justify-between">
                         <div class="text-gray-500 font-medium">Action</div>
                         <div>
-                            <a href="" class="underline">Edit</a>
+                            <a href="{{ route('admin.user.edit', ['user_id' => $user->id]) }}" class="underline">Edit</a>
+                            <span class="px-2">|</span>
+                            <a href="{{ route('admin.user.delete', ['user_id' => $user->id]) }}"
+                                class="underline">Delete</a>
                         </div>
                     </div>
+
 
                 </div>
             @endforeach

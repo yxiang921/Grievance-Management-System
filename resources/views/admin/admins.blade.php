@@ -70,6 +70,11 @@
         </div>
 
         <div class="lg:hidden block mt-4">
+
+            @if (count($admins) == 0)
+                <div class="text-center py-4">No admins found</div>
+            @endif
+
             @foreach ($admins as $admin)
                 <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
                     <div class="flex justify-between">
@@ -105,7 +110,9 @@
                     <div class="flex justify-between">
                         <div class="text-gray-500 font-medium">Action</div>
                         <div>
-                            <a href="" class="underline">Edit</a>
+                            <a href="{{ route('admin.admin.edit', ['admin_id' => $admin->id]) }}" class="underline">Edit</a>
+                            <span class="px-2">|</span>
+                            <a href="{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}" class="underline">Delete</a>
                         </div>
                     </div>
 
