@@ -60,6 +60,13 @@
             </div>
         </div>
 
+        @if (count($departments) == 0)
+            <div class="lg:hidden block mt-4">
+                <div class="bg-white border border-gray-100 rounded-md shadow-sm mb-4 p-4">
+                    <div class="text-center py-4">No departments found</div>
+                </div>
+            </div>
+        @endif
 
         @foreach ($departments as $department)
             <div class="lg:hidden block mt-4">
@@ -91,7 +98,7 @@
                     <div class="flex justify-between">
                         <div class="text-gray-500 font-medium">Action</div>
                         <div>
-                            <a href="" class="underline">Edit</a>
+                            <a href="{{ route('admin.department.edit', ['department_id' => $department->id]) }}" class="underline">Edit</a>
                         </div>
                     </div>
 
