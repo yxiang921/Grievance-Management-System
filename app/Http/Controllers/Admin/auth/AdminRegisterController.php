@@ -23,9 +23,12 @@ class AdminRegisterController extends Controller
             'admin_name' => 'required',
             'admin_username' => 'required',
             'admin_password' => 'required',
+            'password_confirmation' => 'required|same:admin_password',
             'admin_email' => 'required',
             'admin_phone_number' => 'required',
         ]);
+
+        
 
         Admin::create([
             'admin_name' => $validateData['admin_name'],

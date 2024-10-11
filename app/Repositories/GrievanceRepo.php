@@ -118,6 +118,10 @@ class GrievanceRepo
             ->where('status', $status)
             ->count();
 
+        if ($totalGrievances == 0) {
+            return 0;
+        }
+
         $totalPct = ($totalGrievancesBasedStatus / $totalGrievances) * 100;
 
         return $totalPct;
