@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\auth\AdminRegisterController;
+use App\Http\Controllers\Department\auth\DepartmentRegisterController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\auth\AdminLoginController;
@@ -36,5 +37,6 @@ Route::group([
     Route::post('/login', [DepartmentLoginController::class, 'login'])->name('login');
     Route::post('/logout', [DepartmentLoginController::class, 'logout'])->name('logout');
 
-    Route::get('/register', [DepartmentLoginController::class, 'showRegisterForm'])->name('register.form');
+    Route::get('/register', [DepartmentRegisterController::class, 'showRegisterForm'])->name('register.form');
+    Route::post('register', [DepartmentRegisterController::class, 'register'])->name('register');
 });

@@ -27,7 +27,7 @@ class DepartmentRegisterController extends Controller
         $validateData = $req->validate([
             'department_name' => 'required',
             'department_category' => 'required',
-            'department_key' => 'required  | unique:departments',
+            'department_key' => 'required | unique:departments',
             'department_password' => 'required',
         ]);
 
