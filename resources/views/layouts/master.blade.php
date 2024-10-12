@@ -10,6 +10,9 @@
 </head>
 
 <body class="bg-purple-100/20 font-sans">
+
+
+
     <div class="flex">
         <x-sidebar></x-sidebar>
 
@@ -17,6 +20,9 @@
         <div class="flex-1 p-4">
             <x-header></x-header>
             <div class="w-full mt-4 text-gray-900">
+                @if (session('message'))
+                    <x-alert status="{{ session('status') }}" message="{{ session('message') }}" />
+                @endif
                 @yield('content')
             </div>
         </div>

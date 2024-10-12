@@ -35,6 +35,8 @@ class DepartmentController extends Controller
             'department_category' => $validateData['departmentCategory'],
         ]);
 
+        $this->flashMessage('success', 'Department Created Successfully!');
+
         return redirect()->route('admin.departments');
     }
 
@@ -81,6 +83,8 @@ class DepartmentController extends Controller
 
         $department->save();
 
+        $this->flashMessage('success', 'Department Updated Successfully!');
+
         return redirect()->route('admin.departments');
     }
 
@@ -89,6 +93,8 @@ class DepartmentController extends Controller
         $department = Department::find($department_id);
 
         $department->delete();
+
+        $this->flashMessage('success', 'Department Deleted Successfully!');
 
         return redirect()->route('admin.departments');
     }
@@ -113,6 +119,8 @@ class DepartmentController extends Controller
         }
 
         $departments = $query->get();
+
+        $this->flashMessage('success', 'Search Results for: '.$keyword);
 
         return view('admin.departments', [
             'departments' => $departments,

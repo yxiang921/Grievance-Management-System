@@ -1,6 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
+
     <div class="h-auto">
         <div class="flex justify-center items-start mb-6 flex-col">
             <div class="w-full grid xl:grid-cols-4 lg:grid-cols-2 grid-cols-1 gap-2">
@@ -98,7 +99,7 @@
                     <h4
                         class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-orange-900 bg-orange-100">
                         In Progress</h4>
-                        @foreach ($recent_by_status['In Progress'] as $grievance)
+                    @foreach ($recent_by_status['In Progress'] as $grievance)
                         <x-kanban-card :grievance="$grievance" />
                     @endforeach
                 </div>
@@ -107,7 +108,7 @@
                     <h4
                         class="font-semibold rounded-lg flex justify-center items-center w-32 h-10 text-primary-900 bg-primary-100">
                         Closed</h4>
-                        @foreach ($recent_by_status['Closed'] as $grievance)
+                    @foreach ($recent_by_status['Closed'] as $grievance)
                         <x-kanban-card :grievance="$grievance" />
                     @endforeach
                 </div>

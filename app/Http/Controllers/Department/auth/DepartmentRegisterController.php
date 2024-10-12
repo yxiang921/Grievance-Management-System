@@ -38,7 +38,8 @@ class DepartmentRegisterController extends Controller
             'department_password' => bcrypt($req->department_password),
         ]);
 
-        return redirect()->route('department.login')
-            ->with('success', 'Your account has been registered successfully');
+        $this->flashMessage('success', 'Department Registered Successfully!');
+
+        return redirect()->route('department.login');
     }
 }

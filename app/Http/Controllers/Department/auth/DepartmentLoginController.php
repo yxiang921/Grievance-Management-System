@@ -24,8 +24,11 @@ class DepartmentLoginController extends Controller
         ];
 
         if (Auth::guard('department')->attempt($credentials)) {
+            $this->flashMessage('success', 'Login Successful!');
             return redirect()->route('department.home');
         }
+
+        $this->flashMessage('error', 'Login Failed! Please check the department key and password.');
 
         return back()->withErrors([
             'error_message' => 'Login Failed! Please check the department key and password.',
@@ -35,6 +38,9 @@ class DepartmentLoginController extends Controller
     public function logout()
     {
         Auth::guard('department')->logout();
+
+        $this->flashMessage('success', 'Logout Successful!');
+
         return redirect()->route('department.login.form');
     }
 }

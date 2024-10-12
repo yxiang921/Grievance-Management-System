@@ -43,6 +43,8 @@ class UserController extends Controller
             'phone_number' => $validateData['phone_number'],
         ]);
 
+        $this->flashMessage('success', 'User Created Successfully!');
+
         return redirect()->route('department.users');
     }
 
@@ -86,6 +88,8 @@ class UserController extends Controller
 
         $user->save();
 
+        $this->flashMessage('success', 'User Updated Successfully!');
+
         return redirect()->route('department.users');
     }
 
@@ -94,6 +98,8 @@ class UserController extends Controller
         $user = User::find($user_id);
 
         $user->delete();
+
+        $this->flashMessage('success', 'User Deleted Successfully!');
 
         return redirect()->route('department.users');
     }

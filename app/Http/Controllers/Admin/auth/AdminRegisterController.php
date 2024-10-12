@@ -28,8 +28,6 @@ class AdminRegisterController extends Controller
             'admin_phone_number' => 'required',
         ]);
 
-        
-
         Admin::create([
             'admin_name' => $validateData['admin_name'],
             'admin_username' => $validateData['admin_username'],
@@ -38,7 +36,8 @@ class AdminRegisterController extends Controller
             'admin_phone_number' => $validateData['admin_phone_number'],
         ]);
 
-        return redirect()->route('admin.login')
-            ->with('success', 'Your account has been registered successfully');
+        $this->flashMessage('success', 'Registration Successful! Please login to continue.');
+
+        return redirect()->route('admin.login');
     }
 }
