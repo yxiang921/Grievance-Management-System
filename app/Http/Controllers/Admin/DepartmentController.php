@@ -28,11 +28,15 @@ class DepartmentController extends Controller
         $validateData = $req->validate([
             'departmentName' => 'required',
             'departmentCategory' => 'required',
+            'departmentKey' => 'required',
+            'departmentPassword' => 'required | min:8',
         ]);
 
         $department = Department::create([
             'department_name' => $validateData['departmentName'],
             'department_category' => $validateData['departmentCategory'],
+            'department_key' => $validateData['departmentKey'],
+            'department_password' => bcrypt($validateData['departmentPassword']),
         ]);
 
         $this->flashMessage('success', 'Department Created Successfully!');
@@ -72,9 +76,7 @@ class DepartmentController extends Controller
             'departmentCategory' => 'required',
             'departmentId' => 'required',
             'departmentKey' => 'required',
-
         ]);
-
 
         $department->department_name = $validateData['departmentName'];
         $department->department_category = $validateData['departmentCategory'];

@@ -18,8 +18,8 @@
 
             <div class="grid lg:grid-cols-4 items-center mt-4">
                 <label for="departmentPassword" class="col-span-1">Department Password</label>
-                <input type="password" class="primary-input col-span-2 mt-2 lg:mt-0"
-                    name="departmentPassword" />
+                <input type="password" class="primary-input col-span-2 mt-2 lg:mt-0" name="departmentPassword"
+                    min="8" />
             </div>
 
             <div class="grid lg:grid-cols-4 items-center mt-4">
@@ -33,8 +33,11 @@
                     <option value="Others">Others</option>
                 </select>
             </div>
+            
+            <x-error-message />
+
             <div class="mt-8">
-                <a class="cancel-btn" href="{{ route('admin.departments') }}" >Cancel</a>
+                <a class="cancel-btn" href="{{ route('admin.departments') }}">Cancel</a>
                 <button class="primary-btn" type="submit">Submit</button>
             </div>
         </form>
