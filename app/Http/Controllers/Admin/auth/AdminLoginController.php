@@ -26,8 +26,13 @@ class AdminLoginController extends Controller
         $credentials['password'] = $credentials['admin_password'];
 
         if (Auth::guard('admin')->attempt($credentials)) {
+
+            $this->flashMessage('success', 'Login Successful, Welcome Back!');
+
             return redirect()->route('admin.home');
         }
+
+        $this->flashMessage('error', 'Login Failed! Please check your email and password.');
 
         return back()->withErrors([
             'error_message' => 'Login Failed! Please check your email and password.',
@@ -39,6 +44,7 @@ class AdminLoginController extends Controller
     public function logout()
     {
         Auth::guard('admin')->logout();
+        $this->flashMessage('success', 'Logout Successful!');
         return redirect()->route('admin.login');
     }
 }

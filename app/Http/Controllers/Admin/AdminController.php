@@ -44,6 +44,8 @@ class AdminController extends Controller
             'admin_phone_number' => $validateData['phone_number'],
         ]);
 
+        $this->flashMessage('success', 'Admin Created Successfully!');
+
         return redirect()->route('admin.admins');
     }
 
@@ -87,6 +89,8 @@ class AdminController extends Controller
 
         $admin->save();
 
+        $this->flashMessage('success', 'Admin Updated Successfully!');
+
         return redirect()->route('admin.admins');
     }
 
@@ -95,6 +99,8 @@ class AdminController extends Controller
         $admin = Admin::find($admin_id);
 
         $admin->delete();
+
+        $this->flashMessage('success', 'Admin Deleted Successfully!');
 
         return redirect()->route('admin.admins');
     }
@@ -131,6 +137,8 @@ class AdminController extends Controller
         }
 
         $admins = $query->get();
+
+        $this->flashMessage('success', 'Search Results as Below');
 
         return view('admin.admins', [
             'admins' => $admins,

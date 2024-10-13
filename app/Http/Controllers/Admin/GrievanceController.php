@@ -89,6 +89,8 @@ class GrievanceController extends Controller
             ->where('grievances.id', '=', $grievance_id)
             ->get();
 
+        $this->flashMessage('success', 'Grievance Assigned Successfully!');
+
         return redirect()->route('admin.grievance.detail', [
             'grievance_id' => $grievance_id,
         ]);
@@ -102,6 +104,8 @@ class GrievanceController extends Controller
         $grievance->status = 'Closed';
         $grievance->updated_at = now();
         $grievance->save();
+
+        $this->flashMessage('success', 'Grievance Closed Successfully!');
 
         return redirect()->route('admin.grievances');
     }
@@ -136,6 +140,8 @@ class GrievanceController extends Controller
         }
 
         $grievances = $query->orderBy('grievances.status', 'desc')->get();
+
+        $this->flashMessage('success', 'Search Results as Below');
 
         return view('admin.grievances', [
             'grievances' => $grievances,

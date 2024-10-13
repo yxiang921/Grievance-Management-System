@@ -85,6 +85,8 @@ class GrievanceController extends Controller
 
         $grievance->save();
 
+        $this->flashMessage('success', 'Grievance Updated Successfully!');
+
         return redirect()->route('department.grievance.detail', [
             'grievance_id' => $grievance_id
         ]);

@@ -28,12 +28,18 @@ class DepartmentController extends Controller
         $validateData = $req->validate([
             'departmentName' => 'required',
             'departmentCategory' => 'required',
+            'departmentKey' => 'required',
+            'departmentPassword' => 'required | min:8',
         ]);
 
         $department = Department::create([
             'department_name' => $validateData['departmentName'],
             'department_category' => $validateData['departmentCategory'],
+            'department_key' => $validateData['departmentKey'],
+            'department_password' => bcrypt($validateData['departmentPassword']),
         ]);
+
+        $this->flashMessage('success', 'Department Created Successfully!');
 
         return redirect()->route('admin.departments');
     }
@@ -70,9 +76,7 @@ class DepartmentController extends Controller
             'departmentCategory' => 'required',
             'departmentId' => 'required',
             'departmentKey' => 'required',
-
         ]);
-
 
         $department->department_name = $validateData['departmentName'];
         $department->department_category = $validateData['departmentCategory'];
@@ -80,6 +84,8 @@ class DepartmentController extends Controller
         $department->department_password = $password;
 
         $department->save();
+
+        $this->flashMessage('success', 'Department Updated Successfully!');
 
         return redirect()->route('admin.departments');
     }
@@ -89,6 +95,8 @@ class DepartmentController extends Controller
         $department = Department::find($department_id);
 
         $department->delete();
+
+        $this->flashMessage('success', 'Department Deleted Successfully!');
 
         return redirect()->route('admin.departments');
     }
@@ -102,17 +110,20 @@ class DepartmentController extends Controller
         return $departments;
     }
 
-    public function searchDepartment(){
+    public function searchDepartment()
+    {
         $req = request();
 
         $keyword = $req->input('keyword');
         $query = DB::table('departments');
 
-        if($keyword != null && $keyword != ''){
-            $query->where('department_name', 'LIKE', '%'.$keyword.'%');
+        if ($keyword != null && $keyword != '') {
+            $query->where('department_name', 'LIKE', '%' . $keyword . '%');
         }
 
         $departments = $query->get();
+
+        $this->flashMessage('success', 'Search Results for: ' . $keyword);
 
         return view('admin.departments', [
             'departments' => $departments,

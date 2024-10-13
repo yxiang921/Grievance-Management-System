@@ -45,6 +45,8 @@ class SettingController extends Controller
 
         $admin->save();
 
+        $this->flashMessage('success', 'Admin Updated Successfully!');
+
         return redirect()->route('admin.settings');
     }
 }

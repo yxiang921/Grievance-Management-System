@@ -114,6 +114,10 @@ Route::group([
     Route::get('/analytics', [AnalyticsController::class, 'getAnalytics'])
         ->name('analytics');
 
+    Route::get('/chat', function () {
+        return view('admin.chat');
+    })->name('chat');
+
     Route::get('/map', function () {
         return view('admin.map');
     })->name('map');

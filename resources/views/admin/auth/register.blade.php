@@ -1,5 +1,9 @@
 @include('layouts.partials.head')
 
+@if (session('message'))
+    <x-alert status="{{ session('status') }}" message="{{ session('message') }}" />
+@endif
+
 <div class="font-[sans-serif] text-gray-900">
     <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
         <div class="grid md:grid-cols-2 items-center gap-10 max-w-6xl w-full">

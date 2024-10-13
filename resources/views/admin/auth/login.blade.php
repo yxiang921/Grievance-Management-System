@@ -1,7 +1,11 @@
 <x-guest-layout>
     <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    {{-- <x-auth-session-status class="mb-4" :status="session('status')" /> --}}
     @include('layouts.partials.head')
+
+    @if (session('message'))
+        <x-alert status="{{ session('status') }}" message="{{ session('message') }}" />
+    @endif
 
     <div class="font-[sans-serif] text-gray-900">
         <div class="min-h-screen flex flex-col items-center justify-center py-6 px-4">
@@ -14,7 +18,8 @@
                         “Streamline, Resolve, Improve: Elevate Your Workflow with Our Grievance Management System!”
                     </p>
 
-                    <p class="text-sm mt-12 text-gray-800">Don't have an account <a href="{{ route('admin.register.form') }}"
+                    <p class="text-sm mt-12 text-gray-800">Don't have an account <a
+                            href="{{ route('admin.register.form') }}"
                             class="text-primary-900 font-semibold hover:underline ml-1">Register here</a></p>
                 </div>
 
