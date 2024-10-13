@@ -36,8 +36,6 @@
     });
 </script>
 
-
-
 <script>
     var barChart = echarts.init(document.getElementById('barChart'));
     var pieChart = echarts.init(document.getElementById('pieChart'));

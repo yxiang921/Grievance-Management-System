@@ -6,7 +6,7 @@
             @csrf
 
             <input type="hidden" name="departmentId" value="{{ $department->id }}" />
-            
+
             <div class="grid lg:grid-cols-4 items-center mt-4">
                 <label for="departmentName" class="col-span-1">Department Name</label>
                 <input type="text" class="primary-input col-span-2 mt-2 lg:mt-0" placeholder="Name" name="departmentName"
@@ -42,6 +42,9 @@
                     </option>
                 </select>
             </div>
+
+            <x-error-message />
+
             <div class="mt-8">
                 <a class="cancel-btn" href="{{ route('admin.departments') }}">Cancel</a>
                 <button class="primary-btn" type="submit">Update</button>
