@@ -28,8 +28,8 @@
                                 <p class="text-gray-600">{{ $grievance->phone_number }}</p>
                             </div>
                         </div>
-                        <h4 class="text-lg font-semibold mb-2">{{ $grievance->title }}</h4>
-                        <p class="text-gray-600 mb-4">
+                        <h4 class="text-lg font-semibold mb-2" id="grievance_title">{{ $grievance->title }}</h4>
+                        <p class="text-gray-600 mb-4" id="grievance_content">
                             {{ $grievance->description }}
                         </p>
                         <div class="mb-4">
@@ -84,16 +84,31 @@
                     <div class="w-full h-14 grid grid-cols-3 gap-2 ">
                         <button class="tab-btn rounded-md tab-active"
                             onclick="changeTab('assignment', this)">Assignment</button>
+
                         <button class="tab-btn rounded-md" onclick="changeTab('reply', this)">Reply</button>
+
                         <button
                             class="bg-primary-900 w-3/4 h-14 flex items-center justify-center text-white rounded-md transition-all hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-green-200"
-                            onclick="AIGenerate()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-stars mr-2" viewBox="0 0 16 16">
+                            id="ai_generate_btn">
+                            <svg id="ai_btn_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                fill="currentColor" class="bi bi-stars mr-2" viewBox="0 0 16 16">
                                 <path
                                     d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
                             </svg>
-                            AI Generate
+
+                            <svg id="load_spinner" class="hidden mr-2 text-gray-300 animate-spin" viewBox="0 0 64 64"
+                                fill="none" xmlns="http://www.w3.org/2000/svg" width="16" height="16">
+                                <path
+                                    d="M32 3C35.8083 3 39.5794 3.75011 43.0978 5.20749C46.6163 6.66488 49.8132 8.80101 52.5061 11.4939C55.199 14.1868 57.3351 17.3837 58.7925 20.9022C60.2499 24.4206 61 28.1917 61 32C61 35.8083 60.2499 39.5794 58.7925 43.0978C57.3351 46.6163 55.199 49.8132 52.5061 52.5061C49.8132 55.199 46.6163 57.3351 43.0978 58.7925C39.5794 60.2499 35.8083 61 32 61C28.1917 61 24.4206 60.2499 20.9022 58.7925C17.3837 57.3351 14.1868 55.199 11.4939 52.5061C8.801 49.8132 6.66487 46.6163 5.20749 43.0978C3.7501 39.5794 3 35.8083 3 32C3 28.1917 3.75011 24.4206 5.2075 20.9022C6.66489 17.3837 8.80101 14.1868 11.4939 11.4939C14.1868 8.80099 17.3838 6.66487 20.9022 5.20749C24.4206 3.7501 28.1917 3 32 3L32 3Z"
+                                    stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
+                                    stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
+                                    class="text-gray-900">
+                                </path>
+                            </svg>
+                            <span id="ai_btn_text">AI Generate</span>
                         </button>
                     </div>
                     <form id="assignment" class="grievanceTab h-full mt-4" method="POST"
@@ -261,8 +276,57 @@
             document.getElementById(tabName).style.display = "block";
         }
 
-        function AIGenerate() {
-            alert('AI is not available at the moment');
-        }
+        document.getElementById('ai_generate_btn').addEventListener('click', async () => {
+
+            const load_spinner = document.getElementById('load_spinner');
+            const ai_btn_icon = document.getElementById('ai_btn_icon');
+            const ai_btn_text = document.getElementById('ai_btn_text');
+
+            load_spinner.classList.remove('hidden');
+            ai_btn_icon.classList.add('hidden');
+            ai_btn_text.innerText = 'Generating...';
+
+            const API_URL_PREFIX = "{{ config('app.flask.host') }}";
+            const API_URL = `${API_URL_PREFIX}/categorize`;
+
+            const grievance = document.getElementById('grievance_content').innerText;
+
+            fetch(API_URL, {
+                    method: 'POST',
+
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+
+                    body: JSON.stringify({
+                        grievance
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.predicted_label);
+                    categorySelector.value = data.predicted_label;
+                    categorySelector.dispatchEvent(new Event('change'));
+
+                    // auto fill duedate, priority and outsource remark
+                    const duedate = document.querySelector('input[name="duedate"]');
+                    const priority = document.querySelector('select[name="priority"]');
+                    const outsourceRemark = document.querySelector('textarea[name="outsourceRemark"]');
+                    const currentDate = new Date();
+                    const dueDate = new Date(currentDate.setDate(currentDate.getDate() + 7));
+                    duedate.value = dueDate.toISOString().slice(0, 16);
+                    priority.value = 'Normal';
+                    outsourceRemark.value = 'This grievance has been auto-assigned by AI';
+                    
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                })
+                .finally(() => {
+                    load_spinner.classList.add('hidden');
+                    ai_btn_icon.classList.remove('hidden');
+                    ai_btn_text.innerText = 'AI Generate';
+                });
+        });
     </script>
 @endsection

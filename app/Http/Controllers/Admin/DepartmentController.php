@@ -110,19 +110,20 @@ class DepartmentController extends Controller
         return $departments;
     }
 
-    public function searchDepartment(){
+    public function searchDepartment()
+    {
         $req = request();
 
         $keyword = $req->input('keyword');
         $query = DB::table('departments');
 
-        if($keyword != null && $keyword != ''){
-            $query->where('department_name', 'LIKE', '%'.$keyword.'%');
+        if ($keyword != null && $keyword != '') {
+            $query->where('department_name', 'LIKE', '%' . $keyword . '%');
         }
 
         $departments = $query->get();
 
-        $this->flashMessage('success', 'Search Results for: '.$keyword);
+        $this->flashMessage('success', 'Search Results for: ' . $keyword);
 
         return view('admin.departments', [
             'departments' => $departments,

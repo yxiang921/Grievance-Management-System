@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+    'flask' => [
+        'host' => env('FLASK_HOST', 'http://localhost:5000'),
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

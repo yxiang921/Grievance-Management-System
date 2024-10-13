@@ -33,6 +33,11 @@
         </form>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4">
+            @if ($grievances->count() == 0)
+
+                No grievances was found based on your search criteria.
+
+            @endif
             @foreach ($grievances as $grievance)
                 <x-grievance-card :grievance="$grievance" />
             @endforeach
