@@ -36,6 +36,8 @@
                     name="password" />
             </div>
 
+            <x-error-message />
+
             <div class="mt-8">
                 <a href="{{ route('admin.admins') }}" class="cancel-btn">Cancel</a>
                 <button class="primary-btn" type="submit">Update</button>

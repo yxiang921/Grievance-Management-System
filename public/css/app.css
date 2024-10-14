@@ -931,9 +931,6 @@ select {
 .mt-8 {
   margin-top: 2rem;
 }
-.mr-3 {
-  margin-right: 0.75rem;
-}
 .block {
   display: block;
 }
@@ -1022,17 +1019,11 @@ select {
 .h-screen {
   height: 100vh;
 }
-.h-96 {
-  height: 24rem;
-}
 .max-h-0 {
   max-height: 0px;
 }
 .min-h-screen {
   min-height: 100vh;
-}
-.min-h-\[140px\] {
-  min-height: 140px;
 }
 .w-1\/2 {
   width: 50%;
@@ -1093,9 +1084,6 @@ select {
 }
 .w-screen {
   width: 100vw;
-}
-.w-96 {
-  width: 24rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -1207,9 +1195,6 @@ select {
 .flex-wrap {
   flex-wrap: wrap;
 }
-.place-items-center {
-  place-items: center;
-}
 .items-start {
   align-items: flex-start;
 }
@@ -1291,9 +1276,6 @@ select {
 .overflow-y-hidden {
   overflow-y: hidden;
 }
-.overflow-x-scroll {
-  overflow-x: scroll;
-}
 .rounded {
   border-radius: 0.25rem;
 }
@@ -1320,9 +1302,6 @@ select {
 .border {
   border-width: 1px;
 }
-.border-8 {
-  border-width: 8px;
-}
 .border-y {
   border-top-width: 1px;
   border-bottom-width: 1px;
@@ -1344,9 +1323,6 @@ select {
 }
 .border-t {
   border-top-width: 1px;
-}
-.border-t-8 {
-  border-top-width: 8px;
 }
 .border-blue-400 {
   --tw-border-opacity: 1;
@@ -1399,6 +1375,10 @@ select {
 .border-yellow-400 {
   --tw-border-opacity: 1;
   border-color: rgb(250 204 21 / var(--tw-border-opacity));
+}
+.border-red-500 {
+  --tw-border-opacity: 1;
+  border-color: rgb(239 68 68 / var(--tw-border-opacity));
 }
 .bg-\[\#ccefe3\] {
   --tw-bg-opacity: 1;
@@ -1470,19 +1450,8 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(242 241 211 / var(--tw-bg-opacity));
 }
-.bg-red-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
-}
-.bg-indigo-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
-}
 .bg-opacity-90 {
   --tw-bg-opacity: 0.9;
-}
-.bg-opacity-50 {
-  --tw-bg-opacity: 0.5;
 }
 .fill-current {
   fill: currentColor;
@@ -1801,6 +1770,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(176 171 41 / var(--tw-text-opacity));
 }
+.text-red-500 {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
 .underline {
   text-decoration-line: underline;
 }
@@ -1909,9 +1882,6 @@ select {
 }
 .ease-out {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-.ease-linear {
-  transition-timing-function: linear;
 }
 
 /* Custom transition for the sidebar */
@@ -2683,10 +2653,6 @@ a:disabled:hover {
 
   .lg\:items-center {
     align-items: center;
-  }
-
-  .lg\:overflow-visible {
-    overflow: visible;
   }
 
   .lg\:px-8 {
