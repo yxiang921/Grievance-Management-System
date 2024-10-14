@@ -66,6 +66,15 @@
                 <div
                     class="lg:w-1/2 w-full h-screen p-4 border border-gray-100 rounded-md overflow-scroll no-scrollbar relative">
 
+
+                    {{-- API Error Label --}}
+                    <div id="error_label" class="hidden w-full mb-4 border border-red-500 bg-red-100 p-4 rounded-md">
+                        <p class="text-red-500">
+                            The AI service is currently unavailable. Please try again later.
+                        </p>
+                    </div>
+
+
                     @if ($grievance->is_assigned && $grievance->status != 'Closed')
                         <div class="w-full mb-4 border border-primary-900 bg-primary-100 p-4 rounded-md">
                             <p class="text-primary-900">
@@ -276,6 +285,7 @@
             document.getElementById(tabName).style.display = "block";
         }
 
+        // AI Functionality
         document.getElementById('ai_generate_btn').addEventListener('click', async () => {
 
             const load_spinner = document.getElementById('load_spinner');
@@ -290,6 +300,8 @@
             const API_URL = `${API_URL_PREFIX}/categorize`;
 
             const grievance = document.getElementById('grievance_content').innerText;
+            document.getElementById('error_label').classList.add('hidden');
+
 
             fetch(API_URL, {
                     method: 'POST',
@@ -317,10 +329,12 @@
                     duedate.value = dueDate.toISOString().slice(0, 16);
                     priority.value = 'Normal';
                     outsourceRemark.value = 'This grievance has been auto-assigned by AI';
-                    
+
+
                 })
                 .catch(error => {
-                    console.error('Error:', error);
+                    console.error('Error at AI', error.message);
+                    document.getElementById('error_label').classList.remove('hidden');
                 })
                 .finally(() => {
                     load_spinner.classList.add('hidden');
