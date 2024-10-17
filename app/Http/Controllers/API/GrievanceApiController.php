@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\NewGrievance;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -29,9 +30,6 @@ class GrievanceApiController extends Controller
                 'title' => 'required',
                 'description' => 'required',
                 'status' => 'required',
-                'category' => 'required',
-                'location' => 'required',
-                'department_id' => 'required',
                 'user_id' => 'required',
             ]);
 
@@ -39,11 +37,10 @@ class GrievanceApiController extends Controller
                 'title' => $validateData['title'],
                 'description' => $validateData['description'],
                 'status' => $validateData['status'],
-                'category' => $validateData['category'],
-                'location' => $validateData['location'],
-                'department_id' => $validateData['department_id'],
                 'user_id' => $validateData['user_id'],
             ]);
+
+            broadcast(new NewGrievance($grievance))->toOthers();
 
             return response()->json([
                 'message' => 'Grievance created successfully',
@@ -130,7 +127,7 @@ class GrievanceApiController extends Controller
 
             $grievance = Grievance::find($validateData['id']);
 
-            if(!$grievance){
+            if (!$grievance) {
                 return response()->json([
                     'message' => 'Grievance not found',
                 ], 404);
@@ -143,7 +140,7 @@ class GrievanceApiController extends Controller
             $grievance->location = $validateData['location'];
             $grievance->department_id = $validateData['department_id'];
             $grievance->user_id = $validateData['user_id'];
-            
+
             $grievance->save();
 
             return response()->json([
