@@ -59,12 +59,12 @@
         window.Echo.channel('grievance')
             .listen('NewGrievance', (e) => {
 
-                console.log('New complaint submitted:', e.grievance);
+                console.log('New complaint submitted:', e.grievance, e.user);
 
-                showNotification(e.grievance);
+                showNotification(e.grievance, e.user);
             });
 
-        function showNotification(grievance) {
+        function showNotification(grievance, user) {
             let grievanceList = document.getElementById('grievance-list');
 
             const statusBadge = {
@@ -80,15 +80,15 @@
             const grievanceComponent = `
             <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-start justify-between">
                 <div class="flex items-center mb-4">
-                    <img src="" alt="Avatar" class="w-12 h-12 rounded-full">
+                    <img src="${user.avatar}" alt="Avatar" class="w-12 h-12 rounded-full">
                     <div class="ml-4">
-                        <h3 class="text-lg font-semibold">grievance name</h3>
-                        <p class="text-gray-600">email</p>
+                        <h3 class="text-lg font-semibold">${user.name}</h3>
+                        <p class="text-gray-600">${user.email}</p>
                     </div>
                 </div>
                 <span class="status-badge
                     ${statusBadge[grievance.status]}
-                    ">Status</span>
+                    ">${grievance.status}</span>
                 <h4 class="text-lg font-semibold my-2">
                 ${grievanceTitle}
                 </h4>

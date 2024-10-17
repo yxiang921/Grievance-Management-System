@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Events\NewGrievance;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 use App\Models\Grievance;
@@ -33,6 +34,9 @@ class GrievanceApiController extends Controller
                 'user_id' => 'required',
             ]);
 
+            $user_id = $validateData['user_id'];
+            $user = User::find($user_id);
+
             $grievance = Grievance::create([
                 'title' => $validateData['title'],
                 'description' => $validateData['description'],
@@ -40,11 +44,12 @@ class GrievanceApiController extends Controller
                 'user_id' => $validateData['user_id'],
             ]);
 
-            broadcast(new NewGrievance($grievance))->toOthers();
+            broadcast(new NewGrievance($grievance, $user))->toOthers();
 
             return response()->json([
                 'message' => 'Grievance created successfully',
                 'grievance' => $grievance,
+                'user' => $user,
             ], 201);
 
         } catch (\Exception $e) {

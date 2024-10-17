@@ -15,15 +15,17 @@ class NewGrievance implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $grievance;
+    public $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($grievance)
+    public function __construct($grievance, $user)
     {
         $this->grievance = $grievance;
+        $this->user = $user;
     }
 
     /**
