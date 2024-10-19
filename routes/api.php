@@ -38,6 +38,13 @@ Route::group(
             ->name('auth.showProfile')
             ->middleware('auth:api');
 
+        Route::post('/addGrievance',[AuthApiController::class, 'showProfile'])
+            ->name('auth.addGrievance');
 
+        Route::get('/showGrievance',[AuthApiController::class, 'showGrievance'])
+            ->name('auth.showGrievance');
+
+        Route::get('/showGrievanceDetails/{id}',[AuthApiController::class, 'showGrievanceDetails'])
+            ->name('auth.showGrievanceDetails');
     }
 );
