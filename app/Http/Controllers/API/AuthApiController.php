@@ -31,7 +31,7 @@ class AuthApiController extends Controller
         }
 
         $user = auth()->user();
-        $token = $user->createToken('token-name')->accessToken;
+        $token = $user->createToken('flutter_auth_token')->accessToken;
 
         return response()->json(['token' => $token], 200);
 
