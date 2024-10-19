@@ -96,7 +96,7 @@
                 ${grievanceDescription}
                 </p>
                 <button class="md:w-1/2 w-full primary-btn"
-                    onclick="">
+                    onclick="window.location.href='/admin/grievance/${grievance.id}'">
                     Read
                 </button>
             </div>
