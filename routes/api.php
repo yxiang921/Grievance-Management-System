@@ -1,9 +1,8 @@
 <?php
 
+use App\Http\Controllers\API\AuthApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\API\GrievanceApiController;
 
 
 /*
@@ -17,25 +16,28 @@ use App\Http\Controllers\API\GrievanceApiController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
 Route::group(
     [
-        // prefix: http://..../api/grievance
-        'prefix' => 'grievance',
+        // prefix: http://..../api/auth
+        'prefix' => 'auth',
         'as' => 'api.',
     ],
     function () {
 
-        Route::get('/view', [GrievanceApiController::class, 'getGrievances'])
-            ->name('grievance.view');
+        Route::post('/register', [AuthApiController::class, 'register'])
+            ->name('auth.register');
 
-        Route::post('/add', [GrievanceApiController::class, 'createGrievance'])
-            ->name('grievance.add');
+        Route::post('/login', [AuthApiController::class, 'login'])
+            ->name('auth.login');
 
-        Route::post('delete', [GrievanceApiController::class, 'deleteGrievance'])
-            ->name('grievance.delete');
+        Route::get('/showProfile', [AuthApiController::class, 'showProfile'])
+            ->name('auth.showProfile')
+            ->middleware('auth:api');
+
+
     }
 );
