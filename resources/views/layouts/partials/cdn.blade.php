@@ -6,3 +6,6 @@
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
 <script src="//unpkg.com/alpinejs" defer></script>
+
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+<script src="https://js.pusher.com/7.2/pusher.min.js"></script>

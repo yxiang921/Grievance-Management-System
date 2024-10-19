@@ -11,7 +11,7 @@
 
 <div class="bg-white p-4 rounded-lg shadow-md flex flex-col items-start justify-between">
     <div class="flex items-center mb-4">
-        <img src="{{ $grievance->avatar}}" alt="Avatar" class="w-12 h-12 rounded-full">
+        <img src="{{ $grievance->avatar }}" alt="Avatar" class="w-12 h-12 rounded-full">
         <div class="ml-4">
             <h3 class="text-lg font-semibold">{{ $grievance->name }}</h3>
             <p class="text-gray-600">{{ $grievance->email }}</p>
