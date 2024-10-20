@@ -24,6 +24,7 @@ Route::group([
 
     Route::get('/register', [AdminRegisterController::class, 'showRegisterForm'])->name('register.form');
     Route::post('/register', [AdminRegisterController::class, 'register'])->name('register');
+
 });
 
 
