@@ -299,7 +299,7 @@
             const API_URL_PREFIX = "{{ config('app.flask.host') }}";
             const API_URL = `${API_URL_PREFIX}/categorize`;
 
-            const grievance = document.getElementById('grievance_content').innerText;
+            const grievance = document.getElementById('grievance_title').innerText;
             document.getElementById('error_label').classList.add('hidden');
 
 
