@@ -36,6 +36,8 @@
     </div>
 
     <script>
+        const facility_grievances = @json($facility_grievances);
+
         var map = L.map('map', {
             zoomControl: false,
             dragging: false,
@@ -57,19 +59,16 @@
             fillOpacity: 0
         }).addTo(map);
 
-        var circle = L.circle([1.534561, 103.681532], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.3,
-            radius: 20,
-        }).addTo(map);
+        facility_grievances.forEach(grievance => {
+            console.log(grievance);
 
-        var circle = L.circle([1.534324, 103.681532], {
-            color: 'red',
-            fillColor: '#f03',
-            fillOpacity: 0.3,
-            radius: 20,
-        }).addTo(map);
+            var circle = L.circle([grievance.latitude, grievance.longitude], {
+                color: 'red',
+                fillColor: '#f03',
+                fillOpacity: 0.3,
+                radius: 20,
+            }).addTo(map);
+        });
     </script>
 
     <script>
