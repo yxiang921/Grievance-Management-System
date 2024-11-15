@@ -5,17 +5,20 @@ namespace App\Http\Controllers\API;
 use App\Events\NewGrievance;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use DB;
 use Illuminate\Http\Request;
 
 use App\Models\Grievance;
 
 class GrievanceApiController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
 
     }
 
-    public function addGrievance(){
+    public function addGrievance()
+    {
         $req = request();
 
         req->validate([
@@ -36,16 +39,20 @@ class GrievanceApiController extends Controller
 
         return response()->json([
             'message' => 'Grievance created successfully',
-            'user' => $user
+            // 'user' => $user
         ], 201);
     }
 
-    public function showGrievance(){
-        $grievances = Grievance::select("title", "status","create_at")->get();
+    public function showGrievance()
+    {
+        $grievances = DB::table('grievances')
+            ->get();
+
         return response()->json($grievances, 200);
     }
 
-    public function showGrievanceDetails($id){
+    public function showGrievanceDetails($id)
+    {
         $grievance = Grievance::find($id);
         return response()->json($grievance, 200);
     }
