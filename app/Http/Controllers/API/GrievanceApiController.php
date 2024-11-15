@@ -43,9 +43,10 @@ class GrievanceApiController extends Controller
         ], 201);
     }
 
-    public function showGrievance()
+    public function showGrievance($userID)
     {
         $grievances = DB::table('grievances')
+            ->where('user_id', $userID)
             ->get();
 
         return response()->json($grievances, 200);

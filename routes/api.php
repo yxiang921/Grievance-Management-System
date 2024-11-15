@@ -49,7 +49,7 @@ Route::group(
         Route::post('/addGrievance',[GrievanceApiController::class, 'showProfile'])
             ->name('grievance.addGrievance');
 
-        Route::get('/showGrievance',[GrievanceApiController::class, 'showGrievance'])
+        Route::get('/showGrievance/{userID}',[GrievanceApiController::class, 'showGrievance'])
             ->name('grievance.showGrievance');
 
         Route::get('/showGrievanceDetails/{id}',[GrievanceApiController::class, 'showGrievanceDetails'])
