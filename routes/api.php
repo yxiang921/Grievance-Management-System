@@ -35,6 +35,9 @@ Route::group(
         Route::post('/login', [AuthApiController::class, 'login'])
             ->name('auth.login');
 
+        Route::post('/edit', [AuthApiController::class, 'edit'])
+            ->name('auth.edit');
+
         Route::get('/showProfile', [AuthApiController::class, 'showProfile'])
             ->name('auth.showProfile')
             ->middleware('auth:api');

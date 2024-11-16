@@ -21,7 +21,7 @@ class GrievanceApiController extends Controller
     {
         $req = request();
 
-        req->validate([
+        $req->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'location' => 'required|string',
