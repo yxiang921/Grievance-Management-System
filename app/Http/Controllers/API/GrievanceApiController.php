@@ -22,25 +22,39 @@ class GrievanceApiController extends Controller
         $req = request();
 
         $req->validate([
+            'userID' => 'required|string',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'location' => 'required|string',
-            'status' => 'Received',
-            'image' => 'required|image',
         ]);
 
+        if ($req->hasFile('image')) {
+            $req->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+
+            $image = $req->file('image');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('images'), $imageName);
+            $imagePath = 'images/' . $imageName;
+        } else {
+            $imagePath = null;
+        }
+
+
         $grievance = Grievance::create([
+            'user_id' => $req->userID,
             'title' => $req->title,
             'description' => $req->description,
             'location' => $req->location,
-            'status' => $req->status,
-            'image' => $req->image,
+            'status' => 'Received',
+            'grievance_image' => $imagePath,
         ]);
 
         return response()->json([
             'message' => 'Grievance created successfully',
+            'data' => $grievance
             // 'user' => $user
-        ], 201);
+        ], 200);
     }
 
     public function showGrievance($userID)
