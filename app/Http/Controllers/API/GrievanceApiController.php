@@ -54,9 +54,15 @@ class GrievanceApiController extends Controller
 
         broadcast(new NewGrievance($grievance, $user))->toOthers();
 
+        $grievanceID = DB::table('grievances')
+            ->where('user_id', $req->userID)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
         return response()->json([
             'message' => 'Grievance created successfully',
-            'data' => $grievance
+            'data' => $grievance,
+            'grievanceID' => $grievanceID->id,
             // 'user' => $user
         ], 200);
     }
