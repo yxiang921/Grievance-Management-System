@@ -38,6 +38,8 @@
     <script>
         const facility_grievances = @json($facility_grievances);
 
+        console.log(facility_grievances);
+
         var map = L.map('map', {
             zoomControl: false,
             dragging: false,
@@ -60,14 +62,20 @@
         }).addTo(map);
 
         facility_grievances.forEach(grievance => {
-            console.log(grievance);
 
-            var circle = L.circle([grievance.latitude, grievance.longitude], {
-                color: 'red',
-                fillColor: '#f03',
-                fillOpacity: 0.3,
-                radius: 20,
-            }).addTo(map);
+            if (grievance.latitude && grievance.longitude) {
+                console.log(grievance);
+                var circle = L.circle([grievance.latitude, grievance.longitude], {
+                    color: 'red',
+                    fillColor: '#f03',
+                    fillOpacity: 0.3,
+                    radius: 20,
+                }).addTo(map);
+            }else{
+                console.log('no location')
+            }
+
+
         });
     </script>
 
