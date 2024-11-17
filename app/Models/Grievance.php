@@ -25,6 +25,9 @@ class Grievance extends Model
         'process_remark',
         'process_image',
 
+        'latitude',
+        'longitude',
+
         'department_id',
         'user_id',
     ];

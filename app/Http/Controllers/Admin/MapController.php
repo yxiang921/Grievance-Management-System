@@ -15,7 +15,7 @@ class MapController extends Controller
             ->where('category', '=', 'Facility')
             ->where('status', '!=', value: 'Closed')
             ->get();
-
+ 
         $facility_grievances->each(function ($grievance, $index) {
             $grievance->index = $index + 1;
         });

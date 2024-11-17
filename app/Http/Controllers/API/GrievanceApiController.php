@@ -25,6 +25,7 @@ class GrievanceApiController extends Controller
             'userID' => 'required|string',
             'title' => 'required|string|max:255',
             'description' => 'required|string',
+            
         ]);
 
         if ($req->hasFile('image')) {
@@ -45,9 +46,10 @@ class GrievanceApiController extends Controller
             'user_id' => $req->userID,
             'title' => $req->title,
             'description' => $req->description,
-            'location' => $req->location,
             'status' => 'Received',
             'grievance_image' => $imagePath,
+            'latitude' => $req->latitude,
+            'longitude' => $req->longitude,
         ]);
 
         $user = User::find($req->userID);
