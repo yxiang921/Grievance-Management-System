@@ -50,6 +50,10 @@ class GrievanceApiController extends Controller
             'grievance_image' => $imagePath,
         ]);
 
+        $user = User::find($req->userID);
+
+        broadcast(new NewGrievance($grievance, $user))->toOthers();
+
         return response()->json([
             'message' => 'Grievance created successfully',
             'data' => $grievance

@@ -11,9 +11,6 @@ use Illuminate\Http\Request;
 
 class AuthApiController extends Controller
 {
-
-    // Profile img API: https://avatar.iran.liara.run/username?username=xxxxxxxx
-
     public function __construct()
     {
 
@@ -51,7 +48,7 @@ class AuthApiController extends Controller
             'username' => 'required|string|max:255|unique:users',
             'email' => 'required|string|email|max:255|unique:users',
             "phone_number" => 'required|string|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|min:8',
         ]);
 
         if (User::where('username', $req->username)->exists()) {
@@ -69,7 +66,7 @@ class AuthApiController extends Controller
         return response()->json([
             'message' => 'User created successfully',
             'user' => $user
-        ], 201);
+        ], 200);
     }
 
     public function showProfile()
@@ -89,7 +86,7 @@ class AuthApiController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,' . $req->userID,
             'phone_number' => 'required|string|max:255|unique:users,phone_number,' . $req->userID,
             'password' => 'required|string|min:8',
-        ]);        
+        ]);
 
         $user = DB::table('users')->where('id', $req->userID)->first();
 
