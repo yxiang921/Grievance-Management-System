@@ -11,17 +11,19 @@ class MapController extends Controller
     public function index()
     {
 
-        $facility_grievances = DB::table('grievances')
-            ->where('category', '=', 'Facility')
-            ->where('status', '!=', value: 'Closed')
+        $map_grievances = DB::table('grievances')
+            ->whereNotNull('latitude')
+            ->whereNotNull('longitude')
+            ->where('latitude', '!=', 0)
+            ->where('longitude', '!=', 0)
             ->get();
- 
-        $facility_grievances->each(function ($grievance, $index) {
+
+        $map_grievances->each(function ($grievance, $index) {
             $grievance->index = $index + 1;
         });
 
         return view('admin.map', [
-            'facility_grievances' => $facility_grievances
+            'map_grievances' => $map_grievances
         ]);
     }
 }

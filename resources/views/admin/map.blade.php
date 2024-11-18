@@ -1,12 +1,12 @@
 @extends('layouts.master')
 @section('content')
-    <div class="w-full min-h-screen grid grid-cols-1 xl:grid-cols-5">
+    <div class="w-full min-h-screen max-h-screen grid grid-cols-1 xl:grid-cols-5">
         <div class="col-span-1 xl:col-span-3" id="map"></div>
-        <div class="col-span-1 xl:col-span-2 my-4 p-4 md:my-0 xl:ml-4 border border-gray-100 bg-white rounded-md">
+        <div class="col-span-1 xl:col-span-2 my-4 p-4 md:my-0 xl:ml-4 border border-gray-100 rounded-md max-h-screen overflow-y-scroll no-scrollbar">
             <h1 class="text-2xl font-semibold text-gray-900">Facility Issues</h1>
             <p class="text-gray-600">Here is the view of all facility issues found from user which not yet solved.</p>
 
-            @foreach ($facility_grievances as $grievance)
+            @foreach ($map_grievances as $grievance)
                 <!-- Accordion -->
                 <div class="border-b border-slate-200 mt-4">
                     <button onclick="toggleAccordion({{ $grievance->index }})"
@@ -36,15 +36,15 @@
     </div>
 
     <script>
-        const facility_grievances = @json($facility_grievances);
+        const map_grievances = @json($map_grievances);
 
-        console.log(facility_grievances);
+        console.log(map_grievances);
 
         var map = L.map('map', {
             zoomControl: false,
             dragging: false,
             minZoom: 17,
-        }).setView([1.5336, 103.6819], 17);
+        }).setView([1.5336486914588254, 103.68175560084585], 17);
 
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -61,7 +61,7 @@
             fillOpacity: 0
         }).addTo(map);
 
-        facility_grievances.forEach(grievance => {
+        map_grievances.forEach(grievance => {
 
             if (grievance.latitude && grievance.longitude) {
                 console.log(grievance);
@@ -71,7 +71,7 @@
                     fillOpacity: 0.3,
                     radius: 20,
                 }).addTo(map);
-            }else{
+            } else {
                 console.log('no location')
             }
 
