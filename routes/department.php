@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\MapController;
 use App\Http\Controllers\Department\DepartmentController;
 use App\Http\Controllers\Department\AnalyticsController;
 use App\Http\Controllers\Department\GrievanceController;
@@ -75,9 +76,7 @@ Route::group([
     Route::get('/analytics', [AnalyticsController::class, 'getAnalytics'])
         ->name('analytics');
 
-    Route::get('/map', function () {
-        return view('admin.map');
-    })->name('map');
+    Route::get('/map', [MapController::class, 'index'])->name('map');
 
     Route::get('/settings', function () {
         return view('admin.settings');
