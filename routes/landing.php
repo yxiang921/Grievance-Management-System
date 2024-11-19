@@ -20,8 +20,9 @@ Route::get('/', function () {
     return view('landing.index'); // or landing.index if renamed
 });
 
-// Landing Page Route
-Route::get('/landing', [LandingController::class, 'index']);
+
+
+Route::get('/faq', [LandingController::class, 'faq'])->name('faq');
 
 
 

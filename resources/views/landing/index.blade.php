@@ -214,7 +214,7 @@
                 <h1 class="font-semibold text-gray-900 text-2xl md:text-4xl text-center leading-normal mb-14">What People Say <br> About GMS</h1>
 
                 <div class="hidden xl:block xl:absolute top-0">
-                    <img src="aimage/testimoni-1.png" alt="Image">
+                    <img src="image/testimoni-1.png" alt="Image">
                 </div>
 
                 <div class="hidden xl:block xl:absolute top-32">
