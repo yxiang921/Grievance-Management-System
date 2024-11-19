@@ -33,6 +33,9 @@ return new class extends Migration {
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
 
+            $table->dateTime('assigned_at')->nullable();
+            $table->dateTime('closed_at')->nullable();
+
             // Foreign Keys
             $table->foreignId('department_id')->nullable()->constrained();
             $table->foreignId('user_id')->constrained();
