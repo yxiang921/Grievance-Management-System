@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 
+Route::get('/', [LandingController::class, 'index']);
+
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -30,5 +32,4 @@ Route::get('/', function () {
 // require __DIR__ . '/auth.php';
 require __DIR__ . '/admin.php';
 require __DIR__ . '/department.php';
-require __DIR__ . '/landing.php';
 require __DIR__ . '/custom_auth.php';
