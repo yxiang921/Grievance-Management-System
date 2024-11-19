@@ -69,6 +69,7 @@ class GrievanceController extends Controller
         $grievance = Grievance::find($grievance_id);
 
         $grievance->department_id = $validateData['departmentID'];
+        $grievance->status = 'In Progress';
         $grievance->priority = $validateData['priority'];
         $grievance->due_date = $validateData['duedate'];
         $grievance->category = $validateData['category'];
