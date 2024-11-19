@@ -73,6 +73,7 @@ class GrievanceController extends Controller
         $grievance->due_date = $validateData['duedate'];
         $grievance->category = $validateData['category'];
         $grievance->outsource_remark = $validateData['outsourceRemark'];
+        $grievance->assigned_at = now();
         $grievance->is_assigned = true;
 
         $grievance->save();
@@ -102,6 +103,7 @@ class GrievanceController extends Controller
         $grievance = Grievance::find($grievance_id);
 
         $grievance->status = 'Closed';
+        $grievance->closed_at = now();
         $grievance->updated_at = now();
         $grievance->save();
 
@@ -110,7 +112,6 @@ class GrievanceController extends Controller
         return redirect()->route('admin.grievances');
     }
 
-    // Filter
 
     public function searchGrievance()
     {
