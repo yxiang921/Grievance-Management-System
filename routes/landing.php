@@ -15,12 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+//homepage
 Route::get('/', function () {
-    return view('home');
+    return view('landing.index'); // or landing.index if renamed
 });
 
 
-Route::get('/', [LandingController::class, 'index']);
+
+Route::get('/faq', [LandingController::class, 'faq'])
+->name('faq');
+
+Route::get('/tac', [LandingController::class, 'tac'])
+->name('tac');
+
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
