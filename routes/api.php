@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AuthApiController;
+use App\Http\Controllers\API\GrievanceApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -34,17 +35,27 @@ Route::group(
         Route::post('/login', [AuthApiController::class, 'login'])
             ->name('auth.login');
 
+        Route::post('/edit', [AuthApiController::class, 'edit'])
+            ->name('auth.edit');
+
         Route::get('/showProfile', [AuthApiController::class, 'showProfile'])
             ->name('auth.showProfile')
             ->middleware('auth:api');
+    }
+);
 
-        Route::post('/addGrievance',[AuthApiController::class, 'showProfile'])
-            ->name('auth.addGrievance');
+Route::group(
+    [
+        'prefix' => 'grievance',
+        'as' => 'api.',
+    ], function (){
+        Route::post('/add',[GrievanceApiController::class, 'addGrievance'])
+            ->name('grievance.addGrievance');
 
-        Route::get('/showGrievance',[AuthApiController::class, 'showGrievance'])
-            ->name('auth.showGrievance');
+        Route::get('/showGrievance/{userID}',[GrievanceApiController::class, 'showGrievance'])
+            ->name('grievance.showGrievance');
 
-        Route::get('/showGrievanceDetails/{id}',[AuthApiController::class, 'showGrievanceDetails'])
-            ->name('auth.showGrievanceDetails');
+        Route::get('/showGrievanceDetails/{id}',[GrievanceApiController::class, 'showGrievanceDetails'])
+            ->name('grievance.showGrievanceDetails');
     }
 );

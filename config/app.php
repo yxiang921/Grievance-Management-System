@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Facade;
 return [
 
     'flask' => [
-        'host' => env('FLASK_HOST', 'http://localhost:5000'),
+        'host' => env('FLASK_API_URL', 'http://localhost:5000'),
     ],
 
     /*

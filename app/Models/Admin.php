@@ -27,4 +27,8 @@ class Admin extends Authenticatable
     {
         return $this->admin_password;
     }
+
+    public function getEmailForPasswordReset(){
+        return $this->admin_email;
+    }
 }

@@ -81,6 +81,7 @@ class GrievanceController extends Controller
 
         $grievance->status = $validateData['status'];
         $grievance->process_remark = $validateData['process_remark'];
+        $grievance->closed_at = now();
         $grievance->updated_at = now();
 
         $grievance->save();

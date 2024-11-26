@@ -90,8 +90,6 @@ return [
             'model' => App\Models\Department::class,
         ],
 
-
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -118,6 +116,20 @@ return [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 15,
+            'throttle' => 60,
+        ],
+
+        'departments' => [
+            'provider' => 'departments',
+            'table' => 'password_resets',
+            'expire' => 15,
             'throttle' => 60,
         ],
     ],
