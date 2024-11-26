@@ -22,7 +22,11 @@ Route::get('/', function () {
 
 
 
-Route::get('/faq', [LandingController::class, 'faq'])->name('faq');
+Route::get('/faq', [LandingController::class, 'faq'])
+->name('faq');
+
+Route::get('/tac', [LandingController::class, 'tac'])
+->name('tac');
 
 
 

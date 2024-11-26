@@ -11,200 +11,139 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/background.css') }}" rel="stylesheet">
     <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
         
-  </head>
+</head>
+<div class="flex items-center justify-center min-h-screen relative ">
+  <div class="area">
+      <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+  </div>
+  
+  <div class="absolute w-full bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-2xl sm:rounded-lg sm:px-10">
+    <div class="mx-auto px-5">
+          <div class="flex flex-col items-center">
+              <h2 class="mt-5 text-center text-3xl font-bold tracking-tight md:text-5xl">FAQ</h2>
+              <p class="mt-3 text-lg text-neutral-500 md:text-xl">Frequenty asked questions
 
-<section class="py-24">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div
-          class="flex flex-col justify-center items-center gap-x-16 gap-y-5 xl:gap-28 lg:flex-row lg:justify-between max-lg:max-w-2xl mx-auto max-w-full"
-        >
-          <div class="w-full lg:w-1/2">
-            <img
-              src="https://pagedone.io/asset/uploads/1696230182.png"
-              alt="FAQ tailwind section"
-              class="w-full rounded-xl object-cover"
-            />
+              </p>
           </div>
-          <div class="w-full lg:w-1/2">
-            <div class="lg:max-w-xl">
-              <div class="mb-6 lg:mb-16">
-                <h6
-                  class="text-lg text-center font-medium text-indigo-600 mb-2 lg:text-left"
-                >
-                  faqs
-                </h6>
-                <h2
-                  class="text-4xl text-center font-bold text-gray-900 leading-[3.25rem] mb-5 lg:text-left"
-                >
-                  Looking for answers?
-                </h2>
+          <div class="mx-auto mt-8 grid max-w-xl divide-y divide-neutral-200">
+              <div class="py-5">
+                  <details class="group">
+                      <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+                          <span> What is the purpose of the grievance management system?? </span>
+                          <span class="transition group-open:rotate-180">
+                                  <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                                      <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                              </span>
+                      </summary>
+                      <p class="group-open:animate-fadeIn mt-3 text-neutral-600">
+                        The Grievance Management System is designed to streamline the process of submitting, tracking, and resolving grievances for users. It ensures transparency, efficiency, and accountability.
+                      </p>
+                  </details>
               </div>
-              <div class="accordion-group" data-accordion="default-accordion">
-                <div
-                  class="accordion pb-8 border-b border-solid border-gray-200 active"
-                  id="basic-heading-one-with-arrow-always-open"
-                >
-                  <button
-                    class="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:font-medium always-open"
-                    aria-controls="basic-collapse-one-with-arrow-always-open"
-                  >
-                    <h5 >How to create an account?</h5>
-                    <svg
-                      class="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </button>
-                  <div
-                    id="basic-collapse-one-with-arrow-always-open"
-                    class="accordion-content w-full px-0 overflow-hidden pr-4 active"
-                    style="max-height: 100px;"
-                    aria-labelledby="basic-heading-one-with-arrow-always-open"
-                  >
-                    <p class="text-base font-normal text-gray-600 ">
-                      To create an account, find the 'Sign up' or 'Create
-                      account' button, fill out the registration form with your
-                      personal information, and click 'Create account' or 'Sign
-                      up.' Verify your email address if needed, and then log in
-                      to start using the platform.
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="accordion py-8 border-b border-solid border-gray-200 "
-                  id="basic-heading-two-with-arrow-always-open"
-                >
-                  <button
-                    class="accordion-toggle group inline-flex items-center justify-between font-normal text-xl leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:font-medium"
-                    aria-controls="basic-collapse-two-with-arrow-always-open"
-                  >
-                    <h5>Have any trust issue?</h5>
-                    <svg
-                      class="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </button>
-                  <div
-                    id="basic-collapse-two-with-arrow-always-open"
-                    class="accordion-content w-full px-0 overflow-hidden pr-4"
-                    aria-labelledby="basic-heading-two-with-arrow-always-open"
-                    style=""
-                  >
-                    <p class="text-base text-gray-500 font-normal">
-                      Our focus on providing robust and user-friendly content
-                      management capabilities ensures that you can manage your
-                      content with confidence, and achieve your content
-                      marketing goals with ease.
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="accordion py-8 border-b border-solid border-gray-200"
-                  id="basic-heading-three-with-arrow-always-open"
-                >
-                  <button
-                    class="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:font-medium accordion-active:text-indigo-600"
-                    aria-controls="basic-collapse-three-with-arrow-always-open"
-                  >
-                    <h5>How can I reset my password?</h5>
-                    <svg
-                      class="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </button>
-                  <div
-                    id="basic-collapse-three-with-arrow-always-open"
-                    class="accordion-content w-full px-0 overflow-hidden pr-4"
-                    aria-labelledby="basic-heading-three-with-arrow-always-open"
-                  >
-                    <p class="text-base text-gray-500 font-normal">
-                      Our focus on providing robust and user-friendly content
-                      management capabilities ensures that you can manage your
-                      content with confidence, and achieve your content
-                      marketing goals with ease.
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="accordion py-8 "
-                  id="basic-heading-four-with-arrow-always-open"
-                >
-                  <button
-                    class="accordion-toggle group inline-flex items-center justify-between text-xl font-normal leading-8 text-gray-600 w-full transition duration-500 hover:text-indigo-600 accordion-active:font-medium accordion-active:text-indigo-600"
-                    aria-controls="basic-collapse-four-with-arrow-always-open"
-                  >
-                    <h5>What is the payment process?</h5>
-                    <svg
-                      class="text-gray-900 transition duration-500 group-hover:text-indigo-600 accordion-active:text-indigo-600 accordion-active:rotate-180"
-                      width="22"
-                      height="22"
-                      viewBox="0 0 22 22"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M16.5 8.25L12.4142 12.3358C11.7475 13.0025 11.4142 13.3358 11 13.3358C10.5858 13.3358 10.2525 13.0025 9.58579 12.3358L5.5 8.25"
-                        stroke="currentColor"
-                        stroke-width="1.6"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      ></path>
-                    </svg>
-                  </button>
-                  <div
-                    id="basic-collapse-four-with-arrow-always-open"
-                    class="accordion-content w-full px-0 overflow-hidden pr-4"
-                    aria-labelledby="basic-heading-four-with-arrow-always-open"
-                  >
-                    <p class="text-base text-gray-500 font-normal">
-                      Our focus on providing robust and user-friendly content
-                      management capabilities ensures that you can manage your
-                      content with confidence, and achieve your content
-                      marketing goals with ease.
-                    </p>
-                  </div>
-                </div>
+              <div class="py-5">
+                  <details class="group">
+                      <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+                          <span> How do I submit a grievance? </span>
+                          <span class="transition group-open:rotate-180">
+                                  <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                                      <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                              </span>
+                      </summary>
+                      <p class="group-open:animate-fadeIn mt-3 text-neutral-600">To submit a grievance, log in to the system, navigate to the "Submit Grievance" section, fill in the required details, and click on "Submit." You will receive a confirmation once your grievance is successfully submitted.
+                      </p>
+                  </details>
               </div>
-            </div>
+              <div class="py-5">
+                  <details class="group">
+                      <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+                          <span>  How can I track the status of my grievance? </span>
+                          <span class="transition group-open:rotate-180">
+                                  <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                                      <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                              </span>
+                      </summary>
+                      <p class="group-open:animate-fadeIn mt-3 text-neutral-600">
+                        After logging in, go to the "Grievance History" or "Track Grievance" page. You will see the status of all your submitted grievances, such as "Pending," "Under Review," or "Resolved."
+                      </p>
+                  </details>
+              </div>
+              <div class="py-5">
+                  <details class="group">
+                      <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+                          <span> Can I edit or update my grievance after submission? </span>
+                          <span class="transition group-open:rotate-180">
+                                  <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                                      <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                              </span>
+                      </summary>
+                      <p class="group-open:animate-fadeIn mt-3 text-neutral-600">
+                        No, grievances cannot be edited after submission. However, you can contact the administrator or grievance officer if additional details need to be provided.
+                      </p>
+                  </details>
+              </div>
+              <div class="py-5">
+                  <details class="group">
+                      <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+                          <span> How do I contact support?</span>
+                          <span class="transition group-open:rotate-180">
+                                  <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                                      <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                              </span>
+                      </summary>
+                      <p class="group-open:animate-fadeIn mt-3 text-neutral-600">If you need help with our platform or
+                          have any other questions, you can contact us by submitting a support
+                          request through the website <a href="http://grievancesys.rf.gd/" style="color: blue; text-decoration: underline;">http://grievancesys.rf.gd/</a> or by emailing sucfypgms@gmail.com.
+                      </p>
+                  </details>
+              </div>
+              <div class="py-5">
+                  <details class="group">
+                      <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+                          <span> Who reviews the grievances? </span>
+                          <span class="transition group-open:rotate-180">
+                                  <svg fill="none" height="24" shape-rendering="geometricPrecision"
+                                      stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                      stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                                      <path d="M6 9l6 6 6-6"></path>
+                                  </svg>
+                              </span>
+                      </summary>
+                      <p class="group-open:animate-fadeIn mt-3 text-neutral-600">
+                      Grievances which you submitted will review by administrators or related department within the organization who have the authority to investigate and resolve issues.
+                      </p>
+                  </details>
+              </div>
           </div>
-        </div>
       </div>
-    </section>
-                                            
+    </div>
+  </div>
+</div>

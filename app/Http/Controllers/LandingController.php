@@ -14,4 +14,9 @@ class LandingController extends Controller
     {
         return view('landing.faq'); // The view file located in resources/views/faq/index.blade.php
     }
+
+    public function tac()
+    {
+        return view('landing.tac'); // The view file located in resources/views/faq/index.blade.php
+    }
 }

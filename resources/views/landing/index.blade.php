@@ -331,17 +331,28 @@
                             <img src="image/footer-logo.png" alt="Image">
                         </div>
 
-                        <p class="font-light text-gray-400 text-xl mb-10">Get your dream house with <br> D’house</p>
+                        <p class="font-light text-gray-400 text-xl mb-10">Simplify your grievance process with <br> GMS</p>
 
+                        <p class="font-light text-gray-400 text-xl mb-10">More information</p>
                         <div class="flex items-center justify-center lg:justify-start space-x-5">
-                            <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="facebook"></i>
+                            <a href="https://github.com/yxiang921/Grievance-Management-System" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
+                                <i data-feather="github"></i>
                             </a>
 
                             <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="twitter"></i>
+                                <i data-feather="linkedin"></i>
                             </a>
 
+                        </div>
+                        <p class="font-light text-gray-400 text-xl mb-10">Person in charge in this project</p>
+                        <div class="flex items-center justify-center lg:justify-start space-x-5">
+
+                            <a href="https://www.linkedin.com/in/yong-xiang/" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
+                                <i data-feather="linkedin"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/chun-kiat-lwi-058308287/" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
+                                <i data-feather="linkedin"></i>
+                            </a>
                             <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
                                 <i data-feather="linkedin"></i>
                             </a>
@@ -378,9 +389,9 @@
                     <div class="text-center lg:text-left">
                         <h4 class="font-semibold text-gray-900 text-2xl mb-6">Utility</h4>
 
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
+                        <a href="/faq" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
 
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Terms & Conditions</a>
+                        <a href="/tac" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Terms & Conditions</a>
                     </div>
                 </div>
 
