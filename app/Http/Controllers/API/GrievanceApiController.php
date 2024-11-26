@@ -30,13 +30,13 @@ class GrievanceApiController extends Controller
 
         if ($req->hasFile('image')) {
             $req->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,mp4|max:102400',
             ]);
 
             $image = $req->file('image');
             $imageName = time() . '.' . $image->extension();
-            $image->move(public_path('images'), $imageName);
-            $imagePath = 'images/' . $imageName;
+            $image->move(public_path('uploads'), $imageName);
+            $imagePath = 'uploads/' . $imageName;
         } else {
             $imagePath = null;
         }
