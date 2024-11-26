@@ -42,28 +42,7 @@
         </div>
     </div>
 
-    <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.11.3/dist/echo.iife.js"></script>
-
     <script>
-        const pusher = new Pusher('{{ env('MIX_PUSHER_APP_KEY') }}', {
-            cluster: '{{ env('MIX_PUSHER_APP_CLUSTER') }}',
-            forceTLS: true
-        });
-
-        window.Echo = new Echo({
-            broadcaster: 'pusher',
-            client: pusher
-        });
-
-        window.Echo.channel('grievance')
-            .listen('NewGrievance', (e) => {
-
-                console.log('New complaint submitted:', e.grievance, e.user);
-
-                showNotification(e.grievance, e.user);
-            });
-
         function showNotification(grievance, user) {
             let grievanceList = document.getElementById('grievance-list');
 
