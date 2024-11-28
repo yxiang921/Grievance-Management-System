@@ -16,6 +16,34 @@
         <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
         
     </head> 
+    <div id="demoModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+            <h2 class="text-2xl font-bold mb-4">Request a Demo</h2>
+            <form id="contactForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Name:</label>
+                    <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email:</label>
+                    <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700">Message:</label>
+                    <textarea id="message" name="message" class="w-full border border-gray-300 rounded p-2"></textarea>
+                </div>
+                <div class="flex justify-between items-center">
+                    <button type="button" id="closeButton" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
     <body class="font-body">
 
@@ -55,13 +83,15 @@
 
                     </ul>
 
-                    <button class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
+                    <button id="requestDemoBtn" class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
                         Request a demo
                     </button>
 
                 </nav>
+                
 
                 <div class="flex items-center justify-center xl:justify-start">
+                    
 
                     <div class="mt-28 text-center xl:text-left">
                         <h1 class="font-semibold text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-normal mb-6">Introduction to <br> Our GMS</h1>
@@ -414,6 +444,81 @@
             
         </script>
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script>
+    // Get elements
+    const requestDemoBtn = document.getElementById('requestDemoBtn');
+    const demoModal = document.getElementById('demoModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Show the modal when the "Request a Demo" button is clicked
+    requestDemoBtn.addEventListener('click', () => {
+        demoModal.classList.remove('hidden');
+    });
+
+    // Hide the modal when the close button is clicked
+    closeModalBtn.addEventListener('click', () => {
+        demoModal.classList.add('hidden');
+    });
+
+    // Hide the modal when clicking outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === demoModal) {
+            demoModal.classList.add('hidden');
+        }
+    });
+</script>
 
     </body>
 </html>
+
+<!-- Modal HTML -->
+<!-- Modal -->
+
+<div id="demoModal" class="fixed inset-0 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+        <!-- Close Button -->
+        <button id="closeButton" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <h2 class="text-xl font-bold mb-4">Request a Demo</h2>
+        <form>
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-medium">Name:</label>
+                <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-medium">Email:</label>
+                <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block text-gray-700 font-medium">Message:</label>
+                <textarea id="message" name="message" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="flex justify-end">
+                <button id="closeButtonSecondary" type="button" class="mr-2 bg-gray-400 text-white py-2 px-4 rounded-lg hover:bg-gray-500">Cancel</button>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    // JavaScript to handle modal functionality
+    const modal = document.getElementById('requestDemoModal');
+    const openModalButton = document.getElementById('openModal');
+    const closeModalButton = document.getElementById('closeModal');
+
+    openModalButton.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+    });
+
+    closeModalButton.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+    
+</script>
+
+
