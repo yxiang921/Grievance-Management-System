@@ -21,11 +21,13 @@ class AdminLoginController extends Controller
             'admin_password' => 'required',
         ]);
 
+        $remember = $request->has('remember_me');
+
         $credentials = $request->only('admin_email', 'admin_password');
 
         $credentials['password'] = $credentials['admin_password'];
 
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::guard('admin')->attempt($credentials, $remember)) {
 
             $this->flashMessage('success', 'Login Successful, Welcome Back!');
 

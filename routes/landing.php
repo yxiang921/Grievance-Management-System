@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 //homepage
 Route::get('/', function () {
     return view('landing.index'); // or landing.index if renamed

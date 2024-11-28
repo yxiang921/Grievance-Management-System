@@ -52,12 +52,6 @@
                                 </label>
                             </div>
                             <div class="text-sm">
-                                @if (Route::has('password.request'))
-                                    <a class="underline text-primary-900 hover:text-primary-hover font-semibold"
-                                        href="{{ route('password.request') }}">
-                                        {{ __('Forgot your password?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
                     </div>
