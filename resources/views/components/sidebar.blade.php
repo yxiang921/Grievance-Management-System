@@ -1,28 +1,40 @@
 <!-- Overlay for mobile -->
 <div class="z-10 hidden overlay w-screen h-screen bg-slate-900 opacity-45 fixed inset-0" onclick="toggleMenu()"></div>
 
-<!-- Sidebar -->
-@if (Auth::guard('admin')->check())
-    <div id="sidebar"
-        class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white border-r border-gray-100 transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
-        <div class="p-4 relative">
+<div id="sidebar"
+    class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white border-r border-gray-100 transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
+    <div class="p-4 relative">
+        @if (Auth::guard('admin')->check())
             <div class="flex flex-col justify-center items-center">
                 <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
                     class="rounded-full w-20 h-20 mb-4">
-                <p class="text-lg font-semibold text-center">{{ $auth_user->name }} </p>
+                <p class="text-lg font-semibold text-center">{{ Auth::guard('admin')->user()->admin_name }}</p>
                 <p class="text-gray-500">
-                    {{ $auth_user->email }}
+                    {{ Auth::guard('admin')->user()->admin_email }}
                 </p>
             </div>
-
-            <div class="cursor-pointer w-8 h-8 absolute top-4 right-4 md:hidden" onclick="toggleMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                    stroke="currentColor" class="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+        @elseif (Auth::guard('department')->check())
+            <div class="flex flex-col justify-center items-center">
+                <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
+                    class="rounded-full w-20 h-20 mb-4">
+                <p class="text-lg font-semibold text-center">{{ Auth::guard('department')->user()->department_name }}
+                </p>
+                <p class="text-gray-500">
+                    {{ Auth::guard('department')->user()->department_email }}
+                </p>
             </div>
-        </div>
+        @endif
 
+        <div class="cursor-pointer w-8 h-8 absolute top-4 right-4 md:hidden" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                stroke="currentColor" class="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </div>
+    </div>
+
+    {{-- nav for admin --}}
+    @if (Auth::guard('admin')->check())
         <nav class="mt-6 w-full flex flex-col items-center justify-center">
             <a href="{{ route('admin.home') }}"
                 class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
@@ -139,28 +151,10 @@
                 </button>
             </form>
         </nav>
-    </div>
-@else
-    <div id="sidebar"
-        class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white border-r border-gray-100 transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
-        <div class="p-4 relative">
-            <div class="flex flex-col justify-center items-center">
-                <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
-                    class="rounded-full w-20 h-20 mb-4">
-                <p class="text-lg font-semibold text-center">{{ $auth_user->name }} </p>
-                <p class="text-gray-500">
-                    {{ $auth_user->email }}
-                </p>
-            </div>
+    @endif
 
-            <div class="cursor-pointer w-8 h-8 absolute top-4 right-4 md:hidden" onclick="toggleMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                    stroke="currentColor" class="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </div>
-        </div>
-
+    {{-- nav for department --}}
+    @if (Auth::guard('department')->check())
         <nav class="mt-6 w-full flex flex-col items-center justify-center">
             <a href="{{ route('department.home') }}"
                 class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
@@ -234,5 +228,7 @@
                 </button>
             </form>
         </nav>
-    </div>
-@endif
+    @endif
+
+
+</div>

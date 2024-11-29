@@ -14,7 +14,7 @@
 
 
     <div class="flex">
-        <x-sidebar></x-sidebar>
+            <x-sidebar/>
 
         <!-- Main Content -->
         <div class="flex-1 p-4">
