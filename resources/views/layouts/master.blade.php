@@ -14,11 +14,7 @@
 
 
     <div class="flex">
-        @if (Auth::guard('admin')->check())
-            <x-sidebar></x-sidebar>
-        @else
-            <x-department-sidebar></x-department-sidebar>
-        @endif
+            <x-sidebar/>
 
         <!-- Main Content -->
         <div class="flex-1 p-4">
