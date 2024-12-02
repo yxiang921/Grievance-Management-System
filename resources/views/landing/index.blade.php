@@ -99,12 +99,12 @@
                         <p class="font-normal text-xl text-gray-400 leading-relaxed mb-12">Learn how our Grievance Management System streamlines <br> 
                         complaint handling and ensures effective resolutions.</p>
 
-                        <button class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500">Contact us</button>
+                        <button class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500"><a href ="#contact">Contact us<a/></button>
                     </div>
 
-                    <div class="hidden xl:block xl:absolute z-0 top-0 right-0">
+                    <!-- <div class="hidden xl:block xl:absolute z-0 top-0 right-0">
                     <img src="image/home-img.png" alt="Home img">
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -207,10 +207,10 @@
                     <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">Admin Features</h2>
                     <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
                         <div>
-                            <img src="image/admin-1.png" alt="Admin Dashboard" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/gallery-1.png" alt="Admin Dashboard" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                         <div>
-                            <img src="image/admin-2.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/gallery-2.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                     </div>
                 </div>
@@ -358,7 +358,7 @@
                 <div class="flex flex-col lg:flex-row justify-between">
                     <div class="text-center lg:text-left mb-10 lg:mb-0">
                         <div class="flex justify-center lg:justify-start mb-5">
-                            <img src="image/footer-logo.png" alt="Image">
+                            <img src="image/navbar-logo.png" alt="Image">
                         </div>
 
                         <p class="font-light text-gray-400 text-xl mb-10">Simplify your grievance process with <br> GMS</p>
@@ -443,30 +443,6 @@
         }
             
         </script>
-        <script src="{{ asset('js/app.js') }}" defer></script>
-        <script>
-    // Get elements
-    const requestDemoBtn = document.getElementById('requestDemoBtn');
-    const demoModal = document.getElementById('demoModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-
-    // Show the modal when the "Request a Demo" button is clicked
-    requestDemoBtn.addEventListener('click', () => {
-        demoModal.classList.remove('hidden');
-    });
-
-    // Hide the modal when the close button is clicked
-    closeModalBtn.addEventListener('click', () => {
-        demoModal.classList.add('hidden');
-    });
-
-    // Hide the modal when clicking outside the modal content
-    window.addEventListener('click', (event) => {
-        if (event.target === demoModal) {
-            demoModal.classList.add('hidden');
-        }
-    });
-</script>
 
     </body>
 </html>
@@ -474,7 +450,7 @@
 <!-- Modal HTML -->
 <!-- Modal -->
 
-<div id="demoModal" class="fixed inset-0 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+<div id="demoModal" class="relative z-10 fixed inset-0 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
     <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
         <!-- Close Button -->
         <button id="closeButton" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
@@ -519,6 +495,50 @@
         modal.classList.add('hidden');
     });
     
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // Get the elements
+    const demoModal = document.getElementById('demoModal');
+    const closeButton = document.getElementById('closeButton');
+    const closeButtonSecondary = document.getElementById('closeButtonSecondary');
+    const requestDemoBtn = document.getElementById('requestDemoBtn'); // Button to open modal (if it exists on your page)
+
+    // Function to show the modal
+    const showModal = () => {
+        demoModal.classList.remove('hidden');
+    };
+
+    // Function to hide the modal
+    const hideModal = () => {
+        demoModal.classList.add('hidden');
+    };
+
+    // Open modal when "Request a Demo" button is clicked
+    if (requestDemoBtn) {
+        requestDemoBtn.addEventListener('click', () => {
+            showModal();
+        });
+    }
+
+    // Close modal when the top-right close button is clicked
+    closeButton.addEventListener('click', () => {
+        hideModal();
+    });
+
+    // Close modal when the footer cancel button is clicked
+    closeButtonSecondary.addEventListener('click', () => {
+        hideModal();
+    });
+
+    // Close modal if user clicks outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === demoModal) {
+            hideModal();
+            }
+        });
+    });
+
 </script>
 
 
