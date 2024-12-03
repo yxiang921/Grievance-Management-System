@@ -152,13 +152,30 @@
                 <h1 class="font-semibold text-gray-900 text-4xl text-center mb-10">Our Prototype</h1>
 
                 <!-- Navigation Tabs -->
-                <div class="hidden md:block flex items-center text-center space-x-10 lg:space-x-20 mb-12">
-                    <button onclick="showSection('all')" class="px-6 py-2 bg-green-800 text-white font-semibold text-xl rounded-lg hover:bg-green-600 transition ease-in-out duration-500">All</button>
-                    <button onclick="showSection('admin')" class="px-6 py-2 text-gray-900 font-normal text-xl rounded-lg hover:bg-gray-200 hover:text-gray-400 transition ease-in-out duration-500">Admin</button>
-                    <button onclick="showSection('user')" class="px-6 py-2 text-gray-900 font-normal text-xl rounded-lg hover:bg-gray-200 hover:text-gray-400 transition ease-in-out duration-500">User</button>
+                <div class="flex justify-center space-x-2 mb-6">
+                    <button 
+                        data-section="all" 
+                        onclick="showSection('all')" 
+                        class="px-4 py-2 bg-blue-600 text-white rounded"
+                    >
+                        All
+                    </button>
+                    <button 
+                        data-section="admin" 
+                        onclick="showSection('admin')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-800 rounded"
+                    >
+                        Admin
+                    </button>
+                    <button 
+                        data-section="user" 
+                        onclick="showSection('user')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-800 rounded"
+                    >
+                        User
+                    </button>
                 </div>
 
-                <!-- All Section -->
                 <div id="all" class="flex space-x-4 md:space-x-6 lg:space-x-8">
                     <div>
                         <img src="image/gallery-1.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
@@ -174,10 +191,8 @@
                         <img src="image/gallery-7.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
                     </div>
                 </div>
-
-                <!-- Admin Section -->
                 <div id="admin" class="hidden">
-                    <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">Admin Features</h2>
+                <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">Admin Features</h2>
                     <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
                         <div>
                             <img src="image/gallery-3.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
@@ -190,10 +205,8 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- User Section -->
                 <div id="user" class="hidden">
-                    <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">User Features</h2>
+                <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">User Features</h2>
                     <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
                         <div>
                             <img src="image/gallery-4.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
@@ -428,71 +441,45 @@
         <!-- footer //end -->
 
         <script>
-            feather.replace()
-            function showSection(section) {
-            // Hide all sections
-            document.getElementById('all').classList.add('hidden');
-            document.getElementById('admin').classList.add('hidden');
-            document.getElementById('user').classList.add('hidden');
+            // Replace Feather icons when the page loads
+            document.addEventListener('DOMContentLoaded', () => {
+                feather.replace();
+            });
 
-            // Show the selected section
-            document.getElementById(section).classList.remove('hidden');
-        }
-            
+            // Function to show specific section and handle active state
+            function showSection(section) {
+                // List of all possible sections
+                const sections = ['all', 'admin', 'user'];
+                
+                // Hide all sections
+                sections.forEach(sec => {
+                    const sectionElement = document.getElementById(sec);
+                    const navButton = document.querySelector(`[data-section="${sec}"]`);
+                    
+                    if (sectionElement) {
+                        sectionElement.classList.add('hidden');
+                    }
+                    
+                    if (navButton) {
+                        navButton.classList.remove('bg-blue-600', 'text-white');
+                        navButton.classList.add('bg-gray-200', 'text-gray-800');
+                    }
+                });
+
+                // Show the selected section
+                const selectedSection = document.getElementById(section);
+                const selectedNavButton = document.querySelector(`[data-section="${section}"]`);
+                
+                if (selectedSection) {
+                    selectedSection.classList.remove('hidden');
+                }
+                
+                if (selectedNavButton) {
+                    selectedNavButton.classList.remove('bg-gray-200', 'text-gray-800');
+                    selectedNavButton.classList.add('bg-blue-600', 'text-white');
+                }
+            }
         </script>
 
     </body>
 </html>
-
-<!-- Modal HTML -->
-<!-- Modal -->
-
-<div id="demoModal" class="relative z-10 fixed inset-0 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
-        <!-- Close Button -->
-        <button id="closeButton" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <h2 class="text-xl font-bold mb-4">Request a Demo</h2>
-        <form>
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700 font-medium">Name:</label>
-                <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div class="mb-4">
-                <label for="email" class="block text-gray-700 font-medium">Email:</label>
-                <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
-            <div class="mb-4">
-                <label for="message" class="block text-gray-700 font-medium">Message:</label>
-                <textarea id="message" name="message" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-            </div>
-            <div class="flex justify-end">
-                <button id="closeButtonSecondary" type="button" class="mr-2 bg-gray-400 text-white py-2 px-4 rounded-lg hover:bg-gray-500">Cancel</button>
-                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Submit</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-
-<script>
-    // JavaScript to handle modal functionality
-    const modal = document.getElementById('requestDemoModal');
-    const openModalButton = document.getElementById('openModal');
-    const closeModalButton = document.getElementById('closeModal');
-
-    openModalButton.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-    });
-
-    closeModalButton.addEventListener('click', () => {
-        modal.classList.add('hidden');
-    });
-    
-</script>
-
-
-
