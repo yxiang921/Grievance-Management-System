@@ -180,6 +180,9 @@
                     <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">Admin Features</h2>
                     <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
                         <div>
+                            <img src="image/gallery-3.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
+                        <div>
                             <img src="image/gallery-1.png" alt="Admin Dashboard" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                         <div>
@@ -193,10 +196,13 @@
                     <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">User Features</h2>
                     <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
                         <div>
-                            <img src="image/user-1.png" alt="User Profile" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/gallery-4.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                         <div>
-                            <img src="image/user-2.png" alt="User Settings" class="hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/gallery-5.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
+                        <div>
+                            <img src="image/gallery-6.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                     </div>
                 </div>
