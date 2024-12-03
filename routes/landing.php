@@ -30,6 +30,11 @@ Route::get('/tac', [LandingController::class, 'tac'])
 ->name('tac');
 
 
+Route::get('/booking', [LandingController::class, 'create'])
+->name('landing.create');
+
+Route::post('/booking', [LandingController::class, 'store'])
+->name('landing.store');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

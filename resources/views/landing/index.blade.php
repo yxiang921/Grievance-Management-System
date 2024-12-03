@@ -16,33 +16,6 @@
         <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
         
     </head> 
-    <div id="demoModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden flex items-center justify-center">
-        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg">
-            <h2 class="text-2xl font-bold mb-4">Request a Demo</h2>
-            <form id="contactForm">
-                <div class="mb-4">
-                    <label for="name" class="block text-gray-700">Name:</label>
-                    <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded p-2">
-                </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-gray-700">Email:</label>
-                    <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded p-2">
-                </div>
-                <div class="mb-4">
-                    <label for="message" class="block text-gray-700">Message:</label>
-                    <textarea id="message" name="message" class="w-full border border-gray-300 rounded p-2"></textarea>
-                </div>
-                <div class="flex justify-between items-center">
-                    <button type="button" id="closeButton" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500">
-                        Cancel
-                    </button>
-                    <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">
-                        Submit
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
 </div>
 
     <body class="font-body">
@@ -83,8 +56,8 @@
 
                     </ul>
 
-                    <button id="requestDemoBtn" class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
-                        Request a demo
+                    <button class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
+                        <a href="https://www.mediafire.com/file/xxokw60us6zed87/app-debug.apk/file ">Download APP Here</a>
                     </button>
 
                 </nav>
@@ -310,37 +283,55 @@
                     </div>
 
                     <div class="hidden md:block bg-white xl:relative px-6 py-3 rounded-3xl">
-                        <div class="py-3">
-                            <h3 class="font-semibold text-gray-900 text-3xl">Book a meeting</h3>
-                        </div>
-
-                        <div class="py-3">
-                            <input type="text" placeholder="Full Name" class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none">
-                        </div>
-
-                        <div class="py-3">
-                            <input type="text" placeholder="Email" class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none">
-                        </div>
-
-                        <div class="py-3 relative">
-                            <input type="text" placeholder="Date" class="px-4 py-4 w-96 bg-gray-100 font-normal text-lg placeholder-gray-400 rounded-xl outline-none">
-
-                            <div class="absolute inset-y-0 left-80 ml-6 flex items-center text-xl text-gray-600">
-                                <i data-feather="calendar"></i>
+                    <form action="{{ route('landing.store') }}" method="POST">
+                            @csrf
+                            <div class="py-3">
+                                <h3 class="font-semibold text-gray-900 text-3xl">Book a meeting</h3>
                             </div>
-                        </div>
 
-                        <div class="py-3 relative">
-                            <input type="text" placeholder="Virtual Meeting" class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none">
-
-                            <div class="absolute inset-y-0 left-80 ml-6 flex items-center text-xl text-gray-600">
-                                <i data-feather="chevron-down"></i>
+                            <div class="py-3">
+                                <input 
+                                    type="text" 
+                                    name="full_name" 
+                                    placeholder="Full Name" 
+                                    class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none"
+                                >
                             </div>
-                        </div>
 
-                        <div class="py-3">
-                            <button class="w-full py-4 font-semibold text-lg text-white bg-green-700 rounded-xl hover:bg-green-900 transition ease-in-out duration-500">Booking</button>
-                        </div>
+                            <div class="py-3">
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="Email" 
+                                    class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none"
+                                >
+                            </div>
+
+                            <div class="py-3 relative">
+                                <input 
+                                    type="datetime-local" 
+                                    name="contact_date" 
+                                    class="px-4 py-4 w-96 bg-gray-100 font-normal text-lg placeholder-gray-400 rounded-xl outline-none"
+                                >
+                            </div>
+
+                            <div class="py-3 relative">
+                                <select 
+                                    name="meeting_type" 
+                                    class="px-4 py-4 w-96 bg-gray-100 text-gray-700 rounded-xl outline-none"
+                                >
+                                    <option value="" disabled selected>Select Meeting Type</option>
+                                    <option value="virtual">Virtual Meeting</option>
+                                    <option value="physical">Physical Meeting</option>
+                                </select>
+                            </div>
+
+                            <div class="py-3">
+                                <button class="w-full py-4 font-semibold text-lg text-white bg-green-700 rounded-xl hover:bg-green-900 transition ease-in-out duration-500">
+                                    Book Meeting
+                                </button>
+                            </div>
+                        </form>
                     </div>
 
                 </div>
@@ -496,49 +487,6 @@
     });
     
 </script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-    // Get the elements
-    const demoModal = document.getElementById('demoModal');
-    const closeButton = document.getElementById('closeButton');
-    const closeButtonSecondary = document.getElementById('closeButtonSecondary');
-    const requestDemoBtn = document.getElementById('requestDemoBtn'); // Button to open modal (if it exists on your page)
 
-    // Function to show the modal
-    const showModal = () => {
-        demoModal.classList.remove('hidden');
-    };
-
-    // Function to hide the modal
-    const hideModal = () => {
-        demoModal.classList.add('hidden');
-    };
-
-    // Open modal when "Request a Demo" button is clicked
-    if (requestDemoBtn) {
-        requestDemoBtn.addEventListener('click', () => {
-            showModal();
-        });
-    }
-
-    // Close modal when the top-right close button is clicked
-    closeButton.addEventListener('click', () => {
-        hideModal();
-    });
-
-    // Close modal when the footer cancel button is clicked
-    closeButtonSecondary.addEventListener('click', () => {
-        hideModal();
-    });
-
-    // Close modal if user clicks outside the modal content
-    window.addEventListener('click', (event) => {
-        if (event.target === demoModal) {
-            hideModal();
-            }
-        });
-    });
-
-</script>
 
 
