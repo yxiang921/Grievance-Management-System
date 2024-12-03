@@ -60,6 +60,7 @@ class GrievanceController extends Controller
 
         $validateData = $req->validate([
             'status' => 'required',
+            'person_in_charged' => 'required',
             'process_remark' => 'required',
             'process_image' => 'nullable'
         ]);
@@ -80,17 +81,20 @@ class GrievanceController extends Controller
         }
 
         $grievance->status = $validateData['status'];
+        $grievance->person_in_charged = $validateData['person_in_charged'];
         $grievance->process_remark = $validateData['process_remark'];
-        $grievance->closed_at = now();
+
         $grievance->updated_at = now();
+
+        if ($grievance->status == 'closed') {
+            $grievance->closed_at = now();
+        }
 
         $grievance->save();
 
         $this->flashMessage('success', 'Grievance Updated Successfully!');
 
-        return redirect()->route('department.grievance.detail', [
-            'grievance_id' => $grievance_id
-        ]);
+        return redirect()->route('department.grievances');
     }
 
 }

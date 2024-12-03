@@ -55,8 +55,8 @@
                         <div class="mb-4">
                             @if ($grievance->grievance_image)
                                 <p class="pb-4"><strong>Image</strong></p>
-                                <img src="{{ $grievance->grievance_image }}" alt="Grievance Image"
-                                    class="w-full h-40 object-cover rounded-md">
+                                <img src="http://localhost:8000/{{ $grievance->grievance_image }}" alt="Grievance Image"
+                                    class="w-full h-auto object-cover rounded-md">
                             @endif
                         </div>
                     </div>

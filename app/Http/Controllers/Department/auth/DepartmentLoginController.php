@@ -23,6 +23,10 @@ class DepartmentLoginController extends Controller
             'password' => $request->department_password,
         ];
 
+        if (Auth::guard('admin')->check()) {
+            Auth::guard('admin')->logout();
+        }
+
         if (Auth::guard('department')->attempt($credentials)) {
             $this->flashMessage('success', 'Login Successful!');
             return redirect()->route('department.home');
