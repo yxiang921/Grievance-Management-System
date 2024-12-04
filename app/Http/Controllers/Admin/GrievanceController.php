@@ -93,9 +93,7 @@ class GrievanceController extends Controller
 
         $this->flashMessage('success', 'Grievance Assigned Successfully!');
 
-        return redirect()->route('admin.grievance.detail', [
-            'grievance_id' => $grievance_id,
-        ]);
+        return redirect()->route('admin.grievances');
 
     }
 
