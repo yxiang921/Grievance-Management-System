@@ -28,6 +28,9 @@ Route::group([
     Route::post('/grievance/update', [GrievanceController::class, 'updateGrievance'])
         ->name('grievance.update');
 
+    Route::post('/grievance/search', [GrievanceController::class, 'searchGrievance'])
+        ->name('grievance.search');
+
 
 
     // Departments

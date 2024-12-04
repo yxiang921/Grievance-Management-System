@@ -29,6 +29,8 @@ return new class extends Migration {
             $table->string('process_remark')->nullable();
             $table->string('process_image')->nullable();
 
+            $table->string('person_in_charged')->nullable();
+
             // Location at Map
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();

@@ -22,7 +22,8 @@ class GrievanceFactory extends Factory
             'department_id' => null,
             'outsource_remark' => $this->faker->sentence,
             'process_remark' => $this->faker->sentence,
-            'user_id' => $this->faker->numberBetween(1, 10), // 假设用户表里有 10 个用户
+            'user_id' => $this->faker->numberBetween(1, 10),
+            'person_in_charged' => 'person name',
             'created_at' => $created_at,
             'updated_at' => $created_at,
         ];

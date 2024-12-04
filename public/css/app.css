@@ -795,6 +795,9 @@ select {
 .left-0 {
   left: 0px;
 }
+.left-4 {
+  left: 1rem;
+}
 .left-80 {
   left: 20rem;
 }
@@ -824,15 +827,6 @@ select {
 }
 .top-4 {
   top: 1rem;
-}
-.left-2 {
-  left: 0.5rem;
-}
-.left-4 {
-  left: 1rem;
-}
-.left-12 {
-  left: 3rem;
 }
 .z-0 {
   z-index: 0;
@@ -873,9 +867,6 @@ select {
 .m-auto {
   margin: auto;
 }
-.m-12 {
-  margin: 3rem;
-}
 .mx-0 {
   margin-left: 0px;
   margin-right: 0px;
@@ -899,10 +890,6 @@ select {
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
-}
-.mx-4 {
-  margin-left: 1rem;
-  margin-right: 1rem;
 }
 .\!mt-8 {
   margin-top: 2rem !important;
@@ -1008,9 +995,6 @@ select {
 }
 .mt-8 {
   margin-top: 2rem;
-}
-.mr-14 {
-  margin-right: 3.5rem;
 }
 .block {
   display: block;
@@ -1180,12 +1164,6 @@ select {
 }
 .w-screen {
   width: 100vw;
-}
-.w-24 {
-  width: 6rem;
-}
-.w-1 {
-  width: 0.25rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -1638,10 +1616,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(242 241 211 / var(--tw-bg-opacity));
 }
-.bg-red-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(127 29 29 / var(--tw-bg-opacity));
-}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1654,6 +1628,9 @@ select {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+.p-12 {
+  padding: 3rem;
 }
 .p-2 {
   padding: 0.5rem;
@@ -1669,9 +1646,6 @@ select {
 }
 .p-8 {
   padding: 2rem;
-}
-.p-12 {
-  padding: 3rem;
 }
 .px-1 {
   padding-left: 0.25rem;
@@ -1988,6 +1962,9 @@ select {
 .text-primary-900 {
   color: rgba(0, 176, 116, 1);
 }
+.text-primary-hover {
+  color: rgba(13, 143, 98, 1);
+}
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
@@ -2027,9 +2004,6 @@ select {
 .text-yellow-900 {
   --tw-text-opacity: 1;
   color: rgb(176 171 41 / var(--tw-text-opacity));
-}
-.text-primary-hover {
-  color: rgba(13, 143, 98, 1);
 }
 .underline {
   text-decoration-line: underline;
@@ -2554,6 +2528,10 @@ a:disabled:hover {
   background-color: rgba(0, 176, 116, 0.05);
 }
 
+.hover\:bg-primary-900:hover {
+  background-color: rgba(0, 176, 116, 1);
+}
+
 .hover\:bg-primary-hover:hover {
   background-color: rgba(13, 143, 98, 1);
 }
@@ -2561,10 +2539,6 @@ a:disabled:hover {
 .hover\:bg-red-500:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-}
-
-.hover\:bg-primary-900:hover {
-  background-color: rgba(0, 176, 116, 1);
 }
 
 .hover\:text-gray-400:hover {
