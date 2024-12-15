@@ -35,22 +35,29 @@
 
                     <div>
                         <x-input-label for="username" :value="__('Username')" />
-                        <x-text-input id="username" class="block mt-1 w-full" type="text" username="admin_username"
+                        <x-text-input id="username" class="block mt-1 w-full" type="text" name="admin_username"
                             :value="old('username')" required autofocus autocomplete="username" />
                         <x-input-error :messages="$errors->get('username')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
                         <x-input-label for="admin_email" :value="__('Admin Email')" />
-                        <x-text-input id="admin_email" class="block mt-1 w-full" type="admin_email" name="admin_email"
+                        <x-text-input id="admin_email" class="block mt-1 w-full" type="text" name="admin_email"
                             :value="old('admin_email')" required autocomplete="username" />
                         <x-input-error :messages="$errors->get('admin_email')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
+                        <x-input-label for="admin_phone_number" :value="__('Admin Phone Number')" />
+                        <x-text-input id="admin_phone_number" class="block mt-1 w-full" type="text" name="admin_phone_number"
+                            :value="old('admin_phone_number')" required autocomplete="username" />
+                        <x-input-error :messages="$errors->get('admin_phone_number')" class="mt-2" />
+                    </div>
+
+                    <div class="mt-4">
                         <x-input-label for="admin_password" :value="__('Password')" />
 
-                        <x-text-input id="admin_password" class="block mt-1 w-full" type="admin_password"
+                        <x-text-input id="admin_password" class="block mt-1 w-full" type="password"
                             name="admin_password" required autocomplete="new-admin_password" />
 
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />

@@ -2,12 +2,9 @@
 
 namespace App\View\Components;
 
-use Auth;
 use Illuminate\View\Component;
 
-use DB;
-
-class sidebar extends Component
+class DepartmentSidebar extends Component
 {
     /**
      * Create a new component instance.
@@ -26,6 +23,6 @@ class sidebar extends Component
      */
     public function render()
     {
-        return view('components.sidebar');
+        return view('components.department-sidebar');
     }
 }

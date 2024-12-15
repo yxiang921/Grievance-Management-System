@@ -26,10 +26,13 @@
                         <div class="mb-4">
                             <table>
                                 <tr>
-                                    <td class="pr-4"><strong>Location</strong></td>
-                                    <td>
-                                        {{ $grievance->location }}
-                                    </td>
+                                    @if ($grievance->location != null)
+                                        <td class="pr-4"><strong>Location</strong></td>
+                                        <td>
+                                            {{ $grievance->location }}
+                                        </td>
+                                    @endif
+
                                 </tr>
                                 <tr>
                                     <td class="pr-4"><strong>Date</strong></td>
@@ -42,7 +45,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="pr-4"><strong>Outsource Remark</strong></td>
+                                    <td class="pr-4"><strong>Remark</strong></td>
                                     <td>
                                         {{ $grievance->outsource_remark }}
                                     </td>
@@ -58,8 +61,8 @@
                         <div class="mb-4">
                             @if ($grievance->grievance_image)
                                 <p class="pb-4"><strong>Image</strong></p>
-                                <img src="{{ asset('storage/' . $grievance->grievance_image) }}" alt="Image"
-                                    class="w-full h-64">
+                                <img src="http://localhost:8000/{{ $grievance->grievance_image }}" alt="Image"
+                                    class="w-full h-auto object-fit">
                             @endif
                         </div>
                     </div>
@@ -79,18 +82,30 @@
                                 <option value="" selected disabled>
                                     Select Status
                                 </option>
-                                <option value="In Progress" {{ $grievance->status == 'In Progress' ? 'selected' : '' }}>In Progress</option>
-                                <option value="Closed" {{ $grievance->status == 'Closed' ? 'selected' : '' }} >Closed</option>
+                                <option value="In Progress" {{ $grievance->status == 'In Progress' ? 'selected' : '' }}>In
+                                    Progress</option>
+                                <option value="Closed" {{ $grievance->status == 'Closed' ? 'selected' : '' }}>Closed
+                                </option>
                             </select>
                         </div>
+
+                        <div class="mb-4">
+                            <label class="block text-gray-700">Person in Charged </label>
+                            <input type="text" class="primary-input w-full mt-2" name="person_in_charged" required
+                                value="{{ $grievance->person_in_charged }}">
+                        </div>
+
                         <div class="mb-4">
                             <label class="block text-gray-700">Remark</label>
-                            <textarea class="primary-input w-full mt-2" rows="6" name="process_remark" required>@if ($grievance->process_remark){{ $grievance->process_remark }}@endif</textarea>
+                            <textarea class ="primary-input w-full mt-2" rows="6" name="process_remark" required>
+@if ($grievance->process_remark)
+{{ $grievance->process_remark }}
+@endif
+</textarea>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Process Image</label>
-                            <input type="file" class="primary-input w-full mt-2" name="process_image" accept="image/*"
-                                >
+                            <input type="file" class="primary-input w-full mt-2" name="process_image" accept="image/*">
                         </div>
                         <div class="flex flex-col justify-between">
                             <button class="primary-btn" type="submit">

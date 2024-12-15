@@ -60,6 +60,7 @@ class GrievanceController extends Controller
 
         $validateData = $req->validate([
             'status' => 'required',
+            'person_in_charged' => 'required',
             'process_remark' => 'required',
             'process_image' => 'nullable'
         ]);
@@ -80,17 +81,62 @@ class GrievanceController extends Controller
         }
 
         $grievance->status = $validateData['status'];
+        $grievance->person_in_charged = $validateData['person_in_charged'];
         $grievance->process_remark = $validateData['process_remark'];
-        $grievance->closed_at = now();
+
         $grievance->updated_at = now();
+
+        if ($grievance->status == 'closed') {
+            $grievance->closed_at = now();
+        }
 
         $grievance->save();
 
         $this->flashMessage('success', 'Grievance Updated Successfully!');
 
-        return redirect()->route('department.grievance.detail', [
-            'grievance_id' => $grievance_id
-        ]);
+        return redirect()->route('department.grievances');
     }
 
+
+    public function searchGrievance()
+    {
+
+        $req = request();
+        $keyword = $req->input('keyword');
+        $datetime = $req->input('datetime');
+        $status = $req->input('status');
+
+        $query = DB::table('grievances')
+            ->join('users', 'grievances.user_id', '=', 'users.id')
+            ->select('grievances.id as grievance_id', 'grievances.*', 'users.*', 'users.id as user_id')
+            ->where('department_id', Auth::guard('department')->user()->id);
+
+        if ($keyword != null && $keyword != '') {
+            $query->where(function ($q) use ($keyword) {
+                $q->where('title', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('description', 'LIKE', '%' . $keyword . '%');
+            });
+        }
+
+        if ($datetime != null && $datetime != '') {
+            $query->where('grievances.created_at', '>=', $datetime);
+        }
+
+        if ($status != null && $status != '') {
+            $query->where('grievances.status', '=', $status);
+        }
+
+        $grievances = $query->orderBy('grievances.status', 'desc')->get();
+
+        if($grievances->isEmpty()){
+            $this->flashMessage('error', 'No Search Results Found');
+        }else{
+            $this->flashMessage('success', 'Search Results as Below');
+        }
+
+        return view('department.grievances', [
+            'grievances' => $grievances,
+        ]);
+
+    }
 }

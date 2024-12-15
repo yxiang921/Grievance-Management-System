@@ -15,13 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-//homepage
 Route::get('/', function () {
-    return view('landing.index'); // or landing.index if renamed
+    return view('landing.index');
 });
-
-
 
 Route::get('/faq', [LandingController::class, 'faq'])
 ->name('faq');

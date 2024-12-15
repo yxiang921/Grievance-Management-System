@@ -27,6 +27,10 @@ class AdminLoginController extends Controller
 
         $credentials['password'] = $credentials['admin_password'];
 
+        if (Auth::guard('department')->check()) {
+            Auth::guard('department')->logout();
+        }
+
         if (Auth::guard('admin')->attempt($credentials, $remember)) {
 
             $this->flashMessage('success', 'Login Successful, Welcome Back!');

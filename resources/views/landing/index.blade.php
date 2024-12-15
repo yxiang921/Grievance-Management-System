@@ -58,7 +58,9 @@
 
                     <button class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
                         <a href="https://www.mediafire.com/file/xxokw60us6zed87/app-debug.apk/file ">Download APP Here</a>
+
                     </button>
+                </div>
 
                 </nav>
                 
@@ -66,11 +68,16 @@
                 <div class="flex items-center justify-center xl:justify-start">
                     
 
-                    <div class="mt-28 text-center xl:text-left">
-                        <h1 class="font-semibold text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-normal mb-6">Introduction to <br> Our GMS</h1>
+                    <li
+                        class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                        <a href="#prototype">Prototype</a>
+                    </li>
 
-                        <p class="font-normal text-xl text-gray-400 leading-relaxed mb-12">Learn how our Grievance Management System streamlines <br> 
-                        complaint handling and ensures effective resolutions.</p>
+                    <li
+                        class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                        <a href="#review">Review</a>
+                    </li>
+
 
                         <button class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500"><a href ="#contact">Contact us<a/></button>
                     </div>
@@ -79,77 +86,106 @@
                     <img src="image/home-img.png" alt="Home img">
                     </div> -->
 
+            </nav>
+
+            <div class="flex items-center justify-center xl:justify-start">
+
+                <div class="mt-28 text-center xl:text-left">
+                    <h1 class="font-semibold text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-normal mb-6">
+                        Introduction to <br> Our GMS</h1>
+
+                    <p class="font-normal text-xl text-gray-400 leading-relaxed mb-12">Learn how our Grievance
+                        Management System streamlines <br>
+                        complaint handling and ensures effective resolutions.</p>
+
+                    <button
+                        class="px-6 py-4 bg-primary-900 text-white font-semibold text-lg rounded-xl hover:bg-primary-hover transition ease-in-out duration-500">Contact
+                        us</button>
                 </div>
 
-            </div> <!-- container.// -->
-
-        </section>
-        <!-- home section //nd -->
-    
-        <!-- feature section -->
-        <section id="intro"class="bg-white py-10 md:py-16 xl:relative">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
-
-            <div class="flex flex-col xl:flex-row justify-end">
-
-                    <div class="hidden xl:block xl:absolute left-0 bottom-0 w-full">
-                        <img src="image/feature-img.png" alt="Feature img">
-                    </div>
-
-                    <div class="">
-
-                        <h1 class="font-semibold text-gray-900 text-xl md:text-4xl text-center leading-normal mb-6">Objective of our  <br>Grievance Management System</h1>
-
-                        <p class="font-normal text-gray-400 text-md md:text-xl text-center mb-16">Our GMS is designed to streamline and <br>enhance the process of addressing grievances effectively</p>
-
-                        <div class="flex flex-col md:flex-row justify-center xl:justify-start space-x-4 mb-20">
-                            <div class="px-8 h-20 mx-auto md:mx-0 bg-gray-200 rounded-lg flex items-center justify-center mb-5 md:mb-0">
-                                <i data-feather="check-circle" class=" text-green-900"></i>
-                            </div>
-                            
-                            <div class="text-center md:text-left">
-                                <h4 class="font-semibold text-gray-900 text-2xl mb-2">Timely Resolution</h4>
-                                <p class="font-normal text-gray-400 text-xl leading-relaxed"> Ensure quick and efficient resolution of grievances to <br> build trust and satisfaction.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row justify-center xl:justify-start space-x-4 mb-20">
-                            <div class="px-8 h-20 mx-auto md:mx-0 bg-gray-200 rounded-lg flex items-center justify-center mb-5 md:mb-0">
-                                <i data-feather="lock" class=" text-green-900"></i>
-                            </div>
-
-                            <div class="text-center md:text-left">
-                                <h4 class="font-semibold text-gray-900 text-2xl mb-2">Transparency</h4>
-                                <p class="font-normal text-gray-400 text-xl leading-relaxed">Maintain transparency in grievance handling to <br>ensure fairness and accountability.</p>
-                            </div>
-                        </div>
-
-                        <div class="flex flex-col md:flex-row justify-center xl:justify-start space-x-4">
-                            <div class="px-8 h-20 mx-auto md:mx-0 bg-gray-200 rounded-lg flex items-center justify-center mb-5 md:mb-0">
-                                <i data-feather="credit-card" class=" text-green-900"></i>
-                            </div>
-
-                            <div class="text-center md:text-left">
-                                <h4 class="font-semibold text-gray-900 text-2xl mb-2">Machine Learning Integration</h4>
-                                <p class="font-normal text-gray-400 text-xl leading-relaxed">Leverage machine learning algorithms to analyze<br> grievance patterns for better decision-making.</p>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="hidden xl:block xl:absolute z-0 right-8 w-1/2">
+                    <img class="w-full" src="{{ asset('images/laptop-home.png') }}" alt="Home img">
+                </div>
 
             </div>
 
-            </div> <!-- container.// -->
+        </div> <!-- container.// -->
 
-        </section>
-        <!-- feature section //end -->
-        
-        <section id="prototype" class="bg-white py-10 md:py-16">
+    </section>
+    <!-- home section //nd -->
 
-            <div class="container max-w-screen-xl mx-auto px-4">
+    <!-- feature section -->
+    <section id="intro"class="bg-white py-10 md:py-16 xl:relative">
 
-                <h1 class="font-semibold text-gray-900 text-4xl text-center mb-10">Our Prototype</h1>
+        <div class="container max-w-screen-xl mx-auto px-4">
+
+            <div class="flex flex-col xl:flex-row justify-between">
+
+                <div class="hidden xl:block left-4 w-1/2 mr-4">
+                    <img class="w-full p-12" src="{{ asset('images/mobile-home.png') }}" alt="Feature img">
+                </div>
+
+                <div class="">
+
+                    <h1 class="font-semibold text-gray-900 text-xl md:text-4xl text-center leading-normal mb-6">
+                        Objective of our <br>Grievance Management System</h1>
+
+                    <p class="font-normal text-gray-400 text-md md:text-xl text-center mb-16">Our GMS is designed to
+                        streamline and <br>enhance the process of addressing grievances effectively</p>
+
+                    <div class="flex flex-col md:flex-row justify-center xl:justify-start space-x-4 mb-20">
+                        <div
+                            class="px-8 h-20 mx-auto md:mx-0 bg-gray-200 rounded-lg flex items-center justify-center mb-5 md:mb-0">
+                            <i data-feather="check-circle" class=" text-primary-hover"></i>
+                        </div>
+
+                        <div class="text-center md:text-left">
+                            <h4 class="font-semibold text-gray-900 text-2xl mb-2">Timely Resolution</h4>
+                            <p class="font-normal text-gray-400 text-xl leading-relaxed"> Ensure quick and efficient
+                                resolution of grievances to <br> build trust and satisfaction.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-center xl:justify-start space-x-4 mb-20">
+                        <div
+                            class="px-8 h-20 mx-auto md:mx-0 bg-gray-200 rounded-lg flex items-center justify-center mb-5 md:mb-0">
+                            <i data-feather="lock" class=" text-primary-hover"></i>
+                        </div>
+
+                        <div class="text-center md:text-left">
+                            <h4 class="font-semibold text-gray-900 text-2xl mb-2">Transparency</h4>
+                            <p class="font-normal text-gray-400 text-xl leading-relaxed">Maintain transparency in
+                                grievance handling to <br>ensure fairness and accountability.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row justify-center xl:justify-start space-x-4">
+                        <div
+                            class="px-8 h-20 mx-auto md:mx-0 bg-gray-200 rounded-lg flex items-center justify-center mb-5 md:mb-0">
+                            <i data-feather="credit-card" class=" text-primary-hover"></i>
+                        </div>
+
+                        <div class="text-center md:text-left">
+                            <h4 class="font-semibold text-gray-900 text-2xl mb-2">Machine Learning Integration</h4>
+                            <p class="font-normal text-gray-400 text-xl leading-relaxed">Leverage machine learning
+                                algorithms to analyze<br> grievance patterns for better decision-making.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div> <!-- container.// -->
+
+    </section>
+    <!-- feature section //end -->
+
+    <section id="prototype" class="bg-white py-10 md:py-16">
+
+        <div class="container max-w-screen-xl mx-auto px-4">
+
+            <h1 class="font-semibold text-gray-900 text-4xl text-center mb-10">Our Prototype</h1>
 
                 <!-- Navigation Tabs -->
                 <div class="flex justify-center space-x-2 mb-6">
@@ -174,21 +210,25 @@
                     >
                         User
                     </button>
+
                 </div>
+                <div>
+                    <img src="image/gallery-3.png" alt="image"
+                        class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                    <img src="image/gallery-7.png" alt="image"
+                        class="hover:opacity-75 transition ease-in-out duration-500">
+                </div>
+            </div>
 
                 <div id="all" class="flex space-x-4 md:space-x-6 lg:space-x-8">
+
                     <div>
-                        <img src="image/gallery-1.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="image/gallery-4.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/admin-1.png" alt="Admin Dashboard"
+                            class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
                     </div>
                     <div>
-                        <img src="image/gallery-2.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="image/gallery-5.png" alt="image" class="mb-3 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="image/gallery-6.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
-                    </div>
-                    <div>
-                        <img src="image/gallery-3.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="image/gallery-7.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/admin-2.png" alt="Admin Analytics"
+                            class="hover:opacity-75 transition ease-in-out duration-500">
                     </div>
                 </div>
                 <div id="admin" class="hidden">
@@ -219,88 +259,107 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-            </div> <!-- container -->
+        </div> <!-- container -->
 
-        </section>
+    </section>
 
-        <!-- gallery section //end -->
+    <!-- gallery section //end -->
 
-        <!-- testimoni section -->
-        <section id="review" class="bg-white py-10 md:py-16">
+    <!-- testimoni section -->
+    <section id="review" class="bg-white py-10 md:py-16">
 
-            <div class="container max-w-screen-xl mx-auto px-4 xl:relative">
+        <div class="container max-w-screen-xl mx-auto px-4 xl:relative">
 
-                <p class="font-normal text-gray-400 text-lg md:text-xl text-center uppercase mb-6">Review</p>
+            <p class="font-normal text-gray-400 text-lg md:text-xl text-center uppercase mb-6">Review</p>
 
-                <h1 class="font-semibold text-gray-900 text-2xl md:text-4xl text-center leading-normal mb-14">What People Say <br> About GMS</h1>
+            <h1 class="font-semibold text-gray-900 text-2xl md:text-4xl text-center leading-normal mb-14">What People
+                Say <br> About GMS</h1>
 
-                <div class="hidden xl:block xl:absolute top-0">
-                    <img src="image/testimoni-1.png" alt="Image">
+            <div class="hidden xl:block xl:absolute top-0">
+                <img src="image/testimoni-1.png" alt="Image">
+            </div>
+
+            <div class="hidden xl:block xl:absolute top-32">
+                <img src="image/testimoni-2.png" alt="Image">
+            </div>
+
+            <div
+                class="flex flex-col md:flex-row md:items-center justify-center md:space-x-8 lg:space-x-12 mb-10 md:mb-20">
+
+                <div class="bg-gray-100 rounded-lg mb-10 md:mb-0">
+                    <img src="image/testimoni-3.png" alt="Image" class="mx-8 my-8">
+
+                    <div class="flex items-center gap-5 mx-8">
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                    </div>
+
+                    <p class="font-normal text-sm lg:text-md text-gray-400 mx-8 my-8">I recommend anyone to buy house
+                        on <br> D’house. I received great customer service <br> from the specialists who helped me.</p>
+
+                    <h3 class="font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl mx-8 mb-8">Foo Yong Xiang
+                    </h3>
                 </div>
 
-                <div class="hidden xl:block xl:absolute top-32">
-                    <img src="image/testimoni-2.png" alt="Image">
+                <div class="bg-gray-100 rounded-lg">
+                    <img src="image/testimoni-4.png" alt="Image" class="mx-8 my-8">
+
+                    <div class="flex items-center gap-5 mx-8">
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                        <i data-feather="star" class="text-yellow-500"></i>
+                    </div>
+
+                    <p class="font-normal text-sm lg:text-md text-gray-400 mx-8 my-8">D’house is the best property
+                        agent in the <br> world. I received great customer service <br> from the D’house agent</p>
+
+                    <h3 class="font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl mx-8 mb-8">Aaron Lwi</h3>
                 </div>
 
-                <div class="flex flex-col md:flex-row md:items-center justify-center md:space-x-8 lg:space-x-12 mb-10 md:mb-20">
+            </div>
 
-                    <div class="bg-gray-100 rounded-lg mb-10 md:mb-0">
-                        <img src="image/testimoni-3.png" alt="Image" class="mx-8 my-8">
+        </div> <!-- container.// -->
 
-                        <div class="flex items-center gap-5 mx-8">
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                        </div>
+    </section>
+    <!-- testimoni section //end -->
 
-                        <p class="font-normal text-sm lg:text-md text-gray-400 mx-8 my-8">I recommend anyone to buy house on <br> D’house. I received great customer service <br> from the specialists who helped me.</p>
+    <!-- book section -->
+    <section id="contact" class="bg-white py-10 md:py-16">
 
-                        <h3 class="font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl mx-8 mb-8">Foo Yong Xiang</h3>
-                    </div>
+        <div class="container max-w-screen-xl mx-auto px-4 xl:relative">
 
-                    <div class="bg-gray-100 rounded-lg">
-                        <img src="image/testimoni-4.png" alt="Image" class="mx-8 my-8">
+            <div class="bg-primary-900 flex flex-col lg:flex-row items-center justify-evenly py-14 rounded-3xl">
 
-                        <div class="flex items-center gap-5 mx-8">
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                            <i data-feather="star" class="text-yellow-500"></i>
-                        </div>
+                <div class="text-center lg:text-left mb-10 lg:mb-0">
+                    <h1 class="font-semibold text-white text-4xl md:text-5xl lg:text-7xl leading-normal mb-4">Talk to
+                        us <br> to discuss</h1>
 
-                        <p class="font-normal text-sm lg:text-md text-gray-400 mx-8 my-8">D’house is the best property agent in the <br> world. I received great customer service <br> from the D’house agent</p>
-
-                        <h3 class="font-semibold text-gray-900 text-xl md:text-2xl lg:text-3xl mx-8 mb-8">Aaron Lwi</h3>
-                    </div>
-
+                    <p class="font-normal text-white text-md md:text-xl">Need more time to discuss? Won’t worry, we are
+                        <br> ready to help you. You can fill in the column on the <br> right to book a meeting with us.
+                        Totally free.
+                    </p>
                 </div>
 
-            </div> <!-- container.// -->
+                <div class="hidden xl:block xl:absolute right-0">
+                    <img src="image/book.png" alt="Image">
+                </div>
 
-        </section>
-        <!-- testimoni section //end -->
-
-        <!-- book section -->
-        <section id="contact" class="bg-white py-10 md:py-16">
-
-            <div class="container max-w-screen-xl mx-auto px-4 xl:relative">
-
-                <div class="bg-green-800 flex flex-col lg:flex-row items-center justify-evenly py-14 rounded-3xl">
-
-                    <div class="text-center lg:text-left mb-10 lg:mb-0">
-                        <h1 class="font-semibold text-white text-4xl md:text-5xl lg:text-7xl leading-normal mb-4">Talk to us <br> to discuss</h1>
-
-                        <p class="font-normal text-white text-md md:text-xl">Need more time to discuss? Won’t worry, we are <br> ready to help you. You can fill in the column on the <br> right to book a meeting with us. Totally free.</p>
+                <div class="hidden md:block bg-white xl:relative px-6 py-3 rounded-3xl">
+                    <div class="py-3">
+                        <h3 class="font-semibold text-gray-900 text-3xl">Book a meeting</h3>
                     </div>
 
-                    <div class="hidden xl:block xl:absolute right-0">
-                        <img src="image/book.png" alt="Image">
+                    <div class="py-3">
+                        <input type="text" placeholder="Full Name"
+                            class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none">
                     </div>
-
                     <div class="hidden md:block bg-white xl:relative px-6 py-3 rounded-3xl">
                     <form action="{{ route('landing.store') }}" method="POST">
                             @csrf
@@ -353,17 +412,41 @@
                         </form>
                     </div>
 
+                    <p class="font-light text-gray-400 text-xl mb-10">Simplify your grievance process with <br> GMS</p>
+
+                    <p class="font-light text-gray-400 text-xl mb-10">More information</p>
+                    <div class="flex items-center justify-center lg:justify-start space-x-5">
+                        <a href="https://github.com/yxiang921/Grievance-Management-System"
+                            class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-primary-900 hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="github"></i>
+                        </a>
+
+                        <a href="#"
+                            class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-primary-900 hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="linkedin"></i>
+                        </a>
+
+                    </div>
+                    <p class="font-light text-gray-400 text-xl mb-10">Person in charge in this project</p>
+                    <div class="flex items-center justify-center lg:justify-start space-x-5">
+
+                        <a href="https://www.linkedin.com/in/yong-xiang/"
+                            class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-primary-900 hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/chun-kiat-lwi-058308287/"
+                            class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-primary-900 hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-primary-900 hover:text-white transition ease-in-out duration-500">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                    </div>
                 </div>
 
-            </div> <!-- container.// -->
-
-        </section>
-        <!-- book section //end -->
-
-        <!-- footer -->
-        <footer class="bg-white py-10 md:py-16">
-
-            <div class="container max-w-screen-xl mx-auto px-4">
+                <div class="text-center lg:text-left mb-10 lg:mb-0">
+                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Sitemap</h4>
 
                 <div class="flex flex-col lg:flex-row justify-between">
                     <div class="text-center lg:text-left mb-10 lg:mb-0">
@@ -371,75 +454,56 @@
                             <img src="image/navbar-logo.png" alt="Image">
                         </div>
 
-                        <p class="font-light text-gray-400 text-xl mb-10">Simplify your grievance process with <br> GMS</p>
+                    <a href="#intro"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Introduction</a>
 
-                        <p class="font-light text-gray-400 text-xl mb-10">More information</p>
-                        <div class="flex items-center justify-center lg:justify-start space-x-5">
-                            <a href="https://github.com/yxiang921/Grievance-Management-System" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="github"></i>
-                            </a>
+                    <a href="#prototype"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Prototype</a>
 
-                            <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="linkedin"></i>
-                            </a>
+                    <a href="#review"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Review</a>
 
-                        </div>
-                        <p class="font-light text-gray-400 text-xl mb-10">Person in charge in this project</p>
-                        <div class="flex items-center justify-center lg:justify-start space-x-5">
-
-                            <a href="https://www.linkedin.com/in/yong-xiang/" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="linkedin"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/chun-kiat-lwi-058308287/" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="linkedin"></i>
-                            </a>
-                            <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="linkedin"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="text-center lg:text-left mb-10 lg:mb-0">
-                        <h4 class="font-semibold text-gray-900 text-2xl mb-6">Sitemap</h4>
-
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Home</a>
-
-                        <a href="#intro" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Introduction</a>
-                        
-                        <a href="#prototype" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Prototype</a>
-                        
-                        <a href="#review" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Review</a>
-                        
-                        <a href="#contact" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Book a meeting</a>
-                    </div>
-
-                    <div class="text-center lg:text-left mb-10 lg:mb-0">
-                        <h4 class="font-semibold text-gray-900 text-2xl mb-6">Landing</h4>
-
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Mobile App</a>
-
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Property</a>
-                        
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Personal Website</a>
-                        
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Web Developer</a>
-                        
-                    </div>
-
-                    <div class="text-center lg:text-left">
-                        <h4 class="font-semibold text-gray-900 text-2xl mb-6">Utility</h4>
-
-                        <a href="/faq" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
-
-                        <a href="/tac" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Terms & Conditions</a>
-                    </div>
+                    <a href="#contact"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Book
+                        a meeting</a>
                 </div>
 
-            </div> <!-- container.// -->
+                <div class="text-center lg:text-left mb-10 lg:mb-0">
+                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Landing</h4>
 
-        </footer>
-        <!-- footer //end -->
+                    <a href="#"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Mobile
+                        App</a>
 
+                    <a href="#"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Property</a>
+
+                    <a href="#"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Personal
+                        Website</a>
+
+                    <a href="#"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Web
+                        Developer</a>
+
+                </div>
+
+                <div class="text-center lg:text-left">
+                    <h4 class="font-semibold text-gray-900 text-2xl mb-6">Utility</h4>
+
+                    <a href="/faq"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
+
+                    <a href="/tac"
+                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Terms
+                        & Conditions</a>
+                </div>
+            </div>
+
+        </div> <!-- container.// -->
+
+    </footer>
+    <!-- footer //end -->
         <script>
             // Replace Feather icons when the page loads
             document.addEventListener('DOMContentLoaded', () => {
@@ -481,5 +545,4 @@
             }
         </script>
 
-    </body>
 </html>

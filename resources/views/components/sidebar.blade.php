@@ -1,28 +1,40 @@
 <!-- Overlay for mobile -->
 <div class="z-10 hidden overlay w-screen h-screen bg-slate-900 opacity-45 fixed inset-0" onclick="toggleMenu()"></div>
 
-<!-- Sidebar -->
-@if (Auth::guard('admin')->check())
-    <div id="sidebar"
-        class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white border-r border-gray-100 transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
-        <div class="p-4 relative">
+<div id="sidebar"
+    class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white border-r border-gray-100 transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
+    <div class="p-4 relative">
+        @if (Auth::guard('admin')->check())
             <div class="flex flex-col justify-center items-center">
                 <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
                     class="rounded-full w-20 h-20 mb-4">
-                <p class="text-lg font-semibold text-center">{{ $auth_user->name }} </p>
+                <p class="text-lg font-semibold text-center">{{ Auth::guard('admin')->user()->admin_name }}</p>
                 <p class="text-gray-500">
-                    {{ $auth_user->email }}
+                    {{ Auth::guard('admin')->user()->admin_email }}
                 </p>
             </div>
-
-            <div class="cursor-pointer w-8 h-8 absolute top-4 right-4 md:hidden" onclick="toggleMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                    stroke="currentColor" class="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+        @elseif (Auth::guard('department')->check())
+            <div class="flex flex-col justify-center items-center">
+                <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
+                    class="rounded-full w-20 h-20 mb-4">
+                <p class="text-lg font-semibold text-center">{{ Auth::guard('department')->user()->department_name }}
+                </p>
+                <p class="text-gray-500">
+                    {{ Auth::guard('department')->user()->department_email }}
+                </p>
             </div>
-        </div>
+        @endif
 
+        <div class="cursor-pointer w-8 h-8 absolute top-4 right-4 md:hidden" onclick="toggleMenu()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                stroke="currentColor" class="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </div>
+    </div>
+
+    {{-- nav for admin --}}
+    @if (Auth::guard('admin')->check())
         <nav class="mt-6 w-full flex flex-col items-center justify-center">
             <a href="{{ route('admin.home') }}"
                 class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
@@ -139,28 +151,10 @@
                 </button>
             </form>
         </nav>
-    </div>
-@else
-    <div id="sidebar"
-        class="w-5/6 h-screen overflow-scroll no-scrollbar p-4 md:w-64 bg-white border-r border-gray-100 transform -translate-x-full md:translate-x-0 fixed md:sticky left-0 top-0 z-[51]">
-        <div class="p-4 relative">
-            <div class="flex flex-col justify-center items-center">
-                <img src="https://pics.craiyon.com/2023-07-02/9a4508b794e8480ab55e484905e31b23.webp" alt="Profile Pic"
-                    class="rounded-full w-20 h-20 mb-4">
-                <p class="text-lg font-semibold text-center">{{ $auth_user->name }} </p>
-                <p class="text-gray-500">
-                    {{ $auth_user->email }}
-                </p>
-            </div>
+    @endif
 
-            <div class="cursor-pointer w-8 h-8 absolute top-4 right-4 md:hidden" onclick="toggleMenu()">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
-                    stroke="currentColor" class="size-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </div>
-        </div>
-
+    {{-- nav for department --}}
+    @if (Auth::guard('department')->check())
         <nav class="mt-6 w-full flex flex-col items-center justify-center">
             <a href="{{ route('department.home') }}"
                 class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
@@ -214,19 +208,6 @@
                 <span class="ml-3 text-sm font-medium"> Map </span>
             </a>
 
-            <a href="{{ route('department.users') }}"
-                class="w-full h-10 mt-2 flex items-center rounded-lg px-4 py-2
-            {{ Route::current()->getName() == 'department.users' ? 'active' : 'unactive' }}
-            ">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
-                </svg>
-                <span class="ml-3 text-sm font-medium"> Users </span>
-            </a>
-
-
             <form action="{{ route('department.logout') }}" method="POST" class="w-full">
                 @csrf
                 <button type="submit" class="w-full primary-btn flex items-center justify-center">
@@ -234,5 +215,7 @@
                 </button>
             </form>
         </nav>
-    </div>
-@endif
+    @endif
+
+
+</div>

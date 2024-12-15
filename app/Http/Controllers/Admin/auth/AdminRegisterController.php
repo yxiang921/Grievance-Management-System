@@ -20,7 +20,7 @@ class AdminRegisterController extends Controller
         $req = request();
 
         $validateData = $req->validate([
-            'admin_name' => 'required',
+            'admin_name' => 'required', 
             'admin_username' => 'required',
             'admin_password' => 'required',
             'password_confirmation' => 'required|same:admin_password',

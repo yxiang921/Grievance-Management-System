@@ -68,6 +68,7 @@ class GrievanceApiController extends Controller
     {
         $grievances = DB::table('grievances')
             ->where('user_id', $userID)
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return response()->json($grievances, 200);

@@ -6,16 +6,44 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Grievance Management System</title>
-        <link rel="stylesheet" href="assets/css/tailwind.css">
+        <link rel="stylesheet" href="css/tailwind.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('assets/css/tailwind.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
         
     </head> 
+    <div id="demoModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-lg">
+            <h2 class="text-2xl font-bold mb-4">Request a Demo</h2>
+            <form id="contactForm">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700">Name:</label>
+                    <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700">Email:</label>
+                    <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded p-2">
+                </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700">Message:</label>
+                    <textarea id="message" name="message" class="w-full border border-gray-300 rounded p-2"></textarea>
+                </div>
+                <div class="flex justify-between items-center">
+                    <button type="button" id="closeButton" class="bg-gray-400 text-white py-2 px-4 rounded hover:bg-gray-500">
+                        Cancel
+                    </button>
+                    <button type="submit" class="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
     <body class="font-body">
 
@@ -27,7 +55,7 @@
                 <nav class="flex-wrap lg:flex items-center py-14 xl:relative z-10" x-data="{navbarOpen:false}">
 
                     <div class="flex items-center justify-between mb-10 lg:mb-0">
-                        <img src="assets/image/navbar-logo.png" alt="Logo img" class="w-52 md:w-80 lg:w-full">
+                        <img src="image/navbar-logo.png" alt="Logo img" class="w-52 md:w-80 lg:w-full">
                         
 
                         <button class="lg:hidden w-10 h-10 ml-auto flex items-center justify-center text-green-700 border border-green-700 rounded-md" @click="navbarOpen = !navbarOpen">
@@ -55,13 +83,15 @@
 
                     </ul>
 
-                    <button class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
+                    <button id="requestDemoBtn" class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
                         Request a demo
                     </button>
 
                 </nav>
+                
 
                 <div class="flex items-center justify-center xl:justify-start">
+                    
 
                     <div class="mt-28 text-center xl:text-left">
                         <h1 class="font-semibold text-4xl md:text-6xl lg:text-7xl text-gray-900 leading-normal mb-6">Introduction to <br> Our GMS</h1>
@@ -73,7 +103,7 @@
                     </div>
 
                     <div class="hidden xl:block xl:absolute z-0 top-0 right-0">
-                    <img src="assets/image/home-img.png" alt="Home img">
+                    <img src="image/home-img.png" alt="Home img">
                     </div>
 
                 </div>
@@ -91,7 +121,7 @@
             <div class="flex flex-col xl:flex-row justify-end">
 
                     <div class="hidden xl:block xl:absolute left-0 bottom-0 w-full">
-                        <img src="assets/image/feature-img.png" alt="Feature img">
+                        <img src="image/feature-img.png" alt="Feature img">
                     </div>
 
                     <div class="">
@@ -158,17 +188,17 @@
                 <!-- All Section -->
                 <div id="all" class="flex space-x-4 md:space-x-6 lg:space-x-8">
                     <div>
-                        <img src="assets/image/gallery-1.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="assets/image/gallery-4.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/gallery-1.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/gallery-4.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
                     </div>
                     <div>
-                        <img src="assets/image/gallery-2.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="assets/image/gallery-5.png" alt="image" class="mb-3 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="assets/image/gallery-6.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/gallery-2.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/gallery-5.png" alt="image" class="mb-3 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/gallery-6.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
                     </div>
                     <div>
-                        <img src="assets/image/gallery-3.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                        <img src="assets/image/gallery-7.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/gallery-3.png" alt="image" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                        <img src="image/gallery-7.png" alt="image" class="hover:opacity-75 transition ease-in-out duration-500">
                     </div>
                 </div>
 
@@ -177,10 +207,10 @@
                     <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">Admin Features</h2>
                     <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
                         <div>
-                            <img src="assets/image/admin-1.png" alt="Admin Dashboard" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/admin-1.png" alt="Admin Dashboard" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                         <div>
-                            <img src="assets/image/admin-2.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/admin-2.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                     </div>
                 </div>
@@ -190,10 +220,10 @@
                     <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">User Features</h2>
                     <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
                         <div>
-                            <img src="assets/image/user-1.png" alt="User Profile" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/user-1.png" alt="User Profile" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                         <div>
-                            <img src="assets/image/user-2.png" alt="User Settings" class="hover:opacity-75 transition ease-in-out duration-500">
+                            <img src="image/user-2.png" alt="User Settings" class="hover:opacity-75 transition ease-in-out duration-500">
                         </div>
                     </div>
                 </div>
@@ -214,17 +244,17 @@
                 <h1 class="font-semibold text-gray-900 text-2xl md:text-4xl text-center leading-normal mb-14">What People Say <br> About GMS</h1>
 
                 <div class="hidden xl:block xl:absolute top-0">
-                    <img src="assets/image/testimoni-1.png" alt="Image">
+                    <img src="image/testimoni-1.png" alt="Image">
                 </div>
 
                 <div class="hidden xl:block xl:absolute top-32">
-                    <img src="assets/image/testimoni-2.png" alt="Image">
+                    <img src="image/testimoni-2.png" alt="Image">
                 </div>
 
                 <div class="flex flex-col md:flex-row md:items-center justify-center md:space-x-8 lg:space-x-12 mb-10 md:mb-20">
 
                     <div class="bg-gray-100 rounded-lg mb-10 md:mb-0">
-                        <img src="assets/image/testimoni-3.png" alt="Image" class="mx-8 my-8">
+                        <img src="image/testimoni-3.png" alt="Image" class="mx-8 my-8">
 
                         <div class="flex items-center gap-5 mx-8">
                             <i data-feather="star" class="text-yellow-500"></i>
@@ -240,7 +270,7 @@
                     </div>
 
                     <div class="bg-gray-100 rounded-lg">
-                        <img src="assets/image/testimoni-4.png" alt="Image" class="mx-8 my-8">
+                        <img src="image/testimoni-4.png" alt="Image" class="mx-8 my-8">
 
                         <div class="flex items-center gap-5 mx-8">
                             <i data-feather="star" class="text-yellow-500"></i>
@@ -276,7 +306,7 @@
                     </div>
 
                     <div class="hidden xl:block xl:absolute right-0">
-                        <img src="assets/image/book.png" alt="Image">
+                        <img src="image/book.png" alt="Image">
                     </div>
 
                     <div class="hidden md:block bg-white xl:relative px-6 py-3 rounded-3xl">
@@ -328,20 +358,31 @@
                 <div class="flex flex-col lg:flex-row justify-between">
                     <div class="text-center lg:text-left mb-10 lg:mb-0">
                         <div class="flex justify-center lg:justify-start mb-5">
-                            <img src="assets/image/footer-logo.png" alt="Image">
+                            <img src="image/footer-logo.png" alt="Image">
                         </div>
 
-                        <p class="font-light text-gray-400 text-xl mb-10">Get your dream house with <br> D’house</p>
+                        <p class="font-light text-gray-400 text-xl mb-10">Simplify your grievance process with <br> GMS</p>
 
+                        <p class="font-light text-gray-400 text-xl mb-10">More information</p>
                         <div class="flex items-center justify-center lg:justify-start space-x-5">
-                            <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="facebook"></i>
+                            <a href="https://github.com/yxiang921/Grievance-Management-System" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
+                                <i data-feather="github"></i>
                             </a>
 
                             <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
-                                <i data-feather="twitter"></i>
+                                <i data-feather="linkedin"></i>
                             </a>
 
+                        </div>
+                        <p class="font-light text-gray-400 text-xl mb-10">Person in charge in this project</p>
+                        <div class="flex items-center justify-center lg:justify-start space-x-5">
+
+                            <a href="https://www.linkedin.com/in/yong-xiang/" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
+                                <i data-feather="linkedin"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/chun-kiat-lwi-058308287/" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
+                                <i data-feather="linkedin"></i>
+                            </a>
                             <a href="#" class="px-3 py-3 bg-gray-200 text-gray-700 rounded-full hover:bg-green-800 hover:text-white transition ease-in-out duration-500">
                                 <i data-feather="linkedin"></i>
                             </a>
@@ -378,9 +419,9 @@
                     <div class="text-center lg:text-left">
                         <h4 class="font-semibold text-gray-900 text-2xl mb-6">Utility</h4>
 
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
+                        <a href="/faq" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">FAQ</a>
 
-                        <a href="#" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Terms & Conditions</a>
+                        <a href="/tac" class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Terms & Conditions</a>
                     </div>
                 </div>
 
@@ -403,6 +444,81 @@
             
         </script>
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script>
+    // Get elements
+    const requestDemoBtn = document.getElementById('requestDemoBtn');
+    const demoModal = document.getElementById('demoModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Show the modal when the "Request a Demo" button is clicked
+    requestDemoBtn.addEventListener('click', () => {
+        demoModal.classList.remove('hidden');
+    });
+
+    // Hide the modal when the close button is clicked
+    closeModalBtn.addEventListener('click', () => {
+        demoModal.classList.add('hidden');
+    });
+
+    // Hide the modal when clicking outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === demoModal) {
+            demoModal.classList.add('hidden');
+        }
+    });
+</script>
 
     </body>
 </html>
+
+<!-- Modal HTML -->
+<!-- Modal -->
+
+<div id="demoModal" class="fixed inset-0 hidden bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
+        <!-- Close Button -->
+        <button id="closeButton" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <h2 class="text-xl font-bold mb-4">Request a Demo</h2>
+        <form>
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700 font-medium">Name:</label>
+                <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-medium">Email:</label>
+                <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="mb-4">
+                <label for="message" class="block text-gray-700 font-medium">Message:</label>
+                <textarea id="message" name="message" class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div class="flex justify-end">
+                <button id="closeButtonSecondary" type="button" class="mr-2 bg-gray-400 text-white py-2 px-4 rounded-lg hover:bg-gray-500">Cancel</button>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-700">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    // JavaScript to handle modal functionality
+    const modal = document.getElementById('requestDemoModal');
+    const openModalButton = document.getElementById('openModal');
+    const closeModalButton = document.getElementById('closeModal');
+
+    openModalButton.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+    });
+
+    closeModalButton.addEventListener('click', () => {
+        modal.classList.add('hidden');
+    });
+    
+</script>
+
+
