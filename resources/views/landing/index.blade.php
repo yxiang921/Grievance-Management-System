@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grievance Management System</title>
-    <link rel="stylesheet" href="css/tailwind.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
-        integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grievance Management System</title>
+        <link rel="stylesheet" href="css/tailwind.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" integrity="sha512-7x3zila4t2qNycrtZ31HO0NnJr8kg2VI67YLoRSyi9hGhRN66FHYWr7Axa9Y1J9tGYHVBPqIjSE1ogHrJTz51g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/tailwind.css') }}" rel="stylesheet">
+        
+    </head> 
+</div>
 
-</head>
+    <body class="font-body">
 
-<body class="font-body">
+        <!-- home section -->
+        <section class="bg-white mb-20 md:mb-52 xl:mb-72">
 
-    <!-- home section -->
-    <section class="bg-white mb-20 md:mb-52 xl:mb-72">
+            <div class="container max-w-screen-xl mx-auto px-4">
 
-        <div class="container max-w-screen-xl mx-auto px-4">
+                <nav class="flex-wrap lg:flex items-center py-14 xl:relative z-10" x-data="{navbarOpen:false}">
 
-            <nav class="flex-wrap lg:flex items-center py-14 xl:relative z-10" x-data="{ navbarOpen: false }">
+                    <div class="flex items-center justify-between mb-10 lg:mb-0">
+                        <img src="image/navbar-logo.png" alt="Logo img" class="w-52 md:w-80 lg:w-full">
+                        
 
-                <div class="flex items-center justify-between mb-10 lg:mb-0">
-                    <div class="flex flex-row items-center font-bold ">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo img" class="w-16">
-                        <span>Grievance <br> Management System</span>
+                        <button class="lg:hidden w-10 h-10 ml-auto flex items-center justify-center text-green-700 border border-green-700 rounded-md" @click="navbarOpen = !navbarOpen">
+                            <i data-feather="menu"></i>
+                        </button>
                     </div>
 
+                    <ul class="lg:flex flex-col lg:flex-row lg:items-center lg:mx-auto lg:space-x-8 xl:space-x-16" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
 
-                    <button
-                        class="lg:hidden w-10 h-10 ml-auto flex items-center justify-center text-primary-900 border border-primary-900 rounded-md"
-                        @click="navbarOpen = !navbarOpen">
-                        <i data-feather="menu"></i>
+                        <li class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                            <a href="#intro">Why us?</a>
+                        </li>
+        
+                        <li class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                            <a href="#prototype">Prototype</a>
+                        </li>
+        
+                        <li class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                            <a href="#review">Review</a>
+                        </li>
+        
+                        <li class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
+                            <a href="#contact">Contact</a>
+                        </li>
+
+                    </ul>
+
+                    <button class="px-5 py-3 lg:block border-2 border-green-700 rounded-lg font-semibold text-green-700 text-lg hover:bg-green-700 hover:text-white transition ease-linear duration-500" :class="{'hidden':!navbarOpen,'flex':navbarOpen}">
+                        <a href="https://www.mediafire.com/file/xxokw60us6zed87/app-debug.apk/file ">Download APP Here</a>
+
                     </button>
                 </div>
 
-                <ul class="lg:flex flex-col lg:flex-row lg:items-center lg:mx-auto lg:space-x-8 xl:space-x-16"
-                    :class="{ 'hidden': !navbarOpen, 'flex': navbarOpen }">
+                </nav>
+                
 
-                    <li
-                        class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                        <a href="#intro">Why us?</a>
-                    </li>
+                <div class="flex items-center justify-center xl:justify-start">
+                    
 
                     <li
                         class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
@@ -61,19 +78,13 @@
                         <a href="#review">Review</a>
                     </li>
 
-                    <li
-                        class="font-semibold text-gray-900 text-lg hover:text-gray-400 transition ease-in-out duration-300 mb-5 lg:mb-0">
-                        <a href="#contact">Contact</a>
-                    </li>
 
-                </ul>
+                        <button class="px-6 py-4 bg-green-700 text-white font-semibold text-lg rounded-xl hover:bg-green-900 transition ease-in-out duration-500"><a href ="#contact">Contact us<a/></button>
+                    </div>
 
-                <button
-                    class="px-5 py-3 lg:block border-2 border-primary-900 rounded-lg font-semibold text-primary-900 text-lg hover:bg-primary-900 hover:text-white transition ease-linear duration-500"
-                    :class="{ 'hidden': !navbarOpen, 'flex': navbarOpen }"
-                    onclick="window.location.href='{{ route('admin.login') }}'">
-                    Demo
-                </button>
+                    <!-- <div class="hidden xl:block xl:absolute z-0 top-0 right-0">
+                    <img src="image/home-img.png" alt="Home img">
+                    </div> -->
 
             </nav>
 
@@ -176,31 +187,30 @@
 
             <h1 class="font-semibold text-gray-900 text-4xl text-center mb-10">Our Prototype</h1>
 
-            <!-- Navigation Tabs -->
-            <div class="hidden md:block flex items-center text-center space-x-10 lg:space-x-20 mb-12">
-                <button onclick="showSection('all')"
-                    class="px-6 py-2 bg-primary-900 text-white font-semibold text-xl rounded-lg hover:bg-primary-900 transition ease-in-out duration-500">All</button>
-                <button onclick="showSection('admin')"
-                    class="px-6 py-2 text-gray-900 font-normal text-xl rounded-lg hover:bg-gray-200 hover:text-gray-400 transition ease-in-out duration-500">Admin</button>
-                <button onclick="showSection('user')"
-                    class="px-6 py-2 text-gray-900 font-normal text-xl rounded-lg hover:bg-gray-200 hover:text-gray-400 transition ease-in-out duration-500">User</button>
-            </div>
+                <!-- Navigation Tabs -->
+                <div class="flex justify-center space-x-2 mb-6">
+                    <button 
+                        data-section="all" 
+                        onclick="showSection('all')" 
+                        class="px-4 py-2 bg-blue-600 text-white rounded"
+                    >
+                        All
+                    </button>
+                    <button 
+                        data-section="admin" 
+                        onclick="showSection('admin')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-800 rounded"
+                    >
+                        Admin
+                    </button>
+                    <button 
+                        data-section="user" 
+                        onclick="showSection('user')" 
+                        class="px-4 py-2 bg-gray-200 text-gray-800 rounded"
+                    >
+                        User
+                    </button>
 
-            <!-- All Section -->
-            <div id="all" class="flex space-x-4 md:space-x-6 lg:space-x-8">
-                <div>
-                    <img src="image/gallery-1.png" alt="image"
-                        class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                    <img src="image/gallery-4.png" alt="image"
-                        class="hover:opacity-75 transition ease-in-out duration-500">
-                </div>
-                <div>
-                    <img src="image/gallery-2.png" alt="image"
-                        class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                    <img src="image/gallery-5.png" alt="image"
-                        class="mb-3 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
-                    <img src="image/gallery-6.png" alt="image"
-                        class="hover:opacity-75 transition ease-in-out duration-500">
                 </div>
                 <div>
                     <img src="image/gallery-3.png" alt="image"
@@ -210,10 +220,8 @@
                 </div>
             </div>
 
-            <!-- Admin Section -->
-            <div id="admin" class="hidden">
-                <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">Admin Features</h2>
-                <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
+                <div id="all" class="flex space-x-4 md:space-x-6 lg:space-x-8">
+
                     <div>
                         <img src="image/admin-1.png" alt="Admin Dashboard"
                             class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
@@ -223,19 +231,32 @@
                             class="hover:opacity-75 transition ease-in-out duration-500">
                     </div>
                 </div>
-            </div>
-
-            <!-- User Section -->
-            <div id="user" class="hidden">
-                <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">User Features</h2>
-                <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
-                    <div>
-                        <img src="image/user-1.png" alt="User Profile"
-                            class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                <div id="admin" class="hidden">
+                <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">Admin Features</h2>
+                    <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
+                        <div>
+                            <img src="image/gallery-3.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
+                        <div>
+                            <img src="image/gallery-1.png" alt="Admin Dashboard" class="mb-4 md:mb-6 lg:mb-8 hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
+                        <div>
+                            <img src="image/gallery-2.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
                     </div>
-                    <div>
-                        <img src="image/user-2.png" alt="User Settings"
-                            class="hover:opacity-75 transition ease-in-out duration-500">
+                </div>
+                <div id="user" class="hidden">
+                <h2 class="font-semibold text-gray-900 text-3xl text-center mb-6">User Features</h2>
+                    <div class="flex space-x-4 md:space-x-6 lg:space-x-8">
+                        <div>
+                            <img src="image/gallery-4.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
+                        <div>
+                            <img src="image/gallery-5.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
+                        <div>
+                            <img src="image/gallery-6.png" alt="Admin Analytics" class="hover:opacity-75 transition ease-in-out duration-500">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -339,53 +360,56 @@
                         <input type="text" placeholder="Full Name"
                             class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none">
                     </div>
+                    <div class="hidden md:block bg-white xl:relative px-6 py-3 rounded-3xl">
+                    <form action="{{ route('landing.store') }}" method="POST">
+                            @csrf
+                            <div class="py-3">
+                                <h3 class="font-semibold text-gray-900 text-3xl">Book a meeting</h3>
+                            </div>
 
-                    <div class="py-3">
-                        <input type="text" placeholder="Email"
-                            class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none">
-                    </div>
+                            <div class="py-3">
+                                <input 
+                                    type="text" 
+                                    name="full_name" 
+                                    placeholder="Full Name" 
+                                    class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none"
+                                >
+                            </div>
 
-                    <div class="py-3 relative">
-                        <input type="text" placeholder="Date"
-                            class="px-4 py-4 w-96 bg-gray-100 font-normal text-lg placeholder-gray-400 rounded-xl outline-none">
+                            <div class="py-3">
+                                <input 
+                                    type="email" 
+                                    name="email" 
+                                    placeholder="Email" 
+                                    class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none"
+                                >
+                            </div>
 
-                        <div class="absolute inset-y-0 left-80 ml-6 flex items-center text-xl text-gray-600">
-                            <i data-feather="calendar"></i>
-                        </div>
-                    </div>
+                            <div class="py-3 relative">
+                                <input 
+                                    type="datetime-local" 
+                                    name="contact_date" 
+                                    class="px-4 py-4 w-96 bg-gray-100 font-normal text-lg placeholder-gray-400 rounded-xl outline-none"
+                                >
+                            </div>
 
-                    <div class="py-3 relative">
-                        <input type="text" placeholder="Virtual Meeting"
-                            class="px-4 py-4 w-96 bg-gray-100 placeholder-gray-400 rounded-xl outline-none">
+                            <div class="py-3 relative">
+                                <select 
+                                    name="meeting_type" 
+                                    class="px-4 py-4 w-96 bg-gray-100 text-gray-700 rounded-xl outline-none"
+                                >
+                                    <option value="" disabled selected>Select Meeting Type</option>
+                                    <option value="virtual">Virtual Meeting</option>
+                                    <option value="physical">Physical Meeting</option>
+                                </select>
+                            </div>
 
-                        <div class="absolute inset-y-0 left-80 ml-6 flex items-center text-xl text-gray-600">
-                            <i data-feather="chevron-down"></i>
-                        </div>
-                    </div>
-
-                    <div class="py-3">
-                        <button
-                            class="w-full py-4 font-semibold text-lg text-white bg-primary-900 rounded-xl hover:bg-primary-hover transition ease-in-out duration-500">Booking</button>
-                    </div>
-                </div>
-
-            </div>
-
-        </div> <!-- container.// -->
-
-    </section>
-    <!-- book section //end -->
-
-    <!-- footer -->
-    <footer class="bg-white py-10 md:py-16">
-
-        <div class="container max-w-screen-xl mx-auto px-4">
-
-            <div class="flex flex-col lg:flex-row justify-between">
-                <div class="text-center lg:text-left mb-10 lg:mb-0">
-                    <div class="flex items-center justify-center lg:justify-start mb-5">
-                        <img src="{{ asset('images/logo.png') }}" alt="Image" class="w-12">
-                        <span class="font-bold text-gray-400 pl-2">Grievance <br> Management System</span>
+                            <div class="py-3">
+                                <button class="w-full py-4 font-semibold text-lg text-white bg-green-700 rounded-xl hover:bg-green-900 transition ease-in-out duration-500">
+                                    Book Meeting
+                                </button>
+                            </div>
+                        </form>
                     </div>
 
                     <p class="font-light text-gray-400 text-xl mb-10">Simplify your grievance process with <br> GMS</p>
@@ -424,8 +448,11 @@
                 <div class="text-center lg:text-left mb-10 lg:mb-0">
                     <h4 class="font-semibold text-gray-900 text-2xl mb-6">Sitemap</h4>
 
-                    <a href="#"
-                        class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Home</a>
+                <div class="flex flex-col lg:flex-row justify-between">
+                    <div class="text-center lg:text-left mb-10 lg:mb-0">
+                        <div class="flex justify-center lg:justify-start mb-5">
+                            <img src="image/navbar-logo.png" alt="Image">
+                        </div>
 
                     <a href="#intro"
                         class="block font-light text-gray-400 text-xl mb-6 hover:text-gray-800 transition ease-in-out duration-300">Introduction</a>
@@ -477,22 +504,45 @@
 
     </footer>
     <!-- footer //end -->
+        <script>
+            // Replace Feather icons when the page loads
+            document.addEventListener('DOMContentLoaded', () => {
+                feather.replace();
+            });
 
-    <script>
-        feather.replace()
+            // Function to show specific section and handle active state
+            function showSection(section) {
+                // List of all possible sections
+                const sections = ['all', 'admin', 'user'];
+                
+                // Hide all sections
+                sections.forEach(sec => {
+                    const sectionElement = document.getElementById(sec);
+                    const navButton = document.querySelector(`[data-section="${sec}"]`);
+                    
+                    if (sectionElement) {
+                        sectionElement.classList.add('hidden');
+                    }
+                    
+                    if (navButton) {
+                        navButton.classList.remove('bg-blue-600', 'text-white');
+                        navButton.classList.add('bg-gray-200', 'text-gray-800');
+                    }
+                });
 
-        function showSection(section) {
-            // Hide all sections
-            document.getElementById('all').classList.add('hidden');
-            document.getElementById('admin').classList.add('hidden');
-            document.getElementById('user').classList.add('hidden');
-
-            // Show the selected section
-            document.getElementById(section).classList.remove('hidden');
-        }
-    </script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-</body>
+                // Show the selected section
+                const selectedSection = document.getElementById(section);
+                const selectedNavButton = document.querySelector(`[data-section="${section}"]`);
+                
+                if (selectedSection) {
+                    selectedSection.classList.remove('hidden');
+                }
+                
+                if (selectedNavButton) {
+                    selectedNavButton.classList.remove('bg-gray-200', 'text-gray-800');
+                    selectedNavButton.classList.add('bg-blue-600', 'text-white');
+                }
+            }
+        </script>
 
 </html>
