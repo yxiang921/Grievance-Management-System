@@ -237,6 +237,7 @@
         const departmentSelector = document.querySelector('select#department');
         const tabBtns = document.querySelectorAll('.tab-btn');
 
+
         categorySelector.addEventListener('change', (e) => {
             departmentSelector.innerHTML = '';
 
@@ -321,15 +322,18 @@
                     categorySelector.value = data.predicted_label;
                     categorySelector.dispatchEvent(new Event('change'));
 
-                    // auto fill duedate, priority and outsource remark
-                    const duedate = document.querySelector('input[name="duedate"]');
                     const priority = document.querySelector('select[name="priority"]');
                     const outsourceRemark = document.querySelector('textarea[name="outsourceRemark"]');
-                    const currentDate = new Date();
-                    const dueDate = new Date(currentDate.setDate(currentDate.getDate() + 7));
-                    duedate.value = dueDate.toISOString().slice(0, 16);
+
                     priority.value = 'Normal';
                     outsourceRemark.value = 'This grievance has been auto-assigned by AI';
+
+
+                    const duedate = document.querySelector('input[name="duedate"]');
+                    const currentDate = new Date();
+                    const nextValidDate = getNextValidDate(currentDate);
+                    duedate.value = nextValidDate.toLocaleString("sv-SE").replace(" ", "T").slice(0, 16);
+                    console.log(duedate.value);
 
 
                 })
@@ -343,5 +347,28 @@
                     ai_btn_text.innerText = 'AI Generate';
                 });
         });
+
+        function getNextValidDate(date) {
+            const day = date.getDay();
+            const hour = date.getHours();
+
+            const expectedDate = new Date(date);
+            expectedDate.setDate(expectedDate.getDate() + 7);
+
+            if (expectedDate === 6) {
+                expectedDate.setDate(expectedDate.getDate() + 2);
+            } else if (expectedDate === 0) {
+                expectedDate.setDate(expectedDate.getDate() + 1);
+            }
+
+            if (hour < 8 || hour > 17) {
+                expectedDate.setDate(expectedDate.getDate() + 1);
+                expectedDate.setHours(8);
+            }
+
+            console.log(expectedDate);
+
+            return expectedDate;
+        }
     </script>
 @endsection

@@ -23,7 +23,7 @@
             </div>
 
             <div class="grid lg:grid-cols-4 items-center mt-4">
-                <label for="departmentCategory" class="col-span-1">Categry</label>
+                <label for="departmentCategory" class="col-span-1">Category</label>
                 <select name="departmentCategory" id=""
                     class="primary-select w-full rounded-md border border-gray-400 text-gray-400">
                     <option value="Academic">Academic</option>
