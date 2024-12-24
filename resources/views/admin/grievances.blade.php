@@ -11,12 +11,16 @@
                         value="{{ request('keyword') }}">
                 </div>
                 <div class="w-full lg:w-1/4 my-4 mx-0 lg:my-0 lg:mx-4">
-                    <input type="datetime-local" class="primary-input w-full" name="datetime"
-                        value="{{ request('datetime') }}">
+                    {{-- <input type="datetime-local" class="primary-input w-full" name="datetime"
+                        value="{{ request('datetime') }}"> --}}
+
+                    <input class="primary-input w-full" onchange="javascript: console.log(this.value)"
+                        placeholder="Select Date Range" type="text" id="date_range" name="datetime"
+                        value="{{ request('datetime') }}" required>
                 </div>
                 <div class="w-full lg:w-1/4">
                     {{-- <x-filter-dropdown :items="['Received', 'In-Progress', 'Closed']" label="Select Status" /> --}}
-                    <select name="status" id="status" class="primary-select w-full">
+                    <select name="status" id="status" class="primary-select w-full cursor-pointer">
                         <option selected disabled value="">Select Status</option>
                         <option value="Received" {{ request('status') == 'Received' ? 'selected' : '' }}>Received</option>
                         <option value="In Progress">In Progress</option>
@@ -84,5 +88,16 @@
             grievanceList.insertAdjacentHTML('beforeend', grievanceComponent);
 
         }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#date_range", {
+                mode: "range",
+                enableTime: true,
+                dateFormat: "Y-m-d H:i",
+                time_24hr: true,
+            });
+        });
     </script>
 @endsection

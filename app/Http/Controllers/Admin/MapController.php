@@ -16,6 +16,7 @@ class MapController extends Controller
             ->whereNotNull('longitude')
             ->where('latitude', '!=', 0)
             ->where('longitude', '!=', 0)
+            ->where('status', '!=', 'closed')
             ->get();
 
         $map_grievances->each(function ($grievance, $index) {

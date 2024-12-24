@@ -118,8 +118,13 @@ class GrievanceController extends Controller
             });
         }
 
+        $startDate = substr($datetime, 0, 16);
+        $endDate = substr($datetime, 20, 16);
+        $startDate = date('Y-m-d H:i:s', strtotime($startDate));
+        $endDate = date('Y-m-d H:i:s', strtotime($endDate));
+
         if ($datetime != null && $datetime != '') {
-            $query->where('grievances.created_at', '>=', $datetime);
+            $query->whereBetween('grievances.created_at', [$startDate, $endDate]);
         }
 
         if ($status != null && $status != '') {
