@@ -11,8 +11,11 @@
                         value="{{ request('keyword') }}">
                 </div>
                 <div class="w-full lg:w-1/4 my-4 mx-0 lg:my-0 lg:mx-4">
-                    <input type="datetime-local" class="primary-input w-full" name="datetime"
-                        value="{{ request('datetime') }}">
+                    {{-- <input type="datetime-local" class="primary-input w-full" name="datetime"
+                        value="{{ request('datetime') }}"> --}}
+                        <input class="primary-input w-full" onchange="javascript: console.log(this.value)"
+                        placeholder="Select Date Range" type="text" id="date_range" name="datetime"
+                        value="{{ request('datetime') }}" required>
                 </div>
                 <div class="w-full lg:w-1/4">
                     {{-- <x-filter-dropdown :items="['Received', 'In-Progress', 'Closed']" label="Select Status" /> --}}

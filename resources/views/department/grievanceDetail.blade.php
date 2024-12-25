@@ -74,11 +74,21 @@
                     <form class="h-full" method="POST" action="{{ route('department.grievance.update') }}"
                         enctype="multipart/form-data">
                         @csrf
+
+                        @if ($grievance->status == 'Closed')
+                            <div class="w-full mb-4 border border-primary-900 bg-primary-100 p-4 rounded-md">
+                                <p class="text-primary-900">
+                                    This grievance is closed. You can't update the status.
+                                </p>
+                            </div>
+                        @endif
                         <h4 class="text-lg font-semibold mb-4">Grievances Process</h4>
                         <div class="mb-4">
                             <input type="text" hidden value="{{ $grievance->grievance_id }}" name="grievanceID">
                             <label class="block text-gray-700">Status</label>
-                            <select class="primary-select w-full mt-2" name="status" id="status" required>
+                            <select {{ $grievance->status == 'Closed' ? 'disabled' : '' }}
+                                class="primary-select w-full mt-2 {{ $grievance->status == 'Closed' ? 'cursor-not-allowed' : '' }}"
+                                name="status" id="status" required>
                                 <option value="" selected disabled>
                                     Select Status
                                 </option>
@@ -91,13 +101,16 @@
 
                         <div class="mb-4">
                             <label class="block text-gray-700">Person in Charged </label>
-                            <input type="text" class="primary-input w-full mt-2" name="person_in_charged" required
-                                value="{{ $grievance->person_in_charged }}">
+                            <input type="text"
+                                class="primary-input w-full mt-2 {{ $grievance->status == 'Closed' ? 'cursor-not-allowed' : '' }}"
+                                name="person_in_charged" required value="{{ $grievance->person_in_charged }}"
+                                {{ $grievance->status == 'Closed' ? 'disabled' : '' }}>
                         </div>
 
                         <div class="mb-4">
                             <label class="block text-gray-700">Remark</label>
-                            <textarea class ="primary-input w-full mt-2" rows="6" name="process_remark" required>
+                            <textarea class ="primary-input w-full mt-2 {{ $grievance->status == 'Closed' ? 'cursor-not-allowed' : '' }}"
+                                rows="6" name="process_remark" required {{ $grievance->status == 'Closed' ? 'disabled' : '' }}>
 @if ($grievance->process_remark)
 {{ $grievance->process_remark }}
 @endif
@@ -105,10 +118,13 @@
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700">Process Image</label>
-                            <input type="file" class="primary-input w-full mt-2" name="process_image" accept="image/*">
+                            <input {{ $grievance->status == 'Closed' ? 'disabled' : '' }} type="file"
+                                class="primary-input w-full mt-2 {{ $grievance->status == 'Closed' ? 'cursor-not-allowed' : '' }}"
+                                name="process_image" accept="image/*">
                         </div>
                         <div class="flex flex-col justify-between">
-                            <button class="primary-btn" type="submit">
+                            <button {{ $grievance->status == 'Closed' ? 'disabled' : '' }} class="primary-btn"
+                                type="submit">
                                 Update
                             </button>
                         </div>
