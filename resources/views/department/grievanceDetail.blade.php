@@ -61,7 +61,7 @@
                         <div class="mb-4">
                             @if ($grievance->grievance_image)
                                 <p class="pb-4"><strong>Image</strong></p>
-                                <img src="http://localhost:8000/{{ $grievance->grievance_image }}" alt="Image"
+                                <img src="{{ env('APP_URL')}}/{{ $grievance->grievance_image }}" alt="Image"
                                     class="w-full h-auto object-fit">
                             @endif
                         </div>
