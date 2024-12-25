@@ -14,7 +14,7 @@
 
 
     <div class="flex">
-            <x-sidebar/>
+        <x-sidebar />
 
         <!-- Main Content -->
         <div class="flex-1 p-4">
@@ -34,31 +34,33 @@
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/laravel-echo@1.11.3/dist/echo.iife.js"></script>
 
-    <script>
-        const pusher = new Pusher('{{ env('MIX_PUSHER_APP_KEY') }}', {
-            cluster: '{{ env('MIX_PUSHER_APP_CLUSTER') }}',
-            forceTLS: true
-        });
 
-        window.Echo = new Echo({
-            broadcaster: 'pusher',
-            client: pusher
-        });
-
-        window.Echo.channel('grievance')
-            .listen('NewGrievance', (e) => {
-
-                console.log('New complaint submitted master:', e.grievance, e.user);
-
-                showAlert(e.grievance, e.user);
-                console.log("show 123");
-                showNotification(e.grievance, e.user);
+    @if (Auth::guard('admin')->check())
+        <script>
+            const pusher = new Pusher('{{ env('MIX_PUSHER_APP_KEY') }}', {
+                cluster: '{{ env('MIX_PUSHER_APP_CLUSTER') }}',
+                forceTLS: true
             });
 
-        function showAlert(grievance, user) {
+            window.Echo = new Echo({
+                broadcaster: 'pusher',
+                client: pusher
+            });
 
-            console.log("show");
-            const grievanceNotification = `<div id="alertBox"
+            window.Echo.channel('grievance')
+                .listen('NewGrievance', (e) => {
+
+                    console.log('New complaint submitted master:', e.grievance, e.user);
+
+                    showAlert(e.grievance, e.user);
+                    console.log("show 123");
+                    showNotification(e.grievance, e.user);
+                });
+
+            function showAlert(grievance, user) {
+
+                console.log("show");
+                const grievanceNotification = `<div id="alertBox"
                         class=" 
                         h-96 bg-white border rounded-md shadow-md fixed top-1/2 -translate-y-1/2 inset-x-0 z-[99999] px-4 py-3 text-center mx-auto max-w-xl scale-100 transition-transform duration-300 ease-out
                         flex flex-col justify-center items-center
@@ -90,9 +92,13 @@
                         </span>
                     </div>`;
 
-            document.getElementById('appBody').insertAdjacentHTML('afterbegin', grievanceNotification);
-        }
-    </script>
+                document.getElementById('appBody').insertAdjacentHTML('afterbegin', grievanceNotification);
+            }
+        </script>
+    @else
+    @endif
+
+
 </body>
 
 </html>
