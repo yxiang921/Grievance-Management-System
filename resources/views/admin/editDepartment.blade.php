@@ -69,12 +69,15 @@
                             Actions</th>
                     </tr>
                 </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                    <tr>
-                        <td colspan="4" class="px-6 py-4 text-center text-gray-500">
-                            No staff members assigned to this department
-                        </td>
-                    </tr>
+                <tbody class="bg-white divide-y divide-gray-200 p-4">
+                    @foreach ($staffs as $staff)
+                        <tr>
+                            <td class="px-6 py-3">{{ $staff->staff_name }}</td>
+                            <td>{{ $staff->staff_email }}</td>
+                            <td>{{ $staff->staff_phone }}</td>
+                            <td>123</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -92,20 +95,21 @@
             <div class="px-4 py-5 sm:p-6">
                 <form action="{{ route('admin.department.staff.add') }}" method="POST">
                     @csrf
+                    <input type="text" value="{{ $department->id }}" name="department_id" hidden>
                     <h1 class="font-bold text-lg">Add Staff</h1>
                     <div class="mt-2">
-                        <label for="staffName" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" name="staffName" id="staffName" class="primary-input mt-1 block w-full"
+                        <label for="staff_name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" name="staff_name" id="staff_name" class="primary-input mt-1 block w-full"
                             required>
                     </div>
                     <div class="mt-2">
-                        <label for="staffEmail" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" name="staffEmail" id="staffEmail" class="primary-input mt-1 block w-full"
+                        <label for="staff_email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" name="staff_email" id="staff_email" class="primary-input mt-1 block w-full"
                             required>
                     </div>
                     <div class="mt-2">
-                        <label for="phone_number" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input type="text" name="phone_number" id="phone_number" class="primary-input mt-1 block w-full"
+                        <label for="staff_phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="text" name="staff_phone" id="staff_phone" class="primary-input mt-1 block w-full"
                             required>
                     </div>
                     <div class="mt-4">

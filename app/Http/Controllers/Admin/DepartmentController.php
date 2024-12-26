@@ -49,7 +49,12 @@ class DepartmentController extends Controller
     {
         $department = Department::find($department_id);
 
-        return view('admin.editDepartment', ['department' => $department]);
+        $staffs = Staff::where('department_id', $department_id)->get();
+
+        return view('admin.editDepartment', [
+            'department' => $department,
+            'staffs' => $staffs,
+        ]);
 
     }
 
@@ -135,7 +140,6 @@ class DepartmentController extends Controller
     {
         $req = request();
 
-        $department_id = $req->input('departmentId');
         $validateData = $req->validate([
             'staff_name' => 'required',
             'staff_email' => 'required',
@@ -143,11 +147,13 @@ class DepartmentController extends Controller
             'department_id' => 'required',
         ]);
 
+        // dd($validateData);
+
         $staff = Staff::create([
             'staff_name' => $validateData['staff_name'],
             'staff_email' => $validateData['staff_email'],
             'staff_phone' => $validateData['staff_phone'],
-            'department_id' => $department_id,
+            'department_id' => $validateData['department_id'],
         ]);
 
         if ($staff) {
