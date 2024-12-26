@@ -44,11 +44,17 @@ class GrievanceController extends Controller
             ->where('grievances.id', '=', $grievance_id)
             ->get();
 
+        $staffs = DB::table('staff')
+            ->where('department_id', Auth::guard('department')->user()->id)
+            ->get();
+
         // dd($grievance);
+        // dd($staffs);
 
 
         return view('department.grievanceDetail', [
             'grievance' => $grievance,
+            'staffs' => $staffs
         ]);
     }
 
@@ -64,7 +70,6 @@ class GrievanceController extends Controller
             'process_remark' => 'required',
             'process_image' => 'nullable'
         ]);
-
 
         $image_path = null;
 
@@ -96,7 +101,6 @@ class GrievanceController extends Controller
 
         return redirect()->route('department.grievances');
     }
-
 
     public function searchGrievance()
     {
@@ -133,9 +137,9 @@ class GrievanceController extends Controller
 
         $grievances = $query->orderBy('grievances.status', 'desc')->get();
 
-        if($grievances->isEmpty()){
+        if ($grievances->isEmpty()) {
             $this->flashMessage('error', 'No Search Results Found');
-        }else{
+        } else {
             $this->flashMessage('success', 'Search Results as Below');
         }
 
