@@ -60,6 +60,9 @@ Route::group([
     Route::post('/department/search', [DepartmentController::class, 'searchDepartment'])
         ->name('department.search');
 
+    Route::post('/department/staff/add', [DepartmentController::class, 'addStaff'])
+        ->name('department.staff.add');
+
 
 
     // Users

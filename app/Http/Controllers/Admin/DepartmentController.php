@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department;
+use App\Models\Staff;
 use Illuminate\Http\Request;
 use DB;
 
@@ -128,5 +129,32 @@ class DepartmentController extends Controller
         return view('admin.departments', [
             'departments' => $departments,
         ]);
+    }
+
+    public function addStaff()
+    {
+        $req = request();
+
+        $department_id = $req->input('departmentId');
+        $validateData = $req->validate([
+            'staff_name' => 'required',
+            'staff_email' => 'required',
+            'staff_phone' => 'required',
+            'department_id' => 'required',
+        ]);
+
+        $staff = Staff::create([
+            'staff_name' => $validateData['staff_name'],
+            'staff_email' => $validateData['staff_email'],
+            'staff_phone' => $validateData['staff_phone'],
+            'department_id' => $department_id,
+        ]);
+
+        if ($staff) {
+            $this->flashMessage('success', 'Staff Added Successfully!');
+        } else {
+            $this->flashMessage('error', 'Failed to Add Staff!');
+        }
+        return redirect()->route('admin.departments');
     }
 }
