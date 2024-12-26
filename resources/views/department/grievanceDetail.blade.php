@@ -61,7 +61,7 @@
                         <div class="mb-4">
                             @if ($grievance->grievance_image)
                                 <p class="pb-4"><strong>Image</strong></p>
-                                <img src="{{ env('APP_URL')}}/{{ $grievance->grievance_image }}" alt="Image"
+                                <img src="{{ env('APP_URL') }}/{{ $grievance->grievance_image }}" alt="Image"
                                     class="w-full h-auto object-fit">
                             @endif
                         </div>
@@ -101,10 +101,15 @@
 
                         <div class="mb-4">
                             <label class="block text-gray-700">Person in Charged </label>
-                            <input type="text"
-                                class="primary-input w-full mt-2 {{ $grievance->status == 'Closed' ? 'cursor-not-allowed' : '' }}"
-                                name="person_in_charged" required value="{{ $grievance->person_in_charged }}"
+                            <select class="primary-select w-full mt-2" name="person_in_charged" required
                                 {{ $grievance->status == 'Closed' ? 'disabled' : '' }}>
+                                @foreach ($staffs as $staff)
+                                    <option value="{{ $staff->staff_name }}"
+                                        {{ $grievance->person_in_charged == $staff->staff_name ? 'selected' : '' }}>
+                                        {{ $staff->staff_name }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="mb-4">
