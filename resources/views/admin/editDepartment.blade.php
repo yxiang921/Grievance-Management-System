@@ -78,7 +78,7 @@
                             <td>{{ $staff->staff_phone }}</td>
                             <td>
                                 <button class="text-red-500 hover:text-red-700"
-                                    onclick="confirmDelete(event, '{{ route('admin.department.staff.delete', ['staff_id' => $staff->id]) }}')">
+                                    onclick="confirmDelete('staff', event, '{{ route('admin.department.staff.delete', ['staff_id' => $staff->id]) }}')">
                                     Delete
                                 </button>
                             </td>
@@ -142,12 +142,5 @@
                 modal.classList.add('hidden');
             });
         });
-
-        function confirmDelete(event, url) {
-            event.preventDefault();
-            if (confirm('Are you sure you want to delete this staff member?')) {
-                window.location.href = url;
-            }
-        }
     </script>
 @endsection
