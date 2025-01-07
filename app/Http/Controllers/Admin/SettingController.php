@@ -33,15 +33,18 @@ class SettingController extends Controller
 
         $admin = Admin::find($admin_id);
 
-
         $admin->admin_name = $req->last_name;
         $admin->admin_username = $req->username;
         $admin->admin_phone_number = $req->phone_number;
         $admin->admin_email = $req->email;
 
-        if ($req->admin_password != '') {
+        if ($req->admin_password == null || $req->admin_password == '') {
+            $admin->admin_password;
+        } else {
             $admin->admin_password = bcrypt($req->admin_password);
         }
+
+        // dd($admin);
 
         $admin->save();
 

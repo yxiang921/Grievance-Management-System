@@ -47,7 +47,7 @@
                     <tr>
                         <td class="font-bold text-slate-700 py-2">Reset Password</td>
                         <td class="py-2">
-                            <input type="password" name="password" value="" class="w-full primary-input">
+                            <input type="password" name="admin_password" value="" class="w-full primary-input">
                         </td>
                     </tr>
                 </tbody>
