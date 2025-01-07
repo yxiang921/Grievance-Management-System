@@ -1,6 +1,9 @@
 @extends('layouts.master')
 
 @section('content')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <div class="container mx-auto p-4">
         <form action="{{ route('department.grievance.search') }}" method="POST"
             class="flex flex-col items-start justify-start mb-4">
@@ -13,7 +16,7 @@
                 <div class="w-full lg:w-1/4 my-4 mx-0 lg:my-0 lg:mx-4">
                     {{-- <input type="datetime-local" class="primary-input w-full" name="datetime"
                         value="{{ request('datetime') }}"> --}}
-                        <input class="primary-input w-full" onchange="javascript: console.log(this.value)"
+                    <input class="primary-input w-full" onchange="javascript: console.log(this.value)"
                         placeholder="Select Date Range" type="text" id="date_range" name="datetime"
                         value="{{ request('datetime') }}" required>
                 </div>
@@ -41,4 +44,15 @@
             @endforeach
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            flatpickr("#date_range", {
+                mode: "range",
+                enableTime: true,
+                dateFormat: "Y-m-d H:i",
+                time_24hr: true,
+            });
+        });
+    </script>
 @endsection
