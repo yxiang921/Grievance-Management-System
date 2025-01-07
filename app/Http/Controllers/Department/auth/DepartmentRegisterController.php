@@ -25,10 +25,11 @@ class DepartmentRegisterController extends Controller
         $req = request();
 
         $validateData = $req->validate([
-            'department_name' => 'required',
+            'department_name' => 'required | unique:departments,department_name',
             'department_category' => 'required',
-            'department_key' => 'required | unique:departments',
-            'department_password' => 'required',
+            'department_key' => 'required | unique:departments,department_key',
+            'department_password' => 'required | min:8',
+            'password_confirmation' => 'required | same:department_password',
         ]);
 
         Department::create([

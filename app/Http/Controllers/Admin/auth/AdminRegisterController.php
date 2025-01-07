@@ -20,12 +20,12 @@ class AdminRegisterController extends Controller
         $req = request();
 
         $validateData = $req->validate([
-            'admin_name' => 'required', 
-            'admin_username' => 'required',
-            'admin_password' => 'required',
+            'admin_name' => 'required|unique:admins,admin_name',
+            'admin_username' => 'required|unique:admins,admin_username',
+            'admin_password' => 'required|min:8',
             'password_confirmation' => 'required|same:admin_password',
-            'admin_email' => 'required',
-            'admin_phone_number' => 'required',
+            'admin_email' => 'required|unique:admins,admin_email',
+            'admin_phone_number' => 'required|unique:admins,admin_phone_number',
         ]);
 
         Admin::create([

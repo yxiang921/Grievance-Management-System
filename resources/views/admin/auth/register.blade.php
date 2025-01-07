@@ -27,23 +27,23 @@
 
                 <div class="space-y-4">
                     <div>
-                        <x-input-label for="name" :value="__('Name')" />
-                        <x-text-input id="name" class="block mt-1 w-full" type="text" name="admin_name"
-                            :value="old('name')" required autofocus autocomplete="name" />
-                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        <x-input-label for="admin_name" :value="__('Admin Name')" />
+                        <x-text-input id="admin_name" class="block mt-1 w-full" type="text" name="admin_name"
+                            :value="old('admin_name')" required autofocus autocomplete="name" />
+                        <x-input-error :messages="$errors->get('admin_name')" class="mt-2" />
                     </div>
 
                     <div>
-                        <x-input-label for="username" :value="__('Username')" />
-                        <x-text-input id="username" class="block mt-1 w-full" type="text" name="admin_username"
-                            :value="old('username')" required autofocus autocomplete="username" />
-                        <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                        <x-input-label for="admin_username" :value="__('Admin Username')" />
+                        <x-text-input id="admin_username" class="block mt-1 w-full" type="text" name="admin_username"
+                            :value="old('admin_username')" required autofocus autocomplete="username" />
+                        <x-input-error :messages="$errors->get('admin_username')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
                         <x-input-label for="admin_email" :value="__('Admin Email')" />
                         <x-text-input id="admin_email" class="block mt-1 w-full" type="text" name="admin_email"
-                            :value="old('admin_email')" required autocomplete="username" />
+                            :value="old('admin_email')" required autocomplete="admin_email" />
                         <x-input-error :messages="$errors->get('admin_email')" class="mt-2" />
                     </div>
 
@@ -60,7 +60,7 @@
                         <x-text-input id="admin_password" class="block mt-1 w-full" type="password"
                             name="admin_password" required autocomplete="new-admin_password" />
 
-                        <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        <x-input-error :messages="$errors->get('admin_password')" class="mt-2" />
                     </div>
 
                     <div class="mt-4">
