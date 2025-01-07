@@ -24,6 +24,8 @@ class GrievanceController extends Controller
             ->where('department_id', $department_id)
             ->join('users', 'grievances.user_id', '=', 'users.id')
             ->select('grievances.id as grievance_id', 'grievances.*', 'users.*', 'users.id as user_id')
+            ->orderBy('grievances.status', 'desc')
+            ->orderBy('grievances.created_at', 'desc')
             ->get();
 
         return view('department.grievances', ['grievances' => $grievances]);

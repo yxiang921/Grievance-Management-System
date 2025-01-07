@@ -47,7 +47,7 @@
                                 <tr>
                                     <td class="pr-4"><strong>Time</strong></td>
                                     <td>
-                                        {{ Carbon::parse($grievance->grievance_created_at)->format('h : m A') }}
+                                        {{ Str::substr(Carbon::parse($grievance->grievance_created_at)->setTimezone('Asia/Kuala_Lumpur'), 11, 5) }}
                                     </td>
                                 </tr>
                             </table>
@@ -98,9 +98,7 @@
 
                         <button
                             class="bg-primary-900 w-3/4 h-14 flex items-center justify-center text-white rounded-md transition-all hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-green-200"
-                            id="ai_generate_btn"
-                            {{ $grievance->status == 'Closed' ? 'disabled' : '' }}
-                            >
+                            id="ai_generate_btn" {{ $grievance->status == 'Closed' ? 'disabled' : '' }}>
                             <svg id="ai_btn_icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                 fill="currentColor" class="bi bi-stars mr-2" viewBox="0 0 16 16">
                                 <path

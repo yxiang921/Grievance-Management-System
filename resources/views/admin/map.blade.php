@@ -67,10 +67,17 @@
             fillOpacity: 0
         }).addTo(map);
 
+        // var circle = L.circle([1.5336486914588254, 103.68175560084585], {
+        //     color: 'red',
+        //     fillColor: '#f03',
+        //     fillOpacity: 0.3,
+        //     radius: 20,
+        // }).addTo(map);
+
         map_grievances.forEach(grievance => {
 
             if (grievance.latitude && grievance.longitude) {
-                console.log(grievance);
+                console.log("grievance" ,grievance.latitude, grievance.longitude);
                 var circle = L.circle([grievance.latitude, grievance.longitude], {
                     color: 'red',
                     fillColor: '#f03',

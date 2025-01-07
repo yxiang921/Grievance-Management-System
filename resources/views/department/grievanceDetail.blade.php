@@ -41,7 +41,7 @@
                                 <tr>
                                     <td class="pr-4"><strong>Time</strong></td>
                                     <td>
-                                        {{ Carbon::parse($grievance->grievance_created_at)->format('h : m A') }}
+                                        {{ Str::substr(Carbon::parse($grievance->grievance_created_at)->setTimezone('Asia/Kuala_Lumpur'), 11, 5) }}
                                     </td>
                                 </tr>
                                 <tr>
