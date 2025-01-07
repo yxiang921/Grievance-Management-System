@@ -45,11 +45,11 @@
                         </div>
                         <div class="flex flex-wrap items-center justify-between gap-4">
                             <div class="flex items-center">
-                                <input id="remember-me" name="remember-me" type="checkbox"
+                                {{-- <input id="remember-me" name="remember-me" type="checkbox"
                                     class="h-4 w-4 text-primary-900 focus:ring-primary-500 border-gray-300 rounded" />
                                 <label for="remember-me" class="ml-3 block text-sm text-gray-900">
                                     Remember me
-                                </label>
+                                </label> --}}
                             </div>
                             <div class="text-sm">
                             </div>

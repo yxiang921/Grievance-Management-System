@@ -71,7 +71,7 @@ class DepartmentController extends Controller
         } else {
 
             $validateData = $req->validate([
-                'password' => 'required | min:8',
+                'departmentPassword' => 'required | min:8',
             ]);
 
             $password = bcrypt($validateData['departmentPassword']);
