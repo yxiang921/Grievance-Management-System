@@ -163,4 +163,18 @@ class DepartmentController extends Controller
         }
         return redirect()->route('admin.departments');
     }
+
+    public function deleteStaff($staff_id)
+    {
+
+        $staff = Staff::find($staff_id);
+
+        // confirmation dialog
+
+        $staff->delete();
+
+        $this->flashMessage('success', 'Staff Deleted Successfully!');
+
+        return redirect()->route('admin.departments');
+    }
 }

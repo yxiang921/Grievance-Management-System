@@ -63,6 +63,9 @@ Route::group([
     Route::post('/department/staff/add', [DepartmentController::class, 'addStaff'])
         ->name('department.staff.add');
 
+    Route::get('/department/staff/delete/{staff_id}', [DepartmentController::class, 'deleteStaff'])
+        ->name('department.staff.delete');
+
 
 
     // Users
