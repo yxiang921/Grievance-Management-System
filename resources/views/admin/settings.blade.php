@@ -54,7 +54,7 @@
             </table>
 
             <div class="mt-6 flex justify-end space-x-4">
-                <button class="cancel-btn">Cancel</button>
+                {{-- <button class="cancel-btn">Cancel</button> --}}
                 <button class="primary-btn">Submit</button>
             </div>
         </form>
