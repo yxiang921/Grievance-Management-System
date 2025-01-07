@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\Admin\MapController;
+// use App\Http\Controllers\Admin\MapController;
+
 use App\Http\Controllers\Department\DepartmentController;
 use App\Http\Controllers\Department\AnalyticsController;
 use App\Http\Controllers\Department\GrievanceController;
 use App\Http\Controllers\Department\HomeController;
+use App\Http\Controllers\Department\MapController;
 use App\Http\Controllers\Department\UserController;
 use Illuminate\Support\Facades\Route;
 
