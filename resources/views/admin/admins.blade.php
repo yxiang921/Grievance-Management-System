@@ -59,7 +59,7 @@
                                     <a href="{{ route('admin.admin.edit', ['admin_id' => $admin->id]) }}"
                                         class="underline">Edit</a>
                                     <span class="px-2">|</span>
-                                    <a href="{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}"
+                                    <a onclick="confirmDelete('admin', event, '{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}')"
                                         class="underline">Delete</a>
                                 </td>
                             </tr>
@@ -110,9 +110,11 @@
                     <div class="flex justify-between">
                         <div class="text-gray-500 font-medium">Action</div>
                         <div>
-                            <a href="{{ route('admin.admin.edit', ['admin_id' => $admin->id]) }}" class="underline">Edit</a>
+                            <a href="{{ route('admin.admin.edit', ['admin_id' => $admin->id]) }}"
+                                class="underline">Edit</a>
                             <span class="px-2">|</span>
-                            <a href="{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}" class="underline">Delete</a>
+                            <a href="{{ route('admin.admin.delete', ['admin_id' => $admin->id]) }}"
+                                class="underline">Delete</a>
                         </div>
                     </div>
 

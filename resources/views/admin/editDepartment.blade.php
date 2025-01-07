@@ -66,7 +66,8 @@
                             Number
                         </th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Actions</th>
+                            Actions
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200 p-4">
@@ -75,7 +76,12 @@
                             <td class="px-6 py-3">{{ $staff->staff_name }}</td>
                             <td>{{ $staff->staff_email }}</td>
                             <td>{{ $staff->staff_phone }}</td>
-                            <td>123</td>
+                            <td>
+                                <button class="text-red-500 hover:text-red-700"
+                                    onclick="confirmDelete('staff', event, '{{ route('admin.department.staff.delete', ['staff_id' => $staff->id]) }}')">
+                                    Delete
+                                </button>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

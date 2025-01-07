@@ -71,7 +71,7 @@ class DepartmentController extends Controller
         } else {
 
             $validateData = $req->validate([
-                'password' => 'required | min:8',
+                'departmentPassword' => 'required | min:8',
             ]);
 
             $password = bcrypt($validateData['departmentPassword']);
@@ -161,6 +161,20 @@ class DepartmentController extends Controller
         } else {
             $this->flashMessage('error', 'Failed to Add Staff!');
         }
+        return redirect()->route('admin.departments');
+    }
+
+    public function deleteStaff($staff_id)
+    {
+
+        $staff = Staff::find($staff_id);
+
+        // confirmation dialog
+
+        $staff->delete();
+
+        $this->flashMessage('success', 'Staff Deleted Successfully!');
+
         return redirect()->route('admin.departments');
     }
 }

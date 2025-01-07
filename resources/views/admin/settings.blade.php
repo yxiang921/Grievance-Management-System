@@ -47,14 +47,14 @@
                     <tr>
                         <td class="font-bold text-slate-700 py-2">Reset Password</td>
                         <td class="py-2">
-                            <input type="password" name="password" value="" class="w-full primary-input">
+                            <input type="password" name="admin_password" value="" class="w-full primary-input">
                         </td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="mt-6 flex justify-end space-x-4">
-                <button class="cancel-btn">Cancel</button>
+                {{-- <button class="cancel-btn">Cancel</button> --}}
                 <button class="primary-btn">Submit</button>
             </div>
         </form>

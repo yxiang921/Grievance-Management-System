@@ -17,7 +17,7 @@
                                 {{ $analytics['month_percentage_change'] > 0 ? 'bg-red-100 text-red-900' : 'bg-green-100 text-green-900' }} 
                                 text-[0.75rem] px-2 mr-1 rounded-sm">
                                     {{ $analytics['month_percentage_change'] > 0 ? '+' : '' }}
-                                    {{ $analytics['month_percentage_change'] }}%
+                                    {{ number_format($analytics['month_percentage_change'], 2) }}%
                                 </span>
                                 Since last month
                             </p>
@@ -46,7 +46,7 @@
                                 {{ $analytics['pending_percentage_change'] > 0 ? 'bg-red-100 text-red-900' : 'bg-green-100 text-green-900' }} 
                                 text-[0.75rem] px-2 mr-1 rounded-sm">
                                     {{ $analytics['pending_percentage_change'] > 0 ? '+' : '' }}
-                                    {{ $analytics['pending_percentage_change'] }}%
+                                    {{ number_format($analytics['pending_percentage_change'], 2) }}%
                                 </span>
                                 Since last month
                             </p>
@@ -76,7 +76,7 @@
                                 {{ $analytics['in_progress_percentage_change'] > 0 ? 'bg-red-100 text-red-900' : 'bg-green-100 text-green-900' }} 
                                 text-[0.75rem] px-2 mr-1 rounded-sm">
                                     {{ $analytics['in_progress_percentage_change'] > 0 ? '+' : '' }}
-                                    {{ $analytics['in_progress_percentage_change'] }}%
+                                    {{ number_format($analytics['in_progress_percentage_change'], 2) }}%
                                 </span>Since last month
                             </p>
                         </div>
@@ -104,7 +104,7 @@
                                 {{ $analytics['closed_percentage_change'] > 0 ? 'bg-red-100 text-red-900' : 'bg-green-100 text-green-900' }} 
                                 text-[0.75rem] px-2 mr-1 rounded-sm">
                                     {{ $analytics['closed_percentage_change'] > 0 ? '+' : '' }}
-                                    {{ $analytics['closed_percentage_change'] }}%
+                                    {{ number_format($analytics['closed_percentage_change'], 2) }}%
                                 </span>Since last month
                             </p>
                         </div>
@@ -157,7 +157,8 @@
                     <div class="h-full w-full flex flex-row justify-between">
                         <div class="h-full flex flex-col justify-center pl-4">
                             <h1 class="font-semibold">Pending Grievances</h1>
-                            <p class="text-gray-500">{{ $analytics['pending_percentage'] }}% of total grievances</p>
+                            <p class="text-gray-500">{{ number_format($analytics['pending_percentage'], 2) }}% of total
+                                grievances</p>
                         </div>
                         <div class="h-full p-4 flex items-center">
                             <h1 class="text-lg font-medium">{{ $analytics['total_pending'] }}</h1>
@@ -176,7 +177,8 @@
                     <div class="h-full w-full flex flex-row justify-between">
                         <div class="h-full flex flex-col justify-center pl-4">
                             <h1 class="font-semibold">In Progress Grievances</h1>
-                            <p class="text-gray-500">{{ $analytics['in_progress_percentage'] }}% of total grievances</p>
+                            <p class="text-gray-500">{{ number_format($analytics['in_progress_percentage'], 2) }}% of
+                                total grievances</p>
                         </div>
                         <div class="h-full p-4 flex items-center">
                             <h1 class="text-lg font-medium">{{ $analytics['total_in_progress'] }}</h1>
@@ -194,7 +196,8 @@
                     <div class="h-full w-full flex flex-row justify-between">
                         <div class="h-full flex flex-col justify-center pl-4">
                             <h1 class="font-semibold">Closed Grievances</h1>
-                            <p class="text-gray-500">{{ $analytics['closed_percentage'] }}% of total grievances</p>
+                            <p class="text-gray-500">{{ number_format($analytics['closed_percentage'], 2) }}% of total
+                                grievances</p>
                         </div>
                         <div class="h-full p-4 flex items-center">
                             <h1 class="text-lg font-medium">{{ $analytics['total_closed'] }}</h1>

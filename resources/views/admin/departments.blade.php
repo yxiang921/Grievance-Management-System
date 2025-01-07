@@ -50,7 +50,7 @@
                                     <a href="{{ route('admin.department.edit', ['department_id' => $department->id]) }}"
                                         class="underline">Edit</a>
                                     <span class="p-2">|</span>
-                                    <a href="{{ route('admin.department.delete', ['department_id' => $department->id]) }}"
+                                    <a onclick="confirmDelete('department', event, '{{ route('admin.department.delete', ['department_id' => $department->id]) }}')"
                                         class="underline">Delete</a>
                                 </td>
                             </tr>

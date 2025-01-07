@@ -58,7 +58,7 @@
                                     <a href="{{ route('admin.user.edit', ['user_id' => $user->id]) }}"
                                         class="underline">Edit</a>
                                     <span class="px-2">|</span>
-                                    <a href="{{ route('admin.user.delete', ['user_id' => $user->id]) }}"
+                                    <a onclick="confirmDelete('user', event, '{{ route('admin.user.delete', ['user_id' => $user->id]) }}')"
                                         class="underline">Delete</a>
                                 </td>
                             </tr>

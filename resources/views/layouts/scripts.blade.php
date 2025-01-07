@@ -227,3 +227,11 @@
     });
 </script>
 
+<script>
+    function confirmDelete(type, event, url) {
+        event.preventDefault();
+        if (confirm(`Are you sure you want to delete this ${type}?`)) {
+            window.location.href = url;
+        }
+    }
+</script>
